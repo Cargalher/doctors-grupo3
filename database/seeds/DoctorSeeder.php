@@ -21,6 +21,8 @@ class DoctorSeeder extends Seeder
             $doctor = new User();
             $doctor->name = $faker->firstname();
             $doctor->lastname = $faker->lastname();
+            $doctor->city = $faker->city();
+            $doctor->pv = $faker->citySuffix();
             $doctor->address = $faker->address();
             $doctor->email = $faker->email();
             $doctor->password = Hash::make('madeinsud');
@@ -45,8 +47,6 @@ class DoctorSeeder extends Seeder
                 $newMessage->text = $faker->text(144);
                 $doctor->messages()->save($newMessage);
             }
-
-
         }
     }
 }
