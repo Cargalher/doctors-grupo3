@@ -22,7 +22,7 @@ class DoctorSeeder extends Seeder
             $review->vote = rand(1, 5);
             $review->title = $faker->sentence(5);
             $review->body = $faker->text(144);
-            // $doctor->reviews()->save($review);
+            // $doctor->reviews()->save($review)
             $review->save();
         }
     }

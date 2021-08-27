@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\User;
 
-class CreateReviewsTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +14,14 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('title');
-            $table->text('body');
-            $table->unsignedTinyInteger('vote');
+            $table->string('name', 255);
+            $table->string('lastname', 255);
+            $table->string('email', 255);
+            $table->string('phone_number', 16);
+            $table->text('text');
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -36,6 +37,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('messages');
     }
 }
