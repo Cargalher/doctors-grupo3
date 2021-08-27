@@ -1,6 +1,5 @@
 <?php
 
-use App\Review;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DoctorSeeder::class,
             SpecializationSeeder::class,
-            ReviewSeeder::class
+            // ReviewSeeder::class
         ]);
     }
 }
