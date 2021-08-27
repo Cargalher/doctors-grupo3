@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'lastname', 'city', 'pv', 'address', 'phone_number', 'email', 'password',
     ];
 
     public function reviews()
@@ -28,7 +28,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Message');
     }
-    
+
     /**
      * The attributes that should be hidden for arrays.
      *
