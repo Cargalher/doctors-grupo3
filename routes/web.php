@@ -15,13 +15,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// Route GUEST
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
+Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
 
+// Route DOCTOR
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('dashboard');
 
-Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
+

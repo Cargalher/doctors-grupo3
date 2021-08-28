@@ -14608,3 +14608,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.nav_container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
