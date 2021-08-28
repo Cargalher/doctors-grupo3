@@ -4,9 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
+use App\User;
 
 class MessageController extends Controller
 {
+    public function saveMessage(Request $request, User $user)
+    {
+        $this->messageValidation($request);
+        $message = new Message();
+        $message->fill($request->all());
+        $message->user_id = $user->id;
+        $message->save();
+        return redirect()->route('home', compact('user'));
+    }
+
+    // validazione messaggi
+    protected function messageValidation(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|min:3|max:50',
+            'lastname' => 'required|string|min:3|max:50',
+            'email' => 'required|email',
+            'phone_number' => 'required|string|min:9|max:10',
+            'text' => 'required|string|min:30'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *

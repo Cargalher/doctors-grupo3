@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@index')->name('home');
 
-// Route::resource('users', UserController::class);
-Route::get('/doctors/{user}', 'UserController@show')->name('show');
+Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
 
 Auth::routes();
 
-Route::get('/home', 'UserController@index')->name('homepage');
+Route::get('/home', 'UserController@index')->name('dashboard');
+
+Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');

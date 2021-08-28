@@ -17,6 +17,16 @@ class HomeController extends Controller
     public function index()
     {
         $doctors = User::all();
-        return view('guest.homepage' , compact('doctors'));
+        return view('guest.homepage', compact('doctors'));
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $user)
+    {
+        return view('guest.show', compact('user'));
     }
 }
