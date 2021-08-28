@@ -1,7 +1,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="nav_container">
+           
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img width="200" src="{{ asset('img/logo_small.png') }}" alt="">
                 </a>
@@ -60,5 +60,5 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
+     
         </nav>
