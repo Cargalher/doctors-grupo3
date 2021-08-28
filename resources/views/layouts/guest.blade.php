@@ -10,6 +10,7 @@
 
     <title> @yield('title', 'BDoctors') </title>
 
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/logo_small_icon_only_inverted.png')}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
