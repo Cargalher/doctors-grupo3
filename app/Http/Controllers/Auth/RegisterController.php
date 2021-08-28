@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'pv' => ['required', 'string', 'min:2', 'max:30'],
             'address' => ['required', 'string', 'min:5', 'max:50'],
             'phone_number' => ['required', 'string', 'min:9', 'max:13'],
-            'email' => ['required', 'string', 'email',  'max:255', 'unique:users'],
+            'email' => ['required', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix', 'string', 'email',  'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
