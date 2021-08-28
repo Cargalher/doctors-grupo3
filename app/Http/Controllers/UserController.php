@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\Review;
 class UserController extends Controller
 {
     /**
@@ -25,7 +25,8 @@ class UserController extends Controller
     public function index()
     {
         $doctors = User::all();
-        return view('home', compact('doctors'));
+        $reviews = Review::all();
+        return view('home', compact('doctors','reviews'));
     }
 
     /**

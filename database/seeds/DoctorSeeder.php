@@ -50,3 +50,4 @@ class DoctorSeeder extends Seeder
         }
     }
 }
+
