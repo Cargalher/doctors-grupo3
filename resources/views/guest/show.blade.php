@@ -12,7 +12,7 @@
     <h2>Scrivi il tuo messaggio</h2>
     {{-- form per inviare un messaggio al dottore --}}
 
-    {{-- @include('./partials') --}}
+    @include('partials.errors')
 
     <form action="{{ route('saveMessage', compact('user')) }}" method="post">
         @csrf
