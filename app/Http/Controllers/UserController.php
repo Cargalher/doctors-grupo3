@@ -8,6 +8,16 @@ use App\User;
 class UserController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,7 +25,7 @@ class UserController extends Controller
     public function index()
     {
         $doctors = User::all();
-        return view('guest.homepage', compact('doctors'));
+        return view('home', compact('doctors'));
     }
 
     /**

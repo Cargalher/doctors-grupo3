@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'UserController@index')->name('homepage');
+Route::get('/', 'HomeController@index')->name('home');
 
 // Route::resource('users', UserController::class);
 Route::get('/doctors/{user}', 'UserController@show')->name('show');
@@ -23,4 +23,4 @@ Route::get('/doctors/{user}', 'UserController@show')->name('show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'UserController@index')->name('homepage');
