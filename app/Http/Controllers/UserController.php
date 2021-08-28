@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Review;
+use App\Message;
 class UserController extends Controller
 {
     /**
@@ -26,7 +27,8 @@ class UserController extends Controller
     {
         $doctors = User::all();
         $reviews = Review::all();
-        return view('home', compact('doctors','reviews'));
+        $messages = Message::all();
+        return view('home', compact('doctors','reviews','messages'));
     }
 
     /**

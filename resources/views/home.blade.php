@@ -38,6 +38,22 @@
                     @else
                         <h4>non hai recensioni</h4>
                     @endif
+
+                    <h1>Messaggi</h1>
+                 <!--    @if (count(Auth::user()->messages) > 0) -->
+                        @foreach (Auth::user()->messages as $message)
+                            <!-- @if (Auth::user()->id === $review->user_id) -->
+                                <h2>{{ $message->name }}</h2>
+                                <p>{{ $message->text }}</p>
+                                <h5>{{ $message->create_at }}</h5>
+
+                            <!-- @endif -->
+                        @endforeach
+                  <!--   @else
+                        <h4>non ci sono messaggi</h4> -->
+                <!--     @endif -->
+
+                    
                     <!--     @foreach (Auth::user()->reviews as $review)
                         <h2>{{ $review->name }}</h2>
                         @endforeach -->
