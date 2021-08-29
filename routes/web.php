@@ -22,6 +22,11 @@ Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
 Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
 
+// Rotta temporanea che stampa i dottori tramite API & VUE
+Route::get('vue-doctors', function() {
+    return view('vue-doctors');
+}); 
+
 // Route DOCTOR
 Auth::routes();
 
