@@ -6,8 +6,7 @@
 @section('content')
     {{-- dottore singolo --}}
     <div class="">
-        <h2>Dott: {{ $user->name }}</h2>
-        <h2> {{ $user->lastname }}</h2>
+        <h2>Dott: {{ $user->name }} {{ $user->lastname }}</h2>
     </div>
 
     {{-- pulsante per inviare un messaggio --}}
@@ -66,6 +65,26 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <!-- Recensioni -->
+    <div>
+        <h2 class="mt-5">Recensioni:</h2>
+
+        @if (count($user->reviews) > 0)
+            @foreach ($reviews as $review)
+
+            <div class="mb-2">
+                <h5>{{ $review->name }} {{ $review->lastname }}</h5>
+                <h5>{{ $review->title }}</h5>
+                <p>{{ $review->body }}</p>
+                <h5>Voto: {{ $review->vote }}</h5>
+            </div>
+
+            @endforeach
+        @else
+            <h4>Nessuna recensione ricevuta</h4>
+        @endif
     </div>
 
 @endsection

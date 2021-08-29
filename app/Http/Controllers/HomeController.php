@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Review;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,7 @@ class HomeController extends Controller
      */
     public function show(User $user)
     {
-        return view('guest.show', compact('user'));
+        $reviews = Review::all()->reverse();
+        return view('guest.show', compact('user', 'reviews'));
     }
 }
