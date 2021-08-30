@@ -69,10 +69,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $doctor)
     {
         
-        return view('edit',compact('user'));
+        return view('edit',compact('doctor'));
     }
 
     /**
@@ -82,7 +82,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $doctor)
     {
 
         $validate = $request->validate([
@@ -98,7 +98,7 @@ class UserController extends Controller
 
         ]);
         
-        $user->update($validate);
+        $doctor->update($validate);
         return redirect()->route('dashboard');
     }
 
