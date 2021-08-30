@@ -5,6 +5,8 @@
 
 @section('content')
 
+
+
 <div class="d-flex flex-wrap justify-content-center">
     @foreach ($doctors as $doc)
 

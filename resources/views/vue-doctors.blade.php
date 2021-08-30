@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="posts container d-flex flex-wrap">
+        <div class="container d-flex flex-wrap">
             <div class="card text-left mb-3 p-4" v-for="doctor in doctors">
                 <div class="card-body p-0 mt-4">
 

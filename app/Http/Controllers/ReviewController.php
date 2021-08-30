@@ -3,10 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\User;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
+    public function saveReview(Request $request, User $user)
+    {
+        $this->reviewValidation($request);
+        $review = new Review();
+        $review->fill($request->all());
+        $review->user_id = $user->id;
+        $review->save();
+        return redirect()->route('home', compact('user'));
+    }
+
+    // validazione messaggi
+    protected function reviewValidation(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|min:3|max:50',
+            'lastname' => 'required|string|min:3|max:50',
+            'title' => 'required|min:10',
+            'vote' => 'required|numeric',
+            'body' => 'required|string|min:30'
+        ]);
+    }
+
+    
     /**
      * Display a listing of the resource.
      *

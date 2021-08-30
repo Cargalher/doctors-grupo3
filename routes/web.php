@@ -21,6 +21,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
 Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
+Route::post('review/{user}', 'ReviewController@saveReview')->name('saveReview');
+
 
 
 
