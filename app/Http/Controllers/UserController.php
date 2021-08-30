@@ -49,7 +49,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'profile_image'=>'nullable | max:255',
+            'name'=> 'required | min:3 | max:50',
+            'lastname'=> 'required | min:3 | max:50',
+            'city'=> 'required | max:50',
+            'pv'=> 'required | max:50',
+            'address'=> 'required |min:5| max:255',
+            'phone_number'=> 'nullable | min:9 | max:13',
+            'curriculum'=> 'nullable',
+            'email' => 'required | regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix | string | email |  max:255 | unique:users',
+        
+
+        ]);
+        $doctor = User::create($validate);
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -69,9 +83,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        
+        return view('edit',compact('user'));
     }
 
     /**

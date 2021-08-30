@@ -21,7 +21,8 @@
                         {{ Auth::user()->lastname }}
 
                     </div>
-
+                    <a href="{{route('doctor.edit',Auth::user()->id)}}"><i class="far fa-edit"></i>
+                    </a>
                 </div>
 
                 <div>

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +22,8 @@ Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
 Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
 
+
+
 // Rotta temporanea che stampa i dottori tramite API & VUE
 Route::get('vue-doctors', function() {
     return view('vue-doctors');
@@ -31,5 +33,7 @@ Route::get('vue-doctors', function() {
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('dashboard');
+
+Route::resource('doctor', UserController::class);
 
 
