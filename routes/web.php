@@ -21,6 +21,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
 Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
+
 Route::post('review/{user}', 'ReviewController@saveReview')->name('saveReview');
 
 
@@ -35,6 +36,10 @@ Route::get('vue-doctors', function() {
 Auth::routes();
 
 Route::get('/home', 'UserController@index')->name('dashboard');
+
+Route::get('/messages', 'UserController@messages')->name('messages');
+
+Route::get('/reviews', 'UserController@reviews')->name('reviews');
 
 Route::resource('doctor', UserController::class);
 

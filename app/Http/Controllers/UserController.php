@@ -31,6 +31,19 @@ class UserController extends Controller
         return view('home', compact('doctors','reviews','messages'));
     }
 
+    public function messages()
+    {
+        $messages = Message::all();
+        return view('messages', compact('messages'));
+    }
+
+    public function reviews()
+    {
+        
+        $reviews = Review::all();
+        return view('reviews', compact('reviews'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

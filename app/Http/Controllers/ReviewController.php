@@ -15,7 +15,7 @@ class ReviewController extends Controller
         $review->fill($request->all());
         $review->user_id = $user->id;
         $review->save();
-        return redirect()->route('home', compact('user'));
+        return redirect()->route('show', compact('user'));
     }
 
     // validazione messaggi

@@ -4,9 +4,11 @@
 
 
 @section('content')
+
     {{-- dottore singolo --}}
     <div class="">
-        <h2>Dott: {{ $user->name }} {{ $user->lastname }}</h2>
+        <img width="250" src="{{ asset('img/Carmen.png') }}" alt="">
+        <h3>Dott: {{ $user->name }} {{ $user->lastname }}</h3>
     </div>
 
     {{-- pulsante per inviare un messaggio --}}
@@ -15,7 +17,7 @@
     </button>
 
     {{-- form per inviare un messaggio al dottore --}}
-    @include('partials.errors')
+    @include('layouts.partials.errors')
     <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <form action="{{ route('saveMessage', compact('user')) }}" method="post">
             @csrf
@@ -70,7 +72,7 @@
 
 
     {{-- form per inviare una Recensione al dottore --}}
-    @include('partials.errors')
+    @include('layouts.partials.errors')
     <div class="modal fade" id="modalReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <form action="{{ route('saveReview', compact('user')) }}" method="post">
             @csrf

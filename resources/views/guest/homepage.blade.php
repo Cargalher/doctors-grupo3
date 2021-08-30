@@ -6,22 +6,27 @@
 @section('content')
 
 
-
-<div class="d-flex flex-wrap justify-content-center">
-    @foreach ($doctors as $doc)
-
-
-        <div style="width: 300px" class="card m-3 p-3 ">
-            <img src="{{asset('img/Domenico.png')}}" class="p-2" alt="">
-            <h4>nome: {{ $doc->name }}</h4>
-            <h4>cognome: {{ $doc->lastname }}</h4>
-            <a href="{{ route('show', $doc->id) }}" class="btn btn-primary">
-                <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
-            </a>
-        </div>
+    <div class="d-flex flex-wrap justify-content-center">
+        @foreach ($doctors as $doctor)
 
 
-    @endforeach
-</div>
+            <div style="width: 300px" class="card m-3 p-3 ">
+                <img src="{{ asset('img/Domenico.png') }}" class="p-2" alt="">
+                <h4>nome: {{ $doctor->name }}</h4>
+                <h4>cognome: {{ $doctor->lastname }}</h4>
+
+                {{-- <h1>Numero recensioni: {{ count($doctor->reviews) }}</h1> --}}
+
+                
+                
+
+                <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
+                    <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+
+
+        @endforeach
+    </div>
 
 @endsection
