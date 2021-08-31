@@ -30,6 +30,7 @@ class HomeController extends Controller
      */
     public function show(User $user)
     {
+        $user->incrementReadCount();
         $reviews = Review::all()->reverse();
         return view('guest.show', compact('user', 'reviews'));
     }

@@ -28,6 +28,16 @@
                                    
                                     <h5>Messaggi ricevuti</h5>
                                 </div>
+
+                                <div class="col-lg-3 stats">
+                                    @foreach ($doctors as $doctor)
+                                        @if (Auth::user()->id === $doctor->id)
+                                            <div class="counting" data-count="{{ $doctor->reads }}">0</div>
+                                        @endif
+                                    @endforeach
+                                   
+                                    <h5>Views</h5>
+                                </div>
                                 
                             </div>
                             <!-- end row -->

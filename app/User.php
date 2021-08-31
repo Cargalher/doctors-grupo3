@@ -37,6 +37,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Specialization');
     }
 
+    public function incrementReadCount() {
+        $this->reads++;
+        return $this->save();
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
