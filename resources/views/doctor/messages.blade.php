@@ -1,14 +1,16 @@
 @extends('layouts.app')
 @section('content')
 <h2>Messaggi</h2>
+
+
+
 @if (count(Auth::user()->messages) > 0)
-    @foreach (Auth::user()->messages as $message)
-        @if (Auth::user()->id === $message->user_id)
+    @foreach ($messages as $message)
+
             <h4>{{ $message->name }}</h4>
             <p>{{ $message->text }}</p>
             <h5>{{ $message->created_at }}</h5>
 
-        @endif
     @endforeach
 @else
     <h4>non ci sono messaggi</h4>

@@ -35,11 +35,11 @@ Route::get('vue-doctors', function() {
 // Route DOCTOR
 Auth::routes();
 
-Route::get('/home', 'UserController@index')->name('dashboard');
+Route::get('/doctor/home', 'UserController@index')->name('dashboard');
 
-Route::get('/messages', 'UserController@messages')->name('messages');
+Route::get('/doctor/messages', 'UserController@messages')->name('messages');
 
-Route::get('/reviews', 'UserController@reviews')->name('reviews');
+Route::get('/doctor/reviews', 'UserController@reviews')->name('reviews');
 
 Route::resource('doctor', UserController::class);
 

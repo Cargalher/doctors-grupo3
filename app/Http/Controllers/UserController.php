@@ -28,20 +28,21 @@ class UserController extends Controller
         $doctors = User::all();
         $reviews = Review::all();
         $messages = Message::all();
-        return view('home', compact('doctors','reviews','messages'));
+
+        return view('doctor.home', compact('doctors','reviews','messages'));
     }
 
     public function messages()
     {
-        $messages = Message::all();
-        return view('messages', compact('messages'));
+        $messages = Message::all()->reverse();
+        return view('doctor.messages', compact('messages'));
     }
 
     public function reviews()
     {
         
-        $reviews = Review::all();
-        return view('reviews', compact('reviews'));
+        $reviews = Review::all()->reverse();
+        return view('doctor.reviews', compact('reviews'));
     }
 
     /**
@@ -85,7 +86,7 @@ class UserController extends Controller
     public function edit(User $doctor)
     {
         
-        return view('edit',compact('doctor'));
+        return view('doctor.edit',compact('doctor'));
     }
 
     /**

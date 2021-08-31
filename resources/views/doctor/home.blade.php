@@ -11,9 +11,9 @@
 
                                 <div class="col-lg-3 stats">
                                     @foreach ($doctors as $doctor)
-                                    @if (Auth::user()->id === $doctor->id)
-                                    <div class="counting" data-count="{{ count($doctor->reviews) }}">0</div>
-                                    @endif
+                                        @if (Auth::user()->id === $doctor->id)
+                                            <div class="counting" data-count="{{ count($doctor->reviews) }}">0</div>
+                                        @endif
                                     @endforeach
                                    
                                     <h5>Recensioni ricevute</h5>
@@ -21,9 +21,9 @@
 
                                 <div class="col-lg-3 stats">
                                     @foreach ($doctors as $doctor)
-                                    @if (Auth::user()->id === $doctor->id)
-                                    <div class="counting" data-count="{{ count($doctor->messages) }}">0</div>
-                                    @endif
+                                        @if (Auth::user()->id === $doctor->id)
+                                            <div class="counting" data-count="{{ count($doctor->messages) }}">0</div>
+                                        @endif
                                     @endforeach
                                    
                                     <h5>Messaggi ricevuti</h5>
