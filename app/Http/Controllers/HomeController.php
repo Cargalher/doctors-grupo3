@@ -18,7 +18,8 @@ class HomeController extends Controller
     public function index()
     {
         $doctors = User::all();
-        return view('guest.homepage', compact('doctors'));
+        $reviews = Review::all();
+        return view('guest.homepage', compact('doctors','reviews'));
     }
     /**
      * Display the specified resource.

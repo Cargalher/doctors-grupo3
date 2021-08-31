@@ -15,10 +15,22 @@
                 <h4>nome: {{ $doctor->name }}</h4>
                 <h4>cognome: {{ $doctor->lastname }}</h4>
 
-                {{-- <h1>Numero recensioni: {{ count($doctor->reviews) }}</h1> --}}
+             <h1>Numero recensioni: {{ count($doctor->reviews) }}</h1>
 
+
+                    @php
+                        $average = 
+                    @endphp
+
+                    
+                @foreach($reviews as $review)
+                @if ($doctor->id === $review->user_id)
                 
+                    <h5> {{$review->sum('vote')}} </h5>
+                @endif
+                @endforeach
                 
+
 
                 <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
                     <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
