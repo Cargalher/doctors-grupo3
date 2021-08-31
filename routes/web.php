@@ -41,6 +41,8 @@ Route::get('/doctor/messages', 'UserController@messages')->name('messages');
 
 Route::get('/doctor/reviews', 'UserController@reviews')->name('reviews');
 
+Route::get('/doctor/sponsors', 'UserController@sponsors')->name('sponsors');
+
 Route::resource('doctor', UserController::class);
 
 

@@ -14,9 +14,24 @@
                       <a class="nav-link {{ Route::currentRouteName() === 'messages' ? 'active' : '' }}" href="{{route('messages')}}"><i class="fas fa-envelope fa-lg fa-fw"></i> Messaggi</a>
                     </li>
                     <li class="nav-item nav-pills">
-                      {{-- {{dd(Route::currentRouteName())}} --}}
                       <a class="nav-link {{ Route::currentRouteName() === 'reviews' ? 'active' : '' }}" href="{{route('reviews')}}"><i class="fas fa-comment-alt fa-lg fa-fw"></i> Recensioni</a>
                     </li>
+                    <li class="nav-item nav-pills">
+                      <a class="nav-link {{ Route::currentRouteName() === 'doctor.edit' ? 'active' : '' }}" href="{{route('doctor.edit', Auth::user()->id)}}"><i class="far fa-edit fa-lg fa-fw"></i> Edit</a>
+                    </li>
+
+                    <li class="nav-item nav-pills">
+                      <form action="{{ route('doctor.destroy', Auth::user()->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash fa-xs fa-fw"></i></button>
+                      </form>
+                    </li>
+
+
+
+
+                    
                   </ul>
             </aside>
         </div>

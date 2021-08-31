@@ -3,7 +3,6 @@
 
 @section('content')
 
-<h1>{{Auth::user()->name}}</h1>
 
 <h1 class="text-center">Edit Post</h1>
 
@@ -32,8 +31,6 @@
         <label for="lastname" class="font-weight-bold">Lastname</label>
         <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $doctor->lastname }}">
     </div>
-
-
 
     <div class="form-group">
         <label for="curriculum" class="font-weight-bold">Curriculum</label>

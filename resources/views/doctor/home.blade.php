@@ -43,13 +43,5 @@
                 <!-- end cont stats -->
             </div>
         </div>
-        <a href="{{ route('doctor.edit', Auth::user()->id) }}"><i class="far fa-edit"></i>
-        </a>
-
-        <form action="{{ route('doctor.destroy', Auth::user()->id) }}" method="post">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger"><i class="fas fa-trash fa-xs fa-fw"></i></button>
-        </form>
     </div>
 @endsection

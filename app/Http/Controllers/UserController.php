@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\User;
 use App\Review;
+use App\Sponsor;
 use App\Message;
+
 class UserController extends Controller
 {
     /**
@@ -28,8 +31,9 @@ class UserController extends Controller
         $doctors = User::all();
         $reviews = Review::all();
         $messages = Message::all();
+        $sponsors = Sponsor::all();
 
-        return view('doctor.home', compact('doctors','reviews','messages'));
+        return view('doctor.home', compact('doctors','reviews','messages','sponsors'));
     }
 
     public function messages()
@@ -37,12 +41,18 @@ class UserController extends Controller
         $messages = Message::all()->reverse();
         return view('doctor.messages', compact('messages'));
     }
-
+    
     public function reviews()
     {
         
         $reviews = Review::all()->reverse();
         return view('doctor.reviews', compact('reviews'));
+    }
+
+    public function sponsors()
+    {
+        $sponsors = Sponsor::all()->reverse();
+        return view('doctor.sponsors', compact('sponsors'));
     }
 
     /**

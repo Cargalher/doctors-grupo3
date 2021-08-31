@@ -38,8 +38,15 @@
                 </a>
             </div>
 
-
         @endforeach
+
+        
     </div>
+    
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center">
+        {{$doctors->links()}}
+    </div>
+
 
 @endsection
