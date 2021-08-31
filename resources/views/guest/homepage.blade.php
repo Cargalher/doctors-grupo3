@@ -12,25 +12,26 @@
 
             <div style="width: 300px" class="card m-3 p-3 ">
                 <img src="{{ asset('img/Domenico.png') }}" class="p-2" alt="">
-                <h4>nome: {{ $doctor->name }}</h4>
-                <h4>cognome: {{ $doctor->lastname }}</h4>
+                <h4>Nome: {{ $doctor->name }}</h4>
+                <h4>Cognome: {{ $doctor->lastname }}</h4>
 
-             <h1>Numero recensioni: {{ count($doctor->reviews) }}</h1>
+                <h5>Numero recensioni: {{ count($doctor->reviews) }}</h5>
+                
+                <!-- Media recensioni -->
 
+                @php
+                    $average = 0;
+                @endphp
 
-                    @php
-                        $average = 
-                    @endphp
-
-                    
                 @foreach($reviews as $review)
-                @if ($doctor->id === $review->user_id)
-                
-                    <h5> {{$review->sum('vote')}} </h5>
-                @endif
+                    @if ($doctor->id === $review->user_id)
+                        @php
+                            $average+= $review->vote;
+                        @endphp
+                    @endif
                 @endforeach
-                
 
+                <h5> Media: {{ round($average / count($doctor->reviews))  }} </h5>               
 
                 <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
                     <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
