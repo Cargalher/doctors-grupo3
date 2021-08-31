@@ -32,6 +32,29 @@
         <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $doctor->lastname }}">
     </div>
 
+    
+
+
+    <div class="form-group">
+        <label for="specializations">Specializations</label>
+        <select multiple class="form-control"  name="specializations[]" id="specializations">
+            <option disabled>Select a Specialization</option>
+            @foreach($specializations as $specialization)
+                <option value="{{ $specialization->name }}">{{ $specialization->name }}</option>
+            
+            @endforeach
+
+            <!-- @if ($specializations)
+                @foreach ($specializations as $specialization)
+                    @if ($errors->any())
+                        <option value="{{ $specialization->id }}" {{ in_array($specialization->id, old('specializations')) ? 'selected' : '' }}>
+                            {{ $specialization->name }}</option>
+                    @endif
+                @endforeach
+            @endif -->
+        </select>
+    </div>
+
     <div class="form-group">
         <label for="curriculum" class="font-weight-bold">Curriculum</label>
         <textarea name="text" class="form-control" id="curriculum" cols="30" rows="15">{{ $doctor->curriculum }}</textarea>
