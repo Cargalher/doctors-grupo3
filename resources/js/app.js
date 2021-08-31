@@ -7,37 +7,11 @@
 
 require('./bootstrap');
 
-import Vue from 'vue';
-
-// number count for stats, using jQuery animate
-
-$(".counting").each(function () {
-	var $this = $(this),
-		countTo = $this.attr("data-count");
-
-	$({ countNum: $this.text() }).animate(
-		{
-			countNum: countTo
-		},
-
-		{
-			duration: 3000,
-			easing: "linear",
-			step: function () {
-				$this.text(Math.floor(this.countNum));
-			},
-			complete: function () {
-				$this.text(this.countNum);
-				//alert('finished');
-			}
-		}
-	);
-});
-
 const {default: Axios} = require('axios');
 
-
 window.Vue = require('vue');
+
+import Vue from 'vue';
 
 /**
  * The following block of code may be used to automatically register your
@@ -66,10 +40,36 @@ const app = new Vue({
     },
     mounted(){
         Axios.get('api/doctors').then(resp=> {
-            console.log(resp);
+            // console.log(resp);
             this.doctors = resp.data;
         }).catch(e => {
             console.error('Sorry! ' + e)
         })
     }
+});
+
+
+
+// number count for stats, using jQuery animate
+$(".counting").each(function () {
+	var $this = $(this),
+		countTo = $this.attr("data-count");
+
+	$({ countNum: $this.text() }).animate(
+		{
+			countNum: countTo
+		},
+
+		{
+			duration: 3000,
+			easing: "linear",
+			step: function () {
+				$this.text(Math.floor(this.countNum));
+			},
+			complete: function () {
+				$this.text(this.countNum);
+				//alert('finished');
+			}
+		}
+	);
 });

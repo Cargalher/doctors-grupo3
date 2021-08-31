@@ -1885,31 +1885,11 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
- // number count for stats, using jQuery animate
-
-$(".counting").each(function () {
-  var $this = $(this),
-      countTo = $this.attr("data-count");
-  $({
-    countNum: $this.text()
-  }).animate({
-    countNum: countTo
-  }, {
-    duration: 3000,
-    easing: "linear",
-    step: function step() {
-      $this.text(Math.floor(this.countNum));
-    },
-    complete: function complete() {
-      $this.text(this.countNum); //alert('finished');
-    }
-  });
-});
-
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
     Axios = _require["default"];
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -1936,12 +1916,31 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     var _this = this;
 
     Axios.get('api/doctors').then(function (resp) {
-      console.log(resp);
+      // console.log(resp);
       _this.doctors = resp.data;
     })["catch"](function (e) {
       console.error('Sorry! ' + e);
     });
   }
+}); // number count for stats, using jQuery animate
+
+$(".counting").each(function () {
+  var $this = $(this),
+      countTo = $this.attr("data-count");
+  $({
+    countNum: $this.text()
+  }).animate({
+    countNum: countTo
+  }, {
+    duration: 3000,
+    easing: "linear",
+    step: function step() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function complete() {
+      $this.text(this.countNum); //alert('finished');
+    }
+  });
 });
 
 /***/ }),
