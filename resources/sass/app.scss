@@ -13,30 +13,10 @@
 // Header
 @import "partials/header";
 
-/*/ start check specializations /*/
-#form_check {
-  padding: 0.375rem 1.75rem;
-  height: 300px;
-  overflow-y: auto;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+@import "partials/dashboard";
 
-}
-/*/ end check specializations /*/
+@import "partials/edit";
 
-/*/ start count stats /*/
-section#counter-stats {
-  display: flex;
-  justify-content: center;
-}
 
-.stats {
-  text-align: center;
-  font-size: 35px;
-  font-weight: 700;
-}
-/*/ end count stats /*/
+
+

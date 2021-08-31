@@ -24,9 +24,6 @@ Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage')
 
 Route::post('review/{user}', 'ReviewController@saveReview')->name('saveReview');
 
-
-
-
 // Rotta temporanea che stampa i dottori tramite API & VUE
 Route::get('vue-doctors', function() {
     return view('vue-doctors');

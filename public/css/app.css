@@ -14616,6 +14616,19 @@ h3 {
   align-items: center;
 }
 
+/*/ start count stats /*/
+section#counter-stats {
+  display: flex;
+  justify-content: center;
+}
+
+.stats {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+/*/ end count stats /*/
 /*/ start check specializations /*/
 #form_check {
   padding: 0.375rem 1.75rem;
@@ -14630,16 +14643,3 @@ h3 {
 }
 
 /*/ end check specializations /*/
-/*/ start count stats /*/
-section#counter-stats {
-  display: flex;
-  justify-content: center;
-}
-
-.stats {
-  text-align: center;
-  font-size: 35px;
-  font-weight: 700;
-}
-
-/*/ end count stats /*/
