@@ -5,34 +5,51 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                    <section id="counter-stats" class="wow fadeInRight" data-wow-duration="1.4s">
+                        <div class="container">
+                            <div class="row">
 
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                                <div class="col-lg-3 stats">
+                                    @foreach ($doctors as $doctor)
+                                    @if (Auth::user()->id === $doctor->id)
+                                    <div class="counting" data-count="{{ count($doctor->reviews) }}">0</div>
+                                    @endif
+                                    @endforeach
+                                   
+                                    <h5>Recensioni ricevute</h5>
+                                </div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                                <div class="col-lg-3 stats">
+                                    @foreach ($doctors as $doctor)
+                                    @if (Auth::user()->id === $doctor->id)
+                                    <div class="counting" data-count="{{ count($doctor->messages) }}">0</div>
+                                    @endif
+                                    @endforeach
+                                   
+                                    <h5>Messaggi ricevuti</h5>
+                                </div>
+                                
                             </div>
-                        @endif
+                            <!-- end row -->
+                        </div>
+                        <!-- end container -->
 
-                        {{ __('You are logged in!') }}
-                        {{ Auth::user()->name }}
-                        {{ Auth::user()->lastname }}
+                    </section>
 
-                    </div>
-                    
                 </div>
 
-                <a href="{{route('doctor.edit',Auth::user()->id)}}"><i class="far fa-edit"></i>
-                </a>
 
-                <form action="{{route('doctor.destroy', Auth::user()->id) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash fa-xs fa-fw"></i></button>
-                </form>
+
+                <!-- end cont stats -->
             </div>
         </div>
+        <a href="{{ route('doctor.edit', Auth::user()->id) }}"><i class="far fa-edit"></i>
+        </a>
+
+        <form action="{{ route('doctor.destroy', Auth::user()->id) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash fa-xs fa-fw"></i></button>
+        </form>
     </div>
 @endsection

@@ -14615,3 +14615,17 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
+
+/*/ start count stats /*/
+section#counter-stats {
+  display: flex;
+  justify-content: center;
+}
+
+.stats {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+/*/ end count stats /*/

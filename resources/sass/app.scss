@@ -12,3 +12,21 @@
 
 // Header
 @import 'partials/header';
+
+
+/*/ start count stats /*/ 
+
+section#counter-stats {
+	display: flex;
+	justify-content: center;
+}
+
+.stats {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+
+}
+
+
+/*/ end count stats /*/
