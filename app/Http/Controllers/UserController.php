@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Review;
 use App\Sponsor;
-use App\Specialization;
 use App\Message;
 
 class UserController extends Controller
@@ -96,8 +95,8 @@ class UserController extends Controller
      */
     public function edit(User $doctor)
     {
-        $specializations = Specialization::all();
-        return view('doctor.edit',compact('doctor', 'specializations'));
+        
+        return view('doctor.edit',compact('doctor'));
     }
 
     /**
@@ -120,11 +119,10 @@ class UserController extends Controller
             'phone_number'=> 'nullable | min:9 | max:13',
             'curriculum'=> 'nullable',
             'email' => 'required',
-            'specializations' => 'nullable | exists:specializations,id'
         ]);
         
         $doctor->update($validate);
-        // $doctor->specializations()->sync($request->specializations);
+        
 
         return redirect()->route('dashboard');
     }
