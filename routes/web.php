@@ -40,6 +40,8 @@ Route::get('/doctor/reviews', 'UserController@reviews')->name('reviews');
 
 Route::get('/doctor/sponsors', 'UserController@sponsors')->name('sponsors');
 
+Route::post('/doctor/sponsor/{user}', 'UserController@saveSponsor')->name('saveSponsor');
+
 Route::resource('doctor', UserController::class);
 
 

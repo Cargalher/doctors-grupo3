@@ -3,7 +3,7 @@
 
 @section('content')
 
-
+{{-- {{dd($doctor)}} --}}
     <h1 class="text-center">Edit Post</h1>
 
     @if ($errors->any())

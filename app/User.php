@@ -36,6 +36,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Specialization');
     }
+    
     public function sponsors()
     {
         return $this->belongsToMany('App\Sponsor');

@@ -9,6 +9,8 @@ use App\Review;
 use App\Sponsor;
 use App\Message;
 use App\Specialization;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -50,11 +52,20 @@ class UserController extends Controller
         return view('doctor.reviews', compact('reviews'));
     }
 
-    public function sponsors()
+    public function sponsors(User $doctor)
     {
+        
         $sponsors = Sponsor::all()->reverse();
-        return view('doctor.sponsors', compact('sponsors'));
+        return view('doctor.sponsors', compact('doctor','sponsors'));
     }
+
+    public function saveSponsor(Request $request , User $doctor )
+    {
+        $doctor->id = Auth::user()->id;
+        $doctor->sponsors()->attach($request->sponsors);
+        return redirect()->route('dashboard');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -96,9 +107,11 @@ class UserController extends Controller
      */
     public function edit(User $doctor)
     {
+        $sponsors = Sponsor::all();
         $specializations = Specialization::all();
-        return view('doctor.edit',compact('doctor', 'specializations'));
+        return view('doctor.edit',compact('doctor', 'specializations','sponsors'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -120,12 +133,13 @@ class UserController extends Controller
             'phone_number'=> 'nullable | min:9 | max:13',
             'curriculum'=> 'nullable',
             'email' => 'required',
-            'specializations' => 'nullable'
+            'specializations' => 'nullable',
+            'sponsor'=>'nullable'
         ]);
         
         $doctor->update($validate);
         $doctor->specializations()->sync($request->specializations);
-
+        $doctor->sponsors()->sync($request->sponsors);
         return redirect()->route('dashboard');
     }
 
