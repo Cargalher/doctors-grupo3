@@ -15,8 +15,8 @@ class CreateSponsorUserTable extends Migration
     {
         Schema::create('sponsor_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('sponsor_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('sponsor_id')->nullable();
             $table->timestamp('start_date');
             $table->timestamp('end_date');
             $table->timestamps();
@@ -28,7 +28,7 @@ class CreateSponsorUserTable extends Migration
             $table
                 ->foreign('sponsor_id')
                 ->references('id')
-                ->on('sponsor')->onDelete('set null');
+                ->on('sponsors')->onDelete('set null');
         });
 
     }
