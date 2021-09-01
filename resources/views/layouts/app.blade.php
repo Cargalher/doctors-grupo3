@@ -19,7 +19,10 @@
                     <li class="nav-item nav-pills">
                       <a class="nav-link {{ Route::currentRouteName() === 'doctor.edit' ? 'active' : '' }}" href="{{route('doctor.edit', Auth::user()->id)}}"><i class="far fa-edit fa-lg fa-fw"></i> Edit</a>
                     </li>
-
+                    <li class="nav-item nav-pills">
+                      <a class="nav-link {{ Route::currentRouteName() === 'sponsors' ? 'active' : '' }}" href="{{route('sponsors')}}"><i class="fas fa-dollar-sign fa-fw"></i> Sponsor</a>
+                    </li>
+                    
                     <li class="nav-item nav-pills">
                       <form action="{{ route('doctor.destroy', Auth::user()->id) }}" method="post">
                         @csrf
@@ -27,10 +30,6 @@
                         <button type="submit" class="btn btn-danger"><i class="fas fa-trash fa-xs fa-fw"></i></button>
                       </form>
                     </li>
-
-
-
-
                     
                   </ul>
             </aside>
