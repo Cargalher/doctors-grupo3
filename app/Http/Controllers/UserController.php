@@ -137,6 +137,7 @@ class UserController extends Controller
      */
     public function destroy(User $doctor)
     {
+        $doctor->specializations()->detach();
         $doctor->delete();
 
         return redirect()->route("home");
