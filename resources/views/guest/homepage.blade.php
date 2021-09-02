@@ -6,7 +6,15 @@
 @section('content')
 
         @if(session('success'))
-            <div class="alert alert-success"> {{session('success')}} </div>
+            <div class="alert alert-success alert-dismissible fade show"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{session('success')}}</div>
+
+            <script type="text/javascript">
+                setTimeout(function(){
+                    $(".alert").alert('close')
+                    console.log('Success');
+                }, 3000); 
+                
+            </script>
         @endif
 
 
