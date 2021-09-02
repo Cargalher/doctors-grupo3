@@ -31,7 +31,11 @@
                     @endif
                 @endforeach
 
-                <h5> Media: {{ round($average / count($doctor->reviews))  }} </h5>               
+                @if($average != 0)     
+                        <h5> Media: {{ round($average / count($doctor->reviews))  }} </h5>       
+                    @else
+                        <h5> Media: 0</h5>      
+                @endif              
 
                 <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
                     <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>

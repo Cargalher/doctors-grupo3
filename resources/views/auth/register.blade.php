@@ -92,6 +92,29 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label for="specializations">Specializations</label>
+                                <select multiple class="form-control @error('specializations') is-invalid @enderror" name="specializations[]" id="specializations" required>
+                                    <option value="" disabled>Select a specialization</option>
+                                    @if ($specializations)
+                                        @foreach ($specializations as $specialization)
+                                            @if ($errors->any())
+                                                <option value="{{ $specialization->id }}"
+                                                    {{ in_array($specialization->id, old('specializations')) ? 'selected' : '' }}>
+                                                    {{ $specialization->name }}</option>
+                                            @endif
+                                            <option value="{{ $specialization->id }}" {{ $doctor->specializations->contains($specialization) ? 'selected' : '' }}>
+                                                {{ $specialization->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            
+                            @error('tags')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror --}}
+
+
                             <div class="form-group row">
                                 <label for="phone_number"
                                     class="col-md-4 col-form-label text-md-right">{{ __('phone_number') }}</label>
