@@ -147,14 +147,12 @@ class UserController extends Controller
 
         if (Auth::user()->id === $doctor->id ) {
             $doctor->update($validate);
+            $doctor->specializations()->sync($request->specializations);
+            $doctor->sponsors()->sync($request->sponsors);
+            return redirect()->route('dashboard');
         } else {
             return redirect()->route("home");
         }
-        
-        $doctor->specializations()->sync($request->specializations);
-        $doctor->sponsors()->sync($request->sponsors);
-        
-        return redirect()->route('dashboard');
     }
 
     /**

@@ -15,7 +15,7 @@ class MessageController extends Controller
         $message->fill($request->all());
         $message->user_id = $user->id;
         $message->save();
-        return redirect()->route('home', compact('user'));
+        return redirect()->route('show', compact('user'));
     }
 
     // validazione messaggi
