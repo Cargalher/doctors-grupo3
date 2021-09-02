@@ -72,12 +72,15 @@
         </div>
     </div>
         
-
-
         <div class="form-group">
             <label for="curriculum" class="font-weight-bold">Curriculum</label>
-            <textarea name="text" class="form-control" id="curriculum" cols="30"
-                rows="15">{{ $doctor->curriculum }}</textarea>
+            <textarea name="curriculum" class="form-control" id="curriculum" cols="30" rows="5">{{ $doctor->curriculum }}</textarea>
+           
+        </div>
+
+        <div class="form-group">
+            <label for="service" class="font-weight-bold">Service</label>
+            <textarea name="service" class="form-control" id="service" cols="30" rows="5">{{ $doctor->service }}</textarea>
         </div>
 
         <div class="form-group">

@@ -112,6 +112,7 @@ class UserController extends Controller
         if (Auth::user()->id === $doctor->id ) {
             return view('doctor.edit',compact('doctor', 'specializations','sponsors'));
         } else {
+            return redirect()->route("home");
            
         }
         
@@ -140,12 +141,19 @@ class UserController extends Controller
             'curriculum'=> 'nullable',
             'email' => 'required',
             'specializations' => 'nullable',
+            'service' => 'nullable',
             'sponsor'=>'nullable'
         ]);
+
+        if (Auth::user()->id === $doctor->id ) {
+            $doctor->update($validate);
+        } else {
+            return redirect()->route("home");
+        }
         
-        $doctor->update($validate);
         $doctor->specializations()->sync($request->specializations);
         $doctor->sponsors()->sync($request->sponsors);
+        
         return redirect()->route('dashboard');
     }
 
