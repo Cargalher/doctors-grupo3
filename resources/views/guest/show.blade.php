@@ -5,27 +5,6 @@
 
 @section('content')
 
-<div class="container mt-3">
-
-    <div aria-live="polite" aria-atomic="true" style="position: relative;">
-      <!-- Position it -->
-      <div style="position: absolute; top: 0; right: 0; width:20em;">
-        <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
-          <div class="toast-header">
-            <strong class="mr-auto">codelike toast</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="toast-body">
-            hello, codelike toast test!
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
     {{-- dottore singolo --}}
     <div class="">
         <img width="250" src="{{ asset('img/Carmen.png') }}" alt="">
@@ -82,7 +61,7 @@
                             <textarea name="text" id="text" cols="54" rows="3" required minlength="30"></textarea>
                         </div>
                     </div>
-                    <div id="show1" class="modal-footer d-flex justify-content-center">
+                    <div class="modal-footer d-flex justify-content-center">
                         <button type="submit" class="btn custom-button">Invia messaggio</button>
                     </div>
                 </div>

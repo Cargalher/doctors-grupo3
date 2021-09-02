@@ -74,15 +74,3 @@ $(".counting").each(function () {
 		}
 	);
 });
-
-$(function () {
-	$('.toast').toast({animation:true, autohide: true, delay:3000});
-	
-	$("#show1").on("click", function () {
-	  $(".toast").toast("show");
-	});
-  
-	$("#hide1").on("click", function () {
-	  $(".toast").toast("hide");
-	});
-  });
