@@ -8,7 +8,11 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        @php
+                            use App\Specialization;
+                            $specializations = Specialization::all();
+                        @endphp
+                        <form method="POST" action="{{ route('register', compact('specializations')) }}">
                             @csrf
 
                             <div class="form-group row">
@@ -92,27 +96,26 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
-                                <label for="specializations">Specializations</label>
-                                <select multiple class="form-control @error('specializations') is-invalid @enderror" name="specializations[]" id="specializations" required>
-                                    <option value="" disabled>Select a specialization</option>
+                            <div class="form-group row">
+                                <label for="specializations"
+                                    class="col-md-4 col-form-label text-md-right">Scegli le tue specializzazioni</label>
+                                <div style="width: 60%" id="form_check" class="form-check col-md-6 mx-3">
                                     @if ($specializations)
                                         @foreach ($specializations as $specialization)
                                             @if ($errors->any())
-                                                <option value="{{ $specialization->id }}"
-                                                    {{ in_array($specialization->id, old('specializations')) ? 'selected' : '' }}>
-                                                    {{ $specialization->name }}</option>
+                                            <input name="specializations[]" id="specializations" class="form-check-input d-block form-control" type="checkbox"
+                                            value="{{ $specialization->id }}"
+                                            {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
                                             @endif
-                                            <option value="{{ $specialization->id }}" {{ $doctor->specializations->contains($specialization) ? 'selected' : '' }}>
-                                                {{ $specialization->name }}</option>
+                                            <input name="specializations[]" id="specializations" class="form-check-input d-block " type="checkbox"
+                                                value="{{ $specialization->id }}">
+                                            <label class="form-check-label d-block" for="specializations">
+                                                {{ $specialization->name }}
+                                            </label>
                                         @endforeach
                                     @endif
-                                </select>
+                                </div>
                             </div>
-                            
-                            @error('tags')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror --}}
 
 
                             <div class="form-group row">

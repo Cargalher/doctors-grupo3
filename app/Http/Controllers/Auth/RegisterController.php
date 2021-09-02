@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Specialization;
 
 class RegisterController extends Controller
 {
@@ -55,6 +56,7 @@ class RegisterController extends Controller
             'city' => ['required', 'string', 'min:5', 'max:50'],
             'pv' => ['required', 'string', 'min:2', 'max:30'],
             'address' => ['required', 'string', 'min:5', 'max:50'],
+            'specializations' => ['required'],
             'phone_number' => ['required', 'string', 'min:9', 'max:13'],
             'email' => ['required', 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix', 'string', 'email',  'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -69,15 +71,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'city' => $data['city'],
             'pv' => $data['pv'],
             'address' => $data['address'],
+            'specializations' =>  $data['specializations'],
             'phone_number' => $data['phone_number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        foreach ($data['specializations'] as $specialization) {
+            $user->specializations()->attach($specialization);
+        }
+        return $user;
     }
 }

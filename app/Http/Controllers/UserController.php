@@ -109,6 +109,12 @@ class UserController extends Controller
     {
         $sponsors = Sponsor::all();
         $specializations = Specialization::all();
+        if (Auth::user()->id === $doctor->id ) {
+            return view('doctor.edit',compact('doctor', 'specializations','sponsors'));
+        } else {
+           
+        }
+        
         return view('doctor.edit',compact('doctor', 'specializations','sponsors'));
     }
 
