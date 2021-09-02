@@ -5,10 +5,14 @@
 
 @section('content')
 
+        @if(session('success'))
+            <div class="alert alert-success"> {{session('success')}} </div>
+        @endif
+
 
     <div class="d-flex flex-wrap justify-content-center">
-        @foreach ($doctors as $doctor)
 
+        @foreach ($doctors as $doctor)
 
             <div style="width: 300px" class="card m-3 p-3 ">
                 <img src="{{ asset('img/Domenico.png') }}" class="p-2" alt="">

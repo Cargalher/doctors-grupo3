@@ -9,6 +9,10 @@
                         <div class="container">
                             <div class="row">
 
+                            @if(session('message'))
+                                <div class="alert alert-success"> {{session('message')} </div>
+                            @endif
+
                                 <div class="col-lg-3 stats">
                                     @foreach ($doctors as $doctor)
                                         @if (Auth::user()->id === $doctor->id)
