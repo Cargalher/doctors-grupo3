@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn custom-button">Invia messaggio</button>
+                        <button type="submit" class="btn custom-button"  v-on:click="avviso()">Invia messaggio</button>
                     </div>
                 </div>
             </div>
@@ -171,3 +171,4 @@
     </div>
 
 @endsection
+
