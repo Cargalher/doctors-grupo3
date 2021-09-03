@@ -11,10 +11,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // API Utenti
 Route::get('doctors', 'API\DoctorController@index');
-
-
-// API Pagamenti
-
-Route::get('sponsors', [SponsorController::class, 'index']);
-Route::get('orders/generate', [OrderController::class, 'generate']);
-Route::post('orders/makepayment', [OrderController::class, 'makePayment']);
