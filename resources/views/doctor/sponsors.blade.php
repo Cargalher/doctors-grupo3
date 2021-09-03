@@ -13,13 +13,17 @@
     <div class="form-group">
         <div id="form_check" class="form-check">
             @if ($sponsors)
+            
                 @foreach ($sponsors as $sponsor)
 
-                <input name="sponsors[]" id="sponsors" class="form-check-input d-block" type="checkbox"
-                        value="{{ $sponsor->id }} {{ $doctor->sponsors->contains($sponsor) ? 'checked' : '' }}" >
-                    <label class="form-check-label d-block" for="sponsors">
-                        {{ $sponsor->name }}
-                    </label>
+                <input name="amount" id="{{$sponsor->id}}" class="form-check-input d-block" type="radio"
+                        value="{{ $sponsor->price }}" >
+                        <label class="card" for="{{$sponsor->name}}">
+                            <div class="">{{$sponsor->name}} </div>
+                            <div>durata: {{$sponsor->duration}} ore</div>
+                            <div>{{$sponsor->price}} €</div>
+                        </label>
+                    
 
                 {{-- <h2>Nome: {{ $sponsor->name }}</h2>
                 <h4>Durata: {{ $sponsor->duration }} ore</h4>
@@ -29,6 +33,7 @@
             @endif
         </div>
     </div>
+    
 
         <button type="submit" class="btn btn-dark">Acquista</button>
     </form>

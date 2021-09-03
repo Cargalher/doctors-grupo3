@@ -17,6 +17,8 @@ class CreateSponsorUserTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('sponsor_id')->nullable();
+            $table->timestamp('expiration_time');
+            $table->timestamps();
 
             $table->foreign('user_id')
                 ->references('id')

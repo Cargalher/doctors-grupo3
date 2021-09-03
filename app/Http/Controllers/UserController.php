@@ -61,9 +61,18 @@ class UserController extends Controller
 
     public function saveSponsor(Request $request, User $doctor)
     {
+        date_default_timezone_set('Europe/Rome');
+        $date = date("Y-m-d H:i:s");
+        $sponsor = Sponsor::all()->where('price', $request->amount)->first();
+        $sponId = $sponsor->id;
+        $thedate = strtotime($date . ' + ' . $sponsor->duration . 'day');
+        $expirationDate = date('Y-m-d H:i:s', $thedate);
         $doctor->id = Auth::user()->id;
-        $doctor->sponsors()->attach($request->sponsors);
+        $doctor->sponsors()->attach($sponId, ['expiration_time' => $expirationDate]);
+        
+
         return redirect()->route('dashboard');
+        
     }
 
 

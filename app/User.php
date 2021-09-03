@@ -39,7 +39,7 @@ class User extends Authenticatable
     
     public function sponsors()
     {
-        return $this->belongsToMany('App\Sponsor');
+        return $this->belongsToMany('App\Sponsor')->withPivot('expiration_time')->withTimestamps();
     }
     public function incrementReadCount() {
         $this->reads++;
