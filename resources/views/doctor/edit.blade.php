@@ -27,8 +27,8 @@
         <div class="form-group">
             <label for="name" class="font-weight-bold d-block">Profile Image</label>
             <img style="width: 300px" src="{{ asset('storage/' . $doctor->profile_image) }}"
-                class="p-2 @error('profile_image')is-invalid @enderror" alt="{{ $doctor->name . $doctor->name }}">
-            <input type="file" name="profile_image" id="profile_image">
+                class="p-2" alt="{{ $doctor->name . $doctor->name }}">
+            <input type="file" class="form-control @error('profile_image')is-invalid @enderror" name="profile_image" id="profile_image" >
         </div>
         @error('profile_image')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -40,11 +40,11 @@
                 @if ($specializations)
                     @foreach ($specializations as $specialization)
                         @if ($errors->any())
-                            <input name="specializations[]" id="specializations" class="form-check-input d-block"
+                            <input name="specializations[]" id="specializations" class="form-check-input d-block @error('specializations')is-invalid @enderror"
                                 type="checkbox" value="{{ $specialization->id }}"
-                                {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
+                               >
                         @endif
-                        <input name="specializations[]" id="specializations" class="form-check-input d-block"
+                        <input name="specializations[]" id="specializations" class="form-check-input d-block" 
                             type="checkbox" value="{{ $specialization->id }}"
                             {{ $doctor->specializations->contains($specialization) ? 'checked' : '' }}>
                         <label class="form-check-label d-block" for="specializations">

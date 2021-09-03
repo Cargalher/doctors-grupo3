@@ -139,7 +139,7 @@ class UserController extends Controller
             'phone_number' => 'nullable | min:9 | max:13',
             'curriculum' => 'nullable',
             'email' => 'required',
-            'specializations' => 'nullable',
+            'specializations' => 'required',
             'service' => 'nullable',
             'sponsor' => 'nullable'
         ]);

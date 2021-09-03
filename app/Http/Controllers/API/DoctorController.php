@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\User;
+use App\Specialization;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,8 +18,8 @@ class DoctorController extends Controller
     public function index()
     {
         // Restituisce tutti gli utenti in formato JSON
-        $doctors = User::all();
-        return $doctors;
+        $doctors = User::with('specializations', 'reviews', 'sponsors')->get();
+        return response()->json($doctors);
     }
 
     /**
