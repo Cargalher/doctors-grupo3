@@ -4,7 +4,7 @@
 @section('content')
 
 {{-- {{dd($doctor)}} --}}
-    <h1 class="text-center">Edit Post</h1>
+    <h1 class="text-center">Edit Profile</h1>
 
     @if ($errors->any())
         <div class="container">
@@ -22,6 +22,8 @@
         @csrf
         @method("PUT")
 
+        
+
         <div class="form-group">
             <label for="name" class="font-weight-bold">Name</label>
             <input type="text" class="form-control" name="name" id="name" value="{{ $doctor->name }}">
@@ -32,26 +34,11 @@
             <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $doctor->lastname }}">
         </div>
 
-        {{-- <div class="form-group">
-        <label for="specializations">Specializations</label>
-        <select multiple class="form-control @error('specializations') is-invalid @enderror" name="specializations[]" id="specializations" required>
-            <option value="" disabled>Select a specialization</option>
-            @if ($specializations)
-                @foreach ($specializations as $specialization)
-                    @if ($errors->any())
-                        <option value="{{ $specialization->id }}"
-                            {{ in_array($specialization->id, old('specializations')) ? 'selected' : '' }}>
-                            {{ $specialization->name }}</option>
-                    @endif
-                    <option value="{{ $specialization->id }}" {{ $doctor->specializations->contains($specialization) ? 'selected' : '' }}>
-                        {{ $specialization->name }}</option>
-                @endforeach
-            @endif
-        </select>
-    </div>
-    @error('tags')
-        <div class="alert alert-danger">{{ $message }}</div>
-    @enderror --}}
+        <div class="form-group">
+            <label for="name" class="font-weight-bold d-block">Profile Image</label>
+            <img style="width: 300px" src="{{asset('storage/' . $doctor->profile_image)}}" class="p-2" alt="{{$doctor->name . $doctor->name}}">
+            <input type="file" name="profile_image" id="profile_image">
+        </div>
 
     <div class="form-group">
         <div id="form_check" class="form-check">

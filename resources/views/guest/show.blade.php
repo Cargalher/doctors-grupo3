@@ -7,7 +7,7 @@
 
     {{-- dottore singolo --}}
     <div class="">
-        <img width="250" src="{{ asset('img/Carmen.png') }}" alt="">
+        <img width="250" src="{{asset('storage/' . $user->profile_image)}}" alt="">
         <h3>Dott: {{ $user->name }} {{ $user->lastname }}</h3>
     </div>
 

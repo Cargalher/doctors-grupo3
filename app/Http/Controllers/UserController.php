@@ -10,7 +10,7 @@ use App\Sponsor;
 use App\Message;
 use App\Specialization;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -36,7 +36,7 @@ class UserController extends Controller
         $messages = Message::all();
         $sponsors = Sponsor::all();
 
-        return view('doctor.home', compact('doctors','reviews','messages','sponsors'));
+        return view('doctor.home', compact('doctors', 'reviews', 'messages', 'sponsors'));
     }
 
     public function messages()
@@ -44,22 +44,22 @@ class UserController extends Controller
         $messages = Message::all()->reverse();
         return view('doctor.messages', compact('messages'));
     }
-    
+
     public function reviews()
     {
-        
+
         $reviews = Review::all()->reverse();
         return view('doctor.reviews', compact('reviews'));
     }
 
     public function sponsors(User $doctor)
     {
-        
+
         $sponsors = Sponsor::all()->reverse();
-        return view('doctor.sponsors', compact('doctor','sponsors'));
+        return view('doctor.sponsors', compact('doctor', 'sponsors'));
     }
 
-    public function saveSponsor(Request $request , User $doctor )
+    public function saveSponsor(Request $request, User $doctor)
     {
         $doctor->id = Auth::user()->id;
         $doctor->sponsors()->attach($request->sponsors);
@@ -109,14 +109,13 @@ class UserController extends Controller
     {
         $sponsors = Sponsor::all();
         $specializations = Specialization::all();
-        if (Auth::user()->id === $doctor->id ) {
-            return view('doctor.edit',compact('doctor', 'specializations','sponsors'));
+        if (Auth::user()->id === $doctor->id) {
+            return view('doctor.edit', compact('doctor', 'specializations', 'sponsors'));
         } else {
             return redirect()->route("home");
-           
         }
-        
-        return view('doctor.edit',compact('doctor', 'specializations','sponsors'));
+
+        return view('doctor.edit', compact('doctor', 'specializations', 'sponsors'));
     }
 
 
@@ -131,24 +130,37 @@ class UserController extends Controller
     {
 
         $validate = $request->validate([
-            'profile_image'=>'nullable | max:255',
-            'name'=> 'required | min:3 | max:50',
-            'lastname'=> 'required | min:3 | max:50',
-            'city'=> 'required | max:50',
-            'pv'=> 'required | max:50',
-            'address'=> 'required |min:5| max:255',
-            'phone_number'=> 'nullable | min:9 | max:13',
-            'curriculum'=> 'nullable',
+            'profile_image' => 'nullable | image | max:2048',
+            'name' => 'required | min:3 | max:50',
+            'lastname' => 'required | min:3 | max:50',
+            'city' => 'required | max:50',
+            'pv' => 'required | max:50',
+            'address' => 'required |min:5| max:255',
+            'phone_number' => 'nullable | min:9 | max:13',
+            'curriculum' => 'nullable',
             'email' => 'required',
             'specializations' => 'nullable',
             'service' => 'nullable',
-            'sponsor'=>'nullable'
+            'sponsor' => 'nullable'
         ]);
 
-        if (Auth::user()->id === $doctor->id ) {
-            $doctor->update($validate);
+        if (Auth::user()->id === $doctor->id) {
+
+
+            if (array_key_exists('profile_image', $validate)) {
+
+                Storage::delete($doctor->profile_image);
+
+                $file_path = Storage::put('doctors_images', $validate['profile_image']);
+
+                $validate['profile_image'] = $file_path;
+            }
+            // ddd($file_path);
+
             $doctor->specializations()->sync($request->specializations);
             $doctor->sponsors()->sync($request->sponsors);
+            $doctor->update($validate);
+
             return redirect()->route('dashboard');
         } else {
             return redirect()->route("home");

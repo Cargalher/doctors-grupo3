@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname', 'city', 'pv', 'address', 'phone_number', 'service', 'email', 'password', 'curriculum'
+        'name', 'lastname', 'city', 'pv', 'address', 'phone_number', 'service', 'email', 'password', 'curriculum', 'profile_image'
     ];
 
     public function reviews()
