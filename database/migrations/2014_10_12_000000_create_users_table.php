@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('pv');
             $table->string('address', 255);
-            $table->string('phone_number', 10)->nullable();
+            $table->string('phone_number', 13)->nullable();
             $table->longText('curriculum')->nullable();
             $table->longText('service')->nullable();
             $table->string('profile_image', 255)->nullable();
