@@ -39,6 +39,6 @@ class ValidSponsor implements Rule
      */
     public function message()
     {
-        return 'Errore: Sponsor non valido';
+        return 'Errore: Impossibile eseguire l\'acquisto...Sponsor non valido';
     }
 }

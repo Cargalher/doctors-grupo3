@@ -24,6 +24,8 @@ class OrderController extends Controller
 
     public function makePayment(OrderRequest $request, Gateway $gateway)
     {
+
+
         $buysponsor = Sponsor::find($request->buysponsor);
 
         $result = $gateway->transaction()->sale([
@@ -33,6 +35,7 @@ class OrderController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
+
 
         if ($result->success) {
 

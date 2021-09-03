@@ -17,4 +17,4 @@ Route::get('doctors', 'API\DoctorController@index');
 
 Route::get('sponsors', [SponsorController::class, 'index']);
 Route::get('orders/generate', [OrderController::class, 'generate']);
-Route::post('orders/makePayment', [OrderController::class, 'makePayment']);
+Route::post('orders/makepayment', [OrderController::class, 'makePayment']);
