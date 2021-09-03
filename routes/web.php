@@ -25,9 +25,9 @@ Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage')
 Route::post('review/{user}', 'ReviewController@saveReview')->name('saveReview');
 
 // Rotta temporanea che stampa i dottori tramite API & VUE
-Route::get('vue-doctors', function() {
+Route::get('vue-doctors', function () {
     return view('vue-doctors');
-}); 
+});
 
 // Route DOCTOR
 Auth::routes();
@@ -40,8 +40,11 @@ Route::get('/doctor/reviews', 'UserController@reviews')->name('reviews');
 
 Route::get('/doctor/sponsors', 'UserController@sponsors')->name('sponsors');
 
-Route::post('/doctor/sponsor/{user}', 'UserController@saveSponsor')->name('saveSponsor');
+// Route::post('/sponsor/{user}', 'UserController@saveSponsor')->name('saveSponsor');
 
 Route::resource('doctor', UserController::class);
 
 
+// Payment
+Route::get('sponsors/{user}', 'SponsorController@buySponsorship')->name('buySponsorship');
+Route::post('checkout/{user}', 'PaymentController@checkout')->name('checkout');
