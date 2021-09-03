@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img width="200" src="{{ asset('img/logo_small.png') }}" alt="">
+                <img width="222" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"

@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap);
 /*!
  * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -14608,6 +14609,14 @@ h3 {
     border-color: #dee2e6;
   }
 }
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  background-color: white;
+}
+
 .nav_container {
   width: 90%;
   margin: auto;
@@ -14644,3 +14653,13 @@ section#counter-stats {
 }
 
 /*/ end check specializations /*/
+.site_footer {
+  background-color: #45BB67;
+}
+.site_footer .social_icons a {
+  text-decoration: none;
+  color: white;
+}
+.site_footer .social_icons a i {
+  font-size: 2rem;
+}
