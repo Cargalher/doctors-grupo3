@@ -3,26 +3,16 @@
 
 @section('content')
 
-{{-- {{dd($doctor)}} --}}
+    {{-- {{dd($doctor)}} --}}
     <h1 class="text-center">Edit Profile</h1>
 
-    @if ($errors->any())
-        <div class="container">
-            <div class="alert alert-danger" role="alert">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{!! $error !!}</li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    @endif
+    @include('layouts.partials.errors')
 
     <form action="{{ route('doctor.update', $doctor->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method("PUT")
 
-        
+
 
         <div class="form-group">
             <label for="name" class="font-weight-bold">Name</label>
@@ -36,38 +26,46 @@
 
         <div class="form-group">
             <label for="name" class="font-weight-bold d-block">Profile Image</label>
-            <img style="width: 300px" src="{{asset('storage/' . $doctor->profile_image)}}" class="p-2" alt="{{$doctor->name . $doctor->name}}">
+            <img style="width: 300px" src="{{ asset('storage/' . $doctor->profile_image) }}"
+                class="p-2 @error('profile_image')is-invalid @enderror" alt="{{ $doctor->name . $doctor->name }}">
             <input type="file" name="profile_image" id="profile_image">
         </div>
+        @error('profile_image')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
 
-    <div class="form-group">
-        <div id="form_check" class="form-check">
-            @if ($specializations)
-                @foreach ($specializations as $specialization)
-                    @if ($errors->any())
-                    <input name="specializations[]" id="specializations" class="form-check-input d-block" type="checkbox"
-                    value="{{ $specialization->id }}"
-                    {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
-                    @endif
-                    <input name="specializations[]" id="specializations" class="form-check-input d-block" type="checkbox"
-                        value="{{ $specialization->id }}" {{ $doctor->specializations->contains($specialization) ? 'checked' : '' }}>
-                    <label class="form-check-label d-block" for="specializations">
-                        {{ $specialization->name }}
-                    </label>
-                @endforeach
-            @endif
+
+        <div class="form-group">
+            <div id="form_check" class="form-check">
+                @if ($specializations)
+                    @foreach ($specializations as $specialization)
+                        @if ($errors->any())
+                            <input name="specializations[]" id="specializations" class="form-check-input d-block"
+                                type="checkbox" value="{{ $specialization->id }}"
+                                {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
+                        @endif
+                        <input name="specializations[]" id="specializations" class="form-check-input d-block"
+                            type="checkbox" value="{{ $specialization->id }}"
+                            {{ $doctor->specializations->contains($specialization) ? 'checked' : '' }}>
+                        <label class="form-check-label d-block" for="specializations">
+                            {{ $specialization->name }}
+                        </label>
+                    @endforeach
+                @endif
+            </div>
         </div>
-    </div>
-        
+
         <div class="form-group">
             <label for="curriculum" class="font-weight-bold">Curriculum</label>
-            <textarea name="curriculum" class="form-control" id="curriculum" cols="30" rows="5">{{ $doctor->curriculum }}</textarea>
-           
+            <textarea name="curriculum" class="form-control" id="curriculum" cols="30"
+                rows="5">{{ $doctor->curriculum }}</textarea>
+
         </div>
 
         <div class="form-group">
             <label for="service" class="font-weight-bold">Service</label>
-            <textarea name="service" class="form-control" id="service" cols="30" rows="5">{{ $doctor->service }}</textarea>
+            <textarea name="service" class="form-control" id="service" cols="30"
+                rows="5">{{ $doctor->service }}</textarea>
         </div>
 
         <div class="form-group">
