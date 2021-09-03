@@ -6,8 +6,10 @@
 @section('content')
 
     {{-- dottore singolo --}}
-    <div class="">
-        <img width="250" src="{{asset('storage/' . $user->profile_image)}}" alt="">
+    <div>
+        <img width="200" src="{{ asset('storage/' . $user->profile_image) }}"
+            onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
+            alt="{{ $user->name . $user->name }}">
         <h3>Dott: {{ $user->name }} {{ $user->lastname }}</h3>
     </div>
 
@@ -18,7 +20,8 @@
 
     {{-- form per inviare un messaggio al dottore --}}
     @include('layouts.partials.errors')
-    <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
         <form action="{{ route('saveMessage', compact('user')) }}" method="post">
             @csrf
             @method('POST')
@@ -73,7 +76,8 @@
 
     {{-- form per inviare una Recensione al dottore --}}
     @include('layouts.partials.errors')
-    <div class="modal fade" id="modalReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalReview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
         <form action="{{ route('saveReview', compact('user')) }}" method="post">
             @csrf
             @method('POST')
@@ -107,7 +111,7 @@
 
                         {{-- VOTE --}}
                         <div class="md-form mb-4">
-                            
+
                             <div class="form-group">
                                 <label for="vote"></label>
                                 <select class="custom-select" name="vote" id="vote">
@@ -141,24 +145,24 @@
         <h2 class="mt-5">Recensioni:</h2>
 
         {{-- pulsante per inviare un messaggio --}}
-    <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
-        <i class="fas fa-comment-medical"></i> Invia una recensione
-    </button>
+        <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
+            <i class="fas fa-comment-medical"></i> Invia una recensione
+        </button>
 
         @if (count($user->reviews) > 0)
             @foreach ($reviews as $review)
-                @if($review->user_id === $user->id)
-            
+                @if ($review->user_id === $user->id)
+
                     <div class="mb-2">
                         <h5>{{ $review->name }} {{ $review->lastname }}</h5>
                         <h5>{{ $review->title }}</h5>
                         <p>{{ $review->body }}</p>
-                        <h5>Voto: 
+                        <h5>Voto:
 
-                        @for ($i = 0; $i < $review->vote; $i++)
-                            <i class="fas fa-star"></i>
-                        @endfor
-                            
+                            @for ($i = 0; $i < $review->vote; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
+
 
                         </h5>
                     </div>
@@ -171,4 +175,3 @@
     </div>
 
 @endsection
-

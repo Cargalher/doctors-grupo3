@@ -24,7 +24,7 @@
 
             <div style="width: 300px" class="card m-3 p-3 ">
                 <img src="{{ asset('storage/' . $doctor->profile_image) }}"
-                    onerror="this.src='https://www.blexar.com/avatar.png';" class="p-2"
+                    onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
                     alt="{{ $doctor->name . $doctor->name }}">
                 <h4>Nome: {{ $doctor->name }}</h4>
                 <h4>Cognome: {{ $doctor->lastname }}</h4>
