@@ -15,13 +15,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-
-
+            $table->bigInteger('reads')->unsigned()->default(0)->index();
             $table->string('name', 50);
             $table->string('lastname', 50);
+            $table->string('city');
+            $table->string('pv');
             $table->string('address', 255);
-            $table->string('phone_number', 10)->nullable();
-            $table->string('curriculum', 255)->nullable();
+            $table->string('phone_number', 13)->nullable();
+            $table->longText('curriculum')->nullable();
+            $table->longText('service')->nullable();
             $table->string('profile_image', 255)->nullable();
             $table->string('email', 255)->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -38,6 +40,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('users');
     }
 }

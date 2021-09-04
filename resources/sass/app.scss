@@ -1,12 +1,44 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "partials/variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 // FontAwesome
-@import '~@fortawesome/fontawesome-free/css/all.css';
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+//Google Font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+
+// Rules
+@import "partials/rules";
+// Header
+@import "partials/header";
+
+// Dashboard
+@import "partials/dashboard";
+
+// Edit
+@import "partials/edit";
+
+.site_footer{
+    background-color: #45BB67;
+
+    .social_icons{
+        a{
+            text-decoration: none;
+            color: white;
+
+            i{
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+
+
 

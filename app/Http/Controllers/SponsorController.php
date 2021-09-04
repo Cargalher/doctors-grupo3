@@ -2,84 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Sponsor;
+use Braintree;
+use App\Http\Resources\SponsorResource;
 use Illuminate\Http\Request;
+use App\User;
+use App\Sponsor;
 
 class SponsorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function buySponsorship(User $user)
     {
-        //
-    }
+        $sponsors = Sponsor::all();
+        $gateway = new Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 'gkjp48fbys9w4xzp',
+            'publicKey' => 'y5sw5p7vbrdpg862',
+            'privateKey' => 'f1f7406e833663f1e1dd3fcb92c3a7f4'
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $token = $gateway->ClientToken()->generate();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Sponsor  $sponsor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Sponsor $sponsor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Sponsor  $sponsor
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Sponsor $sponsor)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Sponsor  $sponsor
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Sponsor $sponsor)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Sponsor  $sponsor
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Sponsor $sponsor)
-    {
-        //
+        return view('doctor.sponsors', compact('user', 'sponsors', 'token'));
     }
 }

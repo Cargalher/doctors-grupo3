@@ -12,7 +12,7 @@ class SpecializationSeeder extends Seeder
      */
     public function run()
     {
-        $specArray = [
+        $specializations = [
             'Agopuntore',
             'Allergologo',
             'Anatomopatologo',
@@ -96,10 +96,10 @@ class SpecializationSeeder extends Seeder
             'Urologo',
             'Venereologo'
         ];
-        foreach ($specArray as $specialization) {
-            $spec = new Specialization();
-            $spec->name = $specialization;
-            $spec->save();
+        foreach ($specializations as $specialization) {
+            $new_specialization= new Specialization();
+            $new_specialization->name = $specialization;
+            $new_specialization->save();
         }
     }
 }

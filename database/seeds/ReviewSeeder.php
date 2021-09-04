@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
+use App\Review;
+use Faker\Generator as Faker;
 
 class ReviewSeeder extends Seeder
 {
@@ -9,8 +12,7 @@ class ReviewSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
     }
 }
