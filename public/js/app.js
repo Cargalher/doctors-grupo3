@@ -1979,176 +1979,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
-    Axios = _require["default"];
-
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-vue__WEBPACK_IMPORTED_MODULE_0__.default.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
-  el: '#app',
-  data: {
-    doctors: null
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    Axios.get('api/doctors').then(function (resp) {
-      // console.log(resp);
-      _this.doctors = resp.data;
-    })["catch"](function (e) {
-      console.error('Sorry! ' + e);
-    });
-  }
-}); // number count for stats, using jQuery animate
-
-$(".counting").each(function () {
-  var $this = $(this),
-      countTo = $this.attr("data-count");
-  $({
-    countNum: $this.text()
-  }).animate({
-    countNum: countTo
-  }, {
-    duration: 3000,
-    easing: "linear",
-    step: function step() {
-      $this.text(Math.floor(this.countNum));
-    },
-    complete: function complete() {
-      $this.text(this.countNum); //alert('finished');
-    }
-  });
-}); // Parallax Footer
-
-var body = document.getElementsByTagName('body')[0];
-initializeParallaxFooter( // main can be whatever element you want
-document.getElementsByTagName('main')[0], // footer can be whatever element you want
-document.getElementsByTagName('footer')[0]);
-
-function initializeParallaxFooter(mainElement, footerElement) {
-  footerElement.style.left = '0';
-  footerElement.style.right = '0';
-  footerElement.style.zIndex = '-1';
-  updateParallaxFooter(mainElement, footerElement);
-  window.addEventListener('resize', function () {
-    updateParallaxFooter(mainElement, footerElement);
-  });
-  window.addEventListener('scroll', function () {
-    updateParallaxFooter(mainElement, footerElement);
-  });
-}
-
-function updateParallaxFooter(mainElement, footerElement) {
-  if (isViewportSmallerThanFooter(footerElement)) {
-    // Reset bottom style in case user resized window
-    footerElement.style.bottom = '';
-    footerElement.style.top = '0';
-  } else {
-    // Reset top style in case user resized window
-    footerElement.style.top = '';
-    footerElement.style.bottom = '0';
-  }
-
-  if (window.scrollY > getBottomY(mainElement)) {
-    footerElement.style.position = 'static'; // Margin is only used to add
-
-    body.style.marginBottom = '0px';
-  } else {
-    body.style.marginBottom = footerElement.offsetHeight + 'px';
-    footerElement.style.position = 'fixed';
-  }
-}
-
-function isViewportSmallerThanFooter(footerElement) {
-  return window.innerHeight < footerElement.offsetHeight;
-}
-
-function getBottomY(element) {
-  return element.offsetTop + element.offsetHeight;
-}
-
-/***/ }),
-
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
-
-try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default;
-  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-  __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-} catch (e) {}
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo';
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
-
-/***/ }),
-
->>>>>>> 2118851daf2276b2485220aaf4199e3c970b62fa
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -50127,7 +49957,54 @@ $(".counting").each(function () {
       $this.text(this.countNum); //alert('finished');
     }
   });
-});
+}); // Parallax Footer
+
+var body = document.getElementsByTagName('body')[0];
+initializeParallaxFooter( // main can be whatever element you want
+document.getElementsByTagName('main')[0], // footer can be whatever element you want
+document.getElementsByTagName('footer')[0]);
+
+function initializeParallaxFooter(mainElement, footerElement) {
+  footerElement.style.left = '0';
+  footerElement.style.right = '0';
+  footerElement.style.zIndex = '-1';
+  updateParallaxFooter(mainElement, footerElement);
+  window.addEventListener('resize', function () {
+    updateParallaxFooter(mainElement, footerElement);
+  });
+  window.addEventListener('scroll', function () {
+    updateParallaxFooter(mainElement, footerElement);
+  });
+}
+
+function updateParallaxFooter(mainElement, footerElement) {
+  if (isViewportSmallerThanFooter(footerElement)) {
+    // Reset bottom style in case user resized window
+    footerElement.style.bottom = '';
+    footerElement.style.top = '0';
+  } else {
+    // Reset top style in case user resized window
+    footerElement.style.top = '';
+    footerElement.style.bottom = '0';
+  }
+
+  if (window.scrollY > getBottomY(mainElement)) {
+    footerElement.style.position = 'static'; // Margin is only used to add
+
+    body.style.marginBottom = '0px';
+  } else {
+    body.style.marginBottom = footerElement.offsetHeight + 'px';
+    footerElement.style.position = 'fixed';
+  }
+}
+
+function isViewportSmallerThanFooter(footerElement) {
+  return window.innerHeight < footerElement.offsetHeight;
+}
+
+function getBottomY(element) {
+  return element.offsetTop + element.offsetHeight;
+}
 
 /***/ }),
 
