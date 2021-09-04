@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="name" class="font-weight-bold">Name</label>
             <input type="text" class="form-control" name="name" id="name" value="{{ $doctor->name }}" @error('title')
-                is-invalid @enderror placeholder="Nome..." required>
+                is-invalid @enderror placeholder="Nome..." required minlength="3" maxlength="50">
             <small id="nameHelp" class="text-muted">SUGGERIMENTO PER IL NOME: deve contenere min:3, max:50
                 caratteri</small>
         </div>
@@ -29,7 +29,7 @@
         <div class="form-group">
             <label for="lastname" class="font-weight-bold">Lastname</label>
             <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $doctor->lastname }}"
-                @error('lastname') is-invalid @enderror placeholder="Cognome..." required>
+                @error('lastname') is-invalid @enderror placeholder="Cognome..." required minlength="3" maxlength="50">
             <small id="lastnameHelp" class="text-muted">SUGGERIMENTO PER IL COGNOME: deve contenere min:3, max:50
                 caratteri</small>
         </div>
@@ -86,14 +86,13 @@
         <div class="form-group">
             <label for="curriculum" class="font-weight-bold">Curriculum</label>
             <textarea name="curriculum" class="form-control" id="curriculum" cols="30" rows="8" placeholder="Compila il tuo CV
-                                                                                                            Titoli conseguiti,
-                                                                                                            Curriculum e attività,
-                                                                                                            Apparecchiature utilizzate,
-                                                                                                            Patologie trattate
-                                                                                                            Metodologie diagnostiche e terapeutiche,
-                                                                                                            Laurea e abilitazione
-                                                                                                            "
-                {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
+                        Titoli conseguiti,
+                        Curriculum e attività,
+                        Apparecchiature utilizzate,
+                        Patologie trattate
+                        Metodologie diagnostiche e terapeutiche,
+                        Laurea e abilitazione
+                        " {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
             <small id="curriculum" class="form-text text-muted">SUGGERIMENTO: Compila nella text area il tuo CV</small>
         </div>
         @error('curriculum')
