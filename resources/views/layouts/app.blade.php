@@ -2,9 +2,9 @@
 
 @include('layouts/partials/header')
 
-<div class="container">
+<div class="container py-5">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             <aside>
                 <ul class="nav flex-column">
                     <li class="nav-item nav-pills">
@@ -35,18 +35,20 @@
                     </li>
 
                     <li class="nav-item nav-pills">
-                        <form action="{{ route('doctor.destroy', Auth::user()->id) }}" method="post">
+                        <form action="{{ route('doctor.destroy', Auth::user()->id) }}" class="nav-link" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i
-                                    class="fas fa-trash fa-xs fa-fw"></i></button>
+                            
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash fa-xs fa-fw"></i>
+                            </button>
                         </form>
                     </li>
 
                 </ul>
             </aside>
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-10">
             @yield('content')
         </div>
     </div>
