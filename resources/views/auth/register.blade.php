@@ -1,7 +1,7 @@
-@extends('layouts.guest')
+@extends('layouts.register')
 
 @section('content')
-    <div class="container">
+    <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -103,7 +103,7 @@
                                     @if ($specializations)
                                         @foreach ($specializations as $specialization)
                                             @if ($errors->any())
-                                            <input name="specializations[]" id="specializations" class="form-check-input d-block form-control" type="checkbox"
+                                            <input name="specializations[]" id="specializations" class="form-check-input d-block" type="checkbox"
                                             value="{{ $specialization->id }}"
                                             {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
                                             @endif

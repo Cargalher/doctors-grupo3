@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+=======
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap);
+/*!
+>>>>>>> 2118851daf2276b2485220aaf4199e3c970b62fa
  * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -15546,6 +15552,16 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+<<<<<<< HEAD
+=======
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  background-color: white;
+}
+>>>>>>> 2118851daf2276b2485220aaf4199e3c970b62fa
 
 .nav_container {
   width: 90%;
@@ -15586,4 +15602,17 @@ section#counter-stats {
 }
 
 /*/ end check specializations /*/
+<<<<<<< HEAD
 
+=======
+.site_footer {
+  background-color: #45BB67;
+}
+.site_footer .social_icons a {
+  text-decoration: none;
+  color: white;
+}
+.site_footer .social_icons a i {
+  font-size: 2rem;
+}
+>>>>>>> 2118851daf2276b2485220aaf4199e3c970b62fa
