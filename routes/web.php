@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,10 +15,36 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route GUEST
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/doctors/{user}', 'HomeController@show')->name('show');
+
+Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
+
+Route::post('review/{user}', 'ReviewController@saveReview')->name('saveReview');
+
+// Rotta temporanea che stampa i dottori tramite API & VUE
+Route::get('vue-doctors', function () {
+    return view('vue-doctors');
 });
 
+// Route DOCTOR
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/doctor/home', 'UserController@index')->name('dashboard');
+
+Route::get('/doctor/messages', 'UserController@messages')->name('messages');
+
+Route::get('/doctor/reviews', 'UserController@reviews')->name('reviews');
+
+Route::get('/doctor/sponsors', 'UserController@sponsors')->name('sponsors');
+
+// Route::post('/sponsor/{user}', 'UserController@saveSponsor')->name('saveSponsor');
+
+Route::resource('doctor', UserController::class);
+
+
+// Payment
+Route::get('sponsors/{user}', 'SponsorController@buySponsorship')->name('buySponsorship');
+Route::post('checkout/{user}', 'PaymentController@checkout')->name('checkout');

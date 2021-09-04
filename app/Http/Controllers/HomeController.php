@@ -4,17 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use App\Review;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -23,6 +17,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $doctors = User::orderBy('id', 'DESC')->paginate(10);
+
+        $reviews = Review::all();
+        return view('guest.homepage', compact('doctors','reviews'));
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $user)
+    {
+        $user->incrementReadCount();
+        $reviews = Review::all()->reverse();
+        return view('guest.show', compact('user', 'reviews'));
     }
 }

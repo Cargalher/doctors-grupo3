@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,8 +19,32 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'lastname', 'city', 'pv', 'address', 'phone_number', 'service', 'email', 'password', 'curriculum', 'profile_image'
     ];
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
+
+    public function specializations()
+    {
+        return $this->belongsToMany('App\Specialization');
+    }
+    
+    public function sponsors()
+    {
+        return $this->belongsToMany('App\Sponsor')->withPivot('expiration_time')->withTimestamps();
+    }
+    public function incrementReadCount() {
+        $this->reads++;
+        return $this->save();
+    }
 
     /**
      * The attributes that should be hidden for arrays.
