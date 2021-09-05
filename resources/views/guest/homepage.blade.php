@@ -16,10 +16,10 @@
             }, 3000);
         </script>
     @endif
-
-
+    <h2 class="text-center text-uppercase">Medici in Evidenzia</h2>
+    
     <div class="d-flex flex-wrap justify-content-center">
-
+            
         @foreach ($doctors as $doctor)
 
             <div style="width: 300px" class="card m-3 p-3 ">
