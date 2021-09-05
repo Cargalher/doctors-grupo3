@@ -2,10 +2,6 @@
 
 
 @section('content')
-
-    {{-- titolo pagina EDIT DOCTOR --}}
-    <h1 class="text-center">Modifica profilo</h1>
-
     @include('layouts.partials.errors')
 
     <form action="{{ route('doctor.update', $doctor->id) }}" method="POST" enctype="multipart/form-data">
@@ -15,7 +11,7 @@
         <div class="form-row">
             <!-- Nome -->
             <div class="col-6">
-                <label for="name" class="font-weight-bold">Name</label>
+                <label for="name" class="font-weight-bold">Nome</label>
                 <input type="text" class="form-control" name="name" id="name" value="{{ $doctor->name }}" @error('title')
                     is-invalid @enderror placeholder="Nome..." required minlength="3" maxlength="50">
                 <small id="nameHelp" class="text-muted">Deve contenere min:3, max:50
@@ -24,7 +20,7 @@
 
             <!-- Cognome -->
             <div class="col-6">
-                <label for="lastname" class="font-weight-bold">Lastname</label>
+                <label for="lastname" class="font-weight-bold">Cognome</label>
                 <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $doctor->lastname }}"
                     @error('lastname') is-invalid @enderror placeholder="Cognome..." required minlength="3" maxlength="50">
                 <small id="lastnameHelp" class="text-muted">Deve contenere min:3, max:50
@@ -149,31 +145,35 @@ Laurea e abilitazione
 
         </div>
 
-        {{-- EMAIL DOTTORE --}}
-        <div class="form-group">
-            <label for="email" class="font-weight-bold">Mail</label>
-            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" class="form-control" name="email"
-                id="email" value="{{ $doctor->email }}" minlength="7">
-            <small id="email" class="form-text text-muted">example@gmail.it</small>
-            @error('email')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+        <div class="form-row">
+            <!-- Mail -->
+            <div class="col-6">
+                <label for="email" class="font-weight-bold">Mail</label>
+                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" class="form-control" name="email"
+                    id="email" value="{{ $doctor->email }}" minlength="7">
+                <small id="email" class="form-text text-muted">example@gmail.it</small>
 
-        {{-- TELEFONO DOTTORE --}}
-        <div class="form-group">
-            <label for="phone_number" class="font-weight-bold">Numero di telefono</label>
-            <input type="tel" pattern="^[0-9+\s]*$" class="form-control" name="phone_number" id="phone_number"
-                value="{{ $doctor->phone_number }}" minlength="9" maxlength="13" placeholder="Telefono... +39 1234567">
-            <small id="phone_number" class="form-text text-muted">Numero di Telefono, puoi utilizzare min 9,
-                max 13 caratteri </small>
-            @error('phone_number')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+                @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Telefono -->
+            <div class="col-6">
+                <label for="phone_number" class="font-weight-bold">Numero di telefono</label>
+                <input type="tel" pattern="^[0-9+\s]*$" class="form-control" name="phone_number" id="phone_number"
+                    value="{{ $doctor->phone_number }}" minlength="9" maxlength="13" placeholder="Telefono... +39 1234567">
+                <small id="phone_number" class="form-text text-muted">Numero di Telefono, puoi utilizzare min 9,
+                    max 13 caratteri </small>
+
+                @error('phone_number')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
 
         {{-- BTN INVIO FORM --}}
-        <button type="submit" class="btn btn-dark">Update</button>
+        <button type="submit" class="btn btn-dark mt-3">Update</button>
     </form>
 
 
