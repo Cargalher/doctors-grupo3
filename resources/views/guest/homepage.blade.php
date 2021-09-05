@@ -61,9 +61,9 @@
     </div>
 
     <!-- Pagination -->
-    <div class="d-flex justify-content-center">
+    {{-- <div class="d-flex justify-content-center">
         {{ $doctors->links() }}
-    </div>
+    </div> --}}
 
 
 @endsection

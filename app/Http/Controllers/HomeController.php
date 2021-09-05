@@ -17,9 +17,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $doctors = User::orderBy('id', 'DESC')->paginate(10);
-        $sponsorDoctors = User::has('sponsors')->get();
-        
+        // $doctors = User::orderBy('id', 'DESC')->paginate(10);
+        $doctors = User::has('sponsors')->get();
         $reviews = Review::all();
         return view('guest.homepage', compact('doctors','reviews'));
     }
