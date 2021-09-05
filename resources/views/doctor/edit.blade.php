@@ -41,7 +41,7 @@
             {{-- immagine precedente --}}
             <label for="name" class="font-weight-bold d-block">Inserisci la tua immagine</label>
             <img style="width: 200px" src="{{ asset('storage/' . $doctor->profile_image) }}" class="p-2"
-                alt="{{ $doctor->name . $doctor->name }}">
+                alt="{{ $doctor->name . ' ' . $doctor->lastname }}">
             <small id="nameHelp" class="text-muted">immagine di profilo attuale</small>
             {{-- immagine da editare --}}
             <input type="file" class="form-control-file @error('profile_image')is-invalid @enderror" name="profile_image"
