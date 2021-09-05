@@ -22,10 +22,10 @@
                             Recensioni</a>
                     </li>
                     <li class="nav-item nav-pills">
-                        <a class="nav-link {{ Route::currentRouteName() === 'doctor.edit' ? 'active' : '' }}"
-                            href="{{ route('doctor.edit', Auth::user()->id) }}"><i
-                                class="far fa-edit fa-lg fa-fw"></i>
-                            Edit</a>
+                        <a class="nav-link {{ Route::currentRouteName() === 'doctor.edit' ? 'active' : '' }}" href="{{ route('doctor.edit', Auth::user()->id) }}">
+                            <i class="far fa-edit fa-lg fa-fw"></i>
+                            Modifica profilo
+                        </a>
                     </li>
                     <li class="nav-item nav-pills">
                         <a class="nav-link {{ Route::currentRouteName() === 'sponsors' ? 'active' : '' }}"
