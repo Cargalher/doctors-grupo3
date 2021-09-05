@@ -7,10 +7,10 @@
 
 </main>
 
-@include('layouts/partials/footer')
-
 </div>
 
+@include('layouts/partials/footer')
+
 </body>
-<script src="{{ asset('js/app.js') }}"></script>
+
 </html>

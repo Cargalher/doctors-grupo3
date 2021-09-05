@@ -48,16 +48,17 @@
                 </ul>
             </aside>
         </div>
-        <div class="col-sm-10">
+        <main class="col-sm-10">
             @yield('content')
-        </div>
+        </main>
     </div>
+</div>
+
 </div>
 
 @include('layouts/partials/footer')
 
-</div>
 
 </body>
-<script src="{{ asset('js/app.js') }}"></script>
+
 </html>
