@@ -33,13 +33,15 @@
                         homepage!</div>
                     <div class="spons-container">
                         @foreach ($sponsors as $sponsor)
-                            <input type="radio" id="{{ $sponsor->name }}" name="amount"
-                                value="{{ $sponsor->price }}">
-                            <label class="card" for="{{ $sponsor->name }}">
-                                <div class="sponsor-name">{{ $sponsor->name }} </div>
-                                <div>durata: {{ $sponsor->duration }} giorni</div>
-                                <div>{{ $sponsor->price }} €</div>
-                            </label>
+                            <div class="card">
+                                <input type="radio" id="{{ $sponsor->name }}" name="amount"
+                                    value="{{ $sponsor->price }}">
+                                <label for="{{ $sponsor->name }}">
+                                    <div class="sponsor-name">{{ $sponsor->name }} </div>
+                                    <div>durata: {{ $sponsor->duration }} giorni</div>
+                                    <div>{{ $sponsor->price }} €</div>
+                                </label>
+                            </div>
                         @endforeach
                     </div>
                     <section>
@@ -60,10 +62,10 @@
         var client_token = "{{ $token }}";
         braintree.dropin.create({
             authorization: client_token,
-            selector: '#bt-dropin',
-            paypal: {
-                flow: 'vault'
-            }
+            selector: '#bt-dropin'
+            // paypal: {
+            //     flow: 'vault'
+            // }
         }, function(createErr, instance) {
             if (createErr) {
                 console.log('Create Error', createErr);
