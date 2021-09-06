@@ -5,9 +5,9 @@
 
 @section('content')
     {{-- messaggio di avvenuta recensione --}}
-    {{-- @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show"> <a href="#" class="close" data-dismiss="alert"
-                aria-label="close">&times;</a>{{ session('success') }}</div>
+    @if (session('success'))
+        <div id="confermaRecensione" class="alert alert-success alert-dismissible fade show"> <a href="#"
+                class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}</div>
 
         <script type="text/javascript">
             setTimeout(function() {
@@ -15,7 +15,7 @@
                 console.log('Success');
             }, 3000);
         </script>
-    @endif --}}
+    @endif
 
     {{-- dottore singolo --}}
     <div>
