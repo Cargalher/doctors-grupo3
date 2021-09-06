@@ -13,25 +13,25 @@
             <div class="col-6">
                 <label for="name" class="font-weight-bold">Nome</label>
                 <input type="text" class="form-control" name="name" id="name" value="{{ $doctor->name }}" @error('title')
-                    is-invalid @enderror placeholder="Nome..." required minlength="3" maxlength="50">
+                    is-invalid @enderror placeholder="Nome..." required autocomplete="name" autofocus minlength="3"
+                    maxlength="50">
                 <small id="nameHelp" class="text-muted">Deve contenere min:3, max:50
                     caratteri</small>
             </div>
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
             <!-- Cognome -->
             <div class="col-6">
                 <label for="lastname" class="font-weight-bold">Cognome</label>
                 <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $doctor->lastname }}"
-                    @error('lastname') is-invalid @enderror placeholder="Cognome..." required minlength="3" maxlength="50">
+                    @error('lastname') is-invalid @enderror placeholder="Cognome..." required minlength="3" maxlength="50"
+                    autofocus>
                 <small id="lastnameHelp" class="text-muted">Deve contenere min:3, max:50
                     caratteri</small>
             </div>
         </div>
-
-        @error('name')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-
         @error('lastname')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -45,7 +45,7 @@
             <small id="nameHelp" class="text-muted">immagine di profilo attuale</small>
             {{-- immagine da editare --}}
             <input type="file" class="form-control-file @error('profile_image')is-invalid @enderror" name="profile_image"
-                id="profile_image">
+                id="profile_image" autofocus>
             <small id="fileHelpId" class="form-text text-muted">Formati consentiti(jpeg, png, bmp, gif, svg,
                 webp) max: 2MB</small>
         </div>
@@ -95,12 +95,12 @@
         <div class="form-group">
             <label for="curriculum" class="font-weight-bold">Curriculum</label>
             <textarea name="curriculum" class="form-control" id="curriculum" cols="30" rows="6" placeholder="Titoli conseguiti,
-Curriculum e attività,
-Apparecchiature utilizzate,
-Patologie trattate
-Metodologie diagnostiche e terapeutiche,
-Laurea e abilitazione
-                        " {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
+            Curriculum e attività,
+            Apparecchiature utilizzate,
+            Patologie trattate
+            Metodologie diagnostiche e terapeutiche,
+            Laurea e abilitazione
+                                    " {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
             <small id="curriculum" class="form-text text-muted">Compila nella text area il tuo CV</small>
         </div>
         @error('curriculum')
@@ -112,8 +112,8 @@ Laurea e abilitazione
             <div class="col-6">
                 <label for="city" class="font-weight-bold">Città</label>
                 <input type="text" class="form-control" name="city" id="city" value="{{ $doctor->city }}" minlength="3"
-                    maxlength="50" placeholder="Città...">
-                <small id="city" class="form-text text-muted">Città, max:50 caratteri</small>
+                    maxlength="50" placeholder="Città..." autofocus>
+                <small id="cityHelp" class="form-text text-muted">Città, max:50 caratteri</small>
                 @error('city')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -123,8 +123,8 @@ Laurea e abilitazione
             <div class="col-6">
                 <label for="pv" class="font-weight-bold">Provincia</label>
                 <input type="text" class="form-control" name="pv" id="pv" value="{{ $doctor->pv }}" minlength="2"
-                    maxlength="50" placeholder="Provincia...">
-                <small id="pv" class="form-text text-muted">Provincia, puoi utilizzare min 2, max 50
+                    maxlength="50" placeholder="Provincia..." autofocus>
+                <small id="pvHelp" class="form-text text-muted">Provincia, puoi utilizzare min 2, max 50
                     caratteri</small>
                 @error('pv')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -136,8 +136,8 @@ Laurea e abilitazione
         <div class="form-group">
             <label for="address" class="font-weight-bold">Indirizzo</label>
             <input type="text" class="form-control" name="address" id="address" value="{{ $doctor->address }}"
-                minlength="5" maxlength="255" placeholder="Indirizzo...">
-            <small id="address" class="form-text text-muted">Indirizzo, puoi utilizzare min 5, max 255
+                minlength="5" maxlength="255" placeholder="Indirizzo..." autofocus>
+            <small id="addressHelp" class="form-text text-muted">Indirizzo, puoi utilizzare min 5, max 255
                 caratteri</small>
             @error('address')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -150,8 +150,8 @@ Laurea e abilitazione
             <div class="col-6">
                 <label for="email" class="font-weight-bold">Mail</label>
                 <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" class="form-control" name="email"
-                    id="email" value="{{ $doctor->email }}" minlength="7">
-                <small id="email" class="form-text text-muted">example@gmail.it</small>
+                    id="email" value="{{ $doctor->email }}" minlength="7" autofocus>
+                <small id="emailHelp" class="form-text text-muted">example@gmail.it</small>
 
                 @error('email')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -162,7 +162,8 @@ Laurea e abilitazione
             <div class="col-6">
                 <label for="phone_number" class="font-weight-bold">Numero di telefono</label>
                 <input type="tel" pattern="^[0-9+\s]*$" class="form-control" name="phone_number" id="phone_number"
-                    value="{{ $doctor->phone_number }}" minlength="9" maxlength="13" placeholder="Telefono... +39 1234567">
+                    value="{{ $doctor->phone_number }}" minlength="9" maxlength="13"
+                    placeholder="Telefono... +39 1234567" autofocus>
                 <small id="phone_number" class="form-text text-muted">Numero di Telefono, puoi utilizzare min 9,
                     max 13 caratteri </small>
 
