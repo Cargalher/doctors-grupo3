@@ -20,10 +20,7 @@
                             <tr>
                                 <td>{{$review->name}}</td>
                                 <td>{{$review->lastname}}</td>
-                                <td>
-                                    {{ substr(strip_tags($review->body), 0, 100)}}
-                                    <a href="{{route('reviews', $review->id)}}"class="readmore">{{ strlen(strip_tags($review->body)) > 50 ? '...ReadMore' : '' }} </a>
-                                </td>
+                                <td>{{$review->body}}</td>
                                 <td>{{$review->vote}}</td>
                             </tr>
                         @endif

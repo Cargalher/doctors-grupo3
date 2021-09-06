@@ -11,6 +11,7 @@
                         <th>Cognome</th>
                         <th>Mesaggio</th>
                         <th>Ricevuto</th>
+                        <th>Email</th>
                         <th>Telefono</th>
                     </tr>
                 </thead>
@@ -20,11 +21,9 @@
                             <tr>
                                 <td>{{$message->name}}</td>
                                 <td>{{$message->lastname}}</td>
-                                <td>
-                                    {{ substr(strip_tags($message->text), 0, 100)}}
-                                    <a href="{{route('messages', $message->id)}}"class="readmore">{{ strlen(strip_tags($message->text)) > 50 ? '...ReadMore' : '' }} </a>
-                                </td>
+                                <td>{{$message->text}}</td>
                                 <td>{{$message->created_at }}</td>
+                                <td>{{$message->email}}</td>
                                 <td>{{$message->phone_number}}</td>
                                 <td>
                                     <form action="" method="post">
