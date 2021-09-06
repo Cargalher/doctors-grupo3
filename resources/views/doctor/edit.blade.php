@@ -95,10 +95,10 @@
         <div class="form-group">
             <label for="curriculum" class="font-weight-bold">Curriculum</label>
             <textarea name="curriculum" class="form-control" id="curriculum" cols="30" rows="6" placeholder="Titoli conseguiti, 
-                            Apparecchiature utilizzate, 
-                            Patologie trattate, 
-                            Metodologie diagnostiche e terapeutiche, 
-                            Laurea e abilitazione" {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
+                                Apparecchiature utilizzate, 
+                                Patologie trattate, 
+                                Metodologie diagnostiche e terapeutiche, 
+                                Laurea e abilitazione" {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
             <small id="curriculum" class="form-text text-muted">Compila nella text area il tuo CV</small>
             @error('curriculum')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -162,7 +162,7 @@
                 <input type="tel" pattern="^[0-9+\s]*$" class="form-control" name="phone_number" id="phone_number"
                     value="{{ $doctor->phone_number }}" required autocomplete="phone_number" autofocus minlength="9"
                     maxlength="13" placeholder="Telefono... +39 1234567">
-                <small id="phone_number" class="form-text text-muted">Numero di Telefono, puoi utilizzare min 9,
+                <small id="phone_numberHelp" class="form-text text-muted">Numero di Telefono, puoi utilizzare min 9,
                     max 13 caratteri </small>
 
                 @error('phone_number')

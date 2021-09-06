@@ -37,31 +37,49 @@
                         {{-- NOME --}}
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="name">Nome</label>
-                            <input type="text" class="form-control validate" name="name" required minlength="3"
-                                maxlength="50">
+                            <input type="text" class="form-control validate" id="name" name="name" required
+                                autocomplete="name" autofocus placeholder="Nome..." minlength="3" maxlength="50">
+                            <small class="form-text text-muted" id="nameHelp">(*) Il Tuo Nome Deve Contenere min:3, max:50
+                                caratteri</small>
                         </div>
                         {{-- COGNOME --}}
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="lastname">Cognome</label>
-                            <input type="text" class="form-control validate" name="lastname" required minlength="3"
-                                maxlength="50">
+                            <input type="text" class="form-control validate" name="lastname" required
+                                autocomplete="lastname" autofocus placeholder="Cognome..." minlength="3" maxlength="50">
+                            <small id="lastnameHelp" class="text-form text-muted">(*) Il Tuo Cognome Deve Contenere min:3,
+                                max:50 caratteri</small>
                         </div>
                         {{-- EMAIL --}}
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="email">E-Mail</label>
-                            <input type="email" class="form-control validate" name="email" required>
+                            <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+                                class="form-control validate" required autocomplete="email" autofocus
+                                placeholder="e-mail valida...">
+                            <small id="emailHelp" class=" text-form text-muted">(*) Esempio e-mail...
+                                exemple@gmail.it</small>
+                            @error('email')
+                                <div class="alert alert-danger alert-dismissible fade show">{{ $message }}</div>
+                            @enderror
                         </div>
                         {{-- NUMERO DI TELEFONO --}}
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="phone_number">Numero di
                                 telefono</label>
-                            <input type="text" class="form-control validate" name="phone_number" required minlength="9"
-                                maxlength="10">
+                            <input type="tel" pattern="^[0-9+\s]*$" class="form-control validate" id="phone_number"
+                                name="phone_number" required autocomplete="phone_number" autofocus minlength="9"
+                                maxlength="13" placeholder="Inserisci il tuo numero di telefono">
+                            <small id="phone_numberHelp" class="form-text text-muted">(*) Numero di Telefono, puoi
+                                utilizzare
+                                min 9, max 13 caratteri </small>
                         </div>
                         {{-- MESSAGGIO --}}
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="">Messaggio</label>
-                            <textarea name="text" id="text" cols="54" rows="3" required minlength="30"></textarea>
+                            <textarea name="text" id="text" cols="54" rows="3" required minlength="30"
+                                placeholder="Inserisci il tuo messaggio..." {{ old('text') }}></textarea>
+                            <small id="textHelp" class="form-text text-muted">(*) Il Testo Deve contenere almeno 30
+                                caratteri</small>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
