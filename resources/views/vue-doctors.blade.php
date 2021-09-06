@@ -10,7 +10,7 @@
   </div>
 
   <div>
-      <button >Ordina per numero recensioni</button>
+      <button v-on:click="sorted" >Ordina per numero recensioni</button>
   </div>
 
     <div class="container">
@@ -23,6 +23,7 @@
                     <div v-for="doc_spec in doctor.specializations">
                         <h5>@{{doc_spec.name}}</h5>
                     </div>
+                    <h5>Numero recensioni: @{{doctor.reviews.length}}</h5>
                 </div>
             </div>
             <div class="card text-left mb-3 p-4" v-for="doctor in doctors" v-if="doctor.spec.includes(specialization)">
@@ -33,6 +34,7 @@
                     <div v-for="doc_spec in doctor.specializations">
                         <h5>@{{doc_spec.name}}</h5>
                     </div>
+                    <h5>Numero recensioni: @{{doctor.reviews.length}}</h5>
                 </div>
             </div>
         </div>

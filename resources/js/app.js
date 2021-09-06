@@ -39,28 +39,44 @@ const app = new Vue({
     data: {
         doctors: [],
         specializations: [],
-        specialization: ''
+        specialization: '',
+       
     },
+
+    methods: {
+
+        
+        sorted() {
+               this.doctors.forEach(el => {
+                
+                return _.orderBy(this.doctors, el.num , 'asc');
+
+               });
+           }
+
+           
+     },
+
 
     mounted() {
         Axios.get('api/doctors').then(resp => {
 
             this.doctors = resp.data;
-            
+
             this.doctors.forEach(doctor => {
+
                 doctor.spec = [];
+                doctor.num = doctor.reviews.length;
 
                 doctor.specializations.forEach(spec => {
                     doctor.spec.push(spec.name)
-                    
-                    if(!this.specializations.includes(spec.name)){
+
+                    if (!this.specializations.includes(spec.name)) {
                         this.specializations.push(spec.name)
                     }
                 });
 
-                console.log(doctor);
-
-                this.specialization = this.specializations
+                this.specialization = this.specializations;
             });
 
         }).catch(e => {

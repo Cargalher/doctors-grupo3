@@ -1917,23 +1917,32 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
     specializations: [],
     specialization: ''
   },
+  methods: {
+    sorted: function sorted() {
+      var _this = this;
+
+      this.doctors.forEach(function (el) {
+        return _.orderBy(_this.doctors, el.num, 'asc');
+      });
+    }
+  },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     Axios.get('api/doctors').then(function (resp) {
-      _this.doctors = resp.data;
+      _this2.doctors = resp.data;
 
-      _this.doctors.forEach(function (doctor) {
+      _this2.doctors.forEach(function (doctor) {
         doctor.spec = [];
+        doctor.num = doctor.reviews.length;
         doctor.specializations.forEach(function (spec) {
           doctor.spec.push(spec.name);
 
-          if (!_this.specializations.includes(spec.name)) {
-            _this.specializations.push(spec.name);
+          if (!_this2.specializations.includes(spec.name)) {
+            _this2.specializations.push(spec.name);
           }
         });
-        console.log(doctor);
-        _this.specialization = _this.specializations;
+        _this2.specialization = _this2.specializations;
       });
     })["catch"](function (e) {
       console.error('Sorry! ' + e);
