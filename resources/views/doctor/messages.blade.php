@@ -13,6 +13,7 @@
                         <th>Ricevuto</th>
                         <th>Email</th>
                         <th>Telefono</th>
+                        <th> </th>
                     </tr>
                 </thead>
                 <tbody>
