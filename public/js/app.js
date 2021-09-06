@@ -1910,14 +1910,29 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.component('example-component', __webpac
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app',
   data: {
-    doctors: null
+    doctors: [],
+    specializations: [],
+    specialization: ''
   },
   mounted: function mounted() {
     var _this = this;
 
     Axios.get('api/doctors').then(function (resp) {
-      // console.log(resp);
-      _this.doctors = resp.data;
+      var todoDoctors = resp.data;
+
+      for (var index = 0; index < todoDoctors.length; index++) {
+        _this.doctors.push(todoDoctors[index]);
+
+        var specialization = todoDoctors[index].specializations;
+
+        if (!_this.specializations.includes(specialization)) {
+          specialization.forEach(function (element) {
+            _this.specializations.push(element.name);
+          });
+        }
+      }
+
+      _this.specialization = _this.specializations;
     })["catch"](function (e) {
       console.error('Sorry! ' + e);
     });

@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-const {default: Axios} = require('axios');
+const { default: Axios } = require('axios');
 
 window.Vue = require('vue');
 
@@ -36,43 +36,84 @@ const app = new Vue({
     el: '#app',
 
     data: {
-        doctors: null
+        doctors: [],
+        specializations: [],
+        specialization:'',
     },
-    mounted(){		
-        Axios.get('api/doctors').then(resp=> {
-            // console.log(resp);
-            this.doctors = resp.data;
+
+    mounted() {
+        Axios.get('api/doctors').then(resp => {
+
+            let todoDoctors = resp.data;
+
+            for (let index = 0; index < todoDoctors.length; index++) {
+
+                this.doctors.push(todoDoctors[index])
+
+                let specialization = todoDoctors[index].specializations
+
+                if (!this.specializations.includes(specialization)) {
+
+                   
+                    specialization.forEach(element => {
+
+                        this.specializations.push(element.name)
+                        
+                    });    
+                }
+            }
+
+            this.specialization = this.specializations
+            
+
         }).catch(e => {
             console.error('Sorry! ' + e)
         })
-    }
+    },
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 // number count for stats, using jQuery animate
 $(".counting").each(function () {
-	var $this = $(this),
-		countTo = $this.attr("data-count");
+    var $this = $(this),
+        countTo = $this.attr("data-count");
 
-	$({ countNum: $this.text() }).animate(
-		{
-			countNum: countTo
-		},
+    $({ countNum: $this.text() }).animate(
+        {
+            countNum: countTo
+        },
 
-		{
-			duration: 3000,
-			easing: "linear",
-			step: function () {
-				$this.text(Math.floor(this.countNum));
-			},
-			complete: function () {
-				$this.text(this.countNum);
-				//alert('finished');
-			}
-		}
-	);
+        {
+            duration: 3000,
+            easing: "linear",
+            step: function () {
+                $this.text(Math.floor(this.countNum));
+            },
+            complete: function () {
+                $this.text(this.countNum);
+                //alert('finished');
+            }
+        }
+    );
 });
 
 // Parallax Footer

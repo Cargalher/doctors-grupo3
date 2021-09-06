@@ -59,23 +59,6 @@ class UserController extends Controller
         return view('doctor.sponsors', compact('doctor', 'sponsors'));
     }
 
-    // public function saveSponsor(Request $request, User $doctor)
-    // {
-    //     date_default_timezone_set('Europe/Rome');
-    //     $date = date("Y-m-d H:i:s");
-    //     $sponsor = Sponsor::all()->where('price', $request->amount)->first();
-    //     $sponId = $sponsor->id;
-    //     $thedate = strtotime($date . ' + ' . $sponsor->duration . 'day');
-    //     $expirationDate = date('Y-m-d H:i:s', $thedate);
-    //     $doctor->id = Auth::user()->id;
-    //     $doctor->sponsors()->attach($sponId, ['expiration_time' => $expirationDate]);
-
-
-    //     return redirect()->route('dashboard');
-
-    // }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -167,7 +150,7 @@ class UserController extends Controller
             // ddd($file_path);
 
             $doctor->specializations()->sync($request->specializations);
-            $doctor->sponsors()->sync($request->sponsors);
+            $doctor->sponsors()->attach($request->sponsors);
             $doctor->update($validate);
 
             return redirect()->route('dashboard');
