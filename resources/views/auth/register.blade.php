@@ -97,17 +97,19 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="specializations"
-                                    class="col-md-4 col-form-label text-md-right">Scegli le tue specializzazioni</label>
+                                <label for="specializations" class="col-md-4 col-form-label text-md-right">Scegli le tue
+                                    specializzazioni</label>
                                 <div style="width: 60%" id="form_check" class="form-check col-md-6 mx-3">
                                     @if ($specializations)
                                         @foreach ($specializations as $specialization)
                                             @if ($errors->any())
-                                            <input name="specializations[]" id="specializations" class="form-check-input d-block" type="checkbox"
-                                            value="{{ $specialization->id }}"
-                                            {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
+                                                <input name="specializations[]" id="specializations"
+                                                    class="form-check-input d-block" type="checkbox"
+                                                    value="{{ $specialization->id }}"
+                                                    {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
                                             @endif
-                                            <input name="specializations[]" id="specializations" class="form-check-input d-block " type="checkbox"
+                                            <input name="specializations[]" id="specializations"
+                                                class="form-check-input d-block " type="checkbox"
                                                 value="{{ $specialization->id }}">
                                             <label class="form-check-label d-block" for="specializations">
                                                 {{ $specialization->name }}
@@ -139,9 +141,10 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email"
-                                        minlength="3" maxlength="30">
+                                    <input id="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" minlength="3"
+                                        maxlength="30">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
