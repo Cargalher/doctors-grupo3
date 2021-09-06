@@ -9,7 +9,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Cognome</th>
-                        <th>Mesaggio</th>
+                        <th>Messaggio</th>
                         <th>Ricevuto</th>
                         <th>Email</th>
                         <th>Telefono</th>
