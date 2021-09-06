@@ -4,6 +4,18 @@
 
 
 @section('content')
+    {{-- messaggio di avvenuta recensione --}}
+    {{-- @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show"> <a href="#" class="close" data-dismiss="alert"
+                aria-label="close">&times;</a>{{ session('success') }}</div>
+
+        <script type="text/javascript">
+            setTimeout(function() {
+                $(".alert").alert('close')
+                console.log('Success');
+            }, 3000);
+        </script>
+    @endif --}}
 
     {{-- dottore singolo --}}
     <div>
@@ -111,45 +123,69 @@
                         {{-- NOME --}}
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="name">Nome</label>
-                            <input type="text" class="form-control validate" name="name" required minlength="3"
-                                maxlength="50">
+                            <input type="text" class="form-control validate" name="name" id="name" required
+                                autocomplete="name" autofocus minlength="3" maxlength="50"
+                                placeholder="Inserisci il tuo nome">
+                            <small id="nameHelp" class="text-form text-muted">(*) Il tuo Nome deve contenere min:3, max:50
+                                caratteri </small>
                         </div>
                         {{-- COGNOME --}}
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="lastname">Cognome</label>
-                            <input type="text" class="form-control validate" name="lastname" required minlength="3"
-                                maxlength="50">
+                            <input type="text" class="form-control validate" name="lastname" id="lastname" required
+                                autocomplete="lastname" autofocus minlength="3" maxlength="50"
+                                placeholder="Inserisci il tuo cognome">
+                            <small id="lastnameHelp" class="text-form text-muted">(*) Il tuo Cognome deve contenere min:3,
+                                max:50 caratteri</small>
                         </div>
 
                         {{-- TITLE --}}
                         <div class="md-form mb-4">
-                            <label data-error="wrong" data-success="right" for="title">Title</label>
-                            <input type="title" class="form-control validate" name="title" required>
+                            <label data-error="wrong" data-success="right" for="title">Titolo</label>
+                            <input type="title" class="form-control validate" name="title" id="title" required
+                                autocomplete="title" autofocus placeholder="Inserisci un titolo per la recensione"
+                                minlength="10">
+                            <small id="title" class="text-form text-muted">(*) Il Titolo deve contenere almeno 10
+                                caratteri</small>
                         </div>
 
                         {{-- VOTE --}}
                         <div class="md-form mb-4">
 
                             <div class="form-group">
-                                <label for="vote"></label>
-                                <select class="custom-select" name="vote" id="vote">
-                                    <option selected>Select one</option>
+                                <label for="vote">Dai un voto al Dottore</label>
+                                <select class="custom-select" name="vote" id="vote" required autofocus>
+                                    <option selected>Seleziona il tuo voto da 1 a 5</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
+                                <div class="alert alert-warning alert-dismissible fade show">
+                                    <strong>Attenzione!</strong> Devi selezionare un voto!
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                </div>
                             </div>
+
 
                         </div>
 
                         {{-- MESSAGGIO --}}
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="">Testo</label>
-                            <textarea name="body" id="body" cols="54" rows="3" required minlength="30"></textarea>
+                            <textarea name="body" id="body" cols="54" rows="3" required autocomplete="body" autofocus
+                                minlength="30" placeholder="Inserisci il tuo testo per la recensione"></textarea>
+                            <p>
+                                <small id="bodyHelp" class="text-form text-muted">
+                                    (*) Il testo delle recensione deve contenere
+                                    minimo 30 caratteri</small>
+                            </p>
+
                         </div>
                     </div>
+
+                    {{-- BOTTONE INVIA RECENSIONE --}}
                     <div class="modal-footer d-flex justify-content-center">
                         <button type="submit" class="btn custom-button">Invia recensione</button>
                     </div>
