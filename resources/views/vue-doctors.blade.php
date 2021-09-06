@@ -42,6 +42,9 @@
             <div class="card text-left mb-3 p-4" v-for="doctor in doctors" v-if="doctor.spec.includes(specialization)">
 
                 <div class="card-body p-0 mt-4">
+                    <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id " class="btn btn-primary">
+                        <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
+                    </a>
                     <h4 class="card-title">@{{ doctor . name }}</h4>
                     <h4 class="card-title">@{{ doctor . lastname }}</h4>
                     <div v-for="doc_spec in doctor.specializations">
