@@ -35,6 +35,10 @@
                                     class="fas fa-dollar-sign fa-fw"></i>
                                 Sponsor</a>
                         </li>
+                        <li class="nav-item nav-pills">
+                            <a class="nav-link {{ Route::currentRouteName() === 'statistics' ? 'active' : '' }}"
+                                href="{{ route('statistics') }}"><i class="fas fa-chart-bar fa-lg fa-fw"></i> Statistiche</a>
+                        </li>
 
                         <li class="nav-item nav-pills">
                             <form action="{{ route('doctor.destroy', Auth::user()->id) }}" class="nav-link"
@@ -64,7 +68,7 @@
 
 @include('layouts/partials/footer')
 
-
+@yield('js')
 </body>
 
 </html>
