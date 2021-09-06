@@ -167,7 +167,7 @@ class UserController extends Controller
             // ddd($file_path);
 
             $doctor->specializations()->sync($request->specializations);
-            $doctor->sponsors()->sync($request->sponsors);
+            $doctor->sponsors()->attach($request->sponsors);
             $doctor->update($validate);
 
             return redirect()->route('dashboard');
@@ -185,6 +185,7 @@ class UserController extends Controller
     public function destroy(User $doctor)
     {
         $doctor->specializations()->detach();
+        $doctor->sponsors()->detach();
         $doctor->delete();
 
         return redirect()->route("home");
