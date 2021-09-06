@@ -64,7 +64,7 @@
                                             </div>
                                         </div>
                                         <div class="block-content block-content-full block-content-sm bg-light font-size-sm">
-                                            <a class="font-w500 d-flex align-items-center" href="javascript:void(0)">
+                                            <a class="font-w500 d-flex align-items-center" href="{{ route('statistics') }}">
                                                 Ulteriori statistiche
                                                 <i class="fa fa-arrow-alt-circle-right ml-1 opacity-25 font-size-base"></i>
                                             </a>
