@@ -1,22 +1,38 @@
 @extends('layouts.app')
 @section('content')
-<div>
+
     <h2>Recensioni</h2>
+
     @if (count(Auth::user()->reviews) > 0)
-        @foreach ($reviews as $review)
-            @if (Auth::user()->id === $review->user_id)
-                <div class="my-3">
-                    <h4>{{ $review->name }}</h4>
-                    <p>{{ $review->body }}</p>
-                    <h5>Voto: {{ $review->vote }}</h5>
-                    <hr>
-                </div>
-            @endif
-        @endforeach
-    @else
-        <h4>non hai recensioni</h4>
+        <div class="table-responsive table-inverse table-striped">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Recensione</th>
+                        <th>Voto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($reviews as $review)
+                        @if (Auth::user()->id === $review->user_id)
+                            <tr>
+                                <td>{{$review->name}}</td>
+                                <td>{{$review->lastname}}</td>
+                                <td>
+                                    {{ substr(strip_tags($review->body), 0, 100)}}
+                                    <a href="{{route('reviews', $review->id)}}"class="readmore">{{ strlen(strip_tags($review->body)) > 50 ? '...ReadMore' : '' }} </a>
+                                </td>
+                                <td>{{$review->vote}}</td>
+                            </tr>
+                        @endif
+                    @endforeach
+                    @else
+                        <h4>non hai recensioni</h4>
+                </tbody>
+                    
+            </table>
+        </div>
     @endif
-
-</div>
-
 @endsection
