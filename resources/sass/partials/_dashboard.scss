@@ -13,10 +13,14 @@ section#counter-stats {
 
 
   /* Custom Layout */
-
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff !important;
+    background-color: $bgreen;
+}
   a{
     cursor: pointer;
     text-decoration: none !important;
+    color: $bgreen;
   }
 
   .row.row-deck > div > .block {
