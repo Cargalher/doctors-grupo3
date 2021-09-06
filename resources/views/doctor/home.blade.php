@@ -71,6 +71,50 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Sponsor Comprati -->
+                                @php
+                                    $activeSponsors = Auth::user()->sponsors;
+                                @endphp
+                                
+
+                                @if(count($activeSponsors) > 0)
+                                <!-- Recent Orders Table -->
+                                <div class="block-content">
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless table-striped table-vcenter">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" style="width: 120px;">Sponsor</th>
+                                                    <th class="d-none d-sm-table-cell">Created</th>
+                                                    <th class="d-none d-sm-table-cell">Expiration</th>
+                                                    <th>Status</th>
+                                                    <th class="d-none d-sm-table-cell text-right">Value</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach ($activeSponsors as $sponsor)
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center font-size-sm">
+                                                        <a class="font-w600" href="javascript:void(0)">
+                                                            <strong>{{$sponsor->name}}</strong>
+                                                        </a>
+                                                    </td>
+                                                    <td class="d-none d-sm-table-cell font-size-sm font-w600 text-muted">{{$sponsor->created_at->format('d/m/Y')}}</td>
+                                                    <td class="d-none d-sm-table-cell font-size-sm font-w600 text-muted">{{$sponsor->created_at}}</td>
+                                                    <td>
+                                                        <span class="font-size-sm font-w600 px-2 py-1 rounded  bg-danger-light text-danger">Canceled</span>
+                                                    </td>
+                                                    <td class="d-none d-sm-table-cell text-right font-size-sm">
+                                                        <strong>{{$sponsor->price}}</strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            @endforeach
+                                        </table>
+                                    </div>
+                                </div>
+                                @endif
                         
                             </div>
                             <!-- end row -->
