@@ -11,6 +11,7 @@ const { default: Axios } = require('axios');
 
 window.Vue = require('vue');
 
+import { times } from 'lodash';
 import Vue from 'vue';
 
 /**
@@ -37,6 +38,8 @@ const app = new Vue({
 
     data: {
         doctors: [],
+        specializations: [],
+        specialization: ''
     },
 
     mounted() {
@@ -49,8 +52,15 @@ const app = new Vue({
 
                 doctor.specializations.forEach(spec => {
                     doctor.spec.push(spec.name)
+                    
+                    if(!this.specializations.includes(spec.name)){
+                        this.specializations.push(spec.name)
+                    }
                 });
+
                 console.log(doctor);
+
+                this.specialization = this.specializations
             });
 
         }).catch(e => {
