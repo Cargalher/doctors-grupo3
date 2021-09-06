@@ -37,34 +37,21 @@ const app = new Vue({
 
     data: {
         doctors: [],
-        specializations: [],
-        specialization:'',
     },
 
     mounted() {
         Axios.get('api/doctors').then(resp => {
 
-            let todoDoctors = resp.data;
-
-            for (let index = 0; index < todoDoctors.length; index++) {
-
-                this.doctors.push(todoDoctors[index])
-
-                let specialization = todoDoctors[index].specializations
-
-                if (!this.specializations.includes(specialization)) {
-
-                   
-                    specialization.forEach(element => {
-
-                        this.specializations.push(element.name)
-                        
-                    });    
-                }
-            }
-
-            this.specialization = this.specializations
+            this.doctors = resp.data;
             
+            this.doctors.forEach(doctor => {
+                doctor.spec = [];
+
+                doctor.specializations.forEach(spec => {
+                    doctor.spec.push(spec.name)
+                });
+                console.log(doctor);
+            });
 
         }).catch(e => {
             console.error('Sorry! ' + e)
