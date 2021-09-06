@@ -113,17 +113,18 @@
                                 <div style="width: 60%" id="form_check" class="form-check col-md-6 mx-3">
                                     <small id="specializations" class="form-text text-muted">(*)Seleziona una o più
                                         Specializzazzioni</small>
+
                                     @if ($specializations)
                                         @foreach ($specializations as $specialization)
                                             @if ($errors->any())
                                                 <input name="specializations[]" id="specializations"
                                                     class="form-check-input d-block" type="checkbox"
-                                                    value="{{ $specialization->id }}"
+                                                    value="{{ old($specialization->id) }}"
                                                     {{ in_array($specialization->id, old('specializations')) ? 'checked' : '' }}>
                                             @endif
                                             <input name="specializations[]" id="specializations"
                                                 class="form-check-input d-block " type="checkbox"
-                                                value="{{ $specialization->id }}">
+                                                value="{{ old($specialization->id) }}">
                                             <label class="form-check-label d-block" for="specializations">
                                                 {{ $specialization->name }}
                                             </label>
