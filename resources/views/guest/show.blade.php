@@ -4,31 +4,125 @@
 
 
 @section('content')
-    {{-- messaggio di avvenuta recensione --}}
-    @if (session('success'))
-        <div id="confermaRecensione" class="alert alert-success alert-dismissible fade show"> <a href="#"
-                class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}</div>
 
-        <script type="text/javascript">
-            setTimeout(function() {
-                $(".alert").alert('close')
-                console.log('Success');
-            }, 3000);
-        </script>
-    @endif
 
-    {{-- dottore singolo --}}
-    <div>
-        <img width="200" src="{{ asset('storage/' . $user->profile_image) }}"
-            onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
-            alt="{{ $user->name . $user->name }}">
-        <h3>Dott: {{ $user->name }} {{ $user->lastname }}</h3>
+    {{-- show dottore page --}}
+    <div class="container">
+
+        {{-- messaggio di avvenuta recensione --}}
+        @if (session('success'))
+            <div id="confermaRecensione" class="alert alert-success alert-dismissible fade show"> <a href="#"
+                    class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}
+            </div>
+
+            <script type="text/javascript">
+                setTimeout(function() {
+                    $(".alert").alert('close')
+                    console.log('Success');
+                }, 3000);
+            </script>
+        @endif
+
+
+        <div class="row">
+            <div class="col-8">
+                {{-- dottore singolo --}}
+                <div>
+                    <img width="200" src="{{ asset('storage/' . $user->profile_image) }}"
+                        onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
+                        alt="{{ $user->name . $user->name }}">
+                    <h3>Dott: {{ $user->name }} {{ $user->lastname }}</h3>
+
+                </div>
+
+
+
+                {{-- pulsante per inviare un messaggio --}}
+                <button class="btn custom-button " data-toggle="modal" data-target="#modalMessage">
+                    <i class="fas fa-comment-medical"></i> Invia un messaggio
+                </button>
+            </div>
+            <div class="col-4">
+
+                <div class="bg-white rounded shadow-sm p-4 mb-4 clearfix graph-star-rating">
+                    <h5 class="mb-0 mb-4">Recensioni dei Clienti </h5>
+                    <div class="graph-star-rating-header">
+                        <div class="star-rating">
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating active"></i></a>
+                            <a href="#"><i class="icofont-ui-rating"></i></a> <b class="text-black ml-2">334</b>
+                        </div>
+                        <p class="text-black mb-4 mt-2">Rated 3.5 out of 5</p>
+                    </div>
+                    <div class="graph-star-rating-body">
+                        <div class="rating-list">
+                            <div class="rating-list-left text-black">
+                                5 Star
+                            </div>
+                            <div class="rating-list-center">
+                                <div class="progress">
+                                    <div style="width: {{ 100 }}%" aria-valuemax="5" aria-valuemin="0"
+                                        aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rating-list-right text-black">56%</div>
+                        </div>
+                        <div class="rating-list">
+                            <div class="rating-list-left text-black">
+                                4 Star
+                            </div>
+                            <div class="rating-list-center">
+                                <div class="progress">
+                                    <div style="width: 23%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
+                                        role="progressbar" class="progress-bar bg-primary">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rating-list-right text-black">23%</div>
+                        </div>
+                        <div class="rating-list">
+                            <div class="rating-list-left text-black">
+                                3 Star
+                            </div>
+                            <div class="rating-list-center">
+                                <div class="progress">
+                                    <div style="width: 11%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
+                                        role="progressbar" class="progress-bar bg-primary">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rating-list-right text-black">11%</div>
+                        </div>
+                        <div class="rating-list">
+                            <div class="rating-list-left text-black">
+                                2 Star
+                            </div>
+                            <div class="rating-list-center">
+                                <div class="progress">
+                                    <div style="width: 2%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
+                                        role="progressbar" class="progress-bar bg-primary">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rating-list-right text-black">02%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    {{-- pulsante per inviare un messaggio --}}
-    <button class="btn custom-button " data-toggle="modal" data-target="#modalMessage">
-        <i class="fas fa-comment-medical"></i> Invia un messaggio
-    </button>
+
+
+
 
     {{-- form per inviare un messaggio al dottore --}}
     @include('layouts.partials.errors')
@@ -51,7 +145,8 @@
                             <label data-error="wrong" data-success="right" for="name">Nome</label>
                             <input type="text" class="form-control validate" id="name" name="name" required
                                 autocomplete="name" autofocus placeholder="Nome..." minlength="3" maxlength="50">
-                            <small class="form-text text-muted" id="nameHelp">(*) Il Tuo Nome Deve Contenere min:3, max:50
+                            <small class="form-text text-muted" id="nameHelp">(*) Il Tuo Nome Deve Contenere min:3,
+                                max:50
                                 caratteri</small>
                         </div>
 
@@ -60,7 +155,8 @@
                             <label data-error="wrong" data-success="right" for="lastname">Cognome</label>
                             <input type="text" class="form-control validate" name="lastname" required
                                 autocomplete="lastname" autofocus placeholder="Cognome..." minlength="3" maxlength="50">
-                            <small id="lastnameHelp" class="text-form text-muted">(*) Il Tuo Cognome Deve Contenere min:3,
+                            <small id="lastnameHelp" class="text-form text-muted">(*) Il Tuo Cognome Deve Contenere
+                                min:3,
                                 max:50 caratteri</small>
                         </div>
                         {{-- EMAIL --}}
@@ -127,7 +223,8 @@
                             <input type="text" class="form-control validate" name="name" id="name" required
                                 autocomplete="name" autofocus minlength="3" maxlength="50"
                                 placeholder="Inserisci il tuo nome">
-                            <small id="nameHelp" class="text-form text-muted">(*) Il tuo Nome deve contenere min:3, max:50
+                            <small id="nameHelp" class="text-form text-muted">(*) Il tuo Nome deve contenere min:3,
+                                max:50
                                 caratteri </small>
                         </div>
                         {{-- COGNOME --}}
@@ -136,7 +233,8 @@
                             <input type="text" class="form-control validate" name="lastname" id="lastname" required
                                 autocomplete="lastname" autofocus minlength="3" maxlength="50"
                                 placeholder="Inserisci il tuo cognome">
-                            <small id="lastnameHelp" class="text-form text-muted">(*) Il tuo Cognome deve contenere min:3,
+                            <small id="lastnameHelp" class="text-form text-muted">(*) Il tuo Cognome deve contenere
+                                min:3,
                                 max:50 caratteri</small>
                         </div>
 
