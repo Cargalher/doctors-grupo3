@@ -107,7 +107,7 @@ const app = new Vue({
                 if (Number.isNaN(avarage)) {
                     doctor.avarage = 0;
                 } else {
-                    doctor.avarage = avarage;
+                    doctor.avarage = avarage.toFixed(2);
                 }
 
 

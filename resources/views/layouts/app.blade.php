@@ -103,7 +103,6 @@
 
 @include('layouts/partials/footer')
 
-@yield('js')
-</body>
+</body> 
 
 </html>
