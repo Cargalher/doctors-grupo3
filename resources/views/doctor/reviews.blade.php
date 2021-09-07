@@ -26,7 +26,13 @@
                         @endif
                     @endforeach
                     @else
-                        <h4>non hai recensioni</h4>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Non hai nessuna recensione!</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
                 </tbody>
                     
             </table>
