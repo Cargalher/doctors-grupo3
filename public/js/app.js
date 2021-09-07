@@ -1918,32 +1918,48 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
     specialization: ''
   },
   methods: {
-    sorted: function sorted() {
-      var _this = this;
+    sortTable: function sortTable(key, direction) {
+      this.sort = "".concat(key, " > ").concat(direction);
 
-      this.doctors.forEach(function (el) {
-        return _.orderBy(_this.doctors, el.num, 'asc');
-      });
+      if (direction === 'asc') {
+        this.doctors.sort(function (a, b) {
+          return a[key] > b[key] ? 1 : -1;
+        });
+      } else {
+        this.doctors.sort(function (a, b) {
+          return a[key] < b[key] ? 1 : -1;
+        });
+      }
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this = this;
 
     Axios.get('api/doctors').then(function (resp) {
-      _this2.doctors = resp.data;
+      _this.doctors = resp.data;
 
-      _this2.doctors.forEach(function (doctor) {
+      _this.doctors.forEach(function (doctor) {
+        doctor.avarage = [];
         doctor.spec = [];
         doctor.num = doctor.reviews.length;
+        var sum = doctor.reviews.reduce(function (acc, rew) {
+          return acc + rew.vote;
+        }, 0); // console.log(sum);
+
+        var avarage = Math.round(sum / doctor.num); // console.log(avarage);
+
+        doctor.avarage.push(avarage);
         doctor.specializations.forEach(function (spec) {
           doctor.spec.push(spec.name);
 
-          if (!_this2.specializations.includes(spec.name)) {
-            _this2.specializations.push(spec.name);
+          if (!_this.specializations.includes(spec.name)) {
+            _this.specializations.push(spec.name);
           }
         });
-        _this2.specialization = _this2.specializations;
+        _this.specialization = _this.specializations;
       });
+
+      console.log(_this.doctors);
     })["catch"](function (e) {
       console.error('Sorry! ' + e);
     });

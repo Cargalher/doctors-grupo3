@@ -12,11 +12,10 @@
         <script type="text/javascript">
             setTimeout(function() {
                 $(".alert").alert('close')
-                console.log('Success');
             }, 3000);
         </script>
     @endif
-    <h2 class="text-center text-uppercase">Medici in Evidenzia</h2>
+    <h2 class="text-center text-uppercase">Medici in Evidenza</h2>
     
     <div class="d-flex flex-wrap justify-content-center">
             

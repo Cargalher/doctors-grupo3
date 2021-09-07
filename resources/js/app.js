@@ -40,22 +40,19 @@ const app = new Vue({
         doctors: [],
         specializations: [],
         specialization: '',
-       
+
     },
 
     methods: {
-
-        
-        sorted() {
-               this.doctors.forEach(el => {
-                
-                return _.orderBy(this.doctors, el.num , 'asc');
-
-               });
-           }
-
-           
-     },
+        sortTable(key, direction) {
+            this.sort = `${key} > ${direction}`
+            if (direction === 'asc') {
+                this.doctors.sort((a, b) => a[key] > b[key] ? 1 : -1)
+            } else {
+                this.doctors.sort((a, b) => a[key] < b[key] ? 1 : -1)
+            }
+        }
+    },
 
 
     mounted() {
@@ -65,8 +62,21 @@ const app = new Vue({
 
             this.doctors.forEach(doctor => {
 
+                doctor.avarage = [];
                 doctor.spec = [];
                 doctor.num = doctor.reviews.length;
+
+
+
+                var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote, 0);
+                // console.log(sum);
+                var avarage = Math.round(sum / doctor.num);
+                // console.log(avarage);
+                doctor.avarage.push(avarage)
+
+
+
+
 
                 doctor.specializations.forEach(spec => {
                     doctor.spec.push(spec.name)
@@ -78,6 +88,8 @@ const app = new Vue({
 
                 this.specialization = this.specializations;
             });
+
+            console.log(this.doctors);
 
         }).catch(e => {
             console.error('Sorry! ' + e)
