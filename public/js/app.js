@@ -1930,6 +1930,19 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
           return a[key] < b[key] ? 1 : -1;
         });
       }
+    },
+    sortRew: function sortRew(key, direction) {
+      this.sort = "".concat(key, " > ").concat(direction);
+
+      if (direction === 'asc') {
+        this.doctors.sort(function (a, b) {
+          return a[key] > b[key] ? 1 : -1;
+        });
+      } else {
+        this.doctors.sort(function (a, b) {
+          return a[key] < b[key] ? 1 : -1;
+        });
+      }
     }
   },
   mounted: function mounted() {

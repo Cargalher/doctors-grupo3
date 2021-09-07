@@ -51,6 +51,14 @@ const app = new Vue({
             } else {
                 this.doctors.sort((a, b) => a[key] < b[key] ? 1 : -1)
             }
+        },
+        sortRew(key, direction) {
+            this.sort = `${key} > ${direction}`
+            if (direction === 'asc') {
+                this.doctors.sort((a, b) => a[key] > b[key] ? 1 : -1)
+            } else {
+                this.doctors.sort((a, b) => a[key] < b[key] ? 1 : -1)
+            }
         }
     },
 
