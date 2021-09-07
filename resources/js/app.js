@@ -68,7 +68,7 @@ const app = new Vue({
 
 
 
-                var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote, 0);
+                var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote);
                 // console.log(sum);
                 var avarage = Math.round(sum / doctor.num);
                 // console.log(avarage);

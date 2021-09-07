@@ -1944,7 +1944,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
         doctor.num = doctor.reviews.length;
         var sum = doctor.reviews.reduce(function (acc, rew) {
           return acc + rew.vote;
-        }, 0); // console.log(sum);
+        }); // console.log(sum);
 
         var avarage = Math.round(sum / doctor.num); // console.log(avarage);
 
