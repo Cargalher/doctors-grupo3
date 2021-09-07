@@ -43,19 +43,53 @@
                 </button>
             </div>
             <div class="col-4">
-
+                @php
+                    $star5 = [];
+                    $star4 = [];
+                    $star3 = [];
+                    $star2 = [];
+                    $star1 = [];
+                    foreach ($user->reviews as $review) {
+                        switch ($review->vote) {
+                            case 5:
+                                array_push($star5, $review->vote);
+                    
+                                break;
+                            case 4:
+                                array_push($star4, $review->vote);
+                                break;
+                            case 3:
+                                array_push($star3, $review->vote);
+                                break;
+                            case 2:
+                                array_push($star2, $review->vote);
+                                break;
+                            case 1:
+                                array_push($star1, $review->vote);
+                                break;
+                        }
+                    }
+                    
+                    $cinquestelle = (count($star5) * 100) / count($user->reviews);
+                    $quattrostelle = (count($star4) * 100) / count($user->reviews);
+                    $trestelle = (count($star3) * 100) / count($user->reviews);
+                    $duestelle = (count($star2) * 100) / count($user->reviews);
+                    $unastella = (count($star1) * 100) / count($user->reviews);
+                    $sum5 = array_sum($star5);
+                    $sum4 = array_sum($star4);
+                    $sum3 = array_sum($star3);
+                    $sum2 = array_sum($star2);
+                    $sum1 = array_sum($star1);
+                    $totalSum = ($sum5 + $sum4 + $sum3 + $sum2 + $sum1) / count($user->reviews);
+                    
+                @endphp
                 <div class="bg-white rounded shadow-sm p-4 mb-4 clearfix graph-star-rating">
                     <h5 class="mb-0 mb-4">Recensioni dei Clienti </h5>
                     <div class="graph-star-rating-header">
                         <div class="star-rating">
-                            <a href="#"><i class="icofont-ui-rating active"></i></a>
-                            <a href="#"><i class="icofont-ui-rating active"></i></a>
-                            <a href="#"><i class="icofont-ui-rating active"></i></a>
-                            <a href="#"><i class="icofont-ui-rating active"></i></a>
-                            <a href="#"><i class="icofont-ui-rating"></i></a> <b class="text-black ml-2">
-                                {{ count(Auth::user()->reviews) }}</b>
+                            <b>Numero totale recensioni: {{ count($user->reviews) }}</b>
                         </div>
-                        <p class="text-black mb-4 mt-2">Rated 3.5 out of 5</p>
+                        <p class="text-black mb-4 mt-2">Media voti {{ round($totalSum, 1) }} su 5</p>
                     </div>
                     <div class="graph-star-rating-body">
                         <div class="rating-list">
@@ -64,13 +98,13 @@
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
-                                    <div style="width: {{ 100 }}%" aria-valuemax="5" aria-valuemin="0"
+                                    <div style="width: {{ $cinquestelle }}%" aria-valuemax="5" aria-valuemin="0"
                                         aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
                                         <span class="sr-only">80% Complete (danger)</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="rating-list-right text-black">56%</div>
+                            <div class="rating-list-right text-black">{{ round($cinquestelle) }}%</div>
                         </div>
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
@@ -78,13 +112,13 @@
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
-                                    <div style="width: {{ 23 }}%" aria-valuemax="5" aria-valuemin="0"
+                                    <div style="width: {{ $quattrostelle }}%" aria-valuemax="5" aria-valuemin="0"
                                         aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
                                         <span class="sr-only">80% Complete (danger)</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="rating-list-right text-black">23%</div>
+                            <div class="rating-list-right text-black">{{ round($quattrostelle) }}%</div>
                         </div>
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
@@ -92,13 +126,13 @@
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
-                                    <div style="width: 11%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
-                                        role="progressbar" class="progress-bar bg-primary">
+                                    <div style="width: {{ $trestelle }}%" aria-valuemax="5" aria-valuemin="0"
+                                        aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
                                         <span class="sr-only">80% Complete (danger)</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="rating-list-right text-black">11%</div>
+                            <div class="rating-list-right text-black">{{ round($trestelle) }}%</div>
                         </div>
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
@@ -106,13 +140,27 @@
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
-                                    <div style="width: 2%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
-                                        role="progressbar" class="progress-bar bg-primary">
+                                    <div style="width: {{ $duestelle }}%" aria-valuemax="5" aria-valuemin="0"
+                                        aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
                                         <span class="sr-only">80% Complete (danger)</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="rating-list-right text-black">02%</div>
+                            <div class="rating-list-right text-black">{{ round($duestelle) }}%</div>
+                        </div>
+                        <div class="rating-list">
+                            <div class="rating-list-left text-black">
+                                1 Star
+                            </div>
+                            <div class="rating-list-center">
+                                <div class="progress">
+                                    <div style="width: {{ $unastella }}%" aria-valuemax="5" aria-valuemin="0"
+                                        aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
+                                        <span class="sr-only">80% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rating-list-right text-black">{{ round($unastella, 0) }}%</div>
                         </div>
                     </div>
                 </div>
