@@ -13,18 +13,18 @@
 
     <div>
         <h4>Ordina per numero recensioni</h4>
-        <button class="d-block" v-on:click="sortTable('num', 'desc')"><i class="fas fa-chevron-up"></i></button>
-        <button class="d-block" v-on:click="sortTable('num', 'asc')"><i class="fas fa-chevron-down"></i></button>
+        <button class="d-block" v-on:click="sortedRewUp()"><i class="fas fa-chevron-up"></i></button>
+        <button class="d-block" v-on:click="sortedRewDown()"><i class="fas fa-chevron-down"></i></button>
     </div>
     <div>
         <h4>Ordina per media recensioni</h4>
-        <button class="d-block" v-on:click="sortTable('avarage', 'desc')"><i class="fas fa-chevron-up"></i></button>
-        {{-- <button class="d-block" v-on:click="sortTable('avarege', 'asc')"><i class="fas fa-chevron-down"></i></button> --}}
+        <button class="d-block" v-on:click="sortedAvarageUp()"><i class="fas fa-chevron-up"></i></button>
+        <button class="d-block" v-on:click="sortedAvarageDown()"><i class="fas fa-chevron-down"></i></button>
     </div>
 
     <div class="container">
         <div class="container d-flex flex-wrap">
-            <div class="card text-left mb-3 p-4" v-for="doctor in doctors" v-if="specialization === specializations">
+            <div class="card text-left mb-3 p-4" v-for="doctor in sponsDoc(doctors)" v-if="specialization === specializations">
 
                 <div class="card-body p-0 mt-4">
                     <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id " class="btn btn-primary">
@@ -35,11 +35,12 @@
                     <div v-for="doc_spec in doctor.specializations">
                         <h5>@{{ doc_spec . name }}</h5>
                     </div>
+                    <h4>Sponsor Attivi: @{{doctor.sponsors.length}}</h4>
                     <h5>Media Recensioni: @{{doctor.avarage}}</h5>
                     <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
                 </div>
             </div>
-            <div class="card text-left mb-3 p-4" v-for="doctor in doctors" v-if="doctor.spec.includes(specialization)">
+            <div class="card text-left mb-3 p-4" v-for="doctor in sponsDoc(doctors)" v-if="doctor.spec.includes(specialization)">
 
                 <div class="card-body p-0 mt-4">
                     <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id " class="btn btn-primary">
@@ -50,6 +51,7 @@
                     <div v-for="doc_spec in doctor.specializations">
                         <h5>@{{ doc_spec . name }}</h5>
                     </div>
+                    <h4>Sponsor Attivi: @{{doctor.sponsors.length}}</h4>
                     <h5>Media Recensioni: @{{doctor.avarage}}</h5>
                     <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
 

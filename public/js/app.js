@@ -1918,17 +1918,40 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
     specialization: ''
   },
   methods: {
-    sortTable: function sortTable(key, direction) {
-      // this.sort = `${key} > ${direction}`
-      if (direction === 'asc') {
-        this.doctors.sort(function (a, b) {
-          return a[key] > b[key] ? 1 : -1;
-        });
-      } else {
-        this.doctors.sort(function (a, b) {
-          return a[key] < b[key] ? 1 : -1;
-        });
-      }
+    sponsDoc: function sponsDoc(arr) {
+      // Set slice() to avoid to generate an infinite loop!
+      return arr.slice().sort(function (a, b) {
+        return b.sponAtt - a.sponAtt; // => dal meno al piu recente
+        // return b.year - a.year; => dal piu recente al meno
+      });
+    }
+  },
+  computed: {
+    // Ordina per numero recensioni
+    sortedRewUp: function sortedRewUp() {
+      this.doctors.sort(function (a, b) {
+        return b.num - a.num;
+      });
+      return this.doctors;
+    },
+    sortedRewDown: function sortedRewDown() {
+      this.doctors.sort(function (a, b) {
+        return a.num - b.num;
+      });
+      return this.doctors;
+    },
+    // Ordina per media recensioni
+    sortedAvarageUp: function sortedAvarageUp() {
+      this.doctors.sort(function (a, b) {
+        return b.avarage - a.avarage;
+      });
+      return this.doctors;
+    },
+    sortedAvarageDown: function sortedAvarageDown() {
+      this.doctors.sort(function (a, b) {
+        return a.avarage - b.avarage;
+      });
+      return this.doctors;
     }
   },
   mounted: function mounted() {
@@ -1938,13 +1961,14 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
       _this.doctors = resp.data;
 
       _this.doctors.forEach(function (doctor) {
+        doctor.sponAtt = doctor.sponsors.length;
         doctor.spec = [];
         doctor.num = doctor.reviews.length;
         var sum = doctor.reviews.reduce(function (acc, rew) {
           return acc + rew.vote;
         }, 0); // console.log(sum);
 
-        var avarage = Math.round(sum / doctor.num);
+        var avarage = sum / doctor.num;
 
         if (Number.isNaN(avarage)) {
           doctor.avarage = 0;

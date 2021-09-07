@@ -44,16 +44,48 @@ const app = new Vue({
     },
 
     methods: {
-        sortTable(key, direction) {
-            // this.sort = `${key} > ${direction}`
-            if (direction === 'asc') {
-                this.doctors.sort((a, b) => a[key] > b[key] ? 1 : -1)
-            } else {
-                this.doctors.sort((a, b) => a[key] < b[key] ? 1 : -1)
-            }
+
+        sponsDoc: function(arr) {
+          // Set slice() to avoid to generate an infinite loop!
+          return arr.slice().sort(function(a, b) {
+
+            return b.sponAtt - a.sponAtt; // => dal meno al piu recente
+            // return b.year - a.year; => dal piu recente al meno
+          });
+          
+        }
+
+      },
+
+    computed: {
+
+        // Ordina per numero recensioni
+        sortedRewUp: function () {
+            this.doctors.sort((a, b) => {
+                return (b.num) - (a.num);
+            });
+            return this.doctors;
+        },
+        sortedRewDown: function () {
+            this.doctors.sort((a, b) => {
+                return (a.num) - (b.num);
+            });
+            return this.doctors;
         },
 
-        
+        // Ordina per media recensioni
+        sortedAvarageUp: function () {
+            this.doctors.sort((a, b) => {
+                return (b.avarage) - (a.avarage);
+            });
+            return this.doctors;
+        },
+        sortedAvarageDown: function () {
+            this.doctors.sort((a, b) => {
+                return (a.avarage) - (b.avarage);
+            });
+            return this.doctors;
+        }
     },
 
 
@@ -64,27 +96,29 @@ const app = new Vue({
 
             this.doctors.forEach(doctor => {
 
+                doctor.sponAtt = doctor.sponsors.length;
+
                 doctor.spec = [];
                 doctor.num = doctor.reviews.length;
-
-
-
+                
                 var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote, 0);
                 // console.log(sum);
-                var avarage = Math.round(sum / doctor.num);
-                if(Number.isNaN(avarage)){
+                var avarage = sum / doctor.num;
+                if (Number.isNaN(avarage)) {
                     doctor.avarage = 0;
-                }else{
+                } else {
                     doctor.avarage = avarage;
                 }
-                
+
 
                 doctor.specializations.forEach(spec => {
+
                     doctor.spec.push(spec.name)
 
                     if (!this.specializations.includes(spec.name)) {
                         this.specializations.push(spec.name)
                     }
+
                 });
 
                 this.specialization = this.specializations;
@@ -95,6 +129,8 @@ const app = new Vue({
         }).catch(e => {
             console.error('Sorry! ' + e)
         })
+
+        
     },
 
 
