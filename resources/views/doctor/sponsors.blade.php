@@ -4,18 +4,18 @@
     <main>
         <div class="title">
             <button class="button-none">
-                <a href="{{ route('dashboard', Auth::user()->id) }}"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route('dashboard', compact('user')) }}"><i class="fas fa-arrow-left"></i></a>
             </button>
             Sponsorizzazioni
         </div>
         <form class="card" method="post" id="payment-form" style="padding: 20px"
-            action="{{ route('checkout', Auth::user()->id) }}">
+            action="{{ route('checkout', compact('user')) }}">
             @csrf
             @method('POST')
             @if (session('success_message'))
                 <div class="alert alert-success">
                     {{ session('success_message') }}
-                    <a href="{{ route('dashboard', Auth::user()->id) }}">Torna alla dashboard</a>
+                    <a href="{{ route('dashboard', compact('user')) }}">Torna alla dashboard</a>
                 </div>
             @endif
             @if (count($errors) > 0)
@@ -62,10 +62,10 @@
         var client_token = "{{ $token }}";
         braintree.dropin.create({
             authorization: client_token,
-            selector: '#bt-dropin'
-            // paypal: {
-            //     flow: 'vault'
-            // }
+            selector: '#bt-dropin',
+            paypal: {
+                flow: 'vault'
+            }
         }, function(createErr, instance) {
             if (createErr) {
                 console.log('Create Error', createErr);

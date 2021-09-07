@@ -54,6 +54,7 @@
                             <small class="form-text text-muted" id="nameHelp">(*) Il Tuo Nome Deve Contenere min:3, max:50
                                 caratteri</small>
                         </div>
+
                         {{-- COGNOME --}}
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="lastname">Cognome</label>

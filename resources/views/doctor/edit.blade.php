@@ -25,7 +25,7 @@
             <!-- Cognome -->
             <div class="col-6">
                 <label for="lastname" class="font-weight-bold">Cognome</label>
-                <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $doctor->lastname }}"
+                <input type="text" class="form-control " name="lastname" id="lastname" value="{{ $doctor->lastname }}"
                     @error('lastname') is-invalid @enderror placeholder="Cognome..." required autocomplete="lastname"
                     autofocus minlength="3" maxlength="50">
                 <small id="lastnameHelp" class="text-muted">Deve contenere min:3, max:50
@@ -95,10 +95,11 @@
         <div class="form-group">
             <label for="curriculum" class="font-weight-bold">Curriculum</label>
             <textarea name="curriculum" class="form-control" id="curriculum" cols="30" rows="6" placeholder="Titoli conseguiti, 
-                                Apparecchiature utilizzate, 
-                                Patologie trattate, 
-                                Metodologie diagnostiche e terapeutiche, 
-                                Laurea e abilitazione" {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
+                                            Apparecchiature utilizzate, 
+                                            Patologie trattate, 
+                                            Metodologie diagnostiche e terapeutiche, 
+                                            Laurea e abilitazione"
+                {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
             <small id="curriculum" class="form-text text-muted">Compila nella text area il tuo CV</small>
             @error('curriculum')
                 <div class="alert alert-danger">{{ $message }}</div>
