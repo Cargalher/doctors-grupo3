@@ -52,7 +52,8 @@
                             <a href="#"><i class="icofont-ui-rating active"></i></a>
                             <a href="#"><i class="icofont-ui-rating active"></i></a>
                             <a href="#"><i class="icofont-ui-rating active"></i></a>
-                            <a href="#"><i class="icofont-ui-rating"></i></a> <b class="text-black ml-2">334</b>
+                            <a href="#"><i class="icofont-ui-rating"></i></a> <b class="text-black ml-2">
+                                {{ count(Auth::user()->reviews) }}</b>
                         </div>
                         <p class="text-black mb-4 mt-2">Rated 3.5 out of 5</p>
                     </div>
@@ -77,8 +78,8 @@
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
-                                    <div style="width: 23%" aria-valuemax="5" aria-valuemin="0" aria-valuenow="5"
-                                        role="progressbar" class="progress-bar bg-primary">
+                                    <div style="width: {{ 23 }}%" aria-valuemax="5" aria-valuemin="0"
+                                        aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
                                         <span class="sr-only">80% Complete (danger)</span>
                                     </div>
                                 </div>
