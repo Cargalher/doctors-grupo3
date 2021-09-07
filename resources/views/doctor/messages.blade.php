@@ -37,7 +37,15 @@
                         @endif
                     @endforeach
                     @else
-                        <h4>non ci sono messaggi</h4>
+                    <!-- <div class="alert alert-primary" role="alert">
+                    <h4>non ci sono messaggi <i class="fas fa-envelope"></i></h4>
+                    </div> -->
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Non ci sono Messaggi!</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </tbody>
             </table>
         </div>
