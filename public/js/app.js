@@ -1919,21 +1919,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
   },
   methods: {
     sortTable: function sortTable(key, direction) {
-      this.sort = "".concat(key, " > ").concat(direction);
-
-      if (direction === 'asc') {
-        this.doctors.sort(function (a, b) {
-          return a[key] > b[key] ? 1 : -1;
-        });
-      } else {
-        this.doctors.sort(function (a, b) {
-          return a[key] < b[key] ? 1 : -1;
-        });
-      }
-    },
-    sortRew: function sortRew(key, direction) {
-      this.sort = "".concat(key, " > ").concat(direction);
-
+      // this.sort = `${key} > ${direction}`
       if (direction === 'asc') {
         this.doctors.sort(function (a, b) {
           return a[key] > b[key] ? 1 : -1;
@@ -1959,8 +1945,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
         }, 0); // console.log(sum);
 
         var avarage = Math.round(sum / doctor.num);
-        doctor.avarage = avarage;
-        console.log(avarage); // doctor.avarage.push(avarage)
+
+        if (Number.isNaN(avarage)) {
+          doctor.avarage = 0;
+        } else {
+          doctor.avarage = avarage;
+        }
 
         doctor.specializations.forEach(function (spec) {
           doctor.spec.push(spec.name);

@@ -45,21 +45,15 @@ const app = new Vue({
 
     methods: {
         sortTable(key, direction) {
-            this.sort = `${key} > ${direction}`
+            // this.sort = `${key} > ${direction}`
             if (direction === 'asc') {
                 this.doctors.sort((a, b) => a[key] > b[key] ? 1 : -1)
             } else {
                 this.doctors.sort((a, b) => a[key] < b[key] ? 1 : -1)
             }
         },
-        sortRew(key, direction) {
-            this.sort = `${key} > ${direction}`
-            if (direction === 'asc') {
-                this.doctors.sort((a, b) => a[key] > b[key] ? 1 : -1)
-            } else {
-                this.doctors.sort((a, b) => a[key] < b[key] ? 1 : -1)
-            }
-        }
+
+        
     },
 
 
@@ -70,7 +64,6 @@ const app = new Vue({
 
             this.doctors.forEach(doctor => {
 
-                
                 doctor.spec = [];
                 doctor.num = doctor.reviews.length;
 
@@ -79,14 +72,12 @@ const app = new Vue({
                 var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote, 0);
                 // console.log(sum);
                 var avarage = Math.round(sum / doctor.num);
-
-                doctor.avarage = avarage;
-                console.log(avarage);
-                // doctor.avarage.push(avarage)
-
-
-
-
+                if(Number.isNaN(avarage)){
+                    doctor.avarage = 0;
+                }else{
+                    doctor.avarage = avarage;
+                }
+                
 
                 doctor.specializations.forEach(spec => {
                     doctor.spec.push(spec.name)
