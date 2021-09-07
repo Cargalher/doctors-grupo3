@@ -1,6 +1,8 @@
 @extends('layouts.guest')
 
 @section('content')
+
+
 <div id="seleziona" class="text-center mb-2">
     <label class="d-block mb-2 text-white-50" for="genere">Seleziona specialization</label>
     <select name="specialization" id="specialization" v-model="specialization">
