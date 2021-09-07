@@ -1,5 +1,5 @@
 <body>
-    <div id="app">
+    <header>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -27,7 +27,8 @@
                             </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }} <i class="far fa-user-circle"></i></a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }} <i
+                                    class="far fa-user-circle"></i></a>
                         </li>
 
                     @else
@@ -42,7 +43,7 @@
                                     {{ __('DashBoard') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
+                                                    document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -57,3 +58,4 @@
             </div>
 
         </nav>
+    </header>

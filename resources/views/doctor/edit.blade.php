@@ -95,10 +95,10 @@
         <div class="form-group">
             <label for="curriculum" class="font-weight-bold">Curriculum</label>
             <textarea name="curriculum" class="form-control" id="curriculum" cols="30" rows="6" placeholder="Titoli conseguiti, 
-                                            Apparecchiature utilizzate, 
-                                            Patologie trattate, 
-                                            Metodologie diagnostiche e terapeutiche, 
-                                            Laurea e abilitazione"
+                                                Apparecchiature utilizzate, 
+                                                Patologie trattate, 
+                                                Metodologie diagnostiche e terapeutiche, 
+                                                Laurea e abilitazione"
                 {{ old('curriculum') }}>{{ $doctor->curriculum }}</textarea>
             <small id="curriculum" class="form-text text-muted">Compila nella text area il tuo CV</small>
             @error('curriculum')
@@ -175,6 +175,5 @@
         {{-- BTN INVIO FORM --}}
         <button type="submit" class="btn btn-dark mt-3">Update</button>
     </form>
-
 
 @endsection

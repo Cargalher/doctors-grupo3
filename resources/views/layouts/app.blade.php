@@ -2,6 +2,7 @@
 
 @include('layouts/partials/header')
 
+
 <div style="background-color: white">
     <div class="container py-5">
         <div class="row">
@@ -47,54 +48,56 @@
                                 </button>
                             </form>
                         </li> -->
-                        
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-trash fa-xs fa-fw"></i>
-                                Cancella Profilo
-                            </button>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-exclamation-triangle text-warning"></i> Sei sicuro di cancellare il tuo profilo?</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Sei sicuro di eliminare? Questo processo è irreversibile.
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                                            <form action="{{ route('doctor.destroy', Auth::user()->id) }}" class="nav-link"
-                                                method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Cancella</button>
-                                            </form>
-                                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                            <i class="fas fa-trash fa-xs fa-fw"></i>
+                            Cancella Profilo
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle"><i
+                                                class="fas fa-exclamation-triangle text-warning"></i> Sei sicuro di
+                                            cancellare il tuo profilo?</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Sei sicuro di eliminare? Questo processo è irreversibile.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Annulla</button>
+                                        <form action="{{ route('doctor.destroy', Auth::user()->id) }}"
+                                            class="nav-link" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Cancella</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </ul>
                 </aside>
             </div>
+
             <main class="col-sm-10">
                 @yield('content')
             </main>
         </div>
     </div>
-
 </div>
-
-</div>
-
 
 @include('layouts/partials/footer')
-
 
 </body>
 

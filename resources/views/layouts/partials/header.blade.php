@@ -1,11 +1,12 @@
-<div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-     
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img width="222" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,11 +41,12 @@
                                     {{ __('HomePage') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
+                                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
                                     @csrf
                                 </form>
                             </div>
@@ -52,5 +54,7 @@
                     @endguest
                 </ul>
             </div>
-      
-    </nav>
+
+        </nav>
+
+    </header>

@@ -1,60 +1,59 @@
-@extends('layouts.guest')
+@extends('layouts.app')
 @section('content')
 
-    <main>
-        <div class="title">
-            <button class="button-none">
-                <a href="{{ route('dashboard', compact('user')) }}"><i class="fas fa-arrow-left"></i></a>
-            </button>
-            Sponsorizzazioni
-        </div>
-        <form class="card" method="post" id="payment-form" style="padding: 20px"
-            action="{{ route('checkout', compact('user')) }}">
-            @csrf
-            @method('POST')
-            @if (session('success_message'))
-                <div class="alert alert-success">
-                    {{ session('success_message') }}
-                    <a href="{{ route('dashboard', compact('user')) }}">Torna alla dashboard</a>
-                </div>
-            @endif
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            @if (!session('success_message'))
-                <div class="form-content">
-                    <div class="text">Scegli una sponsorizzazione per apparire tra i medici in evidenza nella
-                        homepage!</div>
-                    <div class="spons-container">
-                        @foreach ($sponsors as $sponsor)
-                            <div class="card">
-                                <input type="radio" id="{{ $sponsor->name }}" name="amount"
-                                    value="{{ $sponsor->price }}">
-                                <label for="{{ $sponsor->name }}">
-                                    <div class="sponsor-name">{{ $sponsor->name }} </div>
-                                    <div>durata: {{ $sponsor->duration }} giorni</div>
-                                    <div>{{ $sponsor->price }} €</div>
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
-                    <section>
-                        <div class="bt-drop-in-wrapper">
-                            <div id="bt-dropin"></div>
+
+    <div class="title">
+        <button class="button-none">
+            <a href="{{ route('dashboard', compact('user')) }}"><i class="fas fa-arrow-left"></i></a>
+        </button>
+        Sponsorizzazioni
+    </div>
+    <form class="card" method="post" id="payment-form" style="padding: 20px"
+        action="{{ route('checkout', compact('user')) }}">
+        @csrf
+        @method('POST')
+        @if (session('success_message'))
+            <div class="alert alert-success">
+                {{ session('success_message') }}
+                <a href="{{ route('dashboard', compact('user')) }}">Torna alla dashboard</a>
+            </div>
+        @endif
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (!session('success_message'))
+            <div class="form-content">
+                <div class="text">Scegli una sponsorizzazione per apparire tra i medici in evidenza nella
+                    homepage!</div>
+                <div class="spons-container">
+                    @foreach ($sponsors as $sponsor)
+                        <div class="card">
+                            <input type="radio" id="{{ $sponsor->name }}" name="amount" value="{{ $sponsor->price }}">
+                            <label for="{{ $sponsor->name }}">
+                                <div class="sponsor-name">{{ $sponsor->name }} </div>
+                                <div>durata: {{ $sponsor->duration }} giorni</div>
+                                <div>{{ $sponsor->price }} €</div>
+                            </label>
                         </div>
-                    </section>
-                    <input id="nonce" name="payment_method_nonce" type="hidden" />
-                    <button class="custom-button" type="submit"><span>Procedi al pagamento</span></button>
+                    @endforeach
                 </div>
-            @endif
-        </form>
-    </main>
+                <section>
+                    <div class="bt-drop-in-wrapper">
+                        <div id="bt-dropin"></div>
+                    </div>
+                </section>
+                <input id="nonce" name="payment_method_nonce" type="hidden" />
+                <button class="custom-button" type="submit"><span>Procedi al pagamento</span></button>
+            </div>
+        @endif
+    </form>
+
 
     <script src="https://js.braintreegateway.com/web/dropin/1.27.0/js/dropin.min.js"></script>
     <script>
@@ -88,7 +87,3 @@
     </script>
 
 @endsection
-
-</body>
-
-</html>
