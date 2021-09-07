@@ -1952,16 +1952,16 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
       _this.doctors = resp.data;
 
       _this.doctors.forEach(function (doctor) {
-        doctor.avarage = [];
         doctor.spec = [];
         doctor.num = doctor.reviews.length;
         var sum = doctor.reviews.reduce(function (acc, rew) {
           return acc + rew.vote;
-        }); // console.log(sum);
+        }, 0); // console.log(sum);
 
-        var avarage = Math.round(sum / doctor.num); // console.log(avarage);
+        var avarage = Math.round(sum / doctor.num);
+        doctor.avarage = avarage;
+        console.log(avarage); // doctor.avarage.push(avarage)
 
-        doctor.avarage.push(avarage);
         doctor.specializations.forEach(function (spec) {
           doctor.spec.push(spec.name);
 

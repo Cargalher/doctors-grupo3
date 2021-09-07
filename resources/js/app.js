@@ -70,17 +70,19 @@ const app = new Vue({
 
             this.doctors.forEach(doctor => {
 
-                doctor.avarage = [];
+                
                 doctor.spec = [];
                 doctor.num = doctor.reviews.length;
 
 
 
-                var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote);
+                var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote, 0);
                 // console.log(sum);
                 var avarage = Math.round(sum / doctor.num);
-                // console.log(avarage);
-                doctor.avarage.push(avarage)
+
+                doctor.avarage = avarage;
+                console.log(avarage);
+                // doctor.avarage.push(avarage)
 
 
 

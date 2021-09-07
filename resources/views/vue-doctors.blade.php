@@ -16,11 +16,11 @@
         <button class="d-block" v-on:click="sortTable('num', 'desc')"><i class="fas fa-chevron-up"></i></button>
         <button class="d-block" v-on:click="sortTable('num', 'asc')"><i class="fas fa-chevron-down"></i></button>
     </div>
-    <div>
+    {{-- <div>
         <h4>Ordina per media recensioni</h4>
-        <button class="d-block" v-on:click="sortRew('avarage', 'asc')"><i class="fas fa-chevron-down"></i></button>
-        {{-- <button class="d-block" v-on:click="sortRew('avarege', 'asc')"><i class="fas fa-chevron-down"></i></button> --}}
-    </div>
+        <button class="d-block" v-on:click="sortRew('avarage', 'desc')"><i class="fas fa-chevron-up"></i></button>
+        <button class="d-block" v-on:click="sortRew('avarege', 'asc')"><i class="fas fa-chevron-down"></i></button>
+    </div> --}}
 
     <div class="container">
         <div class="container d-flex flex-wrap">
@@ -35,9 +35,7 @@
                     <div v-for="doc_spec in doctor.specializations">
                         <h5>@{{ doc_spec . name }}</h5>
                     </div>
-                    <div v-for="rew in doctor.reviews">
-                        <h5>@{{ rew . vote }}</h5>
-                    </div>
+                    <h5>Media Recensioni: @{{doctor.avarage}}</h5>
                     <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
                 </div>
             </div>
@@ -52,9 +50,7 @@
                     <div v-for="doc_spec in doctor.specializations">
                         <h5>@{{ doc_spec . name }}</h5>
                     </div>
-                    <div v-for="rew in doctor.reviews">
-                        <h5>@{{ rew . vote }}</h5>
-                    </div>
+                    <h5>@{{doctor.avarage}}</h5>
                     <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
 
                 </div>
