@@ -51,7 +51,7 @@
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
                                 <i class="fas fa-trash fa-xs fa-fw"></i>
-                                Delete Account
+                                Cancella Profilo
                             </button>
 
                             <!-- Modal -->
@@ -59,21 +59,21 @@
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-exclamation-triangle text-warning"></i> Are you sure you want to Delete your Account?</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-exclamation-triangle text-warning"></i> Sei sicuro di cancellare il tuo profilo?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            Do you really want to delete these records? This process cannot be undone.
+                                            Sei sicuro di eliminare? Questo processo è irreversibile.
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
                                             <form action="{{ route('doctor.destroy', Auth::user()->id) }}" class="nav-link"
                                                 method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger">Cancella</button>
                                             </form>
                                         </div>
                                     </div>
