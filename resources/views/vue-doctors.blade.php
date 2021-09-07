@@ -18,8 +18,8 @@
     </div>
     <div>
         <h4>Ordina per media recensioni</h4>
-        <button class="d-block" v-on:click="sortRew('avarage', 'asc')"><i class="fas fa-chevron-down"></button>
-        {{-- <button class="d-block" v-on:click="sortRew('avarege', 'desc')"><i class="fas fa-chevron-up"></i></button> --}}
+        <button class="d-block" v-on:click="sortRew('avarage', 'asc')"><i class="fas fa-chevron-down"></i></button>
+        {{-- <button class="d-block" v-on:click="sortRew('avarege', 'asc')"><i class="fas fa-chevron-down"></i></button> --}}
     </div>
 
     <div class="container">
