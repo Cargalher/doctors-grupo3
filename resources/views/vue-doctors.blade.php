@@ -1,7 +1,17 @@
 @extends('layouts.guest')
 
 @section('content')
+<<<<<<< HEAD
+||||||| e9daced
+    <div class="container">
+        <div class="container d-flex flex-wrap">
+            <div class="card text-left mb-3 p-4" v-for="doctor in doctors">
+                <div class="card-body p-0 mt-4">
+=======
+    <div id="app">
+>>>>>>> Dashboard
 
+<<<<<<< HEAD
 <div id="app">
     <div id="seleziona" class="text-center mb-2">
         <label class="d-block mb-2 text-white-50" for="genere">Seleziona specialization</label>
@@ -56,9 +66,30 @@
                         <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
     
                     </div>
+||||||| e9daced
+                    <h4 class="card-title">@{{ doctor.name }}</h4>
+                    <h4 class="card-title">@{{ doctor.lastname }}</h4>
+=======
+        <div class="container">
+            <div class="container d-flex flex-wrap">
+                <div class="card text-left mb-3 p-4" v-for="doctor in doctors">
+                    <div class="card-body p-0 mt-4">
+
+                        <h4 class="card-title">@{{ doctor . name }}</h4>
+                        <h4 class="card-title">@{{ doctor . lastname }}</h4>
+                    </div>
+>>>>>>> Dashboard
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 </div>
 
 @endsection
+||||||| e9daced
+    </div>
+@endsection 
+=======
+    </div>
+@endsection
+>>>>>>> Dashboard

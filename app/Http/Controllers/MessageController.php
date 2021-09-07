@@ -15,7 +15,7 @@ class MessageController extends Controller
         $message->fill($request->all());
         $message->user_id = $user->id;
         $message->save();
-        return redirect()->route('home', compact('user'))->with('success', 'Operazione eseguita correttamente');
+        return redirect()->route('home', compact('user'))->with('success', 'Messaggio inviato correttamente, sarai contattato nell\'arco delle 24 ore');
     }
 
     // validazione messaggi
@@ -25,7 +25,7 @@ class MessageController extends Controller
             'name' => 'required|string|min:3|max:50',
             'lastname' => 'required|string|min:3|max:50',
             'email' => 'required|email',
-            'phone_number' => 'required|string|min:9|max:10',
+            'phone_number' => 'required|string|min:9|max:13',
             'text' => 'required|string|min:30'
         ]);
     }
@@ -103,6 +103,7 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        $message->delete();
+        return back()->with('message', 'Messaggio Cancellato!');
     }
 }

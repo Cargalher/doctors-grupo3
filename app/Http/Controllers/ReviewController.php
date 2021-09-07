@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use App\User;
+use Dotenv\Result\Success;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -15,7 +16,7 @@ class ReviewController extends Controller
         $review->fill($request->all());
         $review->user_id = $user->id;
         $review->save();
-        return redirect()->route('show', compact('user'));
+        return redirect()->route('show', compact('user'))->with('success', 'Recensione inserita correttamente');
     }
 
     // validazione messaggi
@@ -30,7 +31,7 @@ class ReviewController extends Controller
         ]);
     }
 
-    
+
     /**
      * Display a listing of the resource.
      *

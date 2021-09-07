@@ -11,7 +11,7 @@
     <title>Test rotte </title>
 
     {{-- FaviIcon --}}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/logo_small_icon_only_inverted.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/logo_small_icon_only_inverted.png') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,5 +20,3 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-
-<body>

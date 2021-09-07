@@ -20,7 +20,7 @@ class HomeController extends Controller
         // $doctors = User::orderBy('id', 'DESC')->paginate(10);
         $doctors = User::has('sponsors')->orderBy('updated_at','DESC')->get();
         $reviews = Review::all();
-        return view('guest.homepage', compact('doctors','reviews'));
+        return view('guest.homepage', compact('doctors', 'reviews'));
     }
     /**
      * Display the specified resource.

@@ -14,15 +14,16 @@ class SponsorController extends Controller
     {
         $sponsors = Sponsor::all();
         $gateway = new Braintree\Gateway([
-            'environment' => 'sandbox',
-            'merchantId' => 'gkjp48fbys9w4xzp',
-            'publicKey' => 'y5sw5p7vbrdpg862',
-            'privateKey' => 'f1f7406e833663f1e1dd3fcb92c3a7f4'
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey'),
+
         ]);
 
         $token = $gateway->ClientToken()->generate();
 
 
-        return view('doctor.sponsors', compact('user', 'sponsors', 'token'));
+        return view('doctor.sponsors', ['user' => $user, 'sponsors' => $sponsors, 'token' => $token]);
     }
 }
