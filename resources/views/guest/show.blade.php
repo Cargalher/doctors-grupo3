@@ -42,6 +42,8 @@
                     <i class="fas fa-comment-medical"></i> Invia un messaggio
                 </button>
             </div>
+
+            {{-- RECENSIONI DINAMICHE DELLO SHOW --}}
             <div class="col-4">
                 @php
                     $star5 = [];
@@ -84,17 +86,19 @@
                     
                 @endphp
                 <div class="bg-white rounded shadow-sm p-4 mb-4 clearfix graph-star-rating">
-                    <h5 class="mb-0 mb-4">Recensioni dei Clienti </h5>
+                    <h4 class="mb-0 mb-4 text-center">Recensioni dei Clienti </h4>
                     <div class="graph-star-rating-header">
                         <div class="star-rating">
-                            <b>Numero totale recensioni: {{ count($user->reviews) }}</b>
+                            <p class="text-black mb-3 mt-2">Totale recensioni: {{ count($user->reviews) }}</p>
                         </div>
-                        <p class="text-black mb-4 mt-2">Media voti {{ round($totalSum, 1) }} su 5</p>
+                        <p class="text-black mb-3 mt-2">Media voti {{ round($totalSum, 1) }} su 5</p>
                     </div>
                     <div class="graph-star-rating-body">
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
-                                5 Star
+                                {{-- 5 stelle --}}
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
+                                    class="far fa-star"></i><i class="far fa-star"></i>
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -108,7 +112,9 @@
                         </div>
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
-                                4 Star
+                                {{-- 4 stelle --}}
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
+                                    class="far fa-star"></i>
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -122,7 +128,8 @@
                         </div>
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
-                                3 Star
+                                {{-- 3 Stelle --}}
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -136,7 +143,8 @@
                         </div>
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
-                                2 Star
+                                {{-- 2 Stelle --}}
+                                <i class="far fa-star"></i><i class="far fa-star"></i>
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -150,7 +158,8 @@
                         </div>
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
-                                1 Star
+                                {{-- 1 Stella --}}
+                                <i class="far fa-star"></i>
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
