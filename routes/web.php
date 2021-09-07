@@ -43,7 +43,7 @@ Route::get('/doctor/sponsors', 'UserController@sponsors')->name('sponsors');
 // Route::post('/sponsor/{user}', 'UserController@saveSponsor')->name('saveSponsor');
 
 Route::resource('doctor', UserController::class);
-
+Route::resource('messages', MessageController::class);
 
 // Payment
 Route::get('sponsors/{user}', 'SponsorController@buySponsorship')->name('buySponsorship');
