@@ -14,7 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js').vue()
     .sass('resources/sass/app.scss', 'public/css')
     .copyDirectory('resources/img', 'public/img')
-    //.copyDirectory('storage/app/doctors_images', 'public/storage/doctors_images')
+    .copyDirectory('storage/app/doctors_images', 'public/storage/doctors_images')
     .copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
 
 

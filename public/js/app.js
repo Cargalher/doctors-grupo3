@@ -1921,8 +1921,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
     sponsDoc: function sponsDoc(arr) {
       // Set slice() to avoid to generate an infinite loop!
       return arr.slice().sort(function (a, b) {
-        return b.sponAtt - a.sponAtt; // => dal meno al piu recente
-        // return b.year - a.year; => dal piu recente al meno
+        return b.sponAtt - a.sponAtt;
       });
     }
   },
@@ -1961,13 +1960,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
       _this.doctors = resp.data;
 
       _this.doctors.forEach(function (doctor) {
+        doctor.sponAtt = 0;
         var currentDate = new Date();
         doctor.sponsors.forEach(function (spon) {
           spon.end = spon.pivot.expiration_time; //console.log(new Date(spon.end) > new Date(dateTime));
 
           if (new Date(spon.end) > new Date(currentDate)) {
-            doctor.sponAtt = doctor.sponsors.length;
-            ;
+            doctor.sponAtt = 1;
           } else {
             doctor.sponAtt = 0;
           } //console.log(spon.end);
@@ -1997,6 +1996,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
         });
         _this.specialization = _this.specializations;
       });
+
+      console.log(_this.doctors);
     })["catch"](function (e) {
       console.error('Sorry! ' + e);
     });

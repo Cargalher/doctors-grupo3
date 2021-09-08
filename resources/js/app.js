@@ -49,8 +49,8 @@ const app = new Vue({
           // Set slice() to avoid to generate an infinite loop!
           return arr.slice().sort(function(a, b) {
 
-            return b.sponAtt - a.sponAtt; // => dal meno al piu recente
-            // return b.year - a.year; => dal piu recente al meno
+            return b.sponAtt - a.sponAtt; 
+            
           });
           
         }
@@ -95,17 +95,20 @@ const app = new Vue({
             this.doctors = resp.data;
 
             this.doctors.forEach(doctor => {
+
+                doctor.sponAtt = 0;
+
                 var currentDate = new Date();
 
                 doctor.sponsors.forEach(spon => {
                     spon.end = spon.pivot.expiration_time
 
                     //console.log(new Date(spon.end) > new Date(dateTime));
-
+                    
                     if(new Date(spon.end) > new Date(currentDate)){
-                        doctor.sponAtt = doctor.sponsors.length;;
+                        doctor.sponAtt = 1;
                     } else {
-                        doctor.sponAtt = 0
+                        doctor.sponAtt = 0;
                     }
                     
                     //console.log(spon.end);
@@ -140,7 +143,7 @@ const app = new Vue({
                 this.specialization = this.specializations;
             });
 
-
+            console.log(this.doctors);
         }).catch(e => {
             console.error('Sorry! ' + e)
         })
