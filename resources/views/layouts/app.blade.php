@@ -41,18 +41,6 @@
                                 href="{{ route('statistics') }}"><i class="fas fa-chart-bar fa-lg fa-fw"></i> Statistiche</a>
                         </li>
 
-                        <!-- <li class="nav-item nav-pills">
-                            <form action="{{ route('doctor.destroy', Auth::user()->id) }}" class="nav-link"
-                                method="post">
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash fa-xs fa-fw"></i>
-                                </button>
-                            </form>
-                        </li> -->
-
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal"
                             data-target="#exampleModalCenter">

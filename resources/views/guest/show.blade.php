@@ -77,7 +77,7 @@
                     $trestelle = (count($star3) * 100) / count($user->reviews);
                     $duestelle = (count($star2) * 100) / count($user->reviews);
                     $unastella = (count($star1) * 100) / count($user->reviews);
-                    $sum5 = array_sum($star5);
+                    $sum5 =     
                     $sum4 = array_sum($star4);
                     $sum3 = array_sum($star3);
                     $sum2 = array_sum($star2);
