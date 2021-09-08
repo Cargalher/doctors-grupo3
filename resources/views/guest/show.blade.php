@@ -31,19 +31,20 @@
                     <div class="row no-gutters">
                         <div class="col-md-4">
                             <img width="200" src="{{ asset($user->path) }}"
-                            onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
-                            alt="{{ $user->name . $user->name }}">
+                                onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
+                                alt="{{ $user->name . $user->name }}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                @foreach($user->specializations as $specialization)
-                                    <p class="card-text"><small class="text-muted"> {{$specialization->name}}</small></p>
+                                @foreach ($user->specializations as $specialization)
+                                    <p class="card-text"><small class="text-muted">
+                                            {{ $specialization->name }}</small></p>
                                 @endforeach
                                 <h5 class="card-title">Dott: {{ $user->name }} {{ $user->lastname }}</h5>
                                 <p class="card-text">Indirizzo <br> {{ $user->address }}</p>
                                 <p class="card-text">{{ $user->city }}</p>
                                 <p class="card-text"> Telefono: <br> {{ $user->phone_number }}</p>
-                                
+
                                 <button class="btn custom-button " data-toggle="modal" data-target="#modalMessage">
                                     <i class="fas fa-comment-medical"></i> Invia un messaggio
                                 </button>
@@ -59,38 +60,38 @@
             <div class="col-8">
                 <h2 class="mt-5">Recensioni:</h2>
 
-    {{-- pulsante per inviare un messaggio --}}
-    <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
-        <i class="fas fa-comment-medical"></i> Invia una recensione
-    </button>
+                {{-- pulsante per inviare un messaggio --}}
+                <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
+                    <i class="fas fa-comment-medical"></i> Invia una recensione
+                </button>
 
-    @if (count($user->reviews) > 0)
-        @foreach ($reviews as $review)
-            @if ($review->user_id === $user->id)
+                @if (count($user->reviews) >= 0)
+                    @foreach ($reviews as $review)
+                        @if ($review->user_id === $user->id)
 
-                <div class="mb-2">
-                    <h5>{{ $review->name }} {{ $review->lastname }}</h5>
-                    <h5>{{ $review->title }}</h5>
-                    <p>{{ $review->body }}</p>
-                    <h5>Voto:
+                            <div class="mb-2">
+                                <h5>{{ $review->name }} {{ $review->lastname }}</h5>
+                                <h5>{{ $review->title }}</h5>
+                                <p>{{ $review->body }}</p>
+                                <h5>Voto:
 
-                        @for ($i = 0; $i < $review->vote; $i++)
-                            <i class="fas fa-star"></i>
-                        @endfor
+                                    @for ($i = 0; $i < $review->vote; $i++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
 
 
-                    </h5>
-                </div>
+                                </h5>
+                            </div>
 
-            @endif
-        @endforeach
-    @else
-        <h4>Nessuna recensione ricevuta</h4>
-    @endif
+                        @endif
+                    @endforeach
+                @else
+                    <h4>Nessuna recensione ricevuta</h4>
+                @endif
             </div>
 
             <div class="col-4">
-            @php
+                @php
                     $star5 = [];
                     $star4 = [];
                     $star3 = [];
@@ -122,8 +123,7 @@
                     $trestelle = (count($star3) * 100) / count($user->reviews);
                     $duestelle = (count($star2) * 100) / count($user->reviews);
                     $unastella = (count($star1) * 100) / count($user->reviews);
-                    $sum5 =     
-                    $sum4 = array_sum($star4);
+                    $sum5 = $sum4 = array_sum($star4);
                     $sum3 = array_sum($star3);
                     $sum2 = array_sum($star2);
                     $sum1 = array_sum($star1);

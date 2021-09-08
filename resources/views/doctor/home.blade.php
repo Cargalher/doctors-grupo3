@@ -180,6 +180,11 @@
                                             </thead>
                                             @foreach ($activeSponsors as $sponsor)
                                                 <tbody>
+                                                    @php
+                                                        $inizio = date('d-m-Y', strtotime($sponsor->created_at));
+                                                        $scadenza = date('d-m-Y', strtotime($sponsor->pivot->expiration_time));
+                                                        
+                                                    @endphp
                                                     <tr>
                                                         <td class="text-center font-size-sm">
                                                             <a class="font-w600" href="javascript:void(0)">
@@ -188,16 +193,31 @@
                                                         </td>
                                                         <td
                                                             class="d-none d-sm-table-cell font-size-sm font-w600 text-muted">
-                                                            {{ $sponsor->created_at->format('d-m-Y') }}</td>
+                                                            {{ $inizio }}
+                                                        </td>
+
                                                         <td
                                                             class="d-none d-sm-table-cell font-size-sm font-w600 text-muted">
-                                                            {{ $sponsor->pivot->expiration_time }}
+                                                            {{ $scadenza }}
                                                         </td>
                                                         <td>
-                                                            <span
-                                                                class="font-size-sm font-w600 px-2 py-1 rounded  bg-danger-light text-danger">
-                                                                Canceled
-                                                            </span>
+                                                            @if (new DateTime($sponsor->pivot->expiration_time) > new DateTime($sponsor->created_at))
+                                                                <span
+                                                                    class="font-size-sm font-w600 px-2 py-1 rounded  bg-success-light text-success">
+                                                                    Attivo
+                                                                </span>
+
+                                                            @endif
+
+                                                            @if (new DateTime($sponsor->pivot->expiration_time) < new DateTime($sponsor->created_at))
+                                                                <span
+                                                                    class="font-size-sm font-w600 px-2 py-1 rounded  bg-danger-light text-danger">
+                                                                    Scaduto
+                                                                </span>
+
+                                                            @endif
+
+
                                                         </td>
                                                         <td class="d-none d-sm-table-cell text-center font-size-sm">
                                                             <strong>{{ $sponsor->price }}</strong>
@@ -205,6 +225,7 @@
                                                     </tr>
                                                 </tbody>
                                             @endforeach
+
                                         </table>
                                     </div>
                                 </div>
