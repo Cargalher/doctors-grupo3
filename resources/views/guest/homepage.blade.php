@@ -29,24 +29,6 @@
         
         @endphp
 
-
-        <div class="counters">
-            <div class="row">
-                <div class="col_counter col-12 col-lg-4 py-5">
-                    <h4 class="counting" data-count="{{ count($doctors) }}">0</h4>
-                    <h4>Medici</h4>
-                </div>
-                <div class="col_counter center col-12 col-lg-4 py-5">
-                    <h4 class="counting" data-count="{{ $messaggiTotali }}">0</h4>
-                    <h4>Messaggi inviati</h4>
-                </div>
-                <div class="col_counter col-12 col-lg-4 py-5">
-                    <h4 class="counting" data-count="{{ $recensioniTotali }}">0</h4>
-                    <h4>Recensioni</h4>
-                </div>
-            </div>
-        </div>
-
         
         @if (session('success'))
             <div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#"
@@ -102,6 +84,28 @@
 
 
         </div>
+
+        <div class="counters">
+            <div class="row">
+                <div class="col_counter col-12 col-lg-4 py-5">
+                    <h4 class="counting" data-count="{{ count($doctors) }}">0</h4>
+                    <h4>Medici</h4>
+                </div>
+                <div class="col_counter center col-12 col-lg-4 py-5">
+                    <h4 class="counting" data-count="{{ $messaggiTotali }}">0</h4>
+                    <h4>Messaggi inviati</h4>
+                </div>
+                <div class="col_counter col-12 col-lg-4 py-5">
+                    <h4 class="counting" data-count="{{ $recensioniTotali }}">0</h4>
+                    <h4>Recensioni</h4>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 500px" class="test">
+
+        </div>
+
 
     </div>
 
