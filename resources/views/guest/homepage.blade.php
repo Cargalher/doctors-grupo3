@@ -6,6 +6,7 @@
 @section('content')
     <div id="app">
 
+        
         @if (session('success'))
             <div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#"
                     class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}
@@ -21,7 +22,7 @@
 
         <div class="d-flex flex-wrap justify-content-center">
 
-            @foreach ($doctors as $doctor)
+            @foreach ($activeDoctors as $doctor)
 
                 <div style="width: 300px" class="card m-3 p-3 ">
                     <img src="{{ asset('storage/' . $doctor->profile_image) }}"

@@ -18,9 +18,24 @@ class HomeController extends Controller
     public function index()
     {
         // $doctors = User::orderBy('id', 'DESC')->paginate(10);
-        $doctors = User::has('sponsors')->orderBy('updated_at','DESC')->get();
+        // $doctors = User::has('sponsors')->orderBy('updated_at','DESC')->get();
+        $doctors = User::all();
+        $sponsoredDoctors = User::has('sponsors')->get();
+        $currentDate = date("Y-m-d H:i:s");
+        $activeDoctors = [];
         $reviews = Review::all();
-        return view('guest.homepage', compact('doctors', 'reviews'));
+
+        foreach ($sponsoredDoctors as $user) {
+            foreach ($user->sponsors as $sponsor) {
+                if ($sponsor->pivot->expiration_time > $currentDate) {
+                    if (!in_array($user, $activeDoctors)) {
+                        array_push($activeDoctors, $user);
+                    }
+                }
+            }
+        };
+
+        return view('guest.homepage', compact('doctors', 'reviews','activeDoctors'));
     }
     /**
      * Display the specified resource.
