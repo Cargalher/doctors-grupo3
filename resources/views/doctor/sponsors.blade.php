@@ -53,7 +53,6 @@
             </div>
         @endif
     </form>
-@endsection
 
 <script src="https://js.braintreegateway.com/web/dropin/1.27.0/js/dropin.min.js"></script>
     <script>
@@ -85,3 +84,4 @@
             });
         });
     </script>
+@endsection
