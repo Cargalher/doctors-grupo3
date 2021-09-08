@@ -95,8 +95,24 @@ const app = new Vue({
             this.doctors = resp.data;
 
             this.doctors.forEach(doctor => {
+                var currentDate = new Date();
 
-                doctor.sponAtt = doctor.sponsors.length;
+                doctor.sponsors.forEach(spon => {
+                    spon.end = spon.pivot.expiration_time
+
+                    //console.log(new Date(spon.end) > new Date(dateTime));
+
+                    if(new Date(spon.end) > new Date(currentDate)){
+                        doctor.sponAtt = doctor.sponsors.length;;
+                    } else {
+                        doctor.sponAtt = 0
+                    }
+                    
+                    //console.log(spon.end);
+                });
+
+
+                //console.log(doctor);
 
                 doctor.spec = [];
                 doctor.num = doctor.reviews.length;
@@ -124,7 +140,6 @@ const app = new Vue({
                 this.specialization = this.specializations;
             });
 
-            console.log(this.doctors);
 
         }).catch(e => {
             console.error('Sorry! ' + e)

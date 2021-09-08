@@ -41,7 +41,7 @@
                         <div v-for="doc_spec in doctor.specializations">
                             <h5>@{{ doc_spec . name }}</h5>
                         </div>
-                        <h4>Sponsor Attivi: @{{ doctor . sponsors . length }}</h4>
+                        <h4>Sponsor Attivi: @{{ doctor . sponAtt }}</h4>
                         <h5>Media Recensioni: @{{ doctor . avarage }}</h5>
                         <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
                     </div>
@@ -61,7 +61,7 @@
                         <div v-for="doc_spec in doctor.specializations">
                             <h5>@{{ doc_spec . name }}</h5>
                         </div>
-                        <h4>Sponsor Attivi: @{{ doctor . sponsors . length }}</h4>
+                        <h4>Sponsor Attivi: @{{ doctor . sponAtt }}</h4>
                         <h5>Media Recensioni: @{{ doctor . avarage }}</h5>
                         <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
 
