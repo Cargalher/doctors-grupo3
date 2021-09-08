@@ -4,6 +4,7 @@
 
 
     <div class="container">
+        {{-- card dottore --}}
         <div class="main-body">
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
@@ -25,6 +26,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- card dottore dettagli --}}
                 <div class="col-md-8">
                     <div class="card mb-3">
                         <div class="card-body">
@@ -72,7 +74,7 @@
                                     {{ Auth::user()->address }}
                                 </div>
                             </div>
-                            <hr>
+
 
                         </div>
                     </div>
@@ -81,7 +83,7 @@
 
         </div>
 
-
+        {{-- card statistiche --}}
         <div class="row">
             <div class="col-md-12">
                 <section id="counter-stats" class="wow fadeInRight" data-wow-duration="1.4s">
