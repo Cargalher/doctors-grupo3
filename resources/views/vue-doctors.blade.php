@@ -32,10 +32,16 @@
                             <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
                         </a>
 
-                        <img v-if="doctor.profile_image" width="200" height="280"
-                            v-bind:src="'http://127.0.0.1:8000/storage/' + doctor.profile_image " alt="">
-                        <img width="200" height="280" v-if="doctor.profile_image === null" src="img/avatar-donna.jpg"
-                            alt="">
+                        <div v-if="doctor.profile_image.includes('img')">
+                            <img width="200"v-if="doctor.profile_image.includes('img')"  v-bind:src="'http://127.0.0.1:8000/' + doctor.profile_image "
+                                alt="" style="object-fit: cover;">
+                        </div>
+
+                        <div v-else="doctor.profile_image">
+                            <img width="200" 
+                                v-bind:src="'http://127.0.0.1:8000/storage/' + doctor.profile_image " alt="" style="object-fit: cover;">
+                        </div>
+
                         <h4 class="card-title">@{{ doctor . name }}</h4>
                         <h4 class="card-title">@{{ doctor . lastname }}</h4>
                         <div v-for="doc_spec in doctor.specializations">

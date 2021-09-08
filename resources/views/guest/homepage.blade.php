@@ -6,34 +6,32 @@
 @section('content')
     <div id="app">
 
-        @if (session('success'))
-            <div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#"
-                    class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}
-            </div>
+    @if (session('success'))
+        <div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#"
+                class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}</div>
 
-            <script type="text/javascript">
-                setTimeout(function() {
-                    $(".alert").alert('close')
-                }, 3000);
-            </script>
-        @endif
-        <h2 class="text-center text-uppercase">Medici in Evidenzia:</h2>
+        <script type="text/javascript">
+            setTimeout(function() {
+                $(".alert").alert('close')
+                console.log('Success');
+            }, 3000);
+        </script>
+    @endif
+    <h2 class="text-center text-uppercase">Medici in Evidenza:</h2>
 
-        <div class="d-flex flex-wrap justify-content-center">
+    <div class="d-flex flex-wrap justify-content-center">
 
-            @foreach ($doctors as $doctor)
+        @foreach ($doctors as $doctor)
 
-                <div style="width: 300px" class="card m-3 p-3 ">
-                    <img src="{{ asset('storage/' . $doctor->profile_image) }}"
-                        onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
-                        alt="{{ $doctor->name . $doctor->name }}">
-                    <h4>Nome: {{ $doctor->name }}</h4>
-                    <h4>Cognome: {{ $doctor->lastname }}</h4>
-                    <h5>Numero recensioni: {{ count($doctor->reviews) }}</h5>
+            <div style="width: 300px" class="card m-3 p-3 ">
+                <img src="{{ asset($doctor->path) }}" class="p-2" alt="{{ $doctor->name . $doctor->name }}">
+                <h4>Nome: {{ $doctor->name }}</h4>
+                <h4>Cognome: {{ $doctor->lastname }}</h4>
+                <h5>Numero recensioni: {{ count($doctor->reviews) }}</h5>
 
-                    <!-- Media recensioni -->
+                <!-- Media recensioni -->
 
-                    @php
+                @php
                         $average = 0;
                     @endphp
 
