@@ -92,5 +92,5 @@
 @include('layouts/partials/footer')
 
 </body> 
-
+@yield('js')
 </html>
