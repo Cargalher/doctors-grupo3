@@ -14614,7 +14614,7 @@ h3 {
 }
 
 main {
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .nav_container {
@@ -14623,6 +14623,22 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.counters {
+  color: white;
+  background: #45BB67;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+}
+.counters .col_counter {
+  border: 2px solid #ffffff;
+}
+.counters .col_counter h4 {
+  font-size: 2.3rem;
 }
 
 /*/ start count stats /*/
@@ -14714,7 +14730,11 @@ a {
 
 /*/ end check specializations /*/
 .site_footer {
-  background-color: #45BB67;
+  background: #45BB67;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .site_footer .social_icons a {
   text-decoration: none;

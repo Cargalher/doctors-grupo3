@@ -1,18 +1,18 @@
-.site_footer{
-
+.counters{
+    color: white;
     background: $bgreen;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, $bgreen, $blgreen, $bgreen);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $bgreen, $blgreen, $bgreen); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
 
+    .col_counter{
 
-    .social_icons{
-        a{
-            text-decoration: none;
-            color: white;
-
-            i{
-                font-size: 2rem;
-            }
+        border: 2px solid #ffffff;
+        
+        h4{
+            font-size: 2.3rem;
         }
+
     }
+    
 }
