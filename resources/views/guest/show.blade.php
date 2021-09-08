@@ -27,43 +27,18 @@
         <div class="row">
             <div class="col-8">
                 {{-- dottore singolo --}}
-                <!-- <div class="row">
-                    <div class="col-4">
-                        <img width="200" src="{{ asset('storage/' . $user->profile_image) }}"
-                            onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
-                            alt="{{ $user->name . $user->name }}">
-                    </div>
-                    <div class="col-8">
-                        <h3>Dott: {{ $user->name }} {{ $user->lastname }}</h3>
-                        <p>Indirizzo <br> {{ $user->address }}</p>
-                        <p>{{ $user->city }}</p>
-                        <p> Telefono: <br> {{ $user->phone_number }}</p>
-                    </div>
-                </div>
-                
-
-
-                {{-- pulsante per inviare un messaggio --}}
-                <button class="btn custom-button " data-toggle="modal" data-target="#modalMessage">
-                    <i class="fas fa-comment-medical"></i> Invia un messaggio
-                </button> -->
-
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                        <img width="200" src="{{ asset('storage/' . $user->profile_image) }}"
+                            <img width="200" src="{{ asset('storage/' . $user->profile_image) }}"
                             onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
                             alt="{{ $user->name . $user->name }}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                            @foreach($user->specializations as $specialization)
-                            <p class="card-text"><small class="text-muted"> {{$specialization->name}}</small></p>
-                             @endforeach
-
-
-                              
-                            
+                                @foreach($user->specializations as $specialization)
+                                    <p class="card-text"><small class="text-muted"> {{$specialization->name}}</small></p>
+                                @endforeach
                                 <h5 class="card-title">Dott: {{ $user->name }} {{ $user->lastname }}</h5>
                                 <p class="card-text">Indirizzo <br> {{ $user->address }}</p>
                                 <p class="card-text">{{ $user->city }}</p>
@@ -76,8 +51,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             {{-- RECENSIONI DINAMICHE DELLO SHOW --}}
