@@ -46,6 +46,17 @@ class User extends Authenticatable
         return $this->save();
     }
 
+    public function getPathAttribute()
+    {
+        $url = $this->profile_image;
+
+        if (stristr($this->profile_image, 'img/') === false) {
+            $url = 'storage/' . $this->profile_image;
+        }
+        return $url;
+    }
+
+
     /**
      * The attributes that should be hidden for arrays.
      *

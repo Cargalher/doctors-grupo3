@@ -40,7 +40,7 @@
         <div class="form-group">
             {{-- immagine precedente --}}
             <label for="name" class="font-weight-bold d-block">Inserisci la tua immagine</label>
-            <img style="width: 200px" src="{{ asset('storage/' . $doctor->profile_image) }}" class="p-2"
+            <img style="width: 200px" src="{{ asset(Auth::user()->path) }}" class="p-2"
                 alt="{{ $doctor->name . ' ' . $doctor->lastname }}">
             <small id="nameHelp" class="text-muted">immagine di profilo attuale</small>
             {{-- immagine da editare --}}

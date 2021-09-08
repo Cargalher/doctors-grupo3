@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" alt="Admin"
+                                <img src="{{ asset(Auth::user()->path) }}" alt="Admin"
                                     class="rounded-circle d-flex justify-content-center" style="object-fit: cover"
                                     width="150" height="150">
                                 <div class="mt-3">
