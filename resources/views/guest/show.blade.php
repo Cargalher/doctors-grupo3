@@ -97,8 +97,9 @@
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
                                 {{-- 5 stelle --}}
-                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
-                                    class="far fa-star"></i><i class="far fa-star"></i>
+                                @for ($i = 0; $i < 5; $i++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -113,8 +114,9 @@
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
                                 {{-- 4 stelle --}}
-                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
-                                    class="far fa-star"></i>
+                                @for ($i = 0; $i < 4; $i++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -129,7 +131,9 @@
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
                                 {{-- 3 Stelle --}}
-                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                @for ($i = 0; $i < 3; $i++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -144,7 +148,9 @@
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
                                 {{-- 2 Stelle --}}
-                                <i class="far fa-star"></i><i class="far fa-star"></i>
+                                @for ($i = 0; $i < 2; $i++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
@@ -159,7 +165,7 @@
                         <div class="rating-list">
                             <div class="rating-list-left text-black">
                                 {{-- 1 Stella --}}
-                                <i class="far fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                             <div class="rating-list-center">
                                 <div class="progress">
