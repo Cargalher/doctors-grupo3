@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Review;
+use App\Specialization;
 
 class HomeController extends Controller
 {
@@ -45,8 +46,9 @@ class HomeController extends Controller
      */
     public function show(User $user)
     {
+        $specializations = Specialization::all();
         $user->incrementReadCount();
         $reviews = Review::all()->reverse();
-        return view('guest.show', compact('user', 'reviews'));
+        return view('guest.show', compact('user', 'reviews', 'specializations'));
     }
 }
