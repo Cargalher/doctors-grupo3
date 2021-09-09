@@ -30,9 +30,9 @@
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img width="200" src="{{ asset($user->path) }}"
-                            onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
-                            alt="{{ $user->name . $user->name }}">
+                        <img style="width: 200px" src="{{ asset($user->path) }}" class="p-2"
+                                alt="{{ $user->name . ' ' . $user->lastname }}">
+
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
