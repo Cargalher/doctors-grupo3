@@ -84,7 +84,7 @@ class RegisterController extends Controller
         ]);
 
         foreach ($data['specializations'] as $specialization) {
-            $user->specializations()->attach($specialization);
+            $user->specializations()->sync($specialization);
         }
         return $user;
     }
