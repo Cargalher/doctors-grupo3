@@ -3,19 +3,19 @@
 @section('content')
 
 
-    <div class="container">
+    <div id="app" class="container my-5">
         {{-- card dottore --}}
         <div class="main-body">
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
-                    <div class="card">
+                    <div class="">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
                                 <img src="{{ asset(Auth::user()->path) }}" alt="Admin"
                                     class="rounded-circle d-flex justify-content-center" style="object-fit: cover"
-                                    width="150" height="150">
+                                        width="150" height="150">
                                 <div class="mt-3">
-                                    <h4>Specializzazioni:</h4>
+                                    <h5>Specializzazioni:</h5>
                                     @foreach (Auth::user()->specializations as $specialization)
                                         <p class="text-secondary mb-1">{{ $specialization->name }}</p>
                                     @endforeach
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 {{-- card dottore dettagli --}}
-                <div class="col-md-8">
+                <div class="col-md-8 m-auto">
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
@@ -168,14 +168,14 @@
                                 <!-- Recent Orders Table -->
                                 <div class="block-content">
                                     <div class="table-responsive">
-                                        <table class="table table-borderless table-striped table-vcenter">
+                                        <table class="table table-borderless table-striped table-vcenter text-center">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center" style="width: 120px;">Sponsor</th>
                                                     <th class="d-none d-sm-table-cell">Acquistato</th>
                                                     <th class="d-none d-sm-table-cell">Data Scadenza</th>
                                                     <th>Stato</th>
-                                                    <th class="text-center d-none d-sm-table-cell text-right">€</th>
+                                                    <th class="text-center d-none d-sm-table-cell text-right">Valore</th>
                                                 </tr>
                                             </thead>
                                             @foreach ($activeSponsors as $sponsor)
@@ -220,7 +220,7 @@
 
                                                         </td>
                                                         <td class="d-none d-sm-table-cell text-center font-size-sm">
-                                                            <strong>{{ $sponsor->price }}</strong>
+                                                            <strong> &nbsp;{{ $sponsor->price }} €</strong>
                                                         </td>
                                                     </tr>
                                                 </tbody>

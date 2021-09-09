@@ -37,7 +37,7 @@
                                 <td>{{$message->lastname}}</td>
                                 <td>{{$message->text}}</td>
                                 <td>{{$message->created_at }}</td>
-                                <td>{{$message->email}}</td>
+                                <td><a href="mailto:{{$message->email}}">{{$message->email}}</a></td>
                                 <td>{{$message->phone_number}}</td>
                                 <td>
                                     <form action="{{route('messages.destroy', $message->id)}}" method="post">

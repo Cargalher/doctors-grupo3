@@ -41,9 +41,14 @@
                 }, 3000);
             </script>
         @endif
+
+        <div style="height: 200px" class="jumbotron">
+
+        </div>
+        <div class="pt-3">
         <h2 class="text-center text-uppercase">Medici in Evidenzia:</h2>
 
-        <div class="d-flex flex-wrap justify-content-center">
+        <div class="d-flex flex-wrap justify-content-center pb-5 pt-2">
 
             @foreach ($activeDoctors as $doctor)
 
@@ -84,7 +89,7 @@
 
 
         </div>
-
+    </div>
         <div class="counters">
             <div class="row">
                 <div class="col_counter col-12 col-lg-4 py-5">

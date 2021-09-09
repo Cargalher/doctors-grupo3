@@ -11,31 +11,29 @@
             </select>
         </div>
 
-        <div>
-            <h4>Ordina per numero recensioni</h4>
-            <button class="d-block" v-on:click="sortedRewUp()"><i class="fas fa-chevron-up"></i></button>
+        <div class="d-flex mb-5 ml-5">
+            <h5>Ordina per numero recensioni</h5>
+            <button class="d-block mx-3" v-on:click="sortedRewUp()"><i class="fas fa-chevron-up"></i></button>
             <button class="d-block" v-on:click="sortedRewDown()"><i class="fas fa-chevron-down"></i></button>
         </div>
-        <div>
-            <h4>Ordina per media recensioni</h4>
-            <button class="d-block" v-on:click="sortedAvarageUp()"><i class="fas fa-chevron-up"></i></button>
+        <div class="d-flex mb-5 ml-5">
+            <h5>Ordina per media recensioni</h5>
+            <button class="d-block mx-3" v-on:click="sortedAvarageUp()"><i class="fas fa-chevron-up"></i></button>
             <button class="d-block" v-on:click="sortedAvarageDown()"><i class="fas fa-chevron-down"></i></button>
         </div>
 
-        <div class="p-5 m-5">
+        <div class="">
             <div class="d-flex flex-wrap justify-content-center">
-                <div class="card text-left mb-3 p-4 mx-3" v-for="doctor in sponsDoc(doctors)"
+                <div style="width: 350px" class="card text-left mb-3 p-4 mx-3" v-for="doctor in sponsDoc(doctors)"
                     v-if="specialization === specializations">
 
                     <div class="card-body p-0 mt-4">
-                        <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id " class="btn btn-primary">
-                            <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
+                        <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id " class="d-block">
+                            <img v-if="doctor.profile_image" class="img-fluid"
+                            v-bind:src="'http://127.0.0.1:8000/storage/' + doctor.profile_image " alt="">
                         </a>
 
-                        <img v-if="doctor.profile_image" width="200" height="280"
-                            v-bind:src="'http://127.0.0.1:8000/storage/' + doctor.profile_image " alt="">
-                        <img width="200" height="280" v-if="doctor.profile_image === null" src="img/avatar-donna.jpg"
-                            alt="">
+                        
                         <h4 class="card-title">@{{ doctor . name }}</h4>
                         <h4 class="card-title">@{{ doctor . lastname }}</h4>
                         <div v-for="doc_spec in doctor.specializations">
@@ -54,8 +52,6 @@
                         </a>
                         <img v-if="doctor.profile_image" width="200" height="280"
                             v-bind:src="'http://127.0.0.1:8000/storage/' + doctor.profile_image " alt="">
-                        <img width="200" height="280" v-if="doctor.profile_image === null" src="img/avatar-donna.jpg"
-                            alt="">
                         <h4 class="card-title">@{{ doctor . name }}</h4>
                         <h4 class="card-title">@{{ doctor . lastname }}</h4>
                         <div v-for="doc_spec in doctor.specializations">

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="d-flex justify-content-around flex-wrap">
-    <div class="card">
+  <div class="d-flex justify-content-around flex-wrap container">
+    <div class="card mb-3">
       <canvas id="messaggi-mese" width="400" height="400"></canvas>
     </div>
-    <div class="card">
+    <div class="card mb-3">
       <canvas id="messaggi-anno" width="400" height="400"></canvas>
     </div>
     <div class="card">

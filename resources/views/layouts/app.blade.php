@@ -4,39 +4,39 @@
 
 
 <div style="background-color: white">
-    <div class="container py-5">
+    <div class="dash_container py-5">
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2 my-5">
                 <aside>
                     <ul class="nav flex-column line">
-                        <li class="nav-item nav-pills my-2">
+                        <li class="nav-item nav-pills my-3">
                             <a class="nav-link {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}"
                                 href="{{ route('dashboard') }}"> <i class="fas fa-tachometer-alt fa-lg fa-fw"></i>
                                 Dashboard</a>
                         </li>
-                        <li class="nav-item nav-pills my-2">
+                        <li class="nav-item nav-pills my-3">
                             <a class="nav-link {{ Route::currentRouteName() === 'messages' ? 'active' : '' }}"
                                 href="{{ route('messages') }}"><i class="fas fa-envelope fa-lg fa-fw"></i> Messaggi</a>
                         </li>
-                        <li class="nav-item nav-pills my-2">
+                        <li class="nav-item nav-pills my-3">
                             <a class="nav-link {{ Route::currentRouteName() === 'reviews' ? 'active' : '' }}"
                                 href="{{ route('reviews') }}"><i class="fas fa-comment-alt fa-lg fa-fw"></i>
                                 Recensioni</a>
                         </li>
-                        <li class="nav-item nav-pills my-2">
+                        <li class="nav-item nav-pills my-3">
                             <a class="nav-link {{ Route::currentRouteName() === 'doctor.edit' ? 'active' : '' }}"
                                 href="{{ route('doctor.edit', Auth::user()->id) }}">
                                 <i class="far fa-edit fa-lg fa-fw"></i>
                                 Modifica profilo
                             </a>
                         </li>
-                        <li class="nav-item nav-pills my-2">
+                        <li class="nav-item nav-pills my-3">
                             <a class="nav-link {{ Route::currentRouteName() === 'buySponsorship' ? 'active' : '' }}"
                                 href="{{ route('buySponsorship', Auth::user()->id) }}"><i
                                     class="fas fa-dollar-sign fa-fw"></i>
                                 Sponsor</a>
                         </li>
-                        <li class="nav-item nav-pills my-2">
+                        <li class="nav-item nav-pills my-3">
                             <a class="nav-link {{ Route::currentRouteName() === 'statistics' ? 'active' : '' }}"
                                 href="{{ route('statistics') }}"><i class="fas fa-chart-bar fa-lg fa-fw"></i>
                                 Statistiche</a>
