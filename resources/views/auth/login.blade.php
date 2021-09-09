@@ -3,13 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 d-flex p-5">
+        <div class="col-md-8 d-flex justify-content-center p-5">
             <div class="card">
             
                 <div class="card-header text-uppercase text-center" >{{ __('Login') }}</div>
 
-                <div class="card-body d-flex">
-                    <div class="text-center pt-md-5 pb-5 my-md-5" style="padding-right: 24px;">
+                <div  style="font-size: 12px;" class="card-body d-flex">
+                    <div class="text-center pt-md-5  my-md-5" style="padding-right: 24px;">
                         <i class="fas fa-user-md" style="color: #45BB67; font-size: 9rem;"></i>
                     </div>
                     <form method="POST" action="{{ route('login') }}" class="d-flex flex-column justify-content-center">

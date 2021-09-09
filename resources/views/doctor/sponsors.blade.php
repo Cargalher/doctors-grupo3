@@ -25,8 +25,8 @@
         @if (!session('success_message'))
             <div>
                 <!-- <h1 class="text-center pb-5">Scegli una sponsorizzazione per apparire tra i medici in evidenza <br> nella
-                homepage!</h1> -->
-                
+                homepage!</h1>
+                 -->
                 <div class="card-group">
                 
                     @foreach ($sponsors as $sponsor)
