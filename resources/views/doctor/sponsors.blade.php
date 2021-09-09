@@ -30,12 +30,12 @@
                 <div class="card-group">
                 
                     @foreach ($sponsors as $sponsor)
-                        <div class="card border m-5">
-                            <img class="card-img-top" src="{{ asset('img/gold.png') }}" alt="sponsor image">
+                        <div class="card border m-5 text-center shadow-sm">
+                        <i style="font-size: 3rem; color:#45BB67;" class="fas fa-money-check-alt mt-4"></i>
                             <label class="card-body text-center" for="{{ $sponsor->name }}">
                                 <h3 class="sponsor-name card-title text-center">{{ $sponsor->name }} </h3>
                                 <p class="card-text">durata: {{ $sponsor->duration }} giorni</p>
-                                <p class="card-text"><small class="text-muted">{{ $sponsor->price }} €</small></p>
+                                <p class="card-text"><small class="font-weight-bold text-monospace">{{ $sponsor->price }} €</small></p>
                                 <input class="text-center" type="radio" id="{{ $sponsor->name }}" name="amount" value="{{ $sponsor->price }}">
                             </label>
                         </div>
