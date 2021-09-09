@@ -15681,6 +15681,23 @@ a {
 
 /*/ end check specializations /*/
 
+.form-button {
+  background-color: #45BB67;
+}
+
+.card-body {
+  font-size: 12px;
+}
+
+.logo-icon {
+  padding-right: 24px;
+}
+
+.login-icon {
+  color: #45BB67;
+  font-size: 9rem;
+}
+
 .site_footer {
   background: #45BB67;
   /* fallback for old browsers */

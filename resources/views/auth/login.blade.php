@@ -6,11 +6,11 @@
         <div class="col-md-8 d-flex justify-content-center p-5">
             <div class="card">
             
-                <div class="card-header" ><img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt=""></div>
+                <div class="card-header" ><img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="BoolDoctors logo"></div>
 
-                <div  style="font-size: 12px;" class="card-body d-flex">
-                    <div class="text-center pt-md-5  my-md-5" style="padding-right: 24px;">
-                        <i class="fas fa-user-md" style="color: #45BB67; font-size: 9rem;"></i>
+                <div class="card-body d-flex">
+                    <div class="text-center pt-md-5 my-md-5 login-icon">
+                        <i class="fas fa-user-md dt-icon"></i>
                     </div>
                     <form method="POST" action="{{ route('login') }}" class="d-flex flex-column justify-content-center">
                         @csrf
@@ -57,7 +57,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4 text-center">
-                                <button type="submit" class="btn text-white btn-lg my-3" style="background-color: #45BB67;">
+                                <button type="submit" class="btn text-white btn-lg my-3 form-button">
                                     {{ __('Login') }}
                                 </button>
 
