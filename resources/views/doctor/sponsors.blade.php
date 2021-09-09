@@ -2,12 +2,7 @@
 @section('content')
 
 
-    <div class="title">
-        <button class="button-none">
-            <a href="{{ route('dashboard', compact('user')) }}"><i class="fas fa-arrow-left"></i></a>
-        </button>
-        Sponsorizzazioni
-    </div>
+    
     <form class="card" method="post" id="payment-form" style="padding: 20px"
         action="{{ route('checkout', compact('user')) }}">
         @csrf
