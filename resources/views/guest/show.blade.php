@@ -25,12 +25,12 @@
 
 
         <div class="row">
-            <div class="col-8">
+            <div class="col-12">
                 {{-- dottore singolo --}}
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img width="200" src="{{ asset('storage/' . $user->profile_image) }}"
+                            <img width="200" src="{{ asset($user->path) }}"
                             onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
                             alt="{{ $user->name . $user->name }}">
                         </div>
@@ -53,9 +53,44 @@
                 </div>
             </div>
 
-            {{-- RECENSIONI DINAMICHE DELLO SHOW --}}
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <h2 class="mt-5">Recensioni:</h2>
+
+    {{-- pulsante per inviare un messaggio --}}
+    <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
+        <i class="fas fa-comment-medical"></i> Invia una recensione
+    </button>
+
+    @if (count($user->reviews) > 0)
+        @foreach ($reviews as $review)
+            @if ($review->user_id === $user->id)
+
+                <div class="mb-2">
+                    <h5>{{ $review->name }} {{ $review->lastname }}</h5>
+                    <h5>{{ $review->title }}</h5>
+                    <p>{{ $review->body }}</p>
+                    <h5>Voto:
+
+                        @for ($i = 0; $i < $review->vote; $i++)
+                            <i class="fas fa-star"></i>
+                        @endfor
+
+
+                    </h5>
+                </div>
+
+            @endif
+        @endforeach
+    @else
+        <h4>Nessuna recensione ricevuta</h4>
+    @endif
+            </div>
+
             <div class="col-4">
-                @php
+            @php
                     $star5 = [];
                     $star4 = [];
                     $star3 = [];
@@ -365,40 +400,6 @@
                 </div>
             </div>
         </form>
-    </div>
-
-    <!-- Recensioni -->
-    <div>
-        <h2 class="mt-5">Recensioni:</h2>
-
-        {{-- pulsante per inviare un messaggio --}}
-        <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
-            <i class="fas fa-comment-medical"></i> Invia una recensione
-        </button>
-
-        @if (count($user->reviews) > 0)
-            @foreach ($reviews as $review)
-                @if ($review->user_id === $user->id)
-
-                    <div class="mb-2">
-                        <h5>{{ $review->name }} {{ $review->lastname }}</h5>
-                        <h5>{{ $review->title }}</h5>
-                        <p>{{ $review->body }}</p>
-                        <h5>Voto:
-
-                            @for ($i = 0; $i < $review->vote; $i++)
-                                <i class="fas fa-star"></i>
-                            @endfor
-
-
-                        </h5>
-                    </div>
-
-                @endif
-            @endforeach
-        @else
-            <h4>Nessuna recensione ricevuta</h4>
-        @endif
     </div>
 
 @endsection
