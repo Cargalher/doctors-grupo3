@@ -53,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'min:3', 'max:30'],
             'lastname' => ['required', 'string', 'min:3', 'max:30'],
-            'city' => ['required', 'string', 'min:5', 'max:50'],
+            'city' => ['required', 'string', 'min:3', 'max:50'],
             'pv' => ['required', 'string', 'min:2', 'max:30'],
             'address' => ['required', 'string', 'min:5', 'max:50'],
             'specializations' => ['required'],
@@ -84,7 +84,7 @@ class RegisterController extends Controller
         ]);
 
         foreach ($data['specializations'] as $specialization) {
-            $user->specializations()->attach($specialization);
+            $user->specializations()->sync($specialization);
         }
         return $user;
     }

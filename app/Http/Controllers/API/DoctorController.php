@@ -18,7 +18,7 @@ class DoctorController extends Controller
     public function index()
     {
         // Restituisce tutti gli utenti in formato JSON
-        $doctors = User::with('specializations', 'reviews', 'sponsors')->get();
+        $doctors = User::with('specializations', 'reviews', 'sponsors')->paginate(10);
         return response()->json($doctors);
     }
 

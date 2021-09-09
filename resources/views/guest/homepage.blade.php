@@ -46,7 +46,7 @@
 
         </div>
         <div class="pt-3">
-        <h2 class="text-center text-uppercase">Medici in Evidenzia:</h2>
+        <h2 class="text-center text-uppercase">Medici in Evidenza:</h2>
 
         <div class="d-flex flex-wrap justify-content-center pb-5 pt-2">
 

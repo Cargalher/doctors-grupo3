@@ -76,9 +76,9 @@
                                 <div class="col-md-6">
                                     <input id="city" type="text" class="form-control" name="city" required
                                         value="{{ old('city') }}" placeholder="Inserisci la tua città..."
-                                        autocomplete="city" minlength="5" maxlength="50">
+                                        autocomplete="city" minlength="3" maxlength="50">
                                     <small id="cityHelp" class="text-muted">(*) La Tua Città Deve Contenere
-                                        min:5, max:50 caratteri.</small>
+                                        min:3, max:50 caratteri.</small>
                                 </div>
                                 @error('city')
                                     <span class="invalid-feedback" role="alert">

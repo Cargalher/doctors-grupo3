@@ -30,9 +30,9 @@
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img width="200" src="{{ asset($user->path) }}"
-                            onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
-                            alt="{{ $user->name . $user->name }}">
+                        <img style="width: 200px" src="{{ asset($user->path) }}" class="p-2"
+                                alt="{{ $user->name . ' ' . $user->lastname }}">
+
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -96,6 +96,7 @@
                     $star3 = [];
                     $star2 = [];
                     $star1 = [];
+
                     foreach ($user->reviews as $review) {
                         switch ($review->vote) {
                             case 5:
@@ -116,18 +117,22 @@
                                 break;
                         }
                     }
-                    
-                    $cinquestelle = (count($star5) * 100) / count($user->reviews);
-                    $quattrostelle = (count($star4) * 100) / count($user->reviews);
-                    $trestelle = (count($star3) * 100) / count($user->reviews);
-                    $duestelle = (count($star2) * 100) / count($user->reviews);
-                    $unastella = (count($star1) * 100) / count($user->reviews);
-                    $sum5 =     
-                    $sum4 = array_sum($star4);
-                    $sum3 = array_sum($star3);
-                    $sum2 = array_sum($star2);
-                    $sum1 = array_sum($star1);
-                    $totalSum = ($sum5 + $sum4 + $sum3 + $sum2 + $sum1) / count($user->reviews);
+
+                    $cinquestelle = $quattrostelle = $trestelle = $duestelle = $unastella = $sum5 = $sum4 = $sum3 = $sum2 = $sum1 = $totalSum = 0;
+      
+                    if(count($user->reviews) > 0){
+                        $cinquestelle = (count($star5) * 100) / count($user->reviews);
+                        $quattrostelle = (count($star4) * 100) / count($user->reviews);
+                        $trestelle = (count($star3) * 100) / count($user->reviews);
+                        $duestelle = (count($star2) * 100) / count($user->reviews);
+                        $unastella = (count($star1) * 100) / count($user->reviews);
+                        $sum5 = array_sum($star5);    
+                        $sum4 = array_sum($star4);
+                        $sum3 = array_sum($star3);
+                        $sum2 = array_sum($star2);
+                        $sum1 = array_sum($star1);
+                        $totalSum = ($sum5 + $sum4 + $sum3 + $sum2 + $sum1) / count($user->reviews);
+                    }
                     
                 @endphp
                 <div class="bg-white rounded shadow-sm p-4 mb-4 clearfix graph-star-rating">
