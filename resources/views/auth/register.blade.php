@@ -1,4 +1,4 @@
-@extends('layouts.register')
+@extends('layouts.reg')
 
 @section('content')
     <div class="container py-4">

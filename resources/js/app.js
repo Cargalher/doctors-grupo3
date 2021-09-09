@@ -49,7 +49,7 @@ const app = new Vue({
           // Set slice() to avoid to generate an infinite loop!
           return arr.slice().sort(function(a, b) {
 
-            return b.sponAtt - a.sponAtt; 
+            return b.att - a.att; 
             
           });
           
@@ -96,7 +96,7 @@ const app = new Vue({
 
             this.doctors.forEach(doctor => {
 
-                doctor.sponAtt = 0;
+                doctor.sponAtt = [];
 
                 var currentDate = new Date();
 
@@ -106,13 +106,14 @@ const app = new Vue({
                     //console.log(new Date(spon.end) > new Date(dateTime));
                     
                     if(new Date(spon.end) > new Date(currentDate)){
-                        doctor.sponAtt = 1;
+                        doctor.sponAtt.push(spon);
                     } else {
-                        doctor.sponAtt = 0;
                     }
                     
                     //console.log(spon.end);
                 });
+
+                doctor.att = doctor.sponAtt.length
 
 
                 //console.log(doctor);

@@ -1921,7 +1921,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
     sponsDoc: function sponsDoc(arr) {
       // Set slice() to avoid to generate an infinite loop!
       return arr.slice().sort(function (a, b) {
-        return b.sponAtt - a.sponAtt;
+        return b.att - a.att;
       });
     }
   },
@@ -1960,18 +1960,17 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
       _this.doctors = resp.data;
 
       _this.doctors.forEach(function (doctor) {
-        doctor.sponAtt = 0;
+        doctor.sponAtt = [];
         var currentDate = new Date();
         doctor.sponsors.forEach(function (spon) {
           spon.end = spon.pivot.expiration_time; //console.log(new Date(spon.end) > new Date(dateTime));
 
           if (new Date(spon.end) > new Date(currentDate)) {
-            doctor.sponAtt = 1;
-          } else {
-            doctor.sponAtt = 0;
-          } //console.log(spon.end);
+            doctor.sponAtt.push(spon);
+          } else {} //console.log(spon.end);
 
-        }); //console.log(doctor);
+        });
+        doctor.att = doctor.sponAtt.length; //console.log(doctor);
 
         doctor.spec = [];
         doctor.num = doctor.reviews.length;

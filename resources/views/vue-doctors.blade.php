@@ -39,25 +39,26 @@
                         <div v-for="doc_spec in doctor.specializations">
                             <h5>@{{ doc_spec . name }}</h5>
                         </div>
-                        <h4>Sponsor Attivi: @{{ doctor . sponAtt }}</h4>
+                        <h4>Sponsor Attivi: @{{ doctor.att }}</h4>
                         <h5>Media Recensioni: @{{ doctor . avarage }}</h5>
                         <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
                     </div>
                 </div>
-                <div class="card text-left mb-3 p-4" v-for="doctor in sponsDoc(doctors)" v-if="doctor.spec.includes(specialization)">
+                <div style="width: 350px" class="card text-left mb-3 p-4" v-for="doctor in sponsDoc(doctors)" v-if="doctor.spec.includes(specialization)">
 
                     <div class="card-body p-0 mt-4">
-                        <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id " class="btn btn-primary">
-                            <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <img v-if="doctor.profile_image" width="200" height="280"
+                        <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id " class="d-block">
+                            <img v-if="doctor.profile_image" class="img-fluid"
                             v-bind:src="'http://127.0.0.1:8000/storage/' + doctor.profile_image " alt="">
+                        </a>
+
+                        
                         <h4 class="card-title">@{{ doctor . name }}</h4>
                         <h4 class="card-title">@{{ doctor . lastname }}</h4>
                         <div v-for="doc_spec in doctor.specializations">
                             <h5>@{{ doc_spec . name }}</h5>
                         </div>
-                        <h4>Sponsor Attivi: @{{ doctor . sponAtt }}</h4>
+                        <h4>Sponsor Attivi: @{{ doctor.att }}</h4>
                         <h5>Media Recensioni: @{{ doctor . avarage }}</h5>
                         <h5>Numero recensioni: @{{ doctor . reviews . length }}</h5>
 
