@@ -23,14 +23,15 @@
             </div>
         @endif
         @if (!session('success_message'))
-            <div class="">
-                <div class="text-center pb-5">Scegli una sponsorizzazione per apparire tra i medici in evidenza nella
-                    homepage!</div>
+            <div>
+                <!-- <h1 class="text-center pb-5">Scegli una sponsorizzazione per apparire tra i medici in evidenza <br> nella
+                homepage!</h1> -->
+                
                 <div class="card-group">
                 
                     @foreach ($sponsors as $sponsor)
                         <div class="card border m-5">
-                            <img class="card-img-top" src="{{ asset('img/gold.png') }}" alt="sponsor image">
+                            <img  style="" class="card-img-top" src="{{ asset('img/gold.png') }}" alt="sponsor image">
                             <label class="card-body text-center" for="{{ $sponsor->name }}">
                                 <h3 class="sponsor-name card-title text-center">{{ $sponsor->name }} </h3>
                                 <p class="card-text">durata: {{ $sponsor->duration }} giorni</p>
