@@ -28,17 +28,19 @@
             </div>
         @endif
         @if (!session('success_message'))
-            <div class="form-content">
-                <div class="text">Scegli una sponsorizzazione per apparire tra i medici in evidenza nella
+            <div class="">
+                <div class="text-center pb-5">Scegli una sponsorizzazione per apparire tra i medici in evidenza nella
                     homepage!</div>
-                <div class="spons-container">
+                <div class="card-group">
+                
                     @foreach ($sponsors as $sponsor)
-                        <div class="card">
-                            <input type="radio" id="{{ $sponsor->name }}" name="amount" value="{{ $sponsor->price }}">
-                            <label for="{{ $sponsor->name }}">
-                                <div class="sponsor-name">{{ $sponsor->name }} </div>
-                                <div>durata: {{ $sponsor->duration }} giorni</div>
-                                <div>{{ $sponsor->price }} €</div>
+                        <div class="card border m-5">
+                            <img class="card-img-top" src="{{ asset('img/gold.png') }}" alt="sponsor image">
+                            <label class="card-body text-center" for="{{ $sponsor->name }}">
+                                <h3 class="sponsor-name card-title text-center">{{ $sponsor->name }} </h3>
+                                <p class="card-text">durata: {{ $sponsor->duration }} giorni</p>
+                                <p class="card-text"><small class="text-muted">{{ $sponsor->price }} €</small></p>
+                                <input class="text-center" type="radio" id="{{ $sponsor->name }}" name="amount" value="{{ $sponsor->price }}">
                             </label>
                         </div>
                     @endforeach
