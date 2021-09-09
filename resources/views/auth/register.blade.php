@@ -2,9 +2,15 @@
 
 @section('content')
     <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+        <div class="">
+            <div class="reg_img col-md-4">
+                
+            </div>
+            <div class="col-md-12 row">
+                <div class="reg_img col-md-4">
+                
+                </div>
+                <div class="card col-md-8 pl-0 pr-0 border-left-0 rounded-none">
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
@@ -207,7 +213,7 @@
                             {{-- BOTTONE INVIA FORM DI REGISTRAZIONE --}}
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #45BB67;">
                                         {{ __('Registra') }}
                                     </button>
                                 </div>

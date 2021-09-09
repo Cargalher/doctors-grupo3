@@ -31,7 +31,7 @@
                 
                     @foreach ($sponsors as $sponsor)
                         <div class="card border m-5">
-                            <img  style="" class="card-img-top" src="{{ asset('img/gold.png') }}" alt="sponsor image">
+                            <img class="card-img-top" src="{{ asset('img/gold.png') }}" alt="sponsor image">
                             <label class="card-body text-center" for="{{ $sponsor->name }}">
                                 <h3 class="sponsor-name card-title text-center">{{ $sponsor->name }} </h3>
                                 <p class="card-text">durata: {{ $sponsor->duration }} giorni</p>

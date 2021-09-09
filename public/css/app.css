@@ -15702,3 +15702,9 @@ a {
   color: #d6d622c2;
 }
 
+.reg_img {
+  background-image: url(/images/stetoscope.jpg?72aef0ac870d350f7db65cf19dfeb68f);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
