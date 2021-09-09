@@ -24,9 +24,6 @@
         @endif
         @if (!session('success_message'))
             <div>
-                <!-- <h1 class="text-center pb-5">Scegli una sponsorizzazione per apparire tra i medici in evidenza <br> nella
-                homepage!</h1>
-                 -->
                 <div class="card-group">
                     <?php
                         $sponsorImg = array("fas fa-coins", "fas fa-money-check", "far fa-gem");
@@ -34,11 +31,11 @@
                 
                     @foreach ($sponsors as $sponsor)
                         <div class="card border m-5 text-center shadow-sm">
-                        <i style="font-size: 3rem; color:#45BB67;" class="{{ $sponsorImg[$loop->index] }} mt-4"></i>
+                        <i class="{{ $sponsorImg[$loop->index] }} mt-4 sponsor-img"></i>
                             <label class="card-body text-center" for="{{ $sponsor->name }}">
                                 <h3 class="sponsor-name card-title text-center">{{ $sponsor->name }} </h3>
                                 <p class="card-text">durata: {{ $sponsor->duration }} giorni</p>
-                                <p class="card-text"><small class="font-weight-bold text-monospace">{{ $sponsor->price }} €</small></p>
+                                <p class="card-text"><small class="font-weight-bold text-monospace sponsor-price">{{ $sponsor->price }} €</small></p>
                                 <input class="text-center" type="radio" id="{{ $sponsor->name }}" name="amount" value="{{ $sponsor->price }}">
                             </label>
                         </div>

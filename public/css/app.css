@@ -15681,6 +15681,15 @@ a {
 
 /*/ end check specializations /*/
 
+.sponsor-img {
+  font-size: 3rem;
+  color: #45BB67;
+}
+
+.sponsor-price {
+  font-size: 0.8rem;
+}
+
 .form-button {
   background-color: #45BB67;
 }

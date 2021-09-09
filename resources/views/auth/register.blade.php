@@ -12,7 +12,7 @@
 
                 <div class="card">
 
-                    <div class="card-header"><img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt=""></div>
+                    <div class="card-header"><img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="Booldoctors Logo"></div>
 
 
 
@@ -416,7 +416,7 @@
 
                                 <div class="col-md-6 offset-md-4">
 
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn text-white btn-lg my-3 form-button">
 
                                         {{ __('Registra') }}
 
