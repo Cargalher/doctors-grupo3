@@ -3,18 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 d-flex p-5">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            
+                <div class="card-header text-uppercase text-center" >{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                <div class="card-body d-flex">
+                    <div class="text-center pt-md-5 pb-5 my-md-5" style="padding-right: 24px;">
+                        <i class="fas fa-user-md" style="color: #45BB67; font-size: 9rem;"></i>
+                    </div>
+                    <form method="POST" action="{{ route('login') }}" class="d-flex flex-column justify-content-center">
                         @csrf
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -28,7 +32,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -53,7 +57,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" style="background-color: #45BB67;">
                                     {{ __('Login') }}
                                 </button>
 
@@ -70,4 +74,5 @@
         </div>
     </div>
 </div>
+
 @endsection
