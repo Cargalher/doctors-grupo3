@@ -6,7 +6,7 @@
         <div class="col-md-8 d-flex justify-content-center p-5">
             <div class="card">
             
-                <div class="card-header text-uppercase text-center" >{{ __('Login') }}</div>
+                <div class="card-header" >{{ __('Login') }}</div>
 
                 <div  style="font-size: 12px;" class="card-body d-flex">
                     <div class="text-center pt-md-5  my-md-5" style="padding-right: 24px;">
