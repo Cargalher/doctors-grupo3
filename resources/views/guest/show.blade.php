@@ -28,6 +28,7 @@
             <div class="col-8">
                 {{-- dottore singolo --}}
                 <div class="card border-0 mb-3">
+                <div class="card-header"><i class="fas fa-user-md icon-show"></i> Informazione Generale</div>
                     <div class="bg-white rounded shadow p-4 mb-4 clearfix graph-star-rating row no-gutters">
                         <div class="col-md-4">
                             <img style="object-fit: cover" src="{{ asset($user->path) }}" class="rounded-circle p-2"
