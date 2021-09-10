@@ -1928,7 +1928,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      search: "",
       specId: this.selected,
       doctors: [],
       results: true
@@ -1984,9 +1983,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       });
-    }
-  },
-  computed: {
+    },
     // Ordina per numero recensioni
     sortedRewUp: function sortedRewUp() {
       this.doctors.sort(function (a, b) {
@@ -2013,6 +2010,33 @@ __webpack_require__.r(__webpack_exports__);
       });
       return this.doctors;
     }
+  },
+  computed: {// // Ordina per numero recensioni
+    // sortedRewUp: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return b.num - a.num;
+    //   });
+    //   return this.doctors;
+    // },
+    // sortedRewDown: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return a.num - b.num;
+    //   });
+    //   return this.doctors;
+    // },
+    // // Ordina per media recensioni
+    // sortedAvarageUp: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return b.avarage - a.avarage;
+    //   });
+    //   return this.doctors;
+    // },
+    // sortedAvarageDown: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return a.avarage - b.avarage;
+    //   });
+    //   return this.doctors;
+    // },
   }
 });
 
@@ -37657,7 +37681,7 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _vm.specializations.length > 0
-      ? _c("div", { staticClass: "form-group search container" }, [
+      ? _c("div", { staticClass: "form-group container" }, [
           _c(
             "select",
             {

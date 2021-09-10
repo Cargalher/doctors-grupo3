@@ -56,7 +56,7 @@
                     <div class="form-group">
 
                         {{-- select specializzazioni --}}
-                        <select class="form-control col-auto" id="specialization" name="specialization" required>
+                        <select class="form-control" id="specialization" name="specialization" required>
                             <option value="">Seleziona la specializzazione</option>
                             @foreach ($specializations as $spec)
                                 <option value="{{ $spec->id }}" class="opt">{{ $spec->name }}</option>

@@ -6,7 +6,7 @@
       <a href="/"><i class="fas fa-arrow-left"></i></a>
     </button>
 
-    <div class="form-group search container" v-if="specializations.length > 0">
+    <div class="form-group container" v-if="specializations.length > 0">
       <select
         class="form-control"
         name="specializations"
@@ -79,7 +79,6 @@ export default {
   props: { selected: Number, specializations: Array },
   data() {
     return {
-      search: "",
       specId: this.selected,
       doctors: [],
       results: true,
@@ -140,10 +139,8 @@ export default {
           });
         });
     },
-  },
-  computed: {
 
-    // Ordina per numero recensioni
+        // Ordina per numero recensioni
     sortedRewUp: function () {
       this.doctors.sort((a, b) => {
         return b.num - a.num;
@@ -170,6 +167,36 @@ export default {
       });
       return this.doctors;
     },
+  },
+  computed: {
+
+    // // Ordina per numero recensioni
+    // sortedRewUp: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return b.num - a.num;
+    //   });
+    //   return this.doctors;
+    // },
+    // sortedRewDown: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return a.num - b.num;
+    //   });
+    //   return this.doctors;
+    // },
+
+    // // Ordina per media recensioni
+    // sortedAvarageUp: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return b.avarage - a.avarage;
+    //   });
+    //   return this.doctors;
+    // },
+    // sortedAvarageDown: function () {
+    //   this.doctors.sort((a, b) => {
+    //     return a.avarage - b.avarage;
+    //   });
+    //   return this.doctors;
+    // },
   },
 };
 </script>
