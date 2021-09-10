@@ -209,7 +209,7 @@
         <div class="row">
             <div class="col-12">
                 <div div class="card border-light mb-3">
-                    <div class="card-header"><i class="fas fa-graduation-cap"></i> Profilo</div>
+                    <div class="card-header"><i class="fas fa-graduation-cap icon-show"></i> Profilo</div>
                     <div class="card-body">
                         <h5 class="card-title">Titoli conseguiti</h5>
                         <ul class="card-text">
@@ -307,7 +307,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card border-light mb-3">
-                    <div class="card-header">Servizi</div>
+                    <div class="card-header"><i class="fas fa-clinic-medical icon-show"></i> Servizi</div>
                     <div class="card-body">
                         <h5 class="card-title">Patologie trattate</h5>
                         <ul class="card-text d-flex justify-content-around">
@@ -341,7 +341,7 @@
             <div class="col-12">
                 <!-- Card Reviews -->
                 <div class="card border-light mb-3">
-                    <div class="card-header">Recensioni dei Pazienti</div>
+                    <div class="card-header"><i class="fas fa-comments icon-show"></i> Recensioni dei Pazienti</div>
                     <div class="card-body">
                         @if (count($user->reviews) > 0)
                             @foreach ($reviews as $review)
