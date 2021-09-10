@@ -161,7 +161,7 @@
             <div class="col-6">
                 <label for="phone_number" class="font-weight-bold">Numero di telefono</label>
                 <input type="tel" pattern="^[0-9+\s]*$" class="form-control" name="phone_number" id="phone_number"
-                    value="{{ $doctor->phone_number }}" required autocomplete="phone_number" autofocus minlength="9"
+                    value="{{ $doctor->phone_number }}" autocomplete="phone_number" autofocus minlength="9"
                     maxlength="13" placeholder="Telefono... +39 1234567">
                 <small id="phone_numberHelp" class="form-text text-muted">Numero di Telefono, puoi utilizzare min 9,
                     max 13 caratteri </small>
