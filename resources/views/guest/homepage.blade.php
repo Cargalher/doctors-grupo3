@@ -8,28 +8,27 @@
 
         @php
             
-        $recensioni = [];
-
-        $messaggi = [];
-
-        foreach ($doctors as $doctor) {
-
-            $totMesDoc = count($doctor->messages);
+            $recensioni = [];
             
-            $totRecDoc = count($doctor->reviews);
-
-            array_push($messaggi, $totMesDoc);
-
-            array_push($recensioni, $totRecDoc);
-        }
-        
-        $recensioniTotali = array_sum($recensioni);
-
-        $messaggiTotali = array_sum($messaggi);
-        
+            $messaggi = [];
+            
+            foreach ($doctors as $doctor) {
+                $totMesDoc = count($doctor->messages);
+            
+                $totRecDoc = count($doctor->reviews);
+            
+                array_push($messaggi, $totMesDoc);
+            
+                array_push($recensioni, $totRecDoc);
+            }
+            
+            $recensioniTotali = array_sum($recensioni);
+            
+            $messaggiTotali = array_sum($messaggi);
+            
         @endphp
 
-        
+
         @if (session('success'))
             <div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#"
                     class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}
@@ -46,50 +45,53 @@
 
         </div>
         <div class="pt-3">
-        <h2 class="text-center text-uppercase">Medici in Evidenza:</h2>
+            <h2 class="text-center text-uppercase">Medici in Evidenza:</h2>
 
-        <div class="d-flex flex-wrap justify-content-center pb-5 pt-2">
+            <div class="d-flex flex-wrap justify-content-center pb-5 pt-2">
 
-            @foreach ($activeDoctors as $doctor)
+                @foreach ($activeDoctors as $doctor)
 
-                <div style="width: 300px" class="card m-3 p-3 ">
-                    <img src="{{ asset('storage/' . $doctor->profile_image) }}"
-                        onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="p-2"
-                        alt="{{ $doctor->name . $doctor->name }}">
-                    <h4>Nome: {{ $doctor->name }}</h4>
-                    <h4>Cognome: {{ $doctor->lastname }}</h4>
-                    <h5>Numero recensioni: {{ count($doctor->reviews) }}</h5>
+                    <div style="width: 300px" class="card m-3 p-3 ">
+                        <span class="d-flex flex-wrap justify-content-center">
+                            <img src="{{ asset('storage/' . $doctor->profile_image) }}"
+                                onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="rounded-circle p-2"
+                                style="object-fit: cover" width="150" height="150"
+                                alt="{{ $doctor->name . $doctor->name }}">
+                        </span>
+                        <h4>Nome: {{ $doctor->name }}</h4>
+                        <h4>Cognome: {{ $doctor->lastname }}</h4>
+                        <h5>Numero recensioni: {{ count($doctor->reviews) }}</h5>
 
-                    <!-- Media recensioni -->
+                        <!-- Media recensioni -->
 
-                    @php
-                        $average = 0;
-                    @endphp
+                        @php
+                            $average = 0;
+                        @endphp
 
-                    @foreach ($reviews as $review)
-                        @if ($doctor->id === $review->user_id)
-                            @php
-                                $average += $review->vote;
-                            @endphp
+                        @foreach ($reviews as $review)
+                            @if ($doctor->id === $review->user_id)
+                                @php
+                                    $average += $review->vote;
+                                @endphp
+                            @endif
+                        @endforeach
+
+                        @if ($average != 0)
+                            <h5> Media: {{ round($average / count($doctor->reviews)) }} </h5>
+                        @else
+                            <h5> Media: 0</h5>
                         @endif
-                    @endforeach
 
-                    @if ($average != 0)
-                        <h5> Media: {{ round($average / count($doctor->reviews)) }} </h5>
-                    @else
-                        <h5> Media: 0</h5>
-                    @endif
+                        <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
+                            <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
+                        </a>
+                    </div>
 
-                    <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
-                        <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
-                    </a>
-                </div>
-
-            @endforeach
+                @endforeach
 
 
+            </div>
         </div>
-    </div>
         <div class="counters">
             <div class="row mx-0">
                 <div class="col_counter col-12 col-lg-4 py-5">

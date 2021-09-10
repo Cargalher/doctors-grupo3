@@ -30,9 +30,9 @@
                 <div class="card border-0 mb-3">
                     <div class="bg-white rounded shadow p-4 mb-4 clearfix graph-star-rating row no-gutters">
                         <div class="col-md-4">
-                            <img style="width: 200px" src="{{ asset($user->path) }}" class="p-2"
+                            <img style="width: 200px" src="{{ asset($user->path) }}" class="rounded-circle p-2"
+                                style="object-fit: cover" width="150" height="150"
                                 alt="{{ $user->name . ' ' . $user->lastname }}">
-
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
