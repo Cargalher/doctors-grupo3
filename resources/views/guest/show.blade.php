@@ -125,7 +125,38 @@
                 </div>
             </div>
         </div>
-                
+        <div class="row">
+            <div class="col-12">
+            <div class="card border-light mb-3">
+                <div class="card-header">Servizi</div>
+                    <div class="card-body">
+                    <h5 class="card-title">Patologie trattate</h5>
+                        <ul class="card-text d-flex justify-content-around">
+                            <div>
+                                <li>Aneiaculazione</li>
+                                <li>Biofeedback</li>
+                                <li>Calcoli renali</li>
+                                <li>Cisti renali</li>
+                                <li>Cistite</li>
+                                <li>Colica renale</li>
+                                <li>Condilomi</li>
+                                <li>Criptorchidismo</li>
+                            </div>
+                            <div>
+                                <li>Disfunzione erettile</li>
+                                <li>Disturbi della sfera sessuale</li>
+                                <li>Eiaculazione precoce</li>
+                                <li>Falloplastica</li>
+                                <li>Fimosi</li>
+                                <li>Frenulotomia</li>
+                                <li>Idrocele</li>
+                                <li>Impotenza</li>
+                            </div>
+                        </ul>
+                    </div>
+</div>
+            </div>
+        </div> 
 
 
         <div class="row">
