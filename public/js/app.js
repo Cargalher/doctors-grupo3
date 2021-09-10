@@ -1845,59 +1845,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1981,179 +1928,90 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   data: function data() {
     return {
+      search: "",
       specId: this.selected,
-      users: [],
-      results: true,
-      vote: "",
-      orderBy: "",
-      sponsored: [],
-      notSponsored: []
+      doctors: [],
+      results: true
     };
   },
   mounted: function mounted() {
-    //console.log(users)
     return this.filterSpec();
   },
   watch: {
     specId: function specId() {
-      var _this = this;
-
-      return this.filterSpec().then(function () {
-        _this.vote = "";
-        _this.orderBy = "";
-      });
-    },
-    vote: function vote() {
-      var _this2 = this;
-
-      return this.filterSpec().then(function () {
-        _this2.orderBy = "";
-        return _this2.filterVote();
-      });
-    },
-    orderBy: function orderBy() {
-      if (this.orderBy === "reviewsNum") {
-        return this.sortUsers();
-      }
+      return this.filterSpec();
     }
   },
   methods: {
-    getAll: function getAll() {
-      var _this3 = this;
-
-      return axios.get("http://127.0.0.1:8000/api/doctors").then(function (response) {
-        // data corrente
-        var date = new Date();
-        var currDate = Date.parse(date); // data scadenza sponsorizzazione
-
-        var sponsDate;
-        _this3.sponsored = [];
-        _this3.notSponsored = [];
-        var filtered = response.data.filter(function (el) {
-          if (el.sponsors.length > 0) {
-            el.sponsors.forEach(function (spons) {
-              sponsDate = Date.parse(spons.pivot.expiration_time);
-
-              if (currDate < sponsDate) {
-                console.log("sponsorizzato!!");
-
-                _this3.sponsored.push(el);
-              }
-            });
-          }
-
-          if (el.sponsors.length == 0) {
-            console.log("non sponsorizzato");
-
-            _this3.notSponsored.push(el);
-          }
-        });
-        _this3.users = [].concat(_toConsumableArray(_this3.sponsored), _toConsumableArray(_this3.notSponsored));
-
-        if (_this3.users.length === 0) {
-          _this3.results = false;
-        } else {
-          _this3.results = true;
-        }
+    sponsDoc: function sponsDoc(arr) {
+      // Set slice() to avoid to generate an infinite loop!
+      return arr.slice().sort(function (a, b) {
+        return b.att - a.att;
       });
     },
     filterSpec: function filterSpec() {
-      var _this4 = this;
+      var _this = this;
 
-      if (this.specId > 0) {
-        return axios.get("http://127.0.0.1:8000/api/doctors?specialization=" + this.specId).then(function (response) {
-          // data corrente
-          var date = new Date();
-          var currDate = Date.parse(date); // data scadenza sponsorizzazione
+      return axios.get("http://127.0.0.1:8000/api/doctors?specialization=" + this.specId).then(function (resp) {
+        _this.doctors = resp.data;
+        console.log(_this.doctors);
 
-          var sponsDate;
-          _this4.sponsored = [];
-          _this4.notSponsored = [];
-          var filtered = response.data.filter(function (el) {
-            if (el.sponsors.length > 0) {
-              el.sponsors.forEach(function (spons) {
-                sponsDate = Date.parse(spons.pivot.expiration_time);
+        _this.doctors.forEach(function (doctor) {
+          doctor.sponAtt = [];
+          var currentDate = new Date();
+          doctor.sponsors.forEach(function (spon) {
+            spon.end = spon.pivot.expiration_time;
 
-                if (currDate < sponsDate) {
-                  console.log("sponsorizzato!!");
+            if (new Date(spon.end) > new Date(currentDate)) {
+              doctor.sponAtt.push(spon);
+            } else {}
 
-                  _this4.sponsored.push(el);
-                }
-              });
-            }
-
-            if (el.sponsors.length == 0) {
-              console.log("non sponsorizzato");
-
-              _this4.notSponsored.push(el);
-            }
+            console.log(spon.end);
           });
-          _this4.users = [].concat(_toConsumableArray(_this4.sponsored), _toConsumableArray(_this4.notSponsored));
+          doctor.att = doctor.sponAtt.length;
+          doctor.spec = [];
+          doctor.num = doctor.reviews.length;
+          var sum = doctor.reviews.reduce(function (acc, rew) {
+            return acc + rew.vote;
+          }, 0); // console.log(sum);
 
-          if (_this4.users.length === 0) {
-            _this4.results = false;
+          var avarage = sum / doctor.num;
+
+          if (Number.isNaN(avarage)) {
+            doctor.avarage = 0;
           } else {
-            _this4.results = true;
+            doctor.avarage = avarage.toFixed(2);
           }
         });
-      } else {
-        return this.getAll();
-      }
-    },
-    filterVote: function filterVote() {
-      var _this5 = this;
-
-      if (this.orderBy === "reviewsNum") {
-        return this.sortUsers();
-      }
-
-      if (this.vote != 0) {
-        this.users = this.users.filter(function (user) {
-          var media = _this5.average(user);
-
-          if (media == _this5.vote) {
-            return user;
-          }
-        });
-
-        if (this.users.length === 0) {
-          this.results = false;
-        } else {
-          this.results = true;
-        }
-      }
-    },
-    average: function average(user) {
-      var somma = 0;
-      var n = 0;
-      var media = 0;
-
-      if (user.reviews.length > 0) {
-        user.reviews.forEach(function (review) {
-          somma += review.vote;
-          n += 1;
-        });
-        return media = Math.round(somma / n);
-      }
-    },
-    sum: function sum(user) {
-      var n = 0;
-
-      if (user.reviews.length > 0) {
-        user.reviews.forEach(function (el) {
-          n += 1;
-        });
-        return n;
-      } else {
-        return 0;
-      }
-    },
-    sortUsers: function sortUsers() {
-      var _this6 = this;
-
-      this.users = this.users.sort(function (a, b) {
-        return _this6.sum(b) - _this6.sum(a);
       });
+    }
+  },
+  computed: {
+    // Ordina per numero recensioni
+    sortedRewUp: function sortedRewUp() {
+      this.doctors.sort(function (a, b) {
+        return b.num - a.num;
+      });
+      return this.doctors;
+    },
+    sortedRewDown: function sortedRewDown() {
+      this.doctors.sort(function (a, b) {
+        return a.num - b.num;
+      });
+      return this.doctors;
+    },
+    // Ordina per media recensioni
+    sortedAvarageUp: function sortedAvarageUp() {
+      this.doctors.sort(function (a, b) {
+        return b.avarage - a.avarage;
+      });
+      return this.doctors;
+    },
+    sortedAvarageDown: function sortedAvarageDown() {
+      this.doctors.sort(function (a, b) {
+        return a.avarage - b.avarage;
+      });
+      return this.doctors;
     }
   }
 });
@@ -37799,7 +37657,7 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _vm.specializations.length > 0
-      ? _c("div", { staticClass: "form-group search" }, [
+      ? _c("div", { staticClass: "form-group search container" }, [
           _c(
             "select",
             {
@@ -37851,226 +37709,125 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "form-group search" }, [
+    _c("div", { staticClass: "d-flex mb-5 ml-5" }, [
+      _c("h5", [_vm._v("Ordina per numero recensioni")]),
+      _vm._v(" "),
       _c(
-        "select",
+        "button",
         {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.vote,
-              expression: "vote"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { name: "votes", autocomplete: "on" },
+          staticClass: "d-block mx-3",
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.vote = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
+            click: function($event) {
+              return _vm.sortedRewUp()
             }
           }
         },
-        [
-          _c("option", { attrs: { value: "", disabled: "" } }, [
-            _vm._v("filtra per media voti")
-          ]),
-          _vm._v(" "),
-          _c(
-            "option",
-            { staticStyle: { color: "orange" }, attrs: { value: "5" } },
-            [_vm._v("\n        ★ ★ ★ ★ ★\n      ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "option",
-            { staticStyle: { color: "orange" }, attrs: { value: "4" } },
-            [_vm._v("\n        ★ ★ ★ ★\n      ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "option",
-            { staticStyle: { color: "orange" }, attrs: { value: "3" } },
-            [_vm._v("★ ★ ★")]
-          ),
-          _vm._v(" "),
-          _c(
-            "option",
-            { staticStyle: { color: "orange" }, attrs: { value: "2" } },
-            [_vm._v("★ ★")]
-          ),
-          _vm._v(" "),
-          _c(
-            "option",
-            { staticStyle: { color: "orange" }, attrs: { value: "1" } },
-            [_vm._v("★")]
-          ),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "0" } }, [_vm._v("qualunque voto")])
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form-group search" }, [
+        [_c("i", { staticClass: "fas fa-chevron-up" })]
+      ),
+      _vm._v(" "),
       _c(
-        "select",
+        "button",
         {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.orderBy,
-              expression: "orderBy"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { name: "specializations", autocomplete: "on" },
+          staticClass: "d-block",
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.orderBy = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
+            click: function($event) {
+              return _vm.sortedRewDown()
             }
           }
         },
-        [
-          _c("option", { attrs: { value: "", disabled: "" } }, [
-            _vm._v("ordina per ...")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "reviewsNum" } }, [
-            _vm._v("numero di recensioni")
-          ])
-        ]
+        [_c("i", { staticClass: "fas fa-chevron-down" })]
       )
     ]),
     _vm._v(" "),
-    _vm.users.length > 0
-      ? _c("table", { staticClass: "table table-hover my-table" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.users, function(user, index) {
-              return _c("tr", { key: index }, [
-                _c("td", [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "/doctors/" + user.id + "/" + _vm.specId }
-                    },
-                    [
-                      _c("div", [
-                        _vm._v(_vm._s(user.name) + " " + _vm._s(user.lastname))
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "/doctors/" + user.id + "/" + _vm.specId }
-                    },
-                    _vm._l(user.specializations, function(spec, index) {
-                      return _c("div", { key: index }, [
-                        _vm._v(
-                          "\n              " +
-                            _vm._s(spec.name) +
-                            "\n            "
-                        )
-                      ])
-                    }),
-                    0
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "average" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "/doctors/" + user.id + "/" + _vm.specId }
-                    },
-                    [
-                      _vm._l(_vm.average(user), function(star, index) {
-                        return _c("i", {
-                          key: index,
-                          staticClass: "fas fa-star",
-                          staticStyle: { color: "orange" }
-                        })
-                      }),
-                      _vm._v(" "),
-                      user.reviews.length > 0
-                        ? _c("span", [
-                            _vm._v(
-                              "su " + _vm._s(_vm.sum(user)) + " recensioni"
-                            )
-                          ])
-                        : _c("span", [
-                            _vm._v("Non ci sono recensioni disponibili")
-                          ])
-                    ],
-                    2
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "img-col" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "/doctors/" + user.id + "/" + _vm.specId }
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "user-image",
+    _c("div", { staticClass: "d-flex mb-5 ml-5" }, [
+      _c("h5", [_vm._v("Ordina per media recensioni")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "d-block mx-3",
+          on: {
+            click: function($event) {
+              return _vm.sortedAvarageUp()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-chevron-up" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "d-block",
+          on: {
+            click: function($event) {
+              return _vm.sortedAvarageDown()
+            }
+          }
+        },
+        [_c("i", { staticClass: "fas fa-chevron-down" })]
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "d-flex flex-wrap justify-content-center" },
+      _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, index) {
+        return _c(
+          "div",
+          {
+            key: index,
+            staticClass: "card text-left mb-3 p-4 mx-3",
+            staticStyle: { width: "350px" }
+          },
+          [
+            _c("div", { staticClass: "card-body p-0 mt-4" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "d-block",
+                  attrs: { href: "http://127.0.0.1:8000/doctors/" + doctor.id }
+                },
+                [
+                  doctor.profile_image
+                    ? _c("img", {
+                        staticClass: "img-fluid",
                         attrs: {
-                          src: "../" + user.profile_image,
-                          width: "150px"
+                          src:
+                            "http://127.0.0.1:8000/storage/" +
+                            doctor.profile_image,
+                          alt: ""
                         }
-                      }),
-                      _vm._v(" "),
-                      _vm.sponsored.includes(user)
-                        ? _c("img", {
-                            staticClass: "sponsored-doc",
-                            attrs: { src: "../" + user.profile_image }
-                          })
-                        : _vm._e()
-                    ]
-                  )
-                ])
+                      })
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c("h4", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(doctor.name))
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(doctor.lastname))
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "card-title" }, [
+                _vm._v("media voti" + _vm._s(doctor.avarage))
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "card-title" }, [
+                _vm._v("numero recensioni" + _vm._s(doctor.num))
+              ]),
+              _vm._v(" "),
+              _c("h4", { staticClass: "card-title" }, [
+                _vm._v("sponsor attivi" + _vm._s(doctor.att))
               ])
-            }),
-            0
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.results === false
-      ? _c("div", [
-          _vm._v(
-            "\n    Mi dispiace, non ci sono risultati per i tuoi criteri di ricerca.\n  "
-          )
-        ])
-      : _vm._e()
+            ])
+          ]
+        )
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = [
@@ -38081,24 +37838,6 @@ var staticRenderFns = [
     return _c("button", { staticClass: "btn button-none" }, [
       _c("a", { attrs: { href: "/" } }, [
         _c("i", { staticClass: "fas fa-arrow-left" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome e Cognome")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Specializzazioni")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "average", attrs: { scope: "col" } }, [
-          _vm._v("Media voti")
-        ]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } })
       ])
     ])
   }

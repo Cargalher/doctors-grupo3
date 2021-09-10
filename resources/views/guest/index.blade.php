@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div id="app" class="container">
+    <div id="app" class="">
         <index-component :selected="{{$selected}}" :specializations="{{$specializations}}"></index-component>
     </div>
 
