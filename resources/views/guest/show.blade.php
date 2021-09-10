@@ -24,26 +24,27 @@
         @endif
 
 
-        <div class="row">
-            <div class="col-12">
+        <div class="row pt-4">
+            <div class="col-8">
                 {{-- dottore singolo --}}
-                <div class="card mb-3">
-                    <div class="row no-gutters">
+                <div class="card border-0 mb-3">
+                    <div class="bg-white rounded shadow p-4 mb-4 clearfix graph-star-rating row no-gutters">
                         <div class="col-md-4">
-                        <img style="width: 200px" src="{{ asset($user->path) }}" class="p-2"
+                            <img style="width: 200px" src="{{ asset($user->path) }}" class="p-2"
                                 alt="{{ $user->name . ' ' . $user->lastname }}">
 
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                @foreach($user->specializations as $specialization)
-                                    <p class="card-text"><small class="text-muted"> {{$specialization->name}}</small></p>
+                                @foreach ($user->specializations as $specialization)
+                                    <p class="card-text"><small class="text-muted">
+                                            {{ $specialization->name }}</small></p>
                                 @endforeach
                                 <h5 class="card-title">Dott: {{ $user->name }} {{ $user->lastname }}</h5>
                                 <p class="card-text">Indirizzo <br> {{ $user->address }}</p>
                                 <p class="card-text">{{ $user->city }}</p>
                                 <p class="card-text"> Telefono: <br> {{ $user->phone_number }}</p>
-                                
+
                                 <button class="btn custom-button " data-toggle="modal" data-target="#modalMessage">
                                     <i class="fas fa-comment-medical"></i> Invia un messaggio
                                 </button>
@@ -52,147 +53,6 @@
                     </div>
                 </div>
             </div>
-
-        </div>
-
-        
-        <!--CV DOTTORE  -->
-        <div class="row">
-            <div class="col-12">
-                <div   div class="card border-light mb-3">
-                    <div class="card-header"><i class="fas fa-graduation-cap"></i> Profilo</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Titoli conseguiti</h5>
-                        <ul class="card-text">
-                            <li>Specializzazione in Andrologia presso l’Università di Pisa nel 1992;</li>
-                            <li>Specializzazione in Chirurgia Generale presso l’Università degli Studi di Roma “La Sapienza” nel 1987;</li>
-                            <li>Specializzazione in Oncologia presso l’Università degli Studi di Roma “La Sapienza” nel 1980;</li>
-                            <li>Specializzazione in Endocrinologia presso l’Università degli Studi di Roma “La Sapienza” nel 1977.</li>
-                        </ul>
-                        <h5 class="card-title">Curriculum e attività</h5>
-                        <ul class="card-text">
-                            <li>Laurea in Medicina e Chirurgia presso l’Università degli Studi di Roma “La Sapienza” (luglio 1974);</li>
-                            <li>Dal 1975 al 2001 Assistente e quindi Aiuto della Chirurgia Generale dell'Ospedale San Carlo Nancy di Roma;</li>
-                            <li>dal 1982 ad oggi Dirigente dello Studio di Andrologia e di Chirurgia Andrologica di Roma, prima struttura andrologica privata di Roma;</li>
-                            <li>Ha pubblicato oltre 200 articoli su riviste straniere ed italiane, Editor di Diagnosing Impotence (Masson 1989), Diagnosing Infertility (Karger, 1991);</li>
-                            <li>Organizzatore degli International Meeting of Andrology che hanno portato a Roma i più grandi andrologi del mondo;</li>
-                            <li>Visitato oltre 30.000 pazienti con patologie andrologiche; una ricche casistica personale di protesi peniene (oltre 500);</li>
-                            <li>Frequenza istituto e laboratori della Clinica Medica V, Università Sapienza di Roma dal 1970 al 1974;</li>
-                            <li>Frequenza del Reparto di Urologia Klinikum Steglitz di Berlino 1981, 1982, 1983. Istituto Andrologico de Baleares dal 1984 al 1987;</li>
-                            <li>Lavora presso alcune strutture accreditate con il SSN.</li>
-                        </ul>
-                        <h5 class="card-title">Apparecchiature utilizzate</h5>
-                        <p class="card-text">Ecografo, EcoColorDoppler, Rigiscan, Biotesiometro, Cistoscopio sottile, UroFlussimetria, UroDinaMica, Onde Urto Extracorporee a Bassa Intensità (LIESW).</p>
-                        <h5 class="card-title">Patologie trattate</h5>
-                        <ul class="card-text d-flex justify-content-around">
-                            <div>
-                                <li>Aneiaculazione</li>
-                                <li>Biofeedback</li>
-                                <li>Calcoli renali</li>
-                                <li>Cisti renali</li>
-                                <li>Cistite</li>
-                                <li>Colica renale</li>
-                                <li>Condilomi</li>
-                                <li>Criptorchidismo</li>
-                            </div>
-                            <div>
-                                <li>Disfunzione erettile</li>
-                                <li>Disturbi della sfera sessuale</li>
-                                <li>Eiaculazione precoce</li>
-                                <li>Falloplastica</li>
-                                <li>Fimosi</li>
-                                <li>Frenulotomia</li>
-                                <li>Idrocele</li>
-                                <li>Impotenza</li>
-                            </div>
-                        </ul>
-                        <h5 class="card-title">Metodologie diagnostiche e terapeutiche</h5>
-                        <p class="card-text">Diagnosi e terapia del Deficit Erettile e delle patologie del pene ed eiaculazione Chirurgia del varicocele con tecniche microchirurgiche e scleroterapia sec. Tauber; Tecniche di recupero chirurgico di spermatozoi testicolari nell'azoospermia (TESE,MESA); Chirurgia dei Corpi Cavernosi per placche da IPP, incurvamenti; Deficit Erettile con Protesi peniene malleabili ed idrauliche; oltre 5.000 varicoceli operati, peni curvi, chirurgia di placca, chirurgia dei deferenti, chirurgia della azoospermia; Oltre 13.000 iniezioni intra-cavernose di PGE1; Viagra, Cialis, Levitra, MESA, TESE nella PMA; Chirurgia dell'uretra per stenosi; Chirurgia della prostata per ipertrofia benigna. Circoncisione, frenuloplastica; Rigiscan, per le erezioni notturne, EcoColorDoppler per la valutazione del pene e dei testicoli, cavernometria per la valutazione della circolazione venosa, Biotesiometria per valutazione della innervazione autonomica del pene, AVSS Test per valutazione erettile con Rigiscan della risposta erettile a stimolazioni sessuali visive ed iniettive; Test con PGE1 per valutazione della risposta vascolare; Cistoscopia sottile per valutazione dell'uretra e della vescica; Biopsie prostatiche.</p>
-                        <h5 class="card-title">Laurea e abilitazione</h5>
-                        <p class="card-text">
-                            <strong>Laurea:</strong> 17/07/1974 - Università degli Studi di Roma "La Sapienza" <br>
-                            <strong>Abilitazione:</strong> seconda sessione 1974 - Università degli Studi di Roma "La Sapienza" <br>
-                            <ul>
-                                <li>Iscritto all'Ordine dei Medici Chirurghi e Odontoiatri (FNOMCeO) della Provincia di Roma</li>
-                                <li>Posizione numero: 21539</li>
-                                <li>Verifica FNOMCeO</li>
-                            </ul>
-                           <strong> P.IVA:</strong> 01807700586
-                        </p>
-                        <h5 class="card-title">Dichiarazione di conformità alle linee guida dell'Ordine</h5>
-                        <p class="card-text">Il sottoscritto Dr. Diego Pozza dichiara sotto la propria responsabilità che il messaggio informativo contenuto nel presente sito è diramato nel rispetto delle linee guida approvate dalla FNOMCeO inerenti l'applicazione degli artt. 55, 56 e 57 del Nuovo Codice di Deontologia Medica.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-            <div class="card border-light mb-3">
-                <div class="card-header">Servizi</div>
-                    <div class="card-body">
-                    <h5 class="card-title">Patologie trattate</h5>
-                        <ul class="card-text d-flex justify-content-around">
-                            <div>
-                                <li>Aneiaculazione</li>
-                                <li>Biofeedback</li>
-                                <li>Calcoli renali</li>
-                                <li>Cisti renali</li>
-                                <li>Cistite</li>
-                                <li>Colica renale</li>
-                                <li>Condilomi</li>
-                                <li>Criptorchidismo</li>
-                            </div>
-                            <div>
-                                <li>Disfunzione erettile</li>
-                                <li>Disturbi della sfera sessuale</li>
-                                <li>Eiaculazione precoce</li>
-                                <li>Falloplastica</li>
-                                <li>Fimosi</li>
-                                <li>Frenulotomia</li>
-                                <li>Idrocele</li>
-                                <li>Impotenza</li>
-                            </div>
-                        </ul>
-                    </div>
-</div>
-            </div>
-        </div> 
-
-
-        <div class="row">
-            <div class="col-8">
-                <!-- Card Reviews -->
-                <div class="card border-light mb-3">
-                        <div class="card-header">Recensioni dei Pazienti</div>
-                                <div class="card-body">
-                                    @if (count($user->reviews) > 0)
-                                        @foreach ($reviews as $review)
-                                            @if ($review->user_id === $user->id)
-
-                                                <div class="card-text mb-2">
-                                                    <h5>{{ $review->name }} {{ $review->lastname }}</h5>
-                                                    <h5>{{ $review->title }}</h5>
-                                                    <p>{{ $review->body }}</p>
-                                                    <h5>Voto:
-
-                                                        @for ($i = 0; $i < $review->vote; $i++)
-                                                            <i class="fas fa-star"></i>
-                                                        @endfor
-                                                    </h5>
-                                                </div>
-                                            @endif
-                                        @endforeach
-                                        @else
-                                        <h4>Nessuna recensione ricevuta</h4>
-                                    @endif
-                                </div>
-                                 
-                </div>
-
-            
-            </div>
-         
-
             <div class="col-4">
                 @php
                     $star5 = [];
@@ -200,7 +60,7 @@
                     $star3 = [];
                     $star2 = [];
                     $star1 = [];
-
+                    
                     foreach ($user->reviews as $review) {
                         switch ($review->vote) {
                             case 5:
@@ -221,16 +81,16 @@
                                 break;
                         }
                     }
-
+                    
                     $cinquestelle = $quattrostelle = $trestelle = $duestelle = $unastella = $sum5 = $sum4 = $sum3 = $sum2 = $sum1 = $totalSum = 0;
-      
-                    if(count($user->reviews) > 0){
+                    
+                    if (count($user->reviews) > 0) {
                         $cinquestelle = (count($star5) * 100) / count($user->reviews);
                         $quattrostelle = (count($star4) * 100) / count($user->reviews);
                         $trestelle = (count($star3) * 100) / count($user->reviews);
                         $duestelle = (count($star2) * 100) / count($user->reviews);
                         $unastella = (count($star1) * 100) / count($user->reviews);
-                        $sum5 = array_sum($star5);    
+                        $sum5 = array_sum($star5);
                         $sum4 = array_sum($star4);
                         $sum3 = array_sum($star3);
                         $sum2 = array_sum($star2);
@@ -239,13 +99,17 @@
                     }
                     
                 @endphp
-                <div class="bg-white rounded shadow-sm p-4 mb-4 clearfix graph-star-rating">
-                    <h4 class="mb-0 mb-4 text-center">Recensioni dei Clienti </h4>
+                <div class="bg-white rounded shadow p-4 mb-4 clearfix graph-star-rating">
+                    {{-- <h4 class="mb-0 mb-4 text-center">Recensioni dei Clienti </h4> --}}
                     <div class="graph-star-rating-header">
-                        <div class="star-rating">
-                            <p class="text-black mb-3 mt-2">Totale recensioni: {{ count($user->reviews) }}</p>
+                        <div class="star-rating d-flex justify-content-between">
+                            <span class="text-black mb-2">Totale recensioni:
+                                {{ count($user->reviews) }}
+                            </span>
+                            <span class="text-black mb-2">
+                                Media voti {{ round($totalSum, 1) }} su 5
+                            </span>
                         </div>
-                        <p class="text-black mb-3 mt-2">Media voti {{ round($totalSum, 1) }} su 5</p>
                     </div>
                     <div class="graph-star-rating-body">
                         <div class="rating-list">
@@ -333,10 +197,178 @@
                         </div>
                     </div>
                     {{-- pulsante per inviare un messaggio --}}
-                                    <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
-                                        <i class="fas fa-comment-medical"></i> Invia una recensione
-                                    </button>
+                    <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
+                        <i class="fas fa-comment-medical"></i> Invia una recensione
+                    </button>
                 </div>
+            </div>
+
+        </div>
+
+
+        <!--CV DOTTORE  -->
+        <div class="row">
+            <div class="col-12">
+                <div div class="card border-light mb-3">
+                    <div class="card-header"><i class="fas fa-graduation-cap"></i> Profilo</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Titoli conseguiti</h5>
+                        <ul class="card-text">
+                            <li>Specializzazione in Andrologia presso l’Università di Pisa nel 1992;</li>
+                            <li>Specializzazione in Chirurgia Generale presso l’Università degli Studi di Roma “La Sapienza”
+                                nel 1987;</li>
+                            <li>Specializzazione in Oncologia presso l’Università degli Studi di Roma “La Sapienza” nel
+                                1980;</li>
+                            <li>Specializzazione in Endocrinologia presso l’Università degli Studi di Roma “La Sapienza” nel
+                                1977.</li>
+                        </ul>
+                        <h5 class="card-title">Curriculum e attività</h5>
+                        <ul class="card-text">
+                            <li>Laurea in Medicina e Chirurgia presso l’Università degli Studi di Roma “La Sapienza” (luglio
+                                1974);</li>
+                            <li>Dal 1975 al 2001 Assistente e quindi Aiuto della Chirurgia Generale dell'Ospedale San Carlo
+                                Nancy di Roma;</li>
+                            <li>dal 1982 ad oggi Dirigente dello Studio di Andrologia e di Chirurgia Andrologica di Roma,
+                                prima struttura andrologica privata di Roma;</li>
+                            <li>Ha pubblicato oltre 200 articoli su riviste straniere ed italiane, Editor di Diagnosing
+                                Impotence (Masson 1989), Diagnosing Infertility (Karger, 1991);</li>
+                            <li>Organizzatore degli International Meeting of Andrology che hanno portato a Roma i più grandi
+                                andrologi del mondo;</li>
+                            <li>Visitato oltre 30.000 pazienti con patologie andrologiche; una ricche casistica personale di
+                                protesi peniene (oltre 500);</li>
+                            <li>Frequenza istituto e laboratori della Clinica Medica V, Università Sapienza di Roma dal 1970
+                                al 1974;</li>
+                            <li>Frequenza del Reparto di Urologia Klinikum Steglitz di Berlino 1981, 1982, 1983. Istituto
+                                Andrologico de Baleares dal 1984 al 1987;</li>
+                            <li>Lavora presso alcune strutture accreditate con il SSN.</li>
+                        </ul>
+                        <h5 class="card-title">Apparecchiature utilizzate</h5>
+                        <p class="card-text">Ecografo, EcoColorDoppler, Rigiscan, Biotesiometro, Cistoscopio sottile,
+                            UroFlussimetria, UroDinaMica, Onde Urto Extracorporee a Bassa Intensità (LIESW).</p>
+                        <h5 class="card-title">Patologie trattate</h5>
+                        <ul class="card-text d-flex justify-content-around">
+                            <div>
+                                <li>Aneiaculazione</li>
+                                <li>Biofeedback</li>
+                                <li>Calcoli renali</li>
+                                <li>Cisti renali</li>
+                                <li>Cistite</li>
+                                <li>Colica renale</li>
+                                <li>Condilomi</li>
+                                <li>Criptorchidismo</li>
+                            </div>
+                            <div>
+                                <li>Disfunzione erettile</li>
+                                <li>Disturbi della sfera sessuale</li>
+                                <li>Eiaculazione precoce</li>
+                                <li>Falloplastica</li>
+                                <li>Fimosi</li>
+                                <li>Frenulotomia</li>
+                                <li>Idrocele</li>
+                                <li>Impotenza</li>
+                            </div>
+                        </ul>
+                        <h5 class="card-title">Metodologie diagnostiche e terapeutiche</h5>
+                        <p class="card-text">Diagnosi e terapia del Deficit Erettile e delle patologie del pene ed
+                            eiaculazione Chirurgia del varicocele con tecniche microchirurgiche e scleroterapia sec. Tauber;
+                            Tecniche di recupero chirurgico di spermatozoi testicolari nell'azoospermia (TESE,MESA);
+                            Chirurgia dei Corpi Cavernosi per placche da IPP, incurvamenti; Deficit Erettile con Protesi
+                            peniene malleabili ed idrauliche; oltre 5.000 varicoceli operati, peni curvi, chirurgia di
+                            placca, chirurgia dei deferenti, chirurgia della azoospermia; Oltre 13.000 iniezioni
+                            intra-cavernose di PGE1; Viagra, Cialis, Levitra, MESA, TESE nella PMA; Chirurgia dell'uretra
+                            per stenosi; Chirurgia della prostata per ipertrofia benigna. Circoncisione, frenuloplastica;
+                            Rigiscan, per le erezioni notturne, EcoColorDoppler per la valutazione del pene e dei testicoli,
+                            cavernometria per la valutazione della circolazione venosa, Biotesiometria per valutazione della
+                            innervazione autonomica del pene, AVSS Test per valutazione erettile con Rigiscan della risposta
+                            erettile a stimolazioni sessuali visive ed iniettive; Test con PGE1 per valutazione della
+                            risposta vascolare; Cistoscopia sottile per valutazione dell'uretra e della vescica; Biopsie
+                            prostatiche.</p>
+                        <h5 class="card-title">Laurea e abilitazione</h5>
+                        <p class="card-text">
+                            <strong>Laurea:</strong> 17/07/1974 - Università degli Studi di Roma "La Sapienza" <br>
+                            <strong>Abilitazione:</strong> seconda sessione 1974 - Università degli Studi di Roma "La
+                            Sapienza" <br>
+                        <ul>
+                            <li>Iscritto all'Ordine dei Medici Chirurghi e Odontoiatri (FNOMCeO) della Provincia di Roma
+                            </li>
+                            <li>Posizione numero: 21539</li>
+                            <li>Verifica FNOMCeO</li>
+                        </ul>
+                        <strong> P.IVA:</strong> 01807700586
+                        </p>
+                        <h5 class="card-title">Dichiarazione di conformità alle linee guida dell'Ordine</h5>
+                        <p class="card-text">Il sottoscritto Dr. Diego Pozza dichiara sotto la propria responsabilità
+                            che il messaggio informativo contenuto nel presente sito è diramato nel rispetto delle linee
+                            guida approvate dalla FNOMCeO inerenti l'applicazione degli artt. 55, 56 e 57 del Nuovo Codice
+                            di Deontologia Medica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-light mb-3">
+                    <div class="card-header">Servizi</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Patologie trattate</h5>
+                        <ul class="card-text d-flex justify-content-around">
+                            <div>
+                                <li>Aneiaculazione</li>
+                                <li>Biofeedback</li>
+                                <li>Calcoli renali</li>
+                                <li>Cisti renali</li>
+                                <li>Cistite</li>
+                                <li>Colica renale</li>
+                                <li>Condilomi</li>
+                                <li>Criptorchidismo</li>
+                            </div>
+                            <div>
+                                <li>Disfunzione erettile</li>
+                                <li>Disturbi della sfera sessuale</li>
+                                <li>Eiaculazione precoce</li>
+                                <li>Falloplastica</li>
+                                <li>Fimosi</li>
+                                <li>Frenulotomia</li>
+                                <li>Idrocele</li>
+                                <li>Impotenza</li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <!-- Card Reviews -->
+                <div class="card border-light mb-3">
+                    <div class="card-header">Recensioni dei Pazienti</div>
+                    <div class="card-body">
+                        @if (count($user->reviews) > 0)
+                            @foreach ($reviews as $review)
+                                @if ($review->user_id === $user->id)
+
+                                    <div class="card-text mb-2">
+                                        <h5>{{ $review->name }} {{ $review->lastname }}</h5>
+                                        <h5>{{ $review->title }}</h5>
+                                        <p>{{ $review->body }}</p>
+                                        <h5>Voto:
+
+                                            @for ($i = 0; $i < $review->vote; $i++)
+                                                <i class="fas fa-star"></i>
+                                            @endfor
+                                        </h5>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @else
+                            <h4>Nessuna recensione ricevuta</h4>
+                        @endif
+                    </div>
+
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -355,7 +387,8 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="BoolDoctors logo">
+                        <img width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}"
+                            alt="BoolDoctors logo">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -432,7 +465,8 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
-                        <img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="BoolDoctors logo">
+                        <img width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}"
+                            alt="BoolDoctors logo">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
