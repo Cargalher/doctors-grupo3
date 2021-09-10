@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
 
-    <div class="accordion pt-5" id="accordionExample">
+    <div class="accordion py-5" id="accordionExample">
     <div class="card">
         <div class="card-header" id="headingOne">
         <h2 class="mb-0">
