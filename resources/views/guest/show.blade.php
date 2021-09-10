@@ -55,42 +55,51 @@
 
         </div>
 
+
+                
+                
+
+
         <div class="row">
             <div class="col-8">
-                <h2 class="mt-5">Recensioni:</h2>
+                <!-- Card Reviews -->
+                <div class="card border-light mb-3">
+                        <div class="card-header">Recensioni dei Pazienti</div>
+                                <div class="card-body">
+                                    {{-- pulsante per inviare un messaggio --}}
+                                    <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
+                                        <i class="fas fa-comment-medical"></i> Invia una recensione
+                                    </button>
+                                    @if (count($user->reviews) > 0)
+                                        @foreach ($reviews as $review)
+                                            @if ($review->user_id === $user->id)
 
-    {{-- pulsante per inviare un messaggio --}}
-    <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
-        <i class="fas fa-comment-medical"></i> Invia una recensione
-    </button>
+                                                <div class="card-text mb-2">
+                                                    <h5>{{ $review->name }} {{ $review->lastname }}</h5>
+                                                    <h5>{{ $review->title }}</h5>
+                                                    <p>{{ $review->body }}</p>
+                                                    <h5>Voto:
 
-    @if (count($user->reviews) > 0)
-        @foreach ($reviews as $review)
-            @if ($review->user_id === $user->id)
-
-                <div class="mb-2">
-                    <h5>{{ $review->name }} {{ $review->lastname }}</h5>
-                    <h5>{{ $review->title }}</h5>
-                    <p>{{ $review->body }}</p>
-                    <h5>Voto:
-
-                        @for ($i = 0; $i < $review->vote; $i++)
-                            <i class="fas fa-star"></i>
-                        @endfor
-
-
-                    </h5>
+                                                        @for ($i = 0; $i < $review->vote; $i++)
+                                                            <i class="fas fa-star"></i>
+                                                        @endfor
+                                                    </h5>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                        @else
+                                        <h4>Nessuna recensione ricevuta</h4>
+                                    @endif
+                                </div>
+                                 
                 </div>
 
-            @endif
-        @endforeach
-    @else
-        <h4>Nessuna recensione ricevuta</h4>
-    @endif
+            
             </div>
+         
 
             <div class="col-4">
-            @php
+                @php
                     $star5 = [];
                     $star4 = [];
                     $star3 = [];
