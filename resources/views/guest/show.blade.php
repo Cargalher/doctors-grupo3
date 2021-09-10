@@ -25,34 +25,34 @@
 
         <div class="row pt-4">
              <!-- Card Doctor Info Principale -->
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 {{-- dottore singolo --}}
                 <div class="card border-0 mb-3">
                 <div class="card-header"><i class="fas fa-user-md icon-show"></i> Informazione Generale</div>
                     <div class="bg-white rounded shadow p-4 mb-4 clearfix graph-star-rating row no-gutters">
-                        <div class="col-md-4">
-                            <img style="object-fit: cover" src="{{ asset($user->path) }}" class="rounded-circle p-2"
-                                width="200" height="200" alt="{{ $user->name . ' ' . $user->lastname }}">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <img style="object-fit: cover" src="{{ asset($user->path) }}" class="rounded-circle mx-auto"
+                                height="200" width="200"  alt="{{ $user->name . ' ' . $user->lastname }}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 @foreach ($user->specializations as $specialization)
-                                    <p class="card-text"><small class="text-muted">
-                                            {{ $specialization->name }}</small></p>
+                                    <span class="card-text text-info">
+                                            {{ $specialization->name }}  &nbsp;</span>
                                 @endforeach
-                                <h5 class="card-title">Dott: {{ $user->name }} {{ $user->lastname }}</h5>
+                                <h5 class="card-title mt-3">Dott: {{ $user->name }} {{ $user->lastname }}</h5>
                                 <p class="card-text">Indirizzo <br> {{ $user->address }}</p>
                                 <p class="card-text">{{ $user->city }}</p>
                                 <p class="card-text"> Telefono: <br> {{ $user->phone_number }}</p>
                                 
                                 <!-- pulsante per inviare un messagio -->
-                                <button class="btn custom-button " data-toggle="modal" data-target="#modalMessage">
-                                <i class="far fa-envelope"></i> Invia un messaggio
+                                <button class="btn custom-button p-0" data-toggle="modal" data-target="#modalMessage">
+                                <i class="far fa-envelope icon-show align-middle mr-1"></i> <span class="text-black-50">Invia un messaggio</span>
                                 </button>
 
                                 <!-- pulsante per inviare una recensione -->
-                                <button class="btn custom-button " data-toggle="modal" data-target="#modalReview">
-                                    <i class="fas fa-comment-medical"></i> Invia una recensione
+                                <button class="btn custom-button" data-toggle="modal" data-target="#modalReview">
+                                    <i class="fas fa-comment-medical icon-show align-middle mr-1"></i> <span class="text-black-50">Invia una recensione</span> 
                                 </button>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
             </div>
 
             <!-- Card Stelline recensione -->
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <div class="card-header"><i class="far fa-star icon-show"></i></i> Recensione</div>
                     @php
                         $star5 = [];
@@ -210,9 +210,12 @@
                         
                         <!-- modale per vedere tutti gli recensioni??? -->
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                        <div class="text-center">
+                            <button type="button" class="btn text-white btn-show" data-toggle="modal" data-target="#exampleModalLong">
                             Leggi tutte le recensioni
-                        </button>
+                            </button>
+                        </div>
+                        
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog" role="document">
