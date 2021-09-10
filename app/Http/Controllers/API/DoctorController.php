@@ -15,11 +15,18 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Restituisce tutti gli utenti in formato JSON
-        $doctors = User::with('specializations', 'reviews', 'sponsors')->get();
-        return response()->json($doctors);
+        $specialization = $request->query('specialization');
+
+        if ($specialization > 0) {
+            $filtered = User::with('specializations', 'reviews', 'sponsors')->whereHas('specializations', function ($query) use ($specialization) {
+                return $query->where('specialization_id', $specialization);
+            })->get();
+        } else {
+            $filtered = User::with('specializations', 'reviews', 'sponsors')->get();
+        }
+        return response()->json($filtered);
     }
 
     /**

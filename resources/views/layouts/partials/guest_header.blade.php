@@ -21,7 +21,7 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vue-doctors') }}"> <i class="fas fa-search"></i>Cerca</a>
+                        <a class="nav-link" href="{{ route('toIndex') }}"> <i class="fas fa-search"></i>Cerca</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">

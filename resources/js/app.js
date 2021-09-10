@@ -25,7 +25,7 @@ import Vue from 'vue';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('index-component', require('./components/IndexComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,144 +33,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+ const app = new Vue({
     el: '#app',
-
-    data: {
-        doctors: [],
-        specializations: [],
-        specialization: '',
-
-    },
-
     methods: {
-
-        sponsDoc: function(arr) {
-          // Set slice() to avoid to generate an infinite loop!
-          return arr.slice().sort(function(a, b) {
-
-            return b.att - a.att; 
-            
-          });
-          
-        }
-
-      },
-
-    computed: {
-
-        // Ordina per numero recensioni
-        sortedRewUp: function () {
-            this.doctors.sort((a, b) => {
-                return (b.num) - (a.num);
-            });
-            return this.doctors;
+        historyBack(spec) {
+            window.location.href = '/doctors?specialization=' + spec;
         },
-        sortedRewDown: function () {
-            this.doctors.sort((a, b) => {
-                return (a.num) - (b.num);
-            });
-            return this.doctors;
-        },
-
-        // Ordina per media recensioni
-        sortedAvarageUp: function () {
-            this.doctors.sort((a, b) => {
-                return (b.avarage) - (a.avarage);
-            });
-            return this.doctors;
-        },
-        sortedAvarageDown: function () {
-            this.doctors.sort((a, b) => {
-                return (a.avarage) - (b.avarage);
-            });
-            return this.doctors;
-        }
-    },
-
-
-    mounted() {
-        Axios.get('api/doctors').then(resp => {
-
-            this.doctors = resp.data;
-
-            this.doctors.forEach(doctor => {
-
-                doctor.sponAtt = [];
-
-                var currentDate = new Date();
-
-                doctor.sponsors.forEach(spon => {
-                    spon.end = spon.pivot.expiration_time
-
-                    //console.log(new Date(spon.end) > new Date(dateTime));
-                    
-                    if(new Date(spon.end) > new Date(currentDate)){
-                        doctor.sponAtt.push(spon);
-                    } else {
-                    }
-                    
-                    //console.log(spon.end);
-                });
-
-                doctor.att = doctor.sponAtt.length
-
-
-                //console.log(doctor);
-
-                doctor.spec = [];
-                doctor.num = doctor.reviews.length;
-                
-                var sum = doctor.reviews.reduce((acc, rew) => acc + rew.vote, 0);
-                // console.log(sum);
-                var avarage = sum / doctor.num;
-                if (Number.isNaN(avarage)) {
-                    doctor.avarage = 0;
-                } else {
-                    doctor.avarage = avarage.toFixed(2);
-                }
-
-
-                doctor.specializations.forEach(spec => {
-
-                    doctor.spec.push(spec.name)
-
-                    if (!this.specializations.includes(spec.name)) {
-                        this.specializations.push(spec.name)
-                    }
-
-                });
-
-                this.specialization = this.specializations;
-            });
-
-            console.log(this.doctors);
-        }).catch(e => {
-            console.error('Sorry! ' + e)
-        })
-
-        
-    },
-
-
+    }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // number count for stats, using jQuery animate

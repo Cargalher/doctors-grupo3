@@ -44,6 +44,32 @@
         <div style="height: 200px" class="jumbotron">
 
         </div>
+
+        <div class="container jum-container">
+        <div class="jum-left">
+            <div class="jum-title">CERCA IL DOTTORE ADATTO A TE</div>
+
+            <form action="{{ route('toIndex') }}" method="post">
+                @csrf
+                @method('GET')
+
+                <div class="form-group">
+
+                    {{-- select specializzazioni --}}
+                    <select class="form-control col-auto" id="specialization" name="specialization" required>
+                        <option value="">Seleziona la specializzazione</option>
+                        @foreach ($specializations as $spec)
+                        <option value="{{ $spec->id }}" class="opt">{{ $spec->name }}</option>
+                        @endforeach
+                    </select>
+                    {{-- pulsante di ricerca --}}
+                    <button class="search custom-button" type="submit">
+                        Cerca
+                    </button>
+                </div>
+            </form>
+        </div>
+
         <div class="pt-3">
             <h2 class="text-center text-uppercase">Medici in Evidenza:</h2>
 

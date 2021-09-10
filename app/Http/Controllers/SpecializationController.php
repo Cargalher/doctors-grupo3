@@ -14,7 +14,7 @@ class SpecializationController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Specialization::all());
     }
 
     /**

@@ -21,6 +21,7 @@ class HomeController extends Controller
         // $doctors = User::orderBy('id', 'DESC')->paginate(10);
         // $doctors = User::has('sponsors')->orderBy('updated_at','DESC')->get();
         $doctors = User::all();
+        $specializations = Specialization::has('user')->get();
         $sponsoredDoctors = User::has('sponsors')->get();
         $currentDate = date("Y-m-d H:i:s");
         $activeDoctors = [];
@@ -36,7 +37,15 @@ class HomeController extends Controller
             }
         };
 
-        return view('guest.homepage', compact('doctors', 'reviews','activeDoctors'));
+        return view('guest.homepage', compact('doctors', 'reviews','activeDoctors', 'specializations'));
+    }
+
+    public function toIndex(Request $request)
+    {
+        $selected = $request->input('specialization');
+        $specializations = Specialization::has('user')->get();
+
+        return view('guest.index', compact('selected', 'specializations'));
     }
     /**
      * Display the specified resource.

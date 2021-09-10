@@ -20,6 +20,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
+Route::get('/vue-doctors', 'HomeController@toIndex')->name('toIndex');
+
 Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
 
 Route::post('review/{user}', 'ReviewController@saveReview')->name('saveReview');
@@ -33,9 +35,9 @@ Route::get('price', function () {
 })->name('price');
 
 // Rotta temporanea che stampa i dottori tramite API & VUE
-Route::get('vue-doctors', function () {
+/* Route::get('vue-doctors', function () {
     return view('vue-doctors');
-})->name('vue-doctors');
+})->name('vue-doctors'); */
 
 // Route DOCTOR
 Auth::routes();
