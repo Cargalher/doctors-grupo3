@@ -13,9 +13,6 @@ window.Vue = require('vue');
 
 import { times } from 'lodash';
 import Vue from 'vue';
-import vSelect from 'vue-select'
-
-Vue.component('v-select', vSelect)
 
 /**
  * The following block of code may be used to automatically register your
@@ -28,7 +25,7 @@ Vue.component('v-select', vSelect)
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('index-component', require('./components/IndexComponent.vue').default,'v-select', vSelect);
+Vue.component('index-component', require('./components/IndexComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
