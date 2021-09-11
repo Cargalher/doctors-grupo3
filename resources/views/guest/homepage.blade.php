@@ -42,7 +42,7 @@
         @endif
         
         <div class="">
-            <div class="container d-flex flex-column align-items-center justify-content-center">
+            <div class="d-flex flex-column flex-wrap justify-content-center align-items-center">
                 <div class="pt-5 pb-3 d-flex align-items-center">
                     <img width="100" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
                     <h1 class="font-weight-bold text-info">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
@@ -65,7 +65,7 @@
                         </select>
                         {{-- pulsante di ricerca --}}
                         <div class="text-center">
-                            <button class="btn btn-show text-white" type="submit">
+                            <button class="btn btn-show text-white mt-4" type="submit">
                                 <span>CERCA</span>
                             </button>
                         </div>

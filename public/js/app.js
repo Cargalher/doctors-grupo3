@@ -1920,7 +1920,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -37822,17 +37821,14 @@ var render = function() {
                   attrs: { href: "http://127.0.0.1:8000/doctors/" + doctor.id }
                 },
                 [
-                  doctor.profile_image
-                    ? _c("img", {
-                        staticClass: "img-fluid",
-                        attrs: {
-                          src:
-                            "http://127.0.0.1:8000/storage/" +
-                            doctor.profile_image,
-                          alt: ""
-                        }
-                      })
-                    : _vm._e()
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: {
+                      src:
+                        "http://127.0.0.1:8000/storage/" + doctor.profile_image,
+                      alt: ""
+                    }
+                  })
                 ]
               ),
               _vm._v(" "),

@@ -55,7 +55,6 @@
             class="d-block"
           >
             <img
-              v-if="doctor.profile_image"
               class="img-fluid"
               v-bind:src="
                 'http://127.0.0.1:8000/storage/' + doctor.profile_image
