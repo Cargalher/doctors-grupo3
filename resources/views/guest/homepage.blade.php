@@ -40,14 +40,13 @@
                 }, 3000);
             </script>
         @endif
-
-        <div style="height: 200px" class="jumbotron">
-
-        </div>
-
+        
         <div class="">
-            <div class="container">
-                <div class="">CERCA IL DOTTORE ADATTO A TE</div>
+            <div class="container d-flex flex-column align-items-center justify-content-center">
+                <div class="pt-5 pb-3 d-flex align-items-center">
+                    <img width="100" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
+                    <h1 class="font-weight-bold text-info">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
+                </div>
 
                 <form action="{{ route('toIndex') }}" method="post">
                     @csrf
@@ -55,19 +54,19 @@
 
                     
 
-                    <div class="form-group d-flex align-items-center">
+                    <div class="form-group">
 
                         {{-- select specializzazioni --}}
-                        <select class="selectpicker des" data-show-subtext="false" data-live-search="true" id="specialization" name="specialization" required>
+                        <select class="selectpicker" data-show-subtext="false" data-live-search="true" id="specialization" name="specialization" required>
                             <option value="">Seleziona la specializzazione</option>
                             @foreach ($specializations as $spec)
                                 <option value="{{ $spec->id }}" class="">{{ $spec->name }}</option>
                             @endforeach
                         </select>
                         {{-- pulsante di ricerca --}}
-                        <div class="text-center mx-5">
+                        <div class="text-center">
                             <button class="btn btn-show text-white" type="submit">
-                                Cerca
+                                <span>CERCA</span>
                             </button>
                         </div>
                         

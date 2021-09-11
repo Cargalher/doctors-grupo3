@@ -37701,7 +37701,7 @@ var render = function() {
                   expression: "specId"
                 }
               ],
-              staticClass: "form-control",
+              staticClass: "form-control selectpicker",
               attrs: {
                 "data-show-subtext": "false",
                 "data-live-search": "true",
@@ -37730,7 +37730,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("option", { attrs: { value: "0" } }, [
-                _vm._v("vedi tutti i medici")
+                _vm._v("Tutti i medici")
               ]),
               _vm._v(" "),
               _vm._l(_vm.specializations, function(spec, index) {

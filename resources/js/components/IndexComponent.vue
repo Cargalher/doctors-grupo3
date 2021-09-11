@@ -8,13 +8,13 @@
 
     <div class="form-group container" v-if="specializations.length > 0">
       <select
-        class="form-control" data-show-subtext="false" data-live-search="true" 
+        class="form-control selectpicker" data-show-subtext="false" data-live-search="true" 
         name="specializations"
         v-model="specId"
         autocomplete="on"
       >
         <option value="" disabled>scegli una specializzazione</option>
-        <option value="0">vedi tutti i medici</option>
+        <option value="0">Tutti i medici</option>
         <option
           v-for="(spec, index) in specializations"
           :key="index"

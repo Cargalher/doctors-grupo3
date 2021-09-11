@@ -21,9 +21,7 @@
             <ul class="navbar-nav">
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('toIndex') }}"> <i class="fas fa-search"></i>Cerca</a>
-                    </li>
+                   
                     @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
