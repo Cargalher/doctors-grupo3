@@ -42,6 +42,8 @@ Vue.component('index-component', require('./components/IndexComponent.vue').defa
     }
 });
 
+
+
 // number count for stats, using jQuery animate
 $(".counting").each(function () {
     var $this = $(this),

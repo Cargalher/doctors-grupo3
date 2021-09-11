@@ -59,7 +59,7 @@
                     {{-- select specializzazioni --}}
                     <select class="selectpicker" data-show-subtext="false" data-live-search="true" id="specialization"
                         name="specialization" required>
-                        <option value="">Seleziona la specializzazione</option>
+                        <option value="">Cerca lo Specialista</option>
                         @foreach ($specializations as $spec)
                             <option value="{{ $spec->id }}"
                                 class="">{{ $spec->name }}</option>
@@ -141,10 +141,120 @@
         </div>
     </div>
 
-    <div style="height: 500px" class="test">
+    <div class="pt-5">
+        <section class="pt-5 pb-5">
+            <div class="container">
+                <div class="row mx-0">
+                    <div class="col-6">
+                        <h1 class="mb-3 font-weight-bold text-info">Dicono di Noi</h1>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
+                            data-slide="prev">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-12 pt-5">
+                        <div id="carouselExampleIndicators2" class="carousel slide pt-4" data-ride="carousel">
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img class="img-fluid rounded-circle dic" alt="100%x280"
+                                                    src="{{asset('img/dome.jpeg')}}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
+                                                    <p class="card-text">With supporting text below as a natural
+                                                        lead-in to additional content.</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img class="img-fluid rounded-circle dic" alt="100%x280"
+                                                    src="{{asset('img/carmi.jpeg')}}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
+                                                    <p class="card-text">With supporting text below as a natural
+                                                        lead-in to additional content.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img class="img-fluid rounded-circle dic" alt="100%x280"
+                                                    src="{{asset('img/ema.jpeg')}}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
+                                                    <p class="card-text">With supporting text below as a natural
+                                                        lead-in to additional content.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img class="img-fluid rounded-circle dic" alt="100%x280"
+                                                    src="{{asset('img/gianma.jpeg')}}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
+                                                    <p class="card-text">With supporting text below as a natural
+                                                        lead-in to additional content.</p>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img class="img-fluid rounded-circle dic" alt="100%x280"
+                                                    src="{{asset('img/ale.jpeg')}}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
+                                                    <p class="card-text">With supporting text below as a natural
+                                                        lead-in to additional content.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img class="img-fluid rounded-circle dic" alt="100%x280"
+                                                    src="{{asset('img/fab.jpeg')}}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Special title treatment</h4>
+                                                    <p class="card-text">With supporting text below as a natural
+                                                        lead-in to additional content.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </div>
-
 
     </div>
 
