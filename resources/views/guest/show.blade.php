@@ -7,7 +7,7 @@
 
 
     {{-- show dottore page --}}
-    <div class="container">
+    <div class="container pt-5">
         {{-- messaggio di avvenuta recensione --}}
         @if (session('success'))
             <div id="confermaRecensione" class="alert alert-success alert-dismissible fade show"> <a href="#"
