@@ -2,7 +2,7 @@
 
 @include('layouts/partials/guest_header')
 
-<main class="py-4">
+<main class="py-5">
     @yield('content')
 
 </main>

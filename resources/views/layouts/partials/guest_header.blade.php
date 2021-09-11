@@ -26,18 +26,19 @@
                     @guest
 
                         @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link border border-info rounded text-info font-weight-bold" href="{{ route('register') }}">Sei un dottore? Iscriviti</a>
                             </li>
                         @endif
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }} <i
-                                    class="far fa-user-circle"></i></a>
+                        <li class="nav-item font-weight-bold">
+                            <a class="nav-link text-success" href="{{ route('login') }}">{{ __('Accedi') }} <i
+                                    class="far fa-user-circle h5 text-success"></i>
+                            </a>
                         </li>
 
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <li class="nav-item dropdown font-weight-bold">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-success" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
