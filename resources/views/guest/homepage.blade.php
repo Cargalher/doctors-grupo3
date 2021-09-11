@@ -53,19 +53,24 @@
                     @csrf
                     @method('GET')
 
-                    <div class="form-group">
+                    
+
+                    <div class="form-group d-flex align-items-center">
 
                         {{-- select specializzazioni --}}
-                        <select class="form-control" id="specialization" name="specialization" required>
+                        <select class="selectpicker des" data-show-subtext="false" data-live-search="true" id="specialization" name="specialization" required>
                             <option value="">Seleziona la specializzazione</option>
                             @foreach ($specializations as $spec)
-                                <option value="{{ $spec->id }}" class="opt">{{ $spec->name }}</option>
+                                <option value="{{ $spec->id }}" class="">{{ $spec->name }}</option>
                             @endforeach
                         </select>
                         {{-- pulsante di ricerca --}}
-                        <button class="search custom-button" type="submit">
-                            Cerca
-                        </button>
+                        <div class="text-center mx-5">
+                            <button class="btn btn-show text-white" type="submit">
+                                Cerca
+                            </button>
+                        </div>
+                        
                     </div>
                 </form>
             </div>

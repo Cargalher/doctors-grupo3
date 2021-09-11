@@ -8,7 +8,7 @@
 
     <div class="form-group container" v-if="specializations.length > 0">
       <select
-        class="form-control"
+        class="form-control" data-show-subtext="false" data-live-search="true" 
         name="specializations"
         v-model="specId"
         autocomplete="on"
@@ -107,7 +107,6 @@ export default {
         .get("http://127.0.0.1:8000/api/doctors?specialization=" + this.specId)
         .then((resp) => {
           this.doctors = resp.data;
-
           console.log(this.doctors);
           this.doctors.forEach((doctor) => {
             doctor.sponAtt = [];
@@ -136,8 +135,16 @@ export default {
             } else {
               doctor.avarage = avarage.toFixed(2);
             }
+
+            doctor.specializations.forEach(spec => {
+
+                    doctor.spec.push(spec.name)
+
+                });
           });
         });
+
+        
     },
 
         // Ordina per numero recensioni

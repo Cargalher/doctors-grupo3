@@ -1,5 +1,6 @@
 <body>
 
+    <header>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -17,7 +18,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
