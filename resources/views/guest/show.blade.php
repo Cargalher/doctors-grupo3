@@ -31,7 +31,7 @@
                 <div class="card-header"><i class="fas fa-user-md icon-show"></i> Informazione Generale</div>
                     <div class="bg-white rounded shadow p-4 mb-4 clearfix graph-star-rating row no-gutters">
                         <div class="col-md-4 d-flex align-items-center">
-                            <img style="object-fit: cover" src="{{ asset($user->profile_img) }}" onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle mx-auto"
+                            <img style="object-fit: cover" src="{{ asset($user->path) }}"  class="rounded-circle mx-auto"
                                 height="200" width="200"  alt="{{ $user->name . ' ' . $user->lastname }}">
                         </div>
                         <div class="col-md-8">
