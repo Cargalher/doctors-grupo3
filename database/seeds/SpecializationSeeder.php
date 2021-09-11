@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Specialization;
+use Illuminate\Support\Facades\DB;
 
 class SpecializationSeeder extends Seeder
 {
@@ -101,5 +102,7 @@ class SpecializationSeeder extends Seeder
             $new_specialization->name = $specialization;
             $new_specialization->save();
         }
+
+     
     }
 }
