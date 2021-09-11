@@ -40,113 +40,115 @@
                 }, 3000);
             </script>
         @endif
-        
+
         <div class="">
-            <div class="d-flex flex-column flex-wrap justify-content-center align-items-center">
-                <div class="pt-5 pb-3 d-flex align-items-center">
-                    <img width="100" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
-                    <h1 class="font-weight-bold text-info">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
-                </div>
+            <div class=" d-flex flex-column flex-wrap justify-content-center align-items-center">
+            <div class="pt-5 pb-3 d-flex align-items-center">
+                <img width="100" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
+                <h1 class="font-weight-bold text-info">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
+            </div>
 
-                <form action="{{ route('toIndex') }}" method="post">
-                    @csrf
-                    @method('GET')
+            <form action="{{ route('toIndex') }}" method="post">
+                @csrf
+                @method('GET')
 
-                    
 
-                    <div class="form-group">
 
-                        {{-- select specializzazioni --}}
-                        <select class="selectpicker" data-show-subtext="false" data-live-search="true" id="specialization" name="specialization" required>
-                            <option value="">Seleziona la specializzazione</option>
-                            @foreach ($specializations as $spec)
-                                <option value="{{ $spec->id }}" class="">{{ $spec->name }}</option>
+                <div class="form-group">
+
+                    {{-- select specializzazioni --}}
+                    <select class="selectpicker" data-show-subtext="false" data-live-search="true" id="specialization"
+                        name="specialization" required>
+                        <option value="">Seleziona la specializzazione</option>
+                        @foreach ($specializations as $spec)
+                            <option value="{{ $spec->id }}"
+                                class="">{{ $spec->name }}</option>
                             @endforeach
                         </select>
                         {{-- pulsante di ricerca --}}
-                        <div class="text-center">
-                            <button class="btn btn-show text-white mt-4" type="submit">
-                                <span>CERCA</span>
-                            </button>
-                        </div>
-                        
-                    </div>
-                </form>
-            </div>
+                        <div class="
+                                text-center">
+                                <button class="btn btn-show text-white mt-4" type="submit">
+                                    <span>CERCA</span>
+                                </button>
+                </div>
 
-            <div class="pt-3">
-                <h2 class="text-center text-uppercase">Medici in Evidenza:</h2>
+        </div>
+        </form>
+    </div>
 
-                <div class="d-flex flex-wrap justify-content-center pb-5 pt-2">
+    <div class="pt-3">
+        <h2 class="text-center text-uppercase">Medici in Evidenza:</h2>
 
-                    @foreach ($activeDoctors as $doctor)
+        <div class="d-flex flex-wrap justify-content-center pb-5 pt-2">
 
-                        <div style="width: 300px" class="card m-3 p-3 ">
-                            <span class="d-flex flex-wrap justify-content-center">
-                                <img src="{{ asset('storage/' . $doctor->profile_image) }}"
-                                    onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle p-2"
-                                    style="object-fit: cover" width="150" height="150"
-                                    alt="{{ $doctor->name . $doctor->name }}">
-                            </span>
-                            <h4>Nome: {{ $doctor->name }}</h4>
-                            <h4>Cognome: {{ $doctor->lastname }}</h4>
-                            <h5>Numero recensioni: {{ count($doctor->reviews) }}</h5>
+            @foreach ($activeDoctors as $doctor)
 
-                            <!-- Media recensioni -->
+                <div style="width: 300px" class="card m-3 p-3 ">
+                    <span class="d-flex flex-wrap justify-content-center">
+                        <img src="{{ asset('storage/' . $doctor->profile_image) }}"
+                            onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle p-2"
+                            style="object-fit: cover" width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
+                    </span>
+                    <h4>Nome: {{ $doctor->name }}</h4>
+                    <h4>Cognome: {{ $doctor->lastname }}</h4>
+                    <h5>Numero recensioni: {{ count($doctor->reviews) }}</h5>
 
+                    <!-- Media recensioni -->
+
+                    @php
+                        $average = 0;
+                    @endphp
+
+                    @foreach ($reviews as $review)
+                        @if ($doctor->id === $review->user_id)
                             @php
-                                $average = 0;
+                                $average += $review->vote;
                             @endphp
-
-                            @foreach ($reviews as $review)
-                                @if ($doctor->id === $review->user_id)
-                                    @php
-                                        $average += $review->vote;
-                                    @endphp
-                                @endif
-                            @endforeach
-
-                            @if ($average != 0)
-                                <h5> Media: {{ round($average / count($doctor->reviews)) }} </h5>
-                            @else
-                                <h5> Media: 0</h5>
-                            @endif
-
-                            <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
-                                <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
-                            </a>
-                        </div>
-
+                        @endif
                     @endforeach
 
+                    @if ($average != 0)
+                        <h5> Media: {{ round($average / count($doctor->reviews)) }} </h5>
+                    @else
+                        <h5> Media: 0</h5>
+                    @endif
 
+                    <a href="{{ route('show', $doctor->id) }}" class="btn btn-primary">
+                        <i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
+                    </a>
                 </div>
-            </div>
-            <div class="counters">
-                <div class="row mx-0">
-                    <div class="col_counter col-12 col-lg-4 py-5">
-                        <h4 class="counting" data-count="{{ count($doctors) }}">0</h4>
-                        <h4>Medici</h4>
-                    </div>
-                    <div class="col_counter center col-12 col-lg-4 py-5">
-                        <h4 class="counting" data-count="{{ $messaggiTotali }}">0</h4>
-                        <h4>Messaggi inviati</h4>
-                    </div>
-                    <div class="col_counter col-12 col-lg-4 py-5">
-                        <h4 class="counting" data-count="{{ $recensioniTotali }}">0</h4>
-                        <h4>Recensioni</h4>
-                    </div>
-                </div>
-            </div>
 
-            <div style="height: 500px" class="test">
-
-            </div>
+            @endforeach
 
 
         </div>
+    </div>
+    <div class="counters">
+        <div class="row mx-0">
+            <div class="col_counter col-12 col-lg-4 py-5">
+                <h4 class="counting" data-count="{{ count($doctors) }}">0</h4>
+                <h4>Medici</h4>
+            </div>
+            <div class="col_counter center col-12 col-lg-4 py-5">
+                <h4 class="counting" data-count="{{ $messaggiTotali }}">0</h4>
+                <h4>Messaggi inviati</h4>
+            </div>
+            <div class="col_counter col-12 col-lg-4 py-5">
+                <h4 class="counting" data-count="{{ $recensioniTotali }}">0</h4>
+                <h4>Recensioni</h4>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 500px" class="test">
+
+    </div>
+
+
+    </div>
 
 
 
 
-    @endsection
+@endsection
