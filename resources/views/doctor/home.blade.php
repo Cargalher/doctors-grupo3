@@ -11,7 +11,7 @@
                     <div class="">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="{{ asset(Auth::user()->path) }}" alt="Admin"
+                                <img src="{{ asset(Auth::user()->profile_image) }}" onerror="this.src='{{ asset('img/Emanuele.png') }}';" alt="Admin"
                                     class="rounded-circle d-flex justify-content-center" style="object-fit: cover"
                                         width="150" height="150">
                                 <div class="mt-3">

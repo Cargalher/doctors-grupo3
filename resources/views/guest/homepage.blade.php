@@ -84,7 +84,7 @@
                         <div style="width: 300px" class="card m-3 p-3 ">
                             <span class="d-flex flex-wrap justify-content-center">
                                 <img src="{{ asset('storage/' . $doctor->profile_image) }}"
-                                    onerror="this.src='{{ asset('img/avatar-donna.jpg') }}';" class="rounded-circle p-2"
+                                    onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle p-2"
                                     style="object-fit: cover" width="150" height="150"
                                     alt="{{ $doctor->name . $doctor->name }}">
                             </span>
