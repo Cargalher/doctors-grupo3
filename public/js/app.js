@@ -1962,6 +1962,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -1989,6 +1997,9 @@ __webpack_require__.r(__webpack_exports__);
         return b.att - a.att;
       });
     },
+    // giudizio: function (obj) {
+    //   return Math.ceil(obj);
+    // },
     filterSpec: function filterSpec() {
       var _this = this;
 
@@ -37878,8 +37889,8 @@ var render = function() {
     _c(
       "div",
       { staticClass: "container py-3" },
-      _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, index) {
-        return _c("div", { key: index, staticClass: "card p-2 my-4 shadow" }, [
+      _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, sing) {
+        return _c("div", { key: sing, staticClass: "card p-2 my-4 shadow" }, [
           _c("div", { staticClass: "row d-flex align-items-center " }, [
             _c("div", { staticClass: "col-md-3" }, [
               _c("img", {
@@ -37888,29 +37899,43 @@ var render = function() {
                   src: "http://127.0.0.1:8000/storage/" + doctor.profile_image,
                   alt: ""
                 }
-              })
+              }),
+              _vm._v(" "),
+              doctor.att
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "rounded-pill spon_container mt-2 mb-1 py-1"
+                    },
+                    [
+                      _c("span", { staticClass: "sponsor" }, [
+                        _vm._v("MEDICO IN EVIDENZIA")
+                      ])
+                    ]
+                  )
+                : _vm._e()
             ]),
             _vm._v(" "),
             _c(
               "div",
               {
                 staticClass:
-                  "text-left col-md-9 px-3 d-flex justify-content-between"
+                  "text-left col-md-9 px-3 d-flex justify-content-between align-items-center"
               },
               [
                 _c(
                   "div",
                   { staticClass: "card-block px-3" },
                   [
-                    _vm._l(doctor.spec, function(nameSpec, index) {
+                    _vm._l(doctor.spec, function(nameSpec, i) {
                       return _c(
                         "span",
-                        { key: index, staticClass: "h6 text-secondary mb-2" },
+                        { key: i, staticClass: "h6 text-secondary" },
                         [_vm._v(_vm._s(nameSpec) + " ")]
                       )
                     }),
                     _vm._v(" "),
-                    _c("h5", { staticClass: "card-title text-primary" }, [
+                    _c("h5", { staticClass: "card-title text-primary mt-2" }, [
                       _vm._v("Dr. "),
                       _c("span", [
                         _vm._v(
@@ -37920,7 +37945,36 @@ var render = function() {
                             " "
                         )
                       ])
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { staticClass: "h6 text-secondary mb-2 d-block" },
+                      [_vm._v(_vm._s(doctor.address) + " ")]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(Math.round(doctor.avarage), function(number) {
+                      return _c("i", {
+                        staticClass: "fas fa-star",
+                        staticStyle: { color: "#ffd900" }
+                      })
+                    }),
+                    _vm._v(" "),
+                    _vm._l(5 - Math.round(doctor.avarage), function(num) {
+                      return _c("i", {
+                        staticClass: "fas fa-star",
+                        staticStyle: { color: "#bdbdbd" }
+                      })
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass: "text-secondary ml-1",
+                        staticStyle: { "font-size": ".7rem" }
+                      },
+                      [_vm._v("(" + _vm._s(doctor.num) + " recensioni)")]
+                    )
                   ],
                   2
                 ),
@@ -37934,7 +37988,7 @@ var render = function() {
                         href: "http://127.0.0.1:8000/doctors/" + doctor.id
                       }
                     },
-                    [_vm._v("Read More")]
+                    [_vm._v("Visualizza")]
                   )
                 ])
               ]

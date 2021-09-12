@@ -14772,6 +14772,18 @@ a {
   border-radius: 50%;
 }
 
+.spon_container {
+  color: white;
+  border: 1px solid;
+  background-image: linear-gradient(135deg, #FF9D6C 10%, #BB4E75 100%);
+  font-weight: bold;
+  width: 50%;
+  margin: auto;
+}
+.spon_container .sponsor {
+  font-size: 0.6rem;
+}
+
 .form-button {
   background-color: #45BB67;
 }
