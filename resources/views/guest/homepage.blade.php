@@ -77,21 +77,21 @@
         </div>
 
         <!-- Come funziona BoolDoctors -->
-        <div class="py-5">
+        <div id="how-it-works" class="py-5">
             <h2 class="text-center mb-5">Come funziona BoolDoctors</h2>
 
             <section class="vc_row wpb_row vc_row-fluid no_padding no_cols_padding folded_section transparent separator_top separator_bottom">
                 <div class="container">
                     <div class="row">
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1446619389066 sep_triangular_downhill_top sep_triangular_downhill_bottom" style="border-color: rgb(8, 142, 255);">
-                            <div class="separator_top" style="border-left-width: 268px;">
+                            <div class="separator_top" style="border-left-width: 289px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <img src="https://healthflex.plethorathemes.com/wp-content/uploads/2015/09/icon_tree_white.png" alt="Cerca per specializzazione">
+                                        <i class="fas fa-list-ol"></i>
                                     </div>
                                     <div class="content text-center    ">
                                         <div class="hgroup">
@@ -102,7 +102,7 @@
                                 </div>
                                 <!-- END======================= TEASER BOX ==========================-->
                             </div>
-                            <div class="separator_bottom" style="border-left-width: 268px;">
+                            <div class="separator_bottom" style="border-left-width: 289px;">
                                 <div></div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <img src="https://healthflex.plethorathemes.com/wp-content/uploads/2015/09/icon_med_book_white.png" alt="Scegli il dottore">
+                                        <i class="fas fa-user-md"></i>
                                     </div>
                                     <div class="content text-center    ">
                                         <div class="hgroup">
@@ -130,14 +130,14 @@
                             </div>
                         </div>
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1447875785935 sep_triangular_downhill_top sep_triangular_downhill_bottom" style="border-color: rgb(69, 170, 255);">
-                            <div class="separator_top" style="border-left-width: 268px;">
+                            <div class="separator_top" style="border-left-width: 289px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <img src="https://healthflex.plethorathemes.com/wp-content/uploads/2015/09/icon_doctor1.png" alt="Contatta il dottore">
+                                        <i class="fas fa-tty"></i>
                                     </div>
                                     <div class="content text-center    ">
                                         <div class="hgroup">
@@ -148,19 +148,19 @@
                                 </div>
                                 <!-- END======================= TEASER BOX ==========================-->
                             </div>
-                            <div class="separator_bottom" style="border-left-width: 268px;">
+                            <div class="separator_bottom" style="border-left-width: 289px;">
                                 <div></div>
                             </div>
                         </div>
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1447875797423 sep_triangular_uphill_top sep_triangular_uphill_bottom" style="border-color: rgb(100, 184, 255);">
-                            <div class="separator_top" style="width: 267px;">
+                            <div class="separator_top" style="border-left-width: 267px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <img src="https://healthflex.plethorathemes.com/wp-content/uploads/2015/09/icon_help_desk1.png" alt="Vai all'appuntamento">
+                                        <i class="fas fa-handshake"></i>
                                     </div>
                                     <div class="content text-center">
                                         <div class="hgroup">

@@ -14642,6 +14642,10 @@ main {
 }
 
 /* Come funziona BoolDoctors */
+#how-it-works i {
+  font-size: 70px;
+}
+
 @media all {
   .vc_column_container {
     padding-left: 0;
@@ -14682,11 +14686,6 @@ main {
 
   .separator_bottom > .separator_bottom {
     bottom: 0;
-  }
-
-  .sep_angled_positive_bottom .separator_bottom,
-.sep_angled_positive_top .separator_top {
-    display: none\9 ;
   }
 
   .sep_angled_positive_bottom .separator_bottom:before,
@@ -14899,52 +14898,6 @@ main {
   }
 }
 @media all {
-  .teaser_box {
-    position: relative;
-    overflow: hidden;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .teaser_box {
-    margin-bottom: 20px !important;
-    max-width: 360px;
-    margin: 0 auto;
-  }
-}
-@media all {
-  .teaser_box .figure {
-    display: block;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-}
-@media all {
-  .teaser_box .figure + .content {
-    padding: 20px 0px 0px 0px;
-  }
-}
-@media all {
-  .teaser_box .content {
-    transition: all 100ms ease-in-out;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-@media all {
-  .teaser_box .content.boxed {
-    padding: 25px 20px 25px 20px !important;
-  }
-}
-@media all {
-  .teaser_box .content .hgroup {
-    position: relative;
-    margin: 0;
-  }
-}
-@media all {
   .teaser_box .content .hgroup h4 {
     font-size: 15px;
     font-weight: 900;
@@ -14956,12 +14909,6 @@ main {
     font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
     margin: 0;
-  }
-}
-@media all {
-  img {
-    max-width: 100%;
-    height: auto;
   }
 }
 @media all {
