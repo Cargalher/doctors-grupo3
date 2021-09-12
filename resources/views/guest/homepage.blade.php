@@ -84,7 +84,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1446619389066 sep_triangular_downhill_top sep_triangular_downhill_bottom" style="border-color: rgb(8, 142, 255);">
-                            <div class="separator_top" style="border-left-width: 289px;">
+                            <div class="separator_top" style="border-left-width: 268px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
@@ -102,12 +102,12 @@
                                 </div>
                                 <!-- END======================= TEASER BOX ==========================-->
                             </div>
-                            <div class="separator_bottom" style="border-left-width: 289px;">
+                            <div class="separator_bottom" style="border-left-width: 268px;">
                                 <div></div>
                             </div>
                         </div>
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1447875610924 sep_triangular_uphill_top sep_triangular_uphill_bottom" style="border-color: rgb(38, 156, 255);">
-                            <div class="separator_top" style="border-left-width: 288px;">
+                            <div class="separator_top" style="border-left-width: 267px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
@@ -125,12 +125,12 @@
                                 </div>
                                 <!-- END======================= TEASER BOX ==========================-->
                             </div>
-                            <div class="separator_bottom" style="border-left-width: 288px;">
+                            <div class="separator_bottom" style="border-left-width: 267px;">
                                 <div></div>
                             </div>
                         </div>
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1447875785935 sep_triangular_downhill_top sep_triangular_downhill_bottom" style="border-color: rgb(69, 170, 255);">
-                            <div class="separator_top" style="border-left-width: 289px;">
+                            <div class="separator_top" style="border-left-width: 268px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
@@ -148,12 +148,12 @@
                                 </div>
                                 <!-- END======================= TEASER BOX ==========================-->
                             </div>
-                            <div class="separator_bottom" style="border-left-width: 289px;">
+                            <div class="separator_bottom" style="border-left-width: 268px;">
                                 <div></div>
                             </div>
                         </div>
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1447875797423 sep_triangular_uphill_top sep_triangular_uphill_bottom" style="border-color: rgb(100, 184, 255);">
-                            <div class="separator_top" style="border-left-width: 288px;">
+                            <div class="separator_top" style="width: 267px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
@@ -171,7 +171,7 @@
                                 </div>
                                 <!-- END======================= TEASER BOX ==========================-->
                             </div>
-                            <div class="separator_bottom" style="border-left-width: 288px;">
+                            <div class="separator_bottom" style="border-left-width: 267px;">
                                 <div></div>
                             </div>
                         </div>
