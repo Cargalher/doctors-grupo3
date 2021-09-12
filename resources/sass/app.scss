@@ -75,10 +75,10 @@
       }
     }
     .button-spin.counterclockwise {
-      left: 0;
+      left: 10px;
     }
     .button-spin.clockwise {
-      right: 0;
+      right: 10px;
     }
     .inner-carousel {
       position: relative;
@@ -92,7 +92,7 @@
         margin: 0 auto;
         padding: 20px;
         width: 220px;
-        height: 300px;
+        height: 320px;
         opacity: 1;
         background-color: #fff;
         color: #000;

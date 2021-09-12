@@ -15223,10 +15223,10 @@ a {
   box-shadow: none;
 }
 .card-carousel .button-spin.counterclockwise {
-  left: 0;
+  left: 10px;
 }
 .card-carousel .button-spin.clockwise {
-  right: 0;
+  right: 10px;
 }
 .card-carousel .inner-carousel {
   position: relative;
@@ -15240,7 +15240,7 @@ a {
   margin: 0 auto;
   padding: 20px;
   width: 220px;
-  height: 300px;
+  height: 320px;
   opacity: 1;
   background-color: #fff;
   color: #000;

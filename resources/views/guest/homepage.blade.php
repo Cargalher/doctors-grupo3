@@ -78,7 +78,7 @@
         </div>
         </form>
     </div>
-    
+
     <!-- Come funziona BoolDoctors -->
     <div class="pt-3 margin_neg">
         <div class="card-carousel overflow-auto my-3" id="debug_id_1">
@@ -89,11 +89,11 @@
                         <img src="{{ asset('storage/' . $doctor->profile_image) }}"
                             onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle p-2 img-home"
                             width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
-                            <h6>{{ $doctor->name }} {{ $doctor->lastname }}</h6>
+                        <h6>{{ $doctor->name }} {{ $doctor->lastname }}</h6>
+                        <span class="d-block mb-1" style="font-size: .8rem">{{ $doctor->specializations[0]->name }}</span>
                         @php
                             $average = 0;
                         @endphp
-
                         @foreach ($reviews as $review)
                             @if ($doctor->id === $review->user_id)
                                 @php
@@ -103,11 +103,13 @@
                         @endforeach
 
                         @if ($average != 0)
-                            <h5> Media: {{ round($average / count($doctor->reviews)) }} </h5>
+                            @for ($i = 0; $i < ceil($average / count($doctor->reviews)); $i++)
+                                <i style="color: #ffd900;" class="fas fa-star"></i>
+                            @endfor
                         @else
-                            <h5> Media: 0</h5>
+                            <span style="font-size: .6rem" class="text-muted">Nessuna recensione ricevuta</span>
                         @endif
-                        <a href="#" onclick="return false;">Blame the wizards!</a>
+                        <a href="#" onclick="return false;">Visualizza</a>
                     </div>
                 @endforeach
 
@@ -115,7 +117,7 @@
             <button class="button-spin clockwise">&gt;</button>
         </div>
 
-        
+
     </div>
 
     <div id="how-it-works" class="py-5 container">
@@ -138,7 +140,7 @@
                                 <div class="content text-center    ">
                                     <div class="hgroup">
                                         <h4 class="text-white"> Cerca per specializzazione </h4>
-                                        <p>Troverai tutto quello di cui hai bisogno</p>
+                                        <p class="text-white py-2">Troverai tutto quello di cui hai bisogno</p>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +165,7 @@
                                 <div class="content text-center    ">
                                     <div class="hgroup">
                                         <h4 class="text-white"> Scegli il dottore </h4>
-                                        <p>Valorizza i feedback dei pazienti</p>
+                                        <p class="text-white py-2">Valorizza i feedback dei pazienti</p>
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +190,7 @@
                                 <div class="content text-center    ">
                                     <div class="hgroup">
                                         <h4 class="text-white"> Contatta il dottore </h4>
-                                        <p>All our staff by department</p>
+                                        <p class="text-white py-2">All our staff by department</p>
                                     </div>
                                 </div>
                             </div>
@@ -213,7 +215,7 @@
                                 <div class="content text-center">
                                     <div class="hgroup">
                                         <h4 class="text-white"> Vai all'appuntamento </h4>
-                                        <p>Call us or fill in a form</p>
+                                        <p class="text-white py-2">Call us or fill in a form</p>
                                     </div>
                                 </div>
                             </div>
