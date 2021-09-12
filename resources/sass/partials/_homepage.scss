@@ -17,6 +17,18 @@
     
 }
 
+.margin_neg{
+    margin-top: -130px;
+}
+
+.test{
+
+    background: $bgreen;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $bgreen, $blgreen, $bgreen);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $bgreen, $blgreen, $bgreen); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 500px;
+}
+
 .dropdown-toggle::after {
     display: none;
     margin-left: 0.255em;
@@ -38,6 +50,11 @@
 .dic{
     width: 200px;
     height: 200px;
+}
+
+.icon_folio{
+    color: white;
+    margin: 1.5rem 0;
 }
 
 /* Come funziona BoolDoctors */

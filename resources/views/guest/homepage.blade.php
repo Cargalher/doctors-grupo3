@@ -43,10 +43,10 @@
     @endif
 
     <div class="">
-        <div class=" d-flex flex-column flex-wrap justify-content-center align-items-center">
-            <div class="pt-5 pb-3 d-flex align-items-center">
+        <div class="test d-flex flex-column flex-wrap justify-content-center align-items-center">
+            <div class="pb-3 d-flex align-items-center">
                 <img width="100" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
-                <h1 class="font-weight-bold text-info">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
+                <h1 class="font-weight-bold ml-3 text-muted">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
             </div>
 
             <form action="{{ route('toIndex') }}" method="post">
@@ -77,9 +77,7 @@
         </div>
 
         <!-- Come funziona BoolDoctors -->
-        <div id="how-it-works" class="py-5">
-            <h2 class="text-center mb-5">Come funziona BoolDoctors</h2>
-
+        <div id="how-it-works" class="py-5 container margin_neg">
             <section class="vc_row wpb_row vc_row-fluid no_padding no_cols_padding folded_section transparent separator_top separator_bottom">
                 <div class="container">
                     <div class="row">
@@ -91,7 +89,7 @@
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <i class="fas fa-list-ol"></i>
+                                        <i class="fas fa-list-ol icon_folio"></i>
                                     </div>
                                     <div class="content text-center    ">
                                         <div class="hgroup">
@@ -114,7 +112,7 @@
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <i class="fas fa-user-md"></i>
+                                        <i class="fas fa-user-md icon_folio"></i>
                                     </div>
                                     <div class="content text-center    ">
                                         <div class="hgroup">
@@ -137,7 +135,7 @@
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <i class="fas fa-tty"></i>
+                                        <i class="fas fa-tty icon_folio"></i>
                                     </div>
                                     <div class="content text-center    ">
                                         <div class="hgroup">
@@ -153,14 +151,14 @@
                             </div>
                         </div>
                         <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1447875797423 sep_triangular_uphill_top sep_triangular_uphill_bottom" style="border-color: rgb(100, 184, 255);">
-                            <div class="separator_top" style="border-left-width: 267px;">
+                            <div class="separator_top" style="border-left-width: 170px;">
                                 <div></div>
                             </div>
                             <div class="wpb_wrapper">
                                 <!-- ========================== TEASER BOX ==========================-->
                                 <div class="teaser_box wpb_content_element text-center  transparent boxed same_height_col" style="height: auto; min-height: 215px;">
                                     <div class="figure transparent">
-                                        <i class="fas fa-handshake"></i>
+                                        <i class="fas fa-handshake icon_folio"></i>
                                     </div>
                                     <div class="content text-center">
                                         <div class="hgroup">
@@ -171,7 +169,7 @@
                                 </div>
                                 <!-- END======================= TEASER BOX ==========================-->
                             </div>
-                            <div class="separator_bottom" style="border-left-width: 267px;">
+                            <div class="separator_bottom" style="border-left-width: 170px;">
                                 <div></div>
                             </div>
                         </div>
