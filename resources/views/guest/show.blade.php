@@ -51,7 +51,7 @@
                                 </button>
 
                                 <!-- pulsante per inviare una recensione -->
-                                <button class="btn custom-button" data-toggle="modal" data-target="#modalReview">
+                                <button class="btn custom-button p-0" data-toggle="modal" data-target="#modalReview">
                                     <i class="fas fa-comment-medical icon-show align-middle mr-1"></i> <span class="text-black-50">Invia una recensione</span> 
                                 </button>
                             </div>

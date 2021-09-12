@@ -14641,6 +14641,29 @@ main {
   font-size: 2.3rem;
 }
 
+.dropdown-toggle::after {
+  display: none;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.bootstrap-select {
+  width: 300px !important;
+  border: 2px solid #45BB67 !important;
+  text-decoration: none !important;
+  border-radius: 10px;
+}
+
+.dic {
+  width: 200px;
+  height: 200px;
+}
+
 /*/ start count stats /*/
 section#counter-stats {
   display: flex;
@@ -14743,6 +14766,12 @@ a {
   font-size: 0.8rem;
 }
 
+.search_img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
 .form-button {
   background-color: #45BB67;
 }
@@ -14760,21 +14789,6 @@ a {
   font-size: 9rem;
 }
 
-.site_footer {
-  background: #45BB67;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.site_footer .social_icons a {
-  text-decoration: none;
-  color: white;
-}
-.site_footer .social_icons a i {
-  font-size: 2rem;
-}
-
 .fa-star {
   color: #d6d622c2;
 }
@@ -14788,25 +14802,17 @@ a {
   background-color: #45BB67;
 }
 
-.dropdown-toggle::after {
-  display: none;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
-  content: "";
-  border-top: 0.3em solid;
-  border-right: 0.3em solid transparent;
-  border-bottom: 0;
-  border-left: 0.3em solid transparent;
+.site_footer {
+  background: #45BB67;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-.bootstrap-select {
-  width: 300px !important;
-  border: 2px solid #45BB67 !important;
-  text-decoration: none !important;
-  border-radius: 10px;
+.site_footer .social_icons a {
+  text-decoration: none;
+  color: white;
 }
-
-.dic {
-  width: 200px;
-  height: 200px;
+.site_footer .social_icons a i {
+  font-size: 2rem;
 }

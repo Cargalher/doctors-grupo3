@@ -5,7 +5,6 @@
 
 @section('content')
     <div id="app">
-
         @php
             
             $recensioni = [];

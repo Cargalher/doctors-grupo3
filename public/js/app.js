@@ -1920,6 +1920,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -37678,199 +37720,233 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "index" }, [
-    _c("br"),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
+  return _c("div", { staticClass: "index text-center" }, [
     _vm.specializations.length > 0
       ? _c("div", { staticClass: "form-group container" }, [
           _c(
-            "select",
+            "div",
             {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.specId,
-                  expression: "specId"
-                }
-              ],
-              staticClass: "form-control selectpicker",
-              attrs: {
-                "data-show-subtext": "false",
-                "data-live-search": "true",
-                name: "specializations",
-                autocomplete: "on"
-              },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.specId = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
+              staticClass:
+                "d-flex flex-wrap justify-content-center align-items-center"
             },
             [
-              _c("option", { attrs: { value: "", disabled: "" } }, [
-                _vm._v("scegli una specializzazione")
+              _c("h2", { staticClass: "pr-3 text-info" }, [
+                _vm._v("Cerca Specialista")
               ]),
               _vm._v(" "),
-              _c("option", { attrs: { value: "0" } }, [
-                _vm._v("Tutti i medici")
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.specId,
+                      expression: "specId"
+                    }
+                  ],
+                  staticClass: "form-control selectpicker",
+                  attrs: {
+                    "data-show-subtext": "false",
+                    "data-live-search": "true",
+                    name: "specializations",
+                    autocomplete: "on"
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.specId = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "", disabled: "" } }, [
+                    _vm._v("scegli una specializzazione")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "0" } }, [
+                    _vm._v("Tutti i medici")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.specializations, function(spec, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: spec.id } },
+                      [
+                        _vm._v(
+                          "\n          " + _vm._s(spec.name) + "\n        "
+                        )
+                      ]
+                    )
+                  })
+                ],
+                2
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "d-flex justify-content-center align-items-center mt-4"
+            },
+            [
+              _c("h6", { staticClass: "mr-3 text-secondary" }, [
+                _vm._v("Ordina per:")
               ]),
               _vm._v(" "),
-              _vm._l(_vm.specializations, function(spec, index) {
-                return _c(
-                  "option",
-                  { key: index, domProps: { value: spec.id } },
-                  [_vm._v("\n        " + _vm._s(spec.name) + "\n      ")]
-                )
-              })
-            ],
-            2
+              _c("ul", { staticClass: "list-group list-group-horizontal-md" }, [
+                _c("li", { staticClass: "list-group-item text-secondary" }, [
+                  _c("h6", { staticClass: "d-inline" }, [
+                    _vm._v("Media recensioni")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-success",
+                      on: {
+                        click: function($event) {
+                          return _vm.sortedAvarageUp()
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-chevron-up" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-danger",
+                      on: {
+                        click: function($event) {
+                          return _vm.sortedAvarageDown()
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-chevron-down" })]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "list-group-item text-secondary" }, [
+                  _c("h6", { staticClass: "d-inline" }, [
+                    _vm._v("Numero recensioni")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-success",
+                      on: {
+                        click: function($event) {
+                          return _vm.sortedRewUp()
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-chevron-up" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-danger",
+                      on: {
+                        click: function($event) {
+                          return _vm.sortedRewDown()
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fas fa-chevron-down" })]
+                  )
+                ])
+              ])
+            ]
           )
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "d-flex mb-5 ml-5" }, [
-      _c("h5", [_vm._v("Ordina per numero recensioni")]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "d-block mx-3",
-          on: {
-            click: function($event) {
-              return _vm.sortedRewUp()
-            }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-chevron-up" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "d-block",
-          on: {
-            click: function($event) {
-              return _vm.sortedRewDown()
-            }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-chevron-down" })]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "d-flex mb-5 ml-5" }, [
-      _c("h5", [_vm._v("Ordina per media recensioni")]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "d-block mx-3",
-          on: {
-            click: function($event) {
-              return _vm.sortedAvarageUp()
-            }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-chevron-up" })]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "d-block",
-          on: {
-            click: function($event) {
-              return _vm.sortedAvarageDown()
-            }
-          }
-        },
-        [_c("i", { staticClass: "fas fa-chevron-down" })]
-      )
-    ]),
-    _vm._v(" "),
     _c(
       "div",
-      { staticClass: "d-flex flex-wrap justify-content-center" },
+      { staticClass: "container py-3" },
       _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, index) {
-        return _c(
-          "div",
-          {
-            key: index,
-            staticClass: "card text-left mb-3 p-4 mx-3",
-            staticStyle: { width: "350px" }
-          },
-          [
-            _c("div", { staticClass: "card-body p-0 mt-4" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "d-block",
-                  attrs: { href: "http://127.0.0.1:8000/doctors/" + doctor.id }
-                },
-                [
-                  _c("img", {
-                    staticClass: "img-fluid",
-                    attrs: {
-                      src:
-                        "http://127.0.0.1:8000/storage/" + doctor.profile_image,
-                      alt: ""
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c("h4", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(doctor.name))
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(doctor.lastname))
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "card-title" }, [
-                _vm._v("media voti" + _vm._s(doctor.avarage))
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "card-title" }, [
-                _vm._v("numero recensioni" + _vm._s(doctor.num))
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "card-title" }, [
-                _vm._v("sponsor attivi" + _vm._s(doctor.att))
-              ])
-            ])
-          ]
-        )
+        return _c("div", { key: index, staticClass: "card p-2 my-4 shadow" }, [
+          _c("div", { staticClass: "row d-flex align-items-center " }, [
+            _c("div", { staticClass: "col-md-3" }, [
+              _c("img", {
+                staticClass: "img-fluid search_img",
+                attrs: {
+                  src: "http://127.0.0.1:8000/storage/" + doctor.profile_image,
+                  alt: ""
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-left col-md-9 px-3 d-flex justify-content-between"
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "card-block px-3" },
+                  [
+                    _vm._l(doctor.spec, function(nameSpec, index) {
+                      return _c(
+                        "span",
+                        { key: index, staticClass: "h6 text-secondary mb-2" },
+                        [_vm._v(_vm._s(nameSpec) + " ")]
+                      )
+                    }),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "card-title text-primary" }, [
+                      _vm._v("Dr. "),
+                      _c("span", [
+                        _vm._v(
+                          _vm._s(doctor.name) +
+                            " " +
+                            _vm._s(doctor.lastname) +
+                            " "
+                        )
+                      ])
+                    ])
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "mr-5" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: {
+                        href: "http://127.0.0.1:8000/doctors/" + doctor.id
+                      }
+                    },
+                    [_vm._v("Read More")]
+                  )
+                ])
+              ]
+            )
+          ])
+        ])
       }),
       0
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn button-none" }, [
-      _c("a", { attrs: { href: "/" } }, [
-        _c("i", { staticClass: "fas fa-arrow-left" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

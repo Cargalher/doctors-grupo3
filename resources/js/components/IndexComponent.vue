@@ -1,48 +1,101 @@
 <template>
-  <div class="index">
-    <!-- <h1 class="custom-h1">Index - pagina di ricerca avanzata</h1> -->
-    <br />
-    <button class="btn button-none">
+  <div class="index text-center">
+    <!-- <button class="btn">
       <a href="/"><i class="fas fa-arrow-left"></i></a>
-    </button>
-
+    </button> -->
     <div class="form-group container" v-if="specializations.length > 0">
-      <select
-        class="form-control selectpicker" data-show-subtext="false" data-live-search="true" 
-        name="specializations"
-        v-model="specId"
-        autocomplete="on"
-      >
-        <option value="" disabled>scegli una specializzazione</option>
-        <option value="0">Tutti i medici</option>
-        <option
-          v-for="(spec, index) in specializations"
-          :key="index"
-          :value="spec.id"
+      <div class="d-flex flex-wrap justify-content-center align-items-center">
+        <h2 class="pr-3 text-info">Cerca Specialista</h2>
+        <select
+          class="form-control selectpicker"
+          data-show-subtext="false"
+          data-live-search="true"
+          name="specializations"
+          v-model="specId"
+          autocomplete="on"
         >
-          {{ spec.name }}
-        </option>
-      </select>
+          <option value="" disabled>scegli una specializzazione</option>
+          <option value="0">Tutti i medici</option>
+          <option
+            v-for="(spec, index) in specializations"
+            :key="index"
+            :value="spec.id"
+          >
+            {{ spec.name }}
+          </option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-center align-items-center mt-4">
+        <h6 class="mr-3 text-secondary">Ordina per:</h6>
+
+        <ul class="list-group list-group-horizontal-md">
+          <li class="list-group-item text-secondary">
+            <h6 class="d-inline">Media recensioni</h6>
+            <button class="btn btn-sm btn-success" v-on:click="sortedAvarageUp()">
+              <i class="fas fa-chevron-up"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" v-on:click="sortedAvarageDown()">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </li>
+          <li class="list-group-item text-secondary">
+            <h6 class="d-inline">Numero recensioni</h6>
+            <button class="btn btn-sm btn-success" v-on:click="sortedRewUp()">
+              <i class="fas fa-chevron-up"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" v-on:click="sortedRewDown()">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </li>
+        </ul>
+
+        <!-- <h6>numero recensioni</h6>
+        <button class="d-block mx-3" v-on:click="sortedRewUp()">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="d-block" v-on:click="sortedRewDown()">
+          <i class="fas fa-chevron-down"></i>
+        </button> -->
+
+        <!-- <h6>media recensioni</h6>
+        <button class="d-block mx-3" v-on:click="sortedAvarageUp()">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="d-block" v-on:click="sortedAvarageDown()">
+          <i class="fas fa-chevron-down"></i>
+        </button> -->
+      </div>
     </div>
-    <div class="d-flex mb-5 ml-5">
-      <h5>Ordina per numero recensioni</h5>
-      <button class="d-block mx-3" v-on:click="sortedRewUp()">
-        <i class="fas fa-chevron-up"></i>
-      </button>
-      <button class="d-block" v-on:click="sortedRewDown()">
-        <i class="fas fa-chevron-down"></i>
-      </button>
+
+    <div class="container py-3">
+    <div v-for="(doctor, index) in sponsDoc(doctors)"
+        :key="index" class="card p-2 my-4 shadow">
+      <div class="row d-flex align-items-center ">
+        <div class="col-md-3">
+            <img
+              class="img-fluid search_img"
+              v-bind:src="
+                'http://127.0.0.1:8000/storage/' + doctor.profile_image
+              "
+              alt=""
+            />
+          </div>
+          <div class="text-left col-md-9 px-3 d-flex justify-content-between">
+            <div class="card-block px-3">
+              <span class="h6 text-secondary mb-2" v-for="(nameSpec, index) in doctor.spec" :key="index">{{nameSpec}} </span>
+              <h5 class="card-title text-primary">Dr. <span>{{ doctor.name }} {{ doctor.lastname }} </span> </h5>
+            </div>
+            <div class="mr-5">
+              <a v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-    <div class="d-flex mb-5 ml-5">
-      <h5>Ordina per media recensioni</h5>
-      <button class="d-block mx-3" v-on:click="sortedAvarageUp()">
-        <i class="fas fa-chevron-up"></i>
-      </button>
-      <button class="d-block" v-on:click="sortedAvarageDown()">
-        <i class="fas fa-chevron-down"></i>
-      </button>
-    </div>
-    <div class="d-flex flex-wrap justify-content-center">
+  </div>
+
+    <!-- <div class="d-flex flex-wrap justify-content-center">
       <div
         style="width: 350px"
         class="card text-left mb-3 p-4 mx-3"
@@ -50,18 +103,7 @@
         :key="index"
       >
         <div class="card-body p-0 mt-4">
-          <a
-            v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id"
-            class="d-block"
-          >
-            <img
-              class="img-fluid"
-              v-bind:src="
-                'http://127.0.0.1:8000/storage/' + doctor.profile_image
-              "
-              alt=""
-            />
-          </a>
+          
           <h4 class="card-title">{{ doctor.name }}</h4>
           <h4 class="card-title">{{ doctor.lastname }}</h4>
           <h4 class="card-title">media voti{{ doctor.avarage }}</h4>
@@ -69,7 +111,7 @@
           <h4 class="card-title">sponsor attivi{{ doctor.att }}</h4>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -135,18 +177,14 @@ export default {
               doctor.avarage = avarage.toFixed(2);
             }
 
-            doctor.specializations.forEach(spec => {
-
-                    doctor.spec.push(spec.name)
-
-                });
+            doctor.specializations.forEach((spec) => {
+              doctor.spec.push(spec.name);
+            });
           });
         });
-
-        
     },
 
-        // Ordina per numero recensioni
+    // Ordina per numero recensioni
     sortedRewUp: function () {
       this.doctors.sort((a, b) => {
         return b.num - a.num;
@@ -175,7 +213,6 @@ export default {
     },
   },
   computed: {
-
     // // Ordina per numero recensioni
     // sortedRewUp: function () {
     //   this.doctors.sort((a, b) => {
@@ -189,7 +226,6 @@ export default {
     //   });
     //   return this.doctors;
     // },
-
     // // Ordina per media recensioni
     // sortedAvarageUp: function () {
     //   this.doctors.sort((a, b) => {
