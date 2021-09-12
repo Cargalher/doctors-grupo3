@@ -109,7 +109,7 @@
                         @else
                             <span style="font-size: .6rem" class="text-muted">Nessuna recensione ricevuta</span>
                         @endif
-                        <a href="#" onclick="return false;">Visualizza</a>
+                        <a href="{{ route('show', $doctor->id) }}">Visualizza</a>
                     </div>
                 @endforeach
 
@@ -124,7 +124,7 @@
         <section
             class="vc_row wpb_row vc_row-fluid no_padding no_cols_padding folded_section transparent separator_top separator_bottom">
             <div class="container">
-                <div class="row">
+                <div class="row animate__animated animate__bounceInUp">
                     <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1446619389066 sep_triangular_downhill_top sep_triangular_downhill_bottom"
                         style="border-color: rgb(8, 142, 255);">
                         <div class="separator_top" style="border-left-width: 289px;">

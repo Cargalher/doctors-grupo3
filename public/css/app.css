@@ -15150,6 +15150,16 @@ a {
   font-size: 0.6rem;
 }
 
+.fix {
+  position: absolute;
+  left: 25px;
+  font-size: 1.5rem;
+}
+.fix a {
+  text-decoration: none;
+  color: #45BB67;
+}
+
 .form-button {
   background-color: #45BB67;
 }
@@ -15224,9 +15234,13 @@ a {
 }
 .card-carousel .button-spin.counterclockwise {
   left: 10px;
+  font-size: 1.5rem;
+  color: #45BB67;
 }
 .card-carousel .button-spin.clockwise {
   right: 10px;
+  font-size: 1.5rem;
+  color: #45BB67;
 }
 .card-carousel .inner-carousel {
   position: relative;

@@ -76,9 +76,13 @@
     }
     .button-spin.counterclockwise {
       left: 10px;
+      font-size: 1.5rem;
+      color: $bgreen;
     }
     .button-spin.clockwise {
       right: 10px;
+      font-size: 1.5rem;
+      color: $bgreen;
     }
     .inner-carousel {
       position: relative;

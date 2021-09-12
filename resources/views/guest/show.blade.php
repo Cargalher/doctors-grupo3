@@ -8,6 +8,9 @@
 
     {{-- show dottore page --}}
     <div class="container pt-5">
+         <button class="btn fix">
+            <a href="/"><i class="fas fa-arrow-left"></i></a>
+        </button>
         {{-- messaggio di avvenuta recensione --}}
         @if (session('success'))
             <div id="confermaRecensione" class="alert alert-success alert-dismissible fade show"> <a href="#"
