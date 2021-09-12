@@ -1935,6 +1935,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -37858,7 +37903,7 @@ var render = function() {
       { staticClass: "container py-3" },
       _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, sing) {
         return _c("div", { key: sing, staticClass: "card p-2 my-4 shadow" }, [
-          _c("div", { staticClass: "row d-flex align-items-center " }, [
+          _c("div", { staticClass: "row d-flex align-items-center" }, [
             _c("div", { staticClass: "col-md-3" }, [
               _c("img", {
                 staticClass: "img-fluid search_img",
@@ -37887,7 +37932,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "text-left col-md-9 px-3 d-flex justify-content-between align-items-center"
+                  "\n            text-left\n            col-md-9\n            px-3\n            d-flex\n            justify-content-between\n            align-items-center\n          "
               },
               [
                 _c(
@@ -37898,12 +37943,12 @@ var render = function() {
                       return _c(
                         "span",
                         { key: i, staticClass: "h6 text-secondary" },
-                        [_vm._v(_vm._s(nameSpec) + " ")]
+                        [_vm._v(_vm._s(nameSpec) + "\n            ")]
                       )
                     }),
                     _vm._v(" "),
                     _c("h5", { staticClass: "card-title text-primary mt-2" }, [
-                      _vm._v("Dr. "),
+                      _vm._v("\n              Dr. "),
                       _c("span", [
                         _vm._v(
                           _vm._s(doctor.name) +
@@ -37917,7 +37962,7 @@ var render = function() {
                     _c(
                       "span",
                       { staticClass: "h6 text-secondary mb-2 d-block" },
-                      [_vm._v(_vm._s(doctor.address) + " ")]
+                      [_vm._v(_vm._s(doctor.address) + "\n            ")]
                     ),
                     _vm._v(" "),
                     _vm._l(Math.round(doctor.avarage), function(number) {
@@ -37938,7 +37983,7 @@ var render = function() {
                       "span",
                       {
                         staticClass: "text-secondary ml-1",
-                        staticStyle: { "font-size": ".7rem" }
+                        staticStyle: { "font-size": "0.7rem" }
                       },
                       [_vm._v("(" + _vm._s(doctor.num) + " recensioni)")]
                     )
@@ -37972,9 +38017,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn sticky-top" }, [
-      _c("a", { attrs: { href: "/" } }, [
-        _c("i", { staticClass: "fas fa-arrow-left" })
+    return _c("div", [
+      _c("button", { staticClass: "btn" }, [
+        _c("a", { attrs: { href: "/" } }, [
+          _c("i", { staticClass: "fas fa-arrow-left" })
+        ])
       ])
     ])
   }
