@@ -85,9 +85,11 @@
     </div>
 
     <!-- Come funziona BoolDoctors -->
+    @if((count($activeDoctors) > 0))
+
     <div class="pt-3 margin_neg">
-        <div class="card-carousel overflow-auto my-3" id="debug_id_1">
-            <button class="button-spin counterclockwise">&lt;</button>
+        <div class="card-carousel overflow-hidden my-3" id="debug_id_1">
+            <button class="button-spin counterclockwise d-none">&lt;</button>
             <div class="inner-carousel">
                 @foreach ($activeDoctors as $doctor)
                     <div class="text-center">
@@ -120,11 +122,12 @@
                 @endforeach
 
             </div>
-            <button id="click" class="button-spin clockwise">&gt;</button>
+            <button id="click" class="button-spin clockwise d-none">&gt;</button>
         </div>
 
 
     </div>
+    @endif
 
     <div id="how-it-works" class="py-5 container">
         <section
