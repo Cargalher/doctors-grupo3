@@ -1,7 +1,7 @@
 <body>
 
     <header>
-        <nav class="navbar fixed-top navbar-expand-md">
+        <nav class="navbar fixed-top navbar-expand-md navbar-light">
 
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img width="222" class="img-fluid" src="{{ asset('img/logo_white_large.png') }}" alt="">
@@ -21,17 +21,17 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav">
+                <ul class="navbar-nav shadow p-2">
                     <!-- Authentication Links -->
                     @guest
 
                         @if (Route::has('register'))
                             <li class="nav-item mr-3">
-                                <a class="nav-link sei rounded text-white font-weight-bold" href="{{ route('register') }}">Sei un dottore? Iscriviti</a>
+                                <a class="nav-link sei rounded text-white font-weight-bold px-2" href="{{ route('register') }}">Sei un dottore? Iscriviti</a>
                             </li>
                         @endif
                         <li class="nav-item font-weight-bold">
-                            <a class="nav-link text-up" href="{{ route('login') }}">{{ __('Accedi') }} <i
+                            <a class="nav-link text-up " href="{{ route('login') }}">{{ __('Accedi') }} <i
                                     class="far fa-user-circle h5 text-up"></i>
                             </a>
                         </li>

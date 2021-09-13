@@ -46,9 +46,11 @@
 
 // Footer
 @import "partials/footer";
-
+.navbar-toggler {
+  background-color: white !important;
+}
 .text-up{
-  color:#f2f558;
+  color:#f2f558 !important;
 }
 
 .padding-top{

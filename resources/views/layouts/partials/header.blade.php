@@ -1,7 +1,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-md navbar-light">
 
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img width="222" class="img-fluid" src="{{ asset('img/logo_white_large.png') }}" alt="">
@@ -19,7 +19,7 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto shadow p-2">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

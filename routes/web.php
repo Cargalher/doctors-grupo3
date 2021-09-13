@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Specialization;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/doctors/{user}', 'HomeController@show')->name('show');
 
-Route::get('/vue-doctors', 'HomeController@toIndex')->name('toIndex');
+Route::get('/specialization', 'HomeController@toIndex')->name('toIndex');
 
 Route::post('show/{user}', 'MessageController@saveMessage')->name('saveMessage');
 

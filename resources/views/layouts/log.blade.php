@@ -5,7 +5,10 @@
 <main class="pb-5">
     @yield('content')
 </main>
-
+<!-- Optional JavaScript -->
+<script src="{{ asset('js/app.js') }}"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 </body>
 
 </html>

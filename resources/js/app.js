@@ -60,7 +60,7 @@ Vue.component('index-component', require('./components/IndexComponent.vue').defa
 
 setInterval(function(){
   $('#click').trigger('click');
-}, 4000);
+}, 7000);
 
 $(window).scroll(function(){
   var scroll = $(window).scrollTop();
