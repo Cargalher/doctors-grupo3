@@ -90,7 +90,7 @@
     </div>
 </div>
 
-@include('layouts/partials/footer')
+{{-- @include('layouts/partials/footer') --}}
 
 </body>
 @yield('js')

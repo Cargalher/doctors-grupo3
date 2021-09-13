@@ -1,7 +1,7 @@
-@extends('layouts.guest')
+@extends('layouts.log')
 
 @section('content')
-<div class="container">
+<div style="height: 100vh" class="container padding-top">
     <div class="row justify-content-center">
         <div class="col-md-8 d-flex justify-content-center p-5">
             <div class="card">
