@@ -6,7 +6,7 @@
 <div style="background-color: white">
     <div class="dash_container py-5">
         <div class="row">
-            <div class="col-sm-2 my-5">
+            <div class="col-lg-2 my-5">
                 <aside>
                     <ul class="nav flex-column line">
                         <li class="nav-item nav-pills my-3">
@@ -83,7 +83,7 @@
                 </aside>
             </div>
 
-            <main class="col-sm-10">
+            <main class="col-lg-10">
                 @yield('content')
             </main>
         </div>
