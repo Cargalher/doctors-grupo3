@@ -49,10 +49,9 @@
                 <img class="img-jumbo animate__animated animate__slideInRight img-fluid" src="{{ asset('img/jumbo.png') }}"
                     alt="">
             </div>
-            <div class="pb-3 d-flex align-items-center">
+            <div class="pb-3 d-flex align-items-center animate__animated animate__slideInLeft">
                 <img width="100" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
-                <h1 class="text-white ml-3">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
-
+                <h1 class="text-white ml-3">Contatta online i migliori specialisti</h1>
             </div>
 
             <form action="{{ route('toIndex') }}" method="post">
