@@ -14625,9 +14625,38 @@ main {
   align-items: center;
 }
 
+.sei {
+  border: 2px solid white;
+}
+
 .img-home {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+h1 {
+  color: white;
+  font-weight: 800;
+}
+
+.img-jumbo {
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  width: 350px;
+}
+
+.btn-show {
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #088eff, #64b8ff, #088eff);
+  color: white;
+  font-weight: 700;
+}
+
+.spot {
+  margin-top: -80px;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #e9e9e9, #f1f1f1, #e9e9e9);
 }
 
 .counters {
@@ -14656,7 +14685,8 @@ main {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #45BB67, #7db88e, #45BB67);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 500px;
+  height: 600px;
+  position: relative;
 }
 
 .dropdown-toggle::after {
@@ -14809,9 +14839,23 @@ main {
     margin-bottom: 0px;
   }
 }
+@media (max-width: 1733px) {
+  .img-jumbo {
+    display: none;
+  }
+}
 @media (max-width: 767px) {
   .folded_section > div > div > div .separator_top,
 .folded_section > div > div > div .separator_bottom {
+    display: none;
+  }
+
+  .spot {
+    margin-top: 0;
+    padding: 0 2rem;
+  }
+
+  .img-jumbo {
     display: none;
   }
 }
@@ -15203,6 +15247,27 @@ a {
 }
 .site_footer .social_icons a i {
   font-size: 2rem;
+}
+
+.text-up {
+  color: #f2f558;
+}
+
+.padding-top {
+  padding-top: 7rem;
+}
+
+.navbar {
+  transition: background-color 0.4s ease-out;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
+}
+
+.bg-scrolling {
+  transition: background-color 0.4s ease-out;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
 }
 
 .card-carousel {

@@ -7,7 +7,7 @@
 
 
     {{-- show dottore page --}}
-    <div class="container pt-5">
+    <div class="container padding-top">
          <button class="btn fix">
             <a href="/"><i class="fas fa-arrow-left"></i></a>
         </button>

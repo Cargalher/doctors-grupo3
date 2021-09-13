@@ -47,6 +47,27 @@
 // Footer
 @import "partials/footer";
 
+.text-up{
+  color:#f2f558;
+}
+
+.padding-top{
+  padding-top: 7rem;
+}
+
+.navbar{
+  transition: background-color 0.4s ease-out;
+  background: -webkit-linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
+}
+
+.bg-scrolling{
+  transition: background-color 0.4s ease-out;
+  background: -webkit-linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2) !important;
+}
+
 
 .card-carousel {
     position: relative;

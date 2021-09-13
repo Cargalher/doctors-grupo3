@@ -57,6 +57,23 @@ Vue.component('index-component', require('./components/IndexComponent.vue').defa
 *   - Added functionality for multiple carousels.
 *   - Adding clickable arrow icon buttons on the sides.
 */
+
+setInterval(function(){
+  $('#click').trigger('click');
+}, 4000);
+
+$(window).scroll(function(){
+  var scroll = $(window).scrollTop();
+if (scroll > 300) {
+  $('.navbar').addClass('bg-scrolling');
+}
+
+else{
+$('.navbar').removeClass('bg-scrolling'); 	
+}
+})
+
+
 function cardCarousel3d(carousels){
     var rotateHandler = function(evt) {
       var carousel = this.parentElement;

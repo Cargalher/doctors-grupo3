@@ -1,5 +1,5 @@
 <template>
-  <div class="index text-center">
+  <div class="index text-center padding-top">
     <div>
       <button class="btn fix">
         <a href="/"><i class="fas fa-arrow-left"></i></a>

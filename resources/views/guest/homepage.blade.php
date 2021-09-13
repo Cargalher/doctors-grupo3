@@ -45,9 +45,13 @@
 
         <div class="">
         <div class=" test d-flex flex-column flex-wrap justify-content-center align-items-center">
+            <div>
+                <img class="img-jumbo animate__animated animate__slideInRight img-fluid" src="{{asset('img/jumbo.png')}}" alt="">
+            </div>
             <div class="pb-3 d-flex align-items-center">
                 <img width="100" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
-                <h1 class="font-weight-bold ml-3 text-muted">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
+                <h1 class="text-white ml-3">CONTATTA ONLINE I MIGLIORI SPECIALISTI</h1>
+                
             </div>
 
             <form action="{{ route('toIndex') }}" method="post">
@@ -70,7 +74,7 @@
                     {{-- pulsante di ricerca --}}
                     <div class="
                                 text-center">
-                                <button class="btn btn-show text-white mt-4" type="submit">
+                                <button class="btn btn-show mt-4" type="submit">
                                     <span>CERCA</span>
                                 </button>
                 </div>
@@ -114,7 +118,7 @@
                 @endforeach
 
             </div>
-            <button class="button-spin clockwise">&gt;</button>
+            <button id="click" class="button-spin clockwise">&gt;</button>
         </div>
 
 
@@ -230,6 +234,22 @@
         </section>
     </div>
 
+    <div class="spot row mx-0" style="height: 600px">
+        <div class="col-md-6 d-flex align-items-center justify-content-center pb-5">
+            <img width="550" class="img-fluid mt-5" src="{{asset('img/recensioni-dei-pazienti.svg')}}" alt="">
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <p>Solo su iDoctors puoi consultare oltre 111.000 recensioni di pazienti verificati
+                13 anni di storia, 734.000 pazienti soddisfatti.
+                
+                Le nostre recensioni sono totalmente affidabili, come testimoniato da
+                
+                
+                I giudizi che puoi leggere sono rilasciati esclusivamente dai pazienti che hanno prenotato attraverso iDoctors ed hanno realmente effettuato una prestazione medica.</p>
+        </div>
+
+    </div>
+
     <div class="counters">
         <div class="row mx-0">
             <div class="col_counter col-12 col-lg-4 py-5">
@@ -252,7 +272,7 @@
             <div class="container">
                 <div class="row mx-0">
                     <div class="col-6">
-                        <h1 class="mb-3 font-weight-bold text-info">Dicono di Noi</h1>
+                        <h2 class="mb-3 font-weight-bold text-info">Dicono di Noi</h2>
                     </div>
                     <div class="col-6 text-right">
                         <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"

@@ -2173,6 +2173,19 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
 *   - Adding clickable arrow icon buttons on the sides.
 */
 
+setInterval(function () {
+  $('#click').trigger('click');
+}, 4000);
+$(window).scroll(function () {
+  var scroll = $(window).scrollTop();
+
+  if (scroll > 300) {
+    $('.navbar').addClass('bg-scrolling');
+  } else {
+    $('.navbar').removeClass('bg-scrolling');
+  }
+});
+
 function cardCarousel3d(carousels) {
   var rotateHandler = function rotateHandler(evt) {
     var carousel = this.parentElement;
@@ -37835,7 +37848,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "index text-center" }, [
+  return _c("div", { staticClass: "index text-center padding-top" }, [
     _vm._m(0),
     _vm._v(" "),
     _vm.specializations.length > 0

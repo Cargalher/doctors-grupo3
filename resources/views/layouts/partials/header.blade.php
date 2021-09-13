@@ -1,10 +1,10 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md">
 
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img width="222" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="">
+                <img width="222" class="img-fluid" src="{{ asset('img/logo_white_large.png') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,7 +32,7 @@
                         @endif
                     @else
                         <li class="nav-item dropdown font-weight-bold">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-success" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-up" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
