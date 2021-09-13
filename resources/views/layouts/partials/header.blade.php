@@ -1,4 +1,4 @@
-<body>
+<body class="bg-white">
 
     <header>
         <nav class="navbar navbar-expand-md navbar-light">

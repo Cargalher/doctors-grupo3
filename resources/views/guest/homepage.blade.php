@@ -238,7 +238,7 @@
         </section>
     </div>
 
-    <div class="spot row mx-0">
+    <div class="spot row mx-0 py-5">
         <div class="col-md-6 d-flex align-items-center justify-content-center pb-5">
             <img width="500" class="img-fluid pt-2 mt-5" src="{{ asset('img/recensioni-dei-pazienti.svg') }}" alt="">
         </div>
@@ -249,8 +249,8 @@
             <div class="text-left">
                 <span class="font-weight-bold">13 anni di storia, 734.000 pazienti soddisfatti.</span>
                 <p style="font-size: 1.1rem" class="d-block mt-3">Le nostre recensioni sono totalmente affidabili, come testimoniato da</p>
-                <img class="text-center ml-5" width="230" src="{{asset('img/altroconsumo.svg')}}" alt="">
-                <p class="d-block mt-3">I giudizi che puoi leggere sono rilasciati esclusivamente dai pazienti che hanno prenotato attraverso BoolDoctors ed hanno realmente effettuato una prestazione medica.</p>
+                <img class="text-center" width="230" src="{{asset('img/altroconsumo.svg')}}" alt="">
+                <p class="d-block mt-4">I giudizi che puoi leggere sono rilasciati esclusivamente dai pazienti che hanno prenotato attraverso BoolDoctors ed hanno realmente effettuato una prestazione medica.</p>
 
             </div>
 
