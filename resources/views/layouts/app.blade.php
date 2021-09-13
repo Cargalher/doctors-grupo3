@@ -6,7 +6,7 @@
 <div style="background-color: white">
     <div class="dash_container py-5">
         <div class="row">
-            <div class="col-lg-2 my-5">
+            <div class="col-lg-2 mb-4">
                 <aside>
                     <ul class="nav flex-column line">
                         <li class="nav-item nav-pills my-3">
