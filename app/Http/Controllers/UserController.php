@@ -153,7 +153,7 @@ class UserController extends Controller
             $doctor->sponsors()->attach($request->sponsors);
             $doctor->update($validate);
 
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->with('success_update', 'Profilo aggiornato correttamente.');
         } else {
             return redirect()->route("home");
         }

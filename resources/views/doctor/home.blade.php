@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session('success_update'))
+<div class="alert alert-success">
+    {{ session('success_update') }}
+</div>
 
+<script type="text/javascript">
+    setTimeout(function() {
+        $(".alert").alert('close')
+    }, 3000);
+</script>
+@endif
 
     <div id="app" class="container my-5">
         {{-- card dottore --}}
