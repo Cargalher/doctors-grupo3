@@ -238,7 +238,7 @@
 
     <div class="spot row mx-0">
         <div class="col-md-6 d-flex align-items-center justify-content-center pb-5">
-            <img width="550" class="img-fluid mt-5" src="{{ asset('img/recensioni-dei-pazienti.svg') }}" alt="">
+            <img width="500" class="img-fluid pt-2 mt-5" src="{{ asset('img/recensioni-dei-pazienti.svg') }}" alt="">
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center pr-5">
             <h3 class="h3 text-secondary mb-4">
