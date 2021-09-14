@@ -2157,22 +2157,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }
   }
 });
-/*
-* My adaptation of:
-*   Flux 3D Carousel
-*   Author: Dean Coulter
-*   Licensed under the MIT license
-*   Version 0.1
-*
-*   - Changed from figure element cards to any html.
-*   - Removed use of id, to allow multiple carousels.
-*   - Blocking of events on cards in the background.
-*   - Dimming of cards in the background.
-*   - Fixed continuous rotation.
-*   - Added functionality for multiple carousels.
-*   - Adding clickable arrow icon buttons on the sides.
-*/
-
 setInterval(function () {
   $('#click').trigger('click');
 }, 7000);
@@ -2330,6 +2314,17 @@ function isViewportSmallerThanFooter(footerElement) {
 function getBottomY(element) {
   return element.offsetTop + element.offsetHeight;
 }
+
+$('#test-hover').hover(function () {
+  $(this).addClass('test-hv');
+}, function () {
+  $(this).removeClass('test-hv');
+});
+$('#test-hover-2').hover(function () {
+  $(this).addClass('test-hv-2');
+}, function () {
+  $(this).removeClass('test-hv-2');
+});
 
 /***/ }),
 

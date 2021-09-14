@@ -3,6 +3,25 @@
     width: max-content;
 }
 
+#test-hover{
+    transition: background-color .5s, color .5s;
+}
+
+#test-hover-2{
+    transition: transform .5s !important;
+}
+
+
+
+.test-hv{
+    background-color: white !important;
+    color: $bgreen!important;
+}
+
+.test-hv-2{
+   transform: scale(1.1) !important;
+}
+
 .img-home {
     object-fit: cover;
 }

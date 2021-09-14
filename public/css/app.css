@@ -14632,6 +14632,23 @@ main {
   width: max-content;
 }
 
+#test-hover {
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#test-hover-2 {
+  transition: transform 0.5s !important;
+}
+
+.test-hv {
+  background-color: white !important;
+  color: #45BB67 !important;
+}
+
+.test-hv-2 {
+  transform: scale(1.1) !important;
+}
+
 .img-home {
   -o-object-fit: cover;
      object-fit: cover;
