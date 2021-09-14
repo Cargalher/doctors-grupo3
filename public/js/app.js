@@ -1984,6 +1984,123 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -37849,7 +37966,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "index text-center pt-2" }, [
     _c("div", { staticClass: "row mx-0" }, [
-      _c("div", { staticClass: "col-md-3" }, [
+      _c("div", { staticClass: "col-lg-3" }, [
         _vm.specializations.length > 0
           ? _c("div", { staticClass: "form-group container sticky-top" }, [
               _c(
@@ -37859,7 +37976,7 @@ var render = function() {
                     "d-flex flex-wrap justify-content-center align-items-center"
                 },
                 [
-                  _c("h2", { staticClass: "pr-3 text-info" }, [
+                  _c("h2", { staticClass: "pr-3 text-info pt-3 pb-2" }, [
                     _vm._v("Cerca Specialista")
                   ]),
                   _vm._v(" "),
@@ -38039,7 +38156,7 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-9 overflow-hidden" }, [
+      _c("div", { staticClass: "col-lg-9 overflow-hidden" }, [
         _c(
           "div",
           {
@@ -38048,15 +38165,76 @@ var render = function() {
           _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, sing) {
             return _c("div", { key: sing, staticClass: "card-container" }, [
               _c("div", { staticClass: "front" }, [
-                _vm._v("\n            Dr. "),
-                _c("span", [
+                _c("span", { staticClass: "text-secondary h6" }, [
+                  _vm._v("Dr. ")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-secondary h6" }, [
                   _vm._v(
-                    _vm._s(doctor.name) + " " + _vm._s(doctor.lastname) + " "
+                    _vm._s(doctor.name) +
+                      " " +
+                      _vm._s(doctor.lastname) +
+                      "\n            "
                   )
-                ])
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "img-fluid search_img my-4",
+                  attrs: {
+                    src:
+                      "http://127.0.0.1:8000/storage/" + doctor.profile_image,
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _vm._l(Math.round(doctor.avarage), function(number) {
+                      return _c("i", {
+                        staticClass: "fas fa-star",
+                        staticStyle: { color: "#ffd900" }
+                      })
+                    }),
+                    _vm._v(" "),
+                    _vm._l(5 - Math.round(doctor.avarage), function(num) {
+                      return _c("i", {
+                        staticClass: "fas fa-star",
+                        staticStyle: { color: "#bdbdbd" }
+                      })
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass: "text-secondary ml-1 d-block",
+                        staticStyle: { "font-size": "0.7rem" }
+                      },
+                      [_vm._v("(" + _vm._s(doctor.num) + " recensioni)")]
+                    )
+                  ],
+                  2
+                )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "back" }, [_vm._v("Back Side")])
+              _c("div", { staticClass: "back" }, [
+                _c(
+                  "div",
+                  { staticClass: "d-flex flex-column align-content-center" },
+                  _vm._l(doctor.spec, function(nameSpec, i) {
+                    return _c(
+                      "span",
+                      {
+                        key: i,
+                        staticClass: "h6 text-info d-block",
+                        staticStyle: { "font-size": ".8rem" }
+                      },
+                      [_vm._v(_vm._s(nameSpec) + " ")]
+                    )
+                  }),
+                  0
+                )
+              ])
             ])
           }),
           0

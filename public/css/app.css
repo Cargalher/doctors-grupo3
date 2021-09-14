@@ -15235,8 +15235,8 @@ a {
 }
 
 .card-container, .front, .back {
-  width: 15rem;
-  height: 18rem;
+  width: 15.5rem;
+  height: 18.5rem;
 }
 
 .card-container {
@@ -15247,9 +15247,10 @@ a {
   box-sizing: border-box;
   padding: 2rem;
   border-radius: 4px;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
   font-family: BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 2rem;
+  font-size: 0.8rem;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
@@ -15257,12 +15258,12 @@ a {
 
 /* front side bg is green gradient */
 .front {
-  background-image: linear-gradient(to right bottom, #2ecc71, #229955);
+  background-image: linear-gradient(to right bottom, #fdfdfd, #ffffff);
 }
 
 /* back side bg is orange gradient */
 .back {
-  background-image: linear-gradient(to right bottom, #f1c40f, #e67e22);
+  background-image: linear-gradient(to right bottom, #fdfdfd, #ffffff);
 }
 
 .card-container {
