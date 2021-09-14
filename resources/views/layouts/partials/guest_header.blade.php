@@ -27,11 +27,11 @@
 
                         @if (Route::has('register'))
                             <li class="nav-item mr-3">
-                                <a class="nav-link sei rounded text-white font-weight-bold px-2" href="{{ route('register') }}">Sei un dottore? Iscriviti</a>
+                                <a id="test-hover" class="nav-link sei rounded text-white font-weight-bold px-2" href="{{ route('register') }}">Sei un dottore? Iscriviti</a>
                             </li>
                         @endif
                         <li class="nav-item font-weight-bold">
-                            <a class="nav-link text-up " href="{{ route('login') }}">{{ __('Accedi') }} <i
+                            <a id="test-hover-2" class="nav-link text-up" href="{{ route('login') }}">{{ __('Accedi') }} <i
                                     class="far fa-user-circle h5 text-up"></i>
                             </a>
                         </li>

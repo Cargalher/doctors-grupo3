@@ -8,7 +8,7 @@
 
     {{-- show dottore page --}}
     <div class="container padding-top">
-         <button class="btn fix">
+         <button class="btn fix d-lg-block d-none">
             <a href="/"><i class="fas fa-arrow-left"></i></a>
         </button>
         {{-- messaggio di avvenuta recensione --}}

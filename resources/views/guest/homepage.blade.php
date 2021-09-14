@@ -43,7 +43,7 @@
             </script>
         @endif
 
-        <div class="">
+     
         <div class=" test d-flex flex-column flex-wrap justify-content-center align-items-center">
             <div>
                 <img class="img-jumbo animate__animated animate__slideInRight img-fluid" src="{{ asset('img/jumbo.png') }}"
@@ -278,7 +278,7 @@
 
     <div class="spot2 row mx-0 py-4">
         <div class="col-md-6 d-flex align-items-center justify-content-center pb-5">
-            <img width="380" class="img-fluid pt-2 mt-5" src="{{ asset('img/doctor-spot.png') }}" alt="">
+            <img width="350" class="img-fluid pt-2 mt-5" src="{{ asset('img/doctor-spot.png') }}" alt="">
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center pr-5">
             <h2 class="text-secondary mb-4">
@@ -296,9 +296,12 @@
                     <li class="py-1">Incrementi gli appuntamenti</li>
                 </ul>
 
-                <button style="border: 3px solid; font-size: 1.2rem;" type="button"
+                <a  style="text-decoration: none" href="{{ route('register') }}">
+                    <button style="border: 3px solid; font-size: 1.2rem;" type="button"
                     class="btn btn-outline-info font-weight-bold mt-3">Scopri di più</button>
 
+                </a>
+                
 
 
             </div>
@@ -441,7 +444,7 @@
 
     
 
-    </div>
+  
 
 
 
