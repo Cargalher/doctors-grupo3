@@ -1,13 +1,19 @@
 <template>
-  <div class="index text-center pt-5 mt-3">
+  <div class="index text-center pt-2">
     <!-- <div>
       <button class="btn fix d-lg-block d-none">
         <a href="/"><i class="fas fa-arrow-left"></i></a>
       </button>
     </div> -->
+
+    <!-- PAGINA dopo la ricerca  -->
     <div class="row mx-0">
+      <!-- colonna sx di ricerca per specializzazioni e ordinamenti  -->
       <div class="col-md-3">
-        <div class="form-group container" v-if="specializations.length > 0">
+        <div
+          class="form-group container sticky-top"
+          v-if="specializations.length > 0"
+        >
           <div
             class="d-flex flex-wrap justify-content-center align-items-center"
           >
@@ -106,82 +112,30 @@
           </div>
         </div>
       </div>
-      <div class="col-md-9"></div>
-    </div>
 
-    <div class="container py-3">
-      <div
-        v-for="(doctor, sing) in sponsDoc(doctors)"
-        :key="sing"
-        class="card p-2 my-4 shadow"
-      >
-        <div class="row d-flex align-items-center">
-          <div class="col-md-3">
-            <img
-              class="img-fluid search_img"
-              v-bind:src="
-                'http://127.0.0.1:8000/storage/' + doctor.profile_image
-              "
-              alt=""
-            />
-            <div
-              class="rounded-pill spon_container mt-2 mb-1 py-1"
-              v-if="doctor.att"
-            >
-              <span class="sponsor">MEDICO IN EVIDENZIA</span>
-            </div>
-          </div>
+      <!-- colonna dx di visualizzazioni medici con card flip  -->
+      <div class="col-md-9 overflow-hidden">
+        <div class="card_flipped d-flex flex-wrap justify-content-center">
           <div
-            class="
-              text-left
-              col-md-9
-              px-3
-              d-flex
-              justify-content-between
-              align-items-center
-            "
+            v-for="(doctor, sing) in sponsDoc(doctors)"
+            :key="sing"
+            class="card-container"
           >
-            <div class="card-block px-3">
-              <span
-                class="h6 text-secondary"
-                v-for="(nameSpec, i) in doctor.spec"
-                :key="i"
-                >{{ nameSpec }}
-              </span>
-              <h5 class="card-title text-primary mt-2">
-                Dr. <span>{{ doctor.name }} {{ doctor.lastname }} </span>
-              </h5>
-              <span class="h6 text-secondary mb-2 d-block"
-                >{{ doctor.address }}
-              </span>
-              <i
-                style="color: #ffd900"
-                class="fas fa-star"
-                v-for="number in Math.round(doctor.avarage)"
-              ></i>
-              <i
-                style="color: #bdbdbd"
-                class="fas fa-star"
-                v-for="num in 5 - Math.round(doctor.avarage)"
-              ></i>
-              <span class="text-secondary ml-1" style="font-size: 0.7rem"
-                >({{ doctor.num }} recensioni)</span
-              >
+            <div class="front">
+              Dr. <span>{{ doctor.name }} {{ doctor.lastname }} </span>
             </div>
-
-            <div class="mr-5">
-              <a
-                v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id"
-                class="btn btn-primary"
-                >Visualizza</a
-              >
-            </div>
+            <div class="back">Back Side</div>
           </div>
         </div>
       </div>
+      <!-- and col-9  -->
     </div>
+    <!-- and row col-3 col -9  -->
   </div>
+  <!-- and index  -->
 </template>
+
+
 
 <script>
 export default {
@@ -314,3 +268,4 @@ export default {
   },
 };
 </script>
+

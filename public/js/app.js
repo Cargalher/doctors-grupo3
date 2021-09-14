@@ -1984,52 +1984,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -37893,11 +37847,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "index text-center pt-5 mt-3" }, [
+  return _c("div", { staticClass: "index text-center pt-2" }, [
     _c("div", { staticClass: "row mx-0" }, [
       _c("div", { staticClass: "col-md-3" }, [
         _vm.specializations.length > 0
-          ? _c("div", { staticClass: "form-group container" }, [
+          ? _c("div", { staticClass: "form-group container sticky-top" }, [
               _c(
                 "div",
                 {
@@ -38085,121 +38039,30 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-9" })
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container py-3" },
-      _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, sing) {
-        return _c("div", { key: sing, staticClass: "card p-2 my-4 shadow" }, [
-          _c("div", { staticClass: "row d-flex align-items-center" }, [
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("img", {
-                staticClass: "img-fluid search_img",
-                attrs: {
-                  src: "http://127.0.0.1:8000/storage/" + doctor.profile_image,
-                  alt: ""
-                }
-              }),
-              _vm._v(" "),
-              doctor.att
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "rounded-pill spon_container mt-2 mb-1 py-1"
-                    },
-                    [
-                      _c("span", { staticClass: "sponsor" }, [
-                        _vm._v("MEDICO IN EVIDENZIA")
-                      ])
-                    ]
-                  )
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "\n            text-left\n            col-md-9\n            px-3\n            d-flex\n            justify-content-between\n            align-items-center\n          "
-              },
-              [
-                _c(
-                  "div",
-                  { staticClass: "card-block px-3" },
-                  [
-                    _vm._l(doctor.spec, function(nameSpec, i) {
-                      return _c(
-                        "span",
-                        { key: i, staticClass: "h6 text-secondary" },
-                        [_vm._v(_vm._s(nameSpec) + "\n            ")]
-                      )
-                    }),
-                    _vm._v(" "),
-                    _c("h5", { staticClass: "card-title text-primary mt-2" }, [
-                      _vm._v("\n              Dr. "),
-                      _c("span", [
-                        _vm._v(
-                          _vm._s(doctor.name) +
-                            " " +
-                            _vm._s(doctor.lastname) +
-                            " "
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      { staticClass: "h6 text-secondary mb-2 d-block" },
-                      [_vm._v(_vm._s(doctor.address) + "\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _vm._l(Math.round(doctor.avarage), function(number) {
-                      return _c("i", {
-                        staticClass: "fas fa-star",
-                        staticStyle: { color: "#ffd900" }
-                      })
-                    }),
-                    _vm._v(" "),
-                    _vm._l(5 - Math.round(doctor.avarage), function(num) {
-                      return _c("i", {
-                        staticClass: "fas fa-star",
-                        staticStyle: { color: "#bdbdbd" }
-                      })
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass: "text-secondary ml-1",
-                        staticStyle: { "font-size": "0.7rem" }
-                      },
-                      [_vm._v("(" + _vm._s(doctor.num) + " recensioni)")]
-                    )
-                  ],
-                  2
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "mr-5" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: {
-                        href: "http://127.0.0.1:8000/doctors/" + doctor.id
-                      }
-                    },
-                    [_vm._v("Visualizza")]
+      _c("div", { staticClass: "col-md-9 overflow-hidden" }, [
+        _c(
+          "div",
+          {
+            staticClass: "card_flipped d-flex flex-wrap justify-content-center"
+          },
+          _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, sing) {
+            return _c("div", { key: sing, staticClass: "card-container" }, [
+              _c("div", { staticClass: "front" }, [
+                _vm._v("\n            Dr. "),
+                _c("span", [
+                  _vm._v(
+                    _vm._s(doctor.name) + " " + _vm._s(doctor.lastname) + " "
                   )
                 ])
-              ]
-            )
-          ])
-        ])
-      }),
-      0
-    )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "back" }, [_vm._v("Back Side")])
+            ])
+          }),
+          0
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
