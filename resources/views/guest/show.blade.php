@@ -40,13 +40,16 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 @foreach ($user->specializations as $specialization)
-                                    <span class="card-text text-info">
+                                    <span class="card-text text-info h6">
                                             {{ $specialization->name }}  &nbsp;</span>
                                 @endforeach
-                                <h5 class="card-title mt-3">Dott: {{ $user->name }} {{ $user->lastname }}</h5>
-                                <p class="card-text">Indirizzo <br> {{ $user->address }}</p>
-                                <p class="card-text">{{ $user->city }}</p>
-                                <p class="card-text"> Telefono: <br> {{ $user->phone_number }}</p>
+                                <h5 class="card-title mt-3">Dr. {{ $user->name }} {{ $user->lastname }}</h5>
+                                <span class="card-text text-monospace">Città (PV)</span>
+                                <span class="card-text d-block pb-3">{{ $user->city }} ({{$user->pv}})</span>
+                                <span class="card-text text-monospace">Indirizzo</span>
+                                <span class="card-text d-block pb-3">{{ $user->address }}</span>
+                                <span class="card-text text-monospace">Telefono</span>
+                                <span class="card-text d-block pb-3">{{ $user->phone_number }}</span>
                                 
                                 <!-- pulsante per inviare un messagio -->
                                 <button class="btn custom-button p-0" data-toggle="modal" data-target="#modalMessage">
@@ -114,12 +117,12 @@
                     <div class="bg-white rounded shadow p-4 mb-4 clearfix graph-star-rating">
                         {{-- <h4 class="mb-0 mb-4 text-center">Recensioni dei Clienti </h4> --}}
                         <div class="graph-star-rating-header">
-                            <div class="star-rating d-flex justify-content-between">
+                            <div class="star-rating d-flex flex-column justify-content-between">
                                 <span class="text-black mb-2">Totale recensioni:
-                                    {{ count($user->reviews) }}
+                                    <span class="text-info">{{ count($user->reviews) }}</span> 
                                 </span>
                                 <span class="text-black mb-2">
-                                    Media voti {{ round($totalSum, 1) }} su 5
+                                    Media voti <span class="text-info">{{ round($totalSum, 1) }}</span> su <span class="text-info">5</span>
                                 </span>
                             </div>
                         </div>
@@ -136,7 +139,6 @@
                                     <div class="progress">
                                         <div style="width: {{ $cinquestelle }}%" aria-valuemax="5" aria-valuemin="0"
                                             aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                            <span class="sr-only">80% Complete (danger)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +155,6 @@
                                     <div class="progress">
                                         <div style="width: {{ $quattrostelle }}%" aria-valuemax="5" aria-valuemin="0"
                                             aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                            <span class="sr-only">80% Complete (danger)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +171,6 @@
                                     <div class="progress">
                                         <div style="width: {{ $trestelle }}%" aria-valuemax="5" aria-valuemin="0"
                                             aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                            <span class="sr-only">80% Complete (danger)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +187,6 @@
                                     <div class="progress">
                                         <div style="width: {{ $duestelle }}%" aria-valuemax="5" aria-valuemin="0"
                                             aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                            <span class="sr-only">80% Complete (danger)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -202,7 +201,6 @@
                                     <div class="progress">
                                         <div style="width: {{ $unastella }}%" aria-valuemax="5" aria-valuemin="0"
                                             aria-valuenow="5" role="progressbar" class="progress-bar bg-primary">
-                                            <span class="sr-only">80% Complete (danger)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +211,7 @@
                         
                         <!-- modale per vedere tutti gli recensioni??? -->
                         <!-- Button trigger modal -->
-                        <div class="text-center">
+                        <div class="text-center mt-2">
                             <button type="button" class="btn text-white btn-show" data-toggle="modal" data-target="#exampleModalLong">
                             Leggi tutte le recensioni
                             </button>

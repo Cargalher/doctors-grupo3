@@ -63,8 +63,8 @@
                 <div class="form-group">
 
                     {{-- select specializzazioni --}}
-                    <select class="selectpicker mt-4 mb-2" data-show-subtext="false" data-live-search="true" id="specialization"
-                        name="specialization" required>
+                    <select class="selectpicker mt-4 mb-2" data-show-subtext="false" data-live-search="true"
+                        id="specialization" name="specialization" required>
                         <option value="">Cerca lo Specialista</option>
                         @foreach ($specializations as $spec)
                             <option value="{{ $spec->id }}"
@@ -84,55 +84,55 @@
     </div>
 
     <!-- Come funziona BoolDoctors -->
-    @if((count($activeDoctors) > 0))
+    @if (count($activeDoctors) > 0)
 
-    <div class="pt-3 margin_neg">
-        <div class="card-carousel overflow-hidden my-3" id="debug_id_1">
-            <button class="button-spin counterclockwise d-none">&lt;</button>
-            <div class="inner-carousel">
-                @foreach ($activeDoctors as $doctor)
-                    <div class="text-center">
-                        <img src="{{ asset('storage/' . $doctor->profile_image) }}"
-                            onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle p-2 img-home"
-                            width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
-                        <h6>{{ $doctor->name }} {{ $doctor->lastname }}</h6>
-                        <span class="d-block mb-1"
-                            style="font-size: .8rem">{{ $doctor->specializations[0]->name }}</span>
-                        @php
-                            $average = 0;
-                        @endphp
-                        @foreach ($reviews as $review)
-                            @if ($doctor->id === $review->user_id)
-                                @php
-                                    $average += $review->vote;
-                                @endphp
+        <div class="pt-3 margin_neg">
+            <div class="card-carousel overflow-hidden my-3" id="debug_id_1">
+                <button class="button-spin counterclockwise d-none">&lt;</button>
+                <div class="inner-carousel">
+                    @foreach ($activeDoctors as $doctor)
+                        <div class="text-center">
+                            <img src="{{ asset('storage/' . $doctor->profile_image) }}"
+                                onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle p-2 img-home"
+                                width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
+                            <h6>{{ $doctor->name }} {{ $doctor->lastname }}</h6>
+                            <span class="d-block mb-1"
+                                style="font-size: .8rem">{{ $doctor->specializations[0]->name }}</span>
+                            @php
+                                $average = 0;
+                            @endphp
+                            @foreach ($reviews as $review)
+                                @if ($doctor->id === $review->user_id)
+                                    @php
+                                        $average += $review->vote;
+                                    @endphp
+                                @endif
+                            @endforeach
+
+                            @if ($average != 0)
+                                @for ($i = 0; $i < ceil($average / count($doctor->reviews)); $i++)
+                                    <i style="color: #ffd900;" class="fas fa-star"></i>
+                                @endfor
+                            @else
+                                <span style="font-size: .6rem" class="text-muted">Nessuna recensione ricevuta</span>
                             @endif
-                        @endforeach
+                            <a href="{{ route('show', $doctor->id) }}">Visualizza</a>
+                        </div>
+                    @endforeach
 
-                        @if ($average != 0)
-                            @for ($i = 0; $i < ceil($average / count($doctor->reviews)); $i++)
-                                <i style="color: #ffd900;" class="fas fa-star"></i>
-                            @endfor
-                        @else
-                            <span style="font-size: .6rem" class="text-muted">Nessuna recensione ricevuta</span>
-                        @endif
-                        <a href="{{ route('show', $doctor->id) }}">Visualizza</a>
-                    </div>
-                @endforeach
-
+                </div>
+                <button id="click" class="button-spin clockwise d-none">&gt;</button>
             </div>
-            <button id="click" class="button-spin clockwise d-none">&gt;</button>
+
+
         </div>
-
-
-    </div>
     @endif
 
     <div id="how-it-works" class="py-5 container">
         <section
             class="vc_row wpb_row vc_row-fluid no_padding no_cols_padding folded_section transparent separator_top separator_bottom">
             <div class="container">
-                <div class="row animate__animated animate__bounceInUp">
+                <div class="row animate__animated animate__bounceInLeft">
                     <div class="wpb_column vc_column_container col-sm-3 col-xs-6  vc_custom_1446619389066 sep_triangular_downhill_top sep_triangular_downhill_bottom"
                         style="border-color: rgb(8, 142, 255);">
                         <div class="separator_top" style="border-left-width: 289px;">
@@ -248,9 +248,11 @@
             </h3>
             <div class="text-left">
                 <span class="font-weight-bold">13 anni di storia, 734.000 pazienti soddisfatti.</span>
-                <p style="font-size: 1.1rem" class="d-block mt-3">Le nostre recensioni sono totalmente affidabili, come testimoniato da</p>
-                <img class="text-center" width="230" src="{{asset('img/altroconsumo.svg')}}" alt="">
-                <p class="d-block mt-4">I giudizi che puoi leggere sono rilasciati esclusivamente dai pazienti che hanno prenotato attraverso BoolDoctors ed hanno realmente effettuato una prestazione medica.</p>
+                <p style="font-size: 1.1rem" class="d-block mt-3">Le nostre recensioni sono totalmente affidabili, come
+                    testimoniato da</p>
+                <img class="text-center" width="230" src="{{ asset('img/altroconsumo.svg') }}" alt="">
+                <p class="d-block mt-4">I giudizi che puoi leggere sono rilasciati esclusivamente dai pazienti che hanno
+                    prenotato attraverso BoolDoctors ed hanno realmente effettuato una prestazione medica.</p>
 
             </div>
 
@@ -275,7 +277,56 @@
         </div>
     </div>
 
-    <div class="pt-5">
+    <div class="spot2 row mx-0 py-4">
+        <div class="col-md-6 d-flex align-items-center justify-content-center pb-5">
+            <img width="380" class="img-fluid pt-2 mt-5" src="{{ asset('img/doctor-spot.png') }}" alt="">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center pr-5">
+            <h2 class="text-secondary mb-4">
+                Sei un Medico? Iscriviti!
+            </h2>
+            <div class="text-left">
+                <h5 class="font-weight-bold">Più di 2 milioni di pazienti cercano ogni mese il loro Medico su BoolDoctors.
+                </h5>
+                <p style="font-size: 1.1rem" class="d-block mt-3">Il primo sito in Italia per visitatori e numero di
+                    prenotazioni. Non perdere l'opportunità di raggiungere nuovi pazienti!</p>
+                <p style="font-size: 1.1rem" class="d-block mt-3">Con BoolDoctors:</p>
+                <ul>
+                    <li class="py-1">Avrai a tua disposizione il nostro staff 7 giorni su 7</li>
+                    <li class="py-1">Ottieni visibilità sul web</li>
+                    <li class="py-1">Migliori la tua reputazione online</li>
+                    <li class="py-1">Incrementi gli appuntamenti</li>
+                </ul>
+
+                <button style="border: 3px solid; font-size: 1.2rem;" type="button"
+                    class="btn btn-outline-info font-weight-bold mt-3">Scopri di più</button>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- about -->
+<div class="about">
+    <a class="bg_links social portfolio" href="https://www.rafaelalucas.com/dailyui" target="_blank">
+       <span class="icon"></span>
+    </a>
+    <a class="bg_links social dribbble" href="https://dribbble.com/rafaelalucas" target="_blank">
+       <span class="icon"></span>
+    </a>
+    <a class="bg_links social linkedin" href="https://www.linkedin.com/in/rafaelalucas/" target="_blank">
+       <span class="icon"></span>
+    </a>
+    <a class="bg_links logo"></a>
+ </div>
+ <!-- end about -->
+ 
+ 
+
+    {{-- <div class="pt-5">
         <section class="pt-5 pb-5">
             <div class="container">
                 <div class="row mx-0">
@@ -287,7 +338,8 @@
                             data-slide="prev">
                             <i class="fa fa-arrow-left"></i>
                         </a>
-                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button"
+                            data-slide="next">
                             <i class="fa fa-arrow-right"></i>
                         </a>
                     </div>
@@ -387,7 +439,9 @@
             </div>
         </section>
 
-    </div>
+    </div> --}}
+
+    
 
     </div>
 
