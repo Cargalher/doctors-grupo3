@@ -1,5 +1,5 @@
 <footer>
-    <div class="site_footer pt-1">
+    <div class="site_footer py-4">
         <div class="text-center">
             <div class="first_footer py-4">
                 <img width="222" src="{{ asset('img/logo_white_large.png') }}" class="img-fluid" alt="">
