@@ -1,62 +1,112 @@
 <template>
-  <div class="index text-center padding-top">
-    <div>
+  <div class="index text-center pt-5 mt-3">
+    <!-- <div>
       <button class="btn fix d-lg-block d-none">
         <a href="/"><i class="fas fa-arrow-left"></i></a>
       </button>
-    </div>
-    <div class="form-group container" v-if="specializations.length > 0">
-      <div class="d-flex flex-wrap justify-content-center align-items-center">
-        <h2 class="pr-3 text-info">Cerca Specialista</h2>
-        <select
-          class="form-control selectpicker"
-          data-show-subtext="false"
-          data-live-search="true"
-          name="specializations"
-          v-model="specId"
-          autocomplete="on"
-        >
-          <option value="" disabled>scegli una specializzazione</option>
-          <option value="0">Tutti i medici</option>
-          <option
-            v-for="(spec, index) in specializations"
-            :key="index"
-            :value="spec.id"
+    </div> -->
+    <div class="row mx-0">
+      <div class="col-md-3">
+        <div class="form-group container" v-if="specializations.length > 0">
+          <div
+            class="d-flex flex-wrap justify-content-center align-items-center"
           >
-            {{ spec.name }}
-          </option>
-        </select>
-      </div>
-      <div class="d-flex justify-content-center align-items-center mt-4">
-        <h6 class="mr-3 text-secondary">Ordina per:</h6>
+            <h2 class="pr-3 text-info">Cerca Specialista</h2>
+            <select
+              class="form-control selectpicker"
+              data-show-subtext="false"
+              data-live-search="true"
+              name="specializations"
+              v-model="specId"
+              autocomplete="on"
+            >
+              <option value="" disabled>scegli una specializzazione</option>
+              <option value="0">Tutti i medici</option>
+              <option
+                v-for="(spec, index) in specializations"
+                :key="index"
+                :value="spec.id"
+              >
+                {{ spec.name }}
+              </option>
+            </select>
+          </div>
+          <div
+            class="
+              d-flex
+              flex-column
+              justify-content-center
+              align-items-start
+              my-4
+            "
+          >
+            <div class="w-100 text-center">
+              <h6 class="mr-3 text-secondary font-weight-bold">Ordina per</h6>
+            </div>
 
-        <ul class="list-group list-group-horizontal-md">
-          <li class="list-group-item text-secondary">
-            <h6 class="d-inline">Media recensioni</h6>
-            <button
-              class="btn btn-sm btn-success"
-              v-on:click="sortedAvarageUp()"
-            >
-              <i class="fas fa-chevron-up"></i>
-            </button>
-            <button
-              class="btn btn-sm btn-danger"
-              v-on:click="sortedAvarageDown()"
-            >
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </li>
-          <li class="list-group-item text-secondary">
-            <h6 class="d-inline">Numero recensioni</h6>
-            <button class="btn btn-sm btn-success" v-on:click="sortedRewUp()">
-              <i class="fas fa-chevron-up"></i>
-            </button>
-            <button class="btn btn-sm btn-danger" v-on:click="sortedRewDown()">
-              <i class="fas fa-chevron-down"></i>
-            </button>
-          </li>
-        </ul>
+            <ul class="list-group list-group-vertical-md w-100">
+              <li
+                class="
+                  mt-2
+                  list-group-item
+                  text-secondary
+                  d-flex
+                  justify-content-between
+                  align-content align-items-center
+                "
+              >
+                <div>
+                  <h6 class="d-inline">Media recensioni</h6>
+                </div>
+                <div class="">
+                  <button
+                    class="btn btn-sm shadow-sm ml-2 border"
+                    v-on:click="sortedAvarageUp()"
+                  >
+                    <i class="fas fa-chevron-up text-success"></i>
+                  </button>
+                  <button
+                    class="btn btn-sm ml-2 shadow-sm border"
+                    v-on:click="sortedAvarageDown()"
+                  >
+                    <i class="fas fa-chevron-down text-danger"></i>
+                  </button>
+                </div>
+              </li>
+              <li
+                class="
+                  mt-3
+                  border
+                  list-group-item
+                  text-secondary
+                  d-flex
+                  justify-content-between
+                  align-content align-items-center
+                "
+              >
+                <div>
+                  <h6 class="d-inline">Numero recensioni</h6>
+                </div>
+                <div class="">
+                  <button
+                    class="btn btn-sm border shadow-sm ml-2"
+                    v-on:click="sortedRewUp()"
+                  >
+                    <i class="fas fa-chevron-up text-success"></i>
+                  </button>
+                  <button
+                    class="btn btn-sm border ml-2 shadow-sm"
+                    v-on:click="sortedRewDown()"
+                  >
+                    <i class="fas fa-chevron-down text-danger"></i>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
+      <div class="col-md-9"></div>
     </div>
 
     <div class="container py-3">
