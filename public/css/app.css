@@ -15158,6 +15158,10 @@ a {
   background-color: #edf0f2 !important;
 }
 
+.color_link:hover {
+  color: #45BB67 !important;
+}
+
 /*/ start check specializations /*/
 #form_check {
   flex: 0 0 46% !important;
