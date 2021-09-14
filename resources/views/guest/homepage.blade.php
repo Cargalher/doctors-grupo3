@@ -110,9 +110,14 @@
                             @endforeach
 
                             @if ($average != 0)
+                            <div class="d-flex justify-content-center">
                                 @for ($i = 0; $i < ceil($average / count($doctor->reviews)); $i++)
-                                    <i style="color: #ffd900;" class="fas fa-star mt-3"></i>
+                                
+                                    <i style="color: #ffd900; font-size: .9rem;" class="fas fa-star mt-3"></i>
+                           
+                                    
                                 @endfor
+                            </div>
                             @else
                                 <span style="font-size: .6rem; text-transform: capitalize;" class="text-muted mt-3">Nessuna recensione ricevuta</span>
                             @endif
