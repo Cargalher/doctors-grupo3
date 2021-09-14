@@ -91,13 +91,13 @@
                 <button class="button-spin counterclockwise d-none">&lt;</button>
                 <div class="inner-carousel">
                     @foreach ($activeDoctors as $doctor)
-                        <div class="text-center">
+                        <div style="height: 340px" class="d-flex flex-column align-content-center align-items-center">
                             <img src="{{ asset('storage/' . $doctor->profile_image) }}"
-                                onerror="this.src='{{ asset('img/Emanuele.png') }}';" class="rounded-circle p-2 img-home"
+                                onerror="this.src='{{ asset('img/avatar-donna.png') }}';" class="rounded-circle p-2 img-home"
                                 width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
-                            <h6>{{ $doctor->name }} {{ $doctor->lastname }}</h6>
+                            <h6 style="text-transform: capitalize;">{{ $doctor->name }} {{ $doctor->lastname }}</h6>
                             <span class="d-block mb-1"
-                                style="font-size: .8rem">{{ $doctor->specializations[0]->name }}</span>
+                                style="font-size: .8rem; text-transform: capitalize;">{{ $doctor->specializations[0]->name }}</span>
                             @php
                                 $average = 0;
                             @endphp
@@ -111,10 +111,10 @@
 
                             @if ($average != 0)
                                 @for ($i = 0; $i < ceil($average / count($doctor->reviews)); $i++)
-                                    <i style="color: #ffd900;" class="fas fa-star"></i>
+                                    <i style="color: #ffd900;" class="fas fa-star mt-3"></i>
                                 @endfor
                             @else
-                                <span style="font-size: .6rem" class="text-muted">Nessuna recensione ricevuta</span>
+                                <span style="font-size: .6rem; text-transform: capitalize;" class="text-muted mt-3">Nessuna recensione ricevuta</span>
                             @endif
                             <a href="{{ route('show', $doctor->id) }}">Visualizza</a>
                         </div>
