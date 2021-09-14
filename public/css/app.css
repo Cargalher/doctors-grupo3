@@ -15208,8 +15208,9 @@ a {
 
 .fix {
   position: absolute;
-  left: 25px;
+  left: -3px;
   font-size: 1.5rem;
+  top: 75px;
 }
 .fix a {
   text-decoration: none;

@@ -1,7 +1,7 @@
 <template>
   <div class="index text-center padding-top">
     <div>
-      <button class="btn fix">
+      <button class="btn fix d-lg-block d-none">
         <a href="/"><i class="fas fa-arrow-left"></i></a>
       </button>
     </div>
