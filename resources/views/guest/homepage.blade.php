@@ -298,9 +298,12 @@
                     <li class="py-1">Incrementi gli appuntamenti</li>
                 </ul>
 
-                <button style="border: 3px solid; font-size: 1.2rem;" type="button"
+                <a  style="text-decoration: none" href="{{ route('register') }}">
+                    <button style="border: 3px solid; font-size: 1.2rem;" type="button"
                     class="btn btn-outline-info font-weight-bold mt-3">Scopri di più</button>
 
+                </a>
+                
 
 
             </div>
