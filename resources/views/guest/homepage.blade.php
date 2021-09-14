@@ -84,7 +84,7 @@
     </div>
 
     <!-- Come funziona BoolDoctors -->
-    @if (count($activeDoctors) > 0)
+   <!--  @if (count($activeDoctors) > 0) -->
 
         <div class="pt-3 margin_neg">
             <div class="card-carousel overflow-hidden my-3" id="debug_id_1">
@@ -97,7 +97,7 @@
                                 width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
                             <h6>{{ $doctor->name }} {{ $doctor->lastname }}</h6>
                             <span class="d-block mb-1"
-                                style="font-size: .8rem">{{ $doctor->specializations[0]->name }}</span>
+                                style="font-size: .8rem"></span>
                             @php
                                 $average = 0;
                             @endphp
@@ -148,7 +148,7 @@
                                 <div class="content text-center    ">
                                     <div class="hgroup">
                                         <h4 class="text-white"> Cerca per specializzazione </h4>
-                                        <p class="text-white py-2">Troverai tutto quello di cui hai bisogno</p>
+                                        <p class="text-white py-2">Troverai tutto quello di cui hai bisogno.</p>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
                                 <div class="content text-center    ">
                                     <div class="hgroup">
                                         <h4 class="text-white"> Scegli il dottore </h4>
-                                        <p class="text-white py-2">Valorizza i feedback dei pazienti</p>
+                                        <p class="text-white py-2">Valorizza i feedback dei pazienti.</p>
                                     </div>
                                 </div>
                             </div>
@@ -244,15 +244,14 @@
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center pr-5">
             <h3 class="h3 text-secondary mb-4">
-                Solo su BoolDoctors puoi consultare oltre 111.000 recensioni di pazienti verificati
+                Solo su BoolDoctors puoi consultare oltre 100 recensioni di pazienti verificati!
             </h3>
             <div class="text-left">
-                <span class="font-weight-bold">13 anni di storia, 734.000 pazienti soddisfatti.</span>
-                <p style="font-size: 1.1rem" class="d-block mt-3">Le nostre recensioni sono totalmente affidabili, come
-                    testimoniato da</p>
-                <img class="text-center" width="230" src="{{ asset('img/altroconsumo.svg') }}" alt="">
+                <span class="font-weight-bold">Un servizio pensato su misura per il paziente.</span>
+                <p style="font-size: 1.1rem" class="d-block mt-3">Le nostre recensioni sono totalmente affidabili.</p>
+               <!--  <img class="text-center" width="230" src="{{ asset('img/altroconsumo.svg') }}" alt=""> -->
                 <p class="d-block mt-4">I giudizi che puoi leggere sono rilasciati esclusivamente dai pazienti che hanno
-                    prenotato attraverso BoolDoctors ed hanno realmente effettuato una prestazione medica.</p>
+                    prenotato attraverso BoolDoctors ed hanno realmente interagito col medico di riferimento.</p>
 
             </div>
 
@@ -286,10 +285,9 @@
                 Sei un Medico? Iscriviti!
             </h2>
             <div class="text-left">
-                <h5 class="font-weight-bold">Più di 2 milioni di pazienti cercano ogni mese il loro Medico su BoolDoctors.
+                <h5 class="font-weight-bold">Più di migliaia di pazienti cercano ogni mese il loro Medico su BoolDoctors.
                 </h5>
-                <p style="font-size: 1.1rem" class="d-block mt-3">Il primo sito in Italia per visitatori e numero di
-                    prenotazioni. Non perdere l'opportunità di raggiungere nuovi pazienti!</p>
+                <p style="font-size: 1.1rem" class="d-block mt-3">Non perdere l'opportunità di raggiungere nuovi pazienti!</p>
                 <p style="font-size: 1.1rem" class="d-block mt-3">Con BoolDoctors:</p>
                 <ul>
                     <li class="py-1">Avrai a tua disposizione il nostro staff 7 giorni su 7</li>
