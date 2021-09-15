@@ -15387,6 +15387,19 @@ a {
   color: #45BB67 !important;
 }
 
+/* Orders Table */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f1f4f5;
+}
+
+.bg-success-light {
+  background-color: #bff0dd !important;
+}
+
+.bg-danger-light {
+  background-color: #fbeaea !important;
+}
+
 /*/ start check specializations /*/
 #form_check {
   flex: 0 0 46% !important;

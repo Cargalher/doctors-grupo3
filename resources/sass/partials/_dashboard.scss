@@ -74,3 +74,16 @@ section#counter-stats {
   .color_link:hover{
     color:$bgreen !important;
   }
+
+  
+    /* Orders Table */
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f1f4f5;
+  }
+  .bg-success-light {
+    background-color: #bff0dd !important;
+  }
+  .bg-danger-light {
+    background-color: #fbeaea !important;
+  }
