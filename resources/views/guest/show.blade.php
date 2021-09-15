@@ -233,12 +233,12 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="card border-light mb-3 rounded shadow">
+                                        <div class="card border-light mb-3 rounded">
                                             <div class="card-body">
                                                 @if (count($user->reviews) > 0)
                                                 @foreach ($reviews as $review)
                                                 @if ($review->user_id === $user->id)
-                                                <div class="card-text mb-2">
+                                                <div class="card-text mb-2 border p-2 shadow">
                                                     <h5>{{ $review->name }} {{ $review->lastname }}</h5>
                                                     <h5>{{ $review->title }}</h5>
                                                     <p>{{ $review->body }}</p>
