@@ -2125,6 +2125,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -38224,7 +38227,7 @@ var render = function() {
                             },
                             [
                               _c("span", { staticClass: "sponsor" }, [
-                                _vm._v("MEDICO IN EVIDENZIA")
+                                _vm._v("MEDICO IN EVIDENZA")
                               ])
                             ]
                           )
@@ -38237,6 +38240,16 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "back" }, [
                 _c("div", { staticClass: "back_flip" }, [
+                  _c("div", [
+                    _c("img", {
+                      attrs: {
+                        width: "125",
+                        src: "http://127.0.0.1:8000/img/logo_small.png",
+                        alt: ""
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "div",
                     _vm._l(doctor.spec, function(nameSpec, i) {
@@ -38261,8 +38274,13 @@ var render = function() {
                         staticStyle: { "font-size": "0.8rem" }
                       },
                       [
+                        _c("i", { staticClass: "fas fa-map-marker-alt" }),
                         _vm._v(
-                          _vm._s(doctor.city) + " (" + _vm._s(doctor.pv) + ")"
+                          " " +
+                            _vm._s(doctor.city) +
+                            " (" +
+                            _vm._s(doctor.pv) +
+                            ")"
                         )
                       ]
                     ),

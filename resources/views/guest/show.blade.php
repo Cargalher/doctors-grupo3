@@ -53,11 +53,11 @@
                                 {{ $specialization->name }} &nbsp;</span>
                             @endforeach
                             <h5 class="card-title mt-3">Dr. {{ $user->name }} {{ $user->lastname }}</h5>
-                            <span class="card-text text-monospace">Città (PV)</span>
+                            <span class="card-text font-weight-bold text-secondary">Città e Provincia</span>
                             <span class="card-text d-block pb-3">{{ $user->city }} ({{$user->pv}})</span>
-                            <span class="card-text text-monospace">Indirizzo</span>
+                            <span class="card-text font-weight-bold text-secondary">Indirizzo</span>
                             <span class="card-text d-block pb-3">{{ $user->address }}</span>
-                            <span class="card-text text-monospace">Telefono</span>
+                            <span class="card-text font-weight-bold text-secondary">Telefono</span>
                             <span class="card-text d-block pb-3">{{ $user->phone_number }}</span>
 
                             <!-- pulsante per inviare un messagio -->
@@ -310,29 +310,6 @@
                     <h5 class="card-title">Apparecchiature utilizzate</h5>
                     <p class="card-text">Ecografo, EcoColorDoppler, Rigiscan, Biotesiometro, Cistoscopio sottile,
                         UroFlussimetria, UroDinaMica, Onde Urto Extracorporee a Bassa Intensità (LIESW).</p>
-                    <h5 class="card-title">Patologie trattate</h5>
-                    <ul class="card-text d-flex justify-content-around">
-                        <div>
-                            <li>Aneiaculazione</li>
-                            <li>Biofeedback</li>
-                            <li>Calcoli renali</li>
-                            <li>Cisti renali</li>
-                            <li>Cistite</li>
-                            <li>Colica renale</li>
-                            <li>Condilomi</li>
-                            <li>Criptorchidismo</li>
-                        </div>
-                        <div>
-                            <li>Disfunzione erettile</li>
-                            <li>Disturbi della sfera sessuale</li>
-                            <li>Eiaculazione precoce</li>
-                            <li>Falloplastica</li>
-                            <li>Fimosi</li>
-                            <li>Frenulotomia</li>
-                            <li>Idrocele</li>
-                            <li>Impotenza</li>
-                        </div>
-                    </ul>
                     <h5 class="card-title">Metodologie diagnostiche e terapeutiche</h5>
                     <p class="card-text">Diagnosi e terapia del Deficit Erettile e delle patologie del pene ed
                         eiaculazione Chirurgia del varicocele con tecniche microchirurgiche e scleroterapia sec. Tauber;
@@ -377,8 +354,8 @@
                 <div class="card-header"><i class="fas fa-clinic-medical icon-show"></i> Servizi</div>
                 <div class="card-body">
                     <h5 class="card-title">Patologie trattate</h5>
-                    <ul class="card-text d-flex justify-content-around">
-                        <div>
+                    <ul class="card-text d-flex justify-content-start">
+                        <div class="mr-5">
                             <li>Aneiaculazione</li>
                             <li>Biofeedback</li>
                             <li>Calcoli renali</li>
