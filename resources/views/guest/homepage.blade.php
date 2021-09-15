@@ -67,7 +67,7 @@
                 @foreach ($activeDoctors as $doctor)
                 <div style="height: 340px;" class="d-flex flex-column align-content-center align-items-center">
                     <div class="w-100" style="position: relative;">
-                        <span class="font-weight-bold" style="font-size: .7rem; color:#fff;">IN EVIDENZA</span>
+                        <span class="font-weight-bold" style="font-size: .7rem; color:#fff; text-shadow: 1px 1px 1px rgb(175, 175, 175)">IN EVIDENZA</span>
                     </div>
                     <img src="{{ asset('storage/' . $doctor->profile_image) }}" onerror="this.src='{{ asset('img/avatar-donna.png') }}';" class="rounded-circle p-2 img-home" width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
                     <h6 style="text-transform: capitalize;">{{ $doctor->name }} {{ $doctor->lastname }}</h6>
