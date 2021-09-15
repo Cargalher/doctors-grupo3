@@ -153,12 +153,15 @@
                   class="rounded-pill spon_container mt-2 mb-1 py-1"
                   v-if="doctor.att"
                 >
-                  <span class="sponsor">MEDICO IN EVIDENZIA</span>
+                  <span class="sponsor">MEDICO IN EVIDENZA</span>
                 </div>
               </div>
             </div>
             <div class="back">
               <div class="back_flip">
+                <div>
+                  <img width="125" v-bind:src="'http://127.0.0.1:8000/img/logo_small.png'" alt="">
+                </div>
                 <div>
                   <span
                   style="font-size: 0.8rem"
@@ -173,7 +176,7 @@
                   <span
                     style="font-size: 0.8rem"
                     class="h6 text-secondary d-block text-monospace"
-                    >{{ doctor.city }} ({{ doctor.pv }})</span
+                    > <i class="fas fa-map-marker-alt"></i> {{ doctor.city }} ({{ doctor.pv }})</span
                   >
                   <span
                     style="font-size: 0.7rem"
