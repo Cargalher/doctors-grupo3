@@ -1,12 +1,14 @@
 @extends('layouts.log')
 
+@section('title', '| Login')
+
 @section('content')
 <div style="height: 100vh" class="container padding-top">
     <div class="row justify-content-center">
         <div class="col-md-8 d-flex justify-content-center p-5">
             <div class="card-responsive border">
-            
-                <div class="card-header" ><img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="BoolDoctors logo"></div>
+
+                <div class="card-header"><img width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="BoolDoctors logo"></div>
 
                 <div class="card-body d-flex">
                     <div class="text-center pt-md-5 my-md-5 login-icon">
@@ -22,9 +24,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -36,9 +38,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -62,9 +64,9 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Password dimenticata?') }}
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Password dimenticata?') }}
+                                </a>
                                 @endif
                             </div>
                         </div>
