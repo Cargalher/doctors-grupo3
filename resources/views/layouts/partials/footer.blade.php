@@ -26,7 +26,7 @@
                 </div>
                 <div class="write_us col-12 col-md-4 py-4">
                     <h5 class="text-white font-weight-bold mb-5">Scrivici</h5>
-                    <a style="text-decoration: none; font-size: 0.9rem; font-weight: 700" class="text-white my-4" href="mailto:booldoctors@info.com">booldoctors@info.com</a>
+                    <a id="mailto" class="text-white my-4" href="mailto:booldoctors@info.com">booldoctors@info.com</a>
                 </div>
 
 
