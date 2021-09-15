@@ -248,5 +248,6 @@
     <!-- end cont stats -->
 </div>
 </div>
+<footer></footer>
 
 @endsection

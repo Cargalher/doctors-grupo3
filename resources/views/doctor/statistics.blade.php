@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="d-flex justify-content-around flex-wrap container">
+  <div id="app" class="d-flex justify-content-around flex-wrap container">
     <div class="card mb-3">
       <canvas id="messaggi-mese" width="400" height="400"></canvas>
     </div>
@@ -15,6 +15,7 @@
       <canvas id="recensioni-anno" width="400" height="400"></canvas>
     </div>
   </div>
+  <footer></footer>
 @endsection
 
 @section('js')

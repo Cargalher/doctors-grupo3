@@ -3,7 +3,8 @@
 @section('title', '| Messaggi')
 
 @section('content')
-<h2>Messaggi</h2>
+<div id="app">
+    <h2>Messaggi</h2>
 
 @if (session('message'))
 <div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('message') }}</div>
@@ -96,4 +97,8 @@
 
 
 @endif
+</div>
+
+<footer></footer>
+
 @endsection

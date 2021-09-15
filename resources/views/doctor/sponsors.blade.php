@@ -4,8 +4,6 @@
 
 @section('content')
 
-
-
 <form class="card" method="post" id="payment-form" style="padding: 20px" action="{{ route('checkout', compact('user')) }}">
     @csrf
     @method('POST')
@@ -16,7 +14,7 @@
     </div>
     @endif
     @if (count($errors) > 0)
-    <div class="alert alert-danger">
+    <div id="app" class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -36,7 +34,7 @@
                 <i class="{{ $sponsorImg[$loop->index] }} mt-4 sponsor-img"></i>
                 <label class="card-body text-center" for="{{ $sponsor->name }}">
                     <h3 class="sponsor-name card-title text-center">{{ $sponsor->name }} </h3>
-                    <p class="card-text">durata: {{ $sponsor->duration }} giorni</p>
+                    <p class="card-text">durata: {{ $sponsor->duration }} ore</p>
                     <p class="card-text"><small class="font-weight-bold text-monospace sponsor-price">{{ $sponsor->price }} €</small></p>
                     <input class="text-center" type="radio" id="{{ $sponsor->name }}" name="amount" value="{{ $sponsor->price }}">
                 </label>
@@ -53,6 +51,8 @@
     </div>
     @endif
 </form>
+
+<footer></footer>
 
 <script src="https://js.braintreegateway.com/web/dropin/1.27.0/js/dropin.min.js"></script>
 <script>

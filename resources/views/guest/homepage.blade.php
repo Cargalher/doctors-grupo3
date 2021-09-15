@@ -71,7 +71,7 @@
                     </div>
                     <img src="{{ asset('storage/' . $doctor->profile_image) }}" onerror="this.src='{{ asset('img/avatar-donna.png') }}';" class="rounded-circle p-2 img-home" width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
                     <h6 style="text-transform: capitalize;">{{ $doctor->name }} {{ $doctor->lastname }}</h6>
-                    <span class="d-block mb-1" style="font-size: .8rem; text-transform: capitalize;">{{ $doctor->specializations[0]->name }}</span>
+                    <span class="d-block" style="font-size: .8rem; text-transform: capitalize;">{{ $doctor->specializations[0]->name }}</span>
                     @php
                     $average = 0;
                     @endphp
