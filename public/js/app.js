@@ -2125,6 +2125,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -38237,6 +38242,17 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "back" }, [
                 _c("div", { staticClass: "back_flip" }, [
+                  _c("div", [
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: {
+                        src: "http://127.0.0.1:8000/img/logo_small.png",
+                        alt: "",
+                        width: "120"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "div",
                     _vm._l(doctor.spec, function(nameSpec, i) {
@@ -38257,12 +38273,17 @@ var render = function() {
                     _c(
                       "span",
                       {
-                        staticClass: "h6 text-secondary d-block text-monospace",
+                        staticClass: "h6 text-secondary d-block",
                         staticStyle: { "font-size": "0.8rem" }
                       },
                       [
+                        _c("i", { staticClass: "fas fa-map-marker-alt" }),
                         _vm._v(
-                          _vm._s(doctor.city) + " (" + _vm._s(doctor.pv) + ")"
+                          " " +
+                            _vm._s(doctor.city) +
+                            " (" +
+                            _vm._s(doctor.pv) +
+                            ")"
                         )
                       ]
                     ),
@@ -38270,7 +38291,7 @@ var render = function() {
                     _c(
                       "span",
                       {
-                        staticClass: "h6 text-secondary d-block text-monospace",
+                        staticClass: "h6 text-secondary d-block",
                         staticStyle: { "font-size": "0.7rem" }
                       },
                       [_vm._v(_vm._s(doctor.address))]
