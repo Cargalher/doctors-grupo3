@@ -267,99 +267,92 @@
                     <li class="py-1">Migliori la tua reputazione online</li>
                     <li class="py-1">Incrementi gli appuntamenti</li>
                 </ul>
+                @if(!Auth::user())
                 <a style="text-decoration: none" href="{{ route('register') }}">
                     <button style="border: 3px solid; font-size: 1.2rem;" type="button" class="btn btn-outline-info font-weight-bold mt-3">Scopri di più</button>
                 </a>
+                @endif
             </div>
         </div>
     </div>
     {{-- End Sei un medico --}}
 
-        {{-- Dicono di Noi --}}
-        <div class="pt-5">
-            <section class="pt-5 pb-5">
-                <div class="container">
-                    <div class="row mx-0">
-                        <div class="col-6">
-                            <h2 class="mb-3 font-weight-bold text-info">Dicono di Noi</h2>
-                        </div>
-                        <div class="col-6 text-right">
-                            <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
-                                data-slide="prev">
-                                <i class="fa fa-arrow-left"></i>
-                            </a>
-                            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button"
-                                data-slide="next">
-                                <i class="fa fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        <div class="col-12 pt-5">
-                            <div id="carouselExampleIndicators2" class="carousel slide pt-4" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col-md-4 mb-3">
-                                                <div class="text-center">
-                                                    <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
-                                                        src="{{ asset('img/rec1.jpg') }}">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Ginecologo</h4>
-                                                        <p class="card-text">"Grazie a BoolDoctors ho ampliato la mia clientela"</p>
-                                                    </div>
+    {{-- Dicono di Noi --}}
+    <div class="pt-5">
+        <section class="pt-5 pb-5">
+            <div class="container">
+                <div class="row mx-0">
+                    <div class="col-6">
+                        <h2 class="mb-3 font-weight-bold text-info">Dicono di Noi</h2>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-12 pt-5">
+                        <div id="carouselExampleIndicators2" class="carousel slide pt-4" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280" src="{{ asset('img/rec1.jpg') }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Ginecologo</h4>
+                                                    <p class="card-text">"Grazie a BoolDoctors ho ampliato la mia clientela"</p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3">
-                                                <div class="text-center">
-                                                    <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
-                                                        src="{{ asset('img/rec2.png') }}">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Cardiologo</h4>
-                                                        <p class="card-text">"Booldoctor mi ha permesso di essere contattato da pazienti da tutta Italia in modo semplice e pratico"</p>
-                                                    </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280" src="{{ asset('img/rec2.png') }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Cardiologo</h4>
+                                                    <p class="card-text">"Booldoctor mi ha permesso di essere contattato da pazienti da tutta Italia in modo semplice e pratico"</p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3">
-                                                <div class="text-center">
-                                                    <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
-                                                        src="{{ asset('img/rec3.jpeg') }}">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Anestesista</h4>
-                                                        <p class="card-text">"Booldoctors ha migliorato tantissimo l'organizzazione del mio lavoro, l'interazione coi pazienti e l'organizzazione degli appuntamenti."</p>
-                                                    </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280" src="{{ asset('img/rec3.jpeg') }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Anestesista</h4>
+                                                    <p class="card-text">"Booldoctors ha migliorato tantissimo l'organizzazione del mio lavoro, l'interazione coi pazienti e l'organizzazione degli appuntamenti."</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-md-4 mb-3">
-                                                <div class="text-center">
-                                                    <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
-                                                        src="{{ asset('img/rec4.jpeg') }}">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Pediatra</h4>
-                                                        <p class="card-text">"Una piattaforma web semplice da usare ed estremamente intuitiva."</p>
-                                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280" src="{{ asset('img/rec4.jpeg') }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Pediatra</h4>
+                                                    <p class="card-text">"Una piattaforma web semplice da usare ed estremamente intuitiva."</p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3">
-                                                <div class="text-center">
-                                                    <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
-                                                        src="{{ asset('img/rec5.jpeg') }}">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Dentista</h4>
-                                                        <p class="card-text">"Booldoctors è stata una bella scoperta, mi sta aiutando notevolmente nella gestione del mio lavoro di medico."</p>
-                                                    </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280" src="{{ asset('img/rec5.jpeg') }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Dentista</h4>
+                                                    <p class="card-text">"Booldoctors è stata una bella scoperta, mi sta aiutando notevolmente nella gestione del mio lavoro di medico."</p>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 mb-3">
-                                                <div class="text-center">
-                                                    <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
-                                                        src="{{ asset('img/rec6.jpeg') }}">
-                                                    <div class="card-body">
-                                                        <h4 class="card-title">Internista</h4>
-                                                        <p class="card-text">"Grazie a booldoctors sono stata contattata da moltissimi pazienti e il mio lavoro ne ha giovato tantissimo."</p>
-                                                    </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="text-center">
+                                                <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280" src="{{ asset('img/rec6.jpeg') }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Internista</h4>
+                                                    <p class="card-text">"Grazie a booldoctors sono stata contattata da moltissimi pazienti e il mio lavoro ne ha giovato tantissimo."</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -370,9 +363,10 @@
                     </div>
                 </div>
             </div>
-        </section>
     </div>
-    {{-- End Dicono di Noi --}}
+    </section>
+</div>
+{{-- End Dicono di Noi --}}
 
 </div>
 {{-- End App --}}
