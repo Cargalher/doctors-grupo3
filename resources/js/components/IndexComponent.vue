@@ -1,7 +1,9 @@
 <template>
   <div class="index text-center pt-2">
+
     <!-- PAGINA dopo la ricerca  -->
     <div class="row mx-0">
+
       <!-- colonna sx di ricerca per specializzazioni e ordinamenti  -->
       <div class="col-lg-3">
         <div
@@ -109,6 +111,7 @@
 
       <!-- colonna dx di visualizzazioni medici con card flip  -->
       <div class="col-lg-9 overflow-hidden">
+
         <!-- //////////////////////////////////////////// -->
         <div class="card_flipped d-flex flex-wrap justify-content-center">
           <div
@@ -116,47 +119,76 @@
             :key="sing"
             class="card-container"
           >
-            <div class="front">
-              <span class="text-secondary h6">Dr. </span>
+            <div class="front position-relative d-flex flex-column align-content-center justify-content-start">
               <span class="text-secondary h6"
-                >{{ doctor.name }} {{ doctor.lastname }}
+                >Dr. {{ doctor.name }} {{ doctor.lastname }}
               </span>
-              <img
+              <div>
+                <img
                 class="img-fluid search_img my-4"
                 v-bind:src="
                   'http://127.0.0.1:8000/storage/' + doctor.profile_image
                 "
                 alt=""
               />
+              </div>
+              
               <div>
                 <i
-                    style="color: #ffd900"
-                    class="fas fa-star"
-                    v-for="number in Math.round(doctor.avarage)"
-                  ></i>
-                  <i
-                    style="color: #bdbdbd"
-                    class="fas fa-star"
-                    v-for="num in 5 - Math.round(doctor.avarage)"
-                  ></i>
-                  <span class="text-secondary ml-1 d-block" style="font-size: 0.7rem"
-                    >({{ doctor.num }} recensioni)</span
-                  >
-
+                  style="color: #ffd900"
+                  class="fas fa-star"
+                  v-for="number in Math.round(doctor.avarage)"
+                ></i>
+                <i
+                  style="color: #bdbdbd"
+                  class="fas fa-star"
+                  v-for="num in 5 - Math.round(doctor.avarage)"
+                ></i>
+                <span
+                  class="text-secondary ml-1 d-block"
+                  style="font-size: 0.7rem"
+                  >({{ doctor.num }} recensioni)</span
+                >
+                <div
+                  class="rounded-pill spon_container mt-2 mb-1 py-1"
+                  v-if="doctor.att"
+                >
+                  <span class="sponsor">MEDICO IN EVIDENZIA</span>
+                </div>
               </div>
-              
-     
-              
-             
             </div>
-
             <div class="back">
-              <div class="d-flex flex-column align-content-center">
-                <span style="font-size: .8rem" v-for="(nameSpec, i) in doctor.spec" :key="i" class="h6 text-info d-block">{{ nameSpec }} </span>
-              </div>
-              
-            </div>
+              <div class="back_flip">
+                <div>
+                  <span
+                  style="font-size: 0.8rem"
+                  v-for="(nameSpec, i) in doctor.spec"
+                  :key="i"
+                  class="h6 text-info d-block"
+                  >{{ nameSpec }}
+                </span>
+                </div>
+                
+                <div class="">
+                  <span
+                    style="font-size: 0.8rem"
+                    class="h6 text-secondary d-block text-monospace"
+                    >{{ doctor.city }} ({{ doctor.pv }})</span
+                  >
+                  <span
+                    style="font-size: 0.7rem"
+                    class="h6 text-secondary d-block text-monospace"
+                    >{{ doctor.address }}</span
+                  >
+                </div>
 
+                <a
+                  v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id"
+                  class="btn btn-primary"
+                  >Visualizza</a
+                >
+              </div>
+            </div>
           </div>
         </div>
         <!-- //////////////////////////////////////////// -->
@@ -235,9 +267,14 @@
       </div>
       <!-- and col-9  -->
     </div>
-    <!-- and row col-3 col -9  -->
+      <!-- and row col-3 col -9  -->
+
+    <!-- Scroll to top button -->
+    <a href="#" id="scroll" style="display: none;"><span></span></a>
+
   </div>
   <!-- and index  -->
+  
 </template>
 
 <!-- <div class="card_flipped d-flex flex-wrap justify-content-center">
@@ -262,6 +299,8 @@ export default {
       specId: this.selected,
       doctors: [],
       results: true,
+      scTimer: 0,
+      scY: 0,
     };
   },
   mounted() {
@@ -281,6 +320,8 @@ export default {
         return b.att - a.att;
       });
     },
+    
+    
 
     // giudizio: function (obj) {
     //   return Math.ceil(obj);
@@ -355,34 +396,8 @@ export default {
       return this.doctors;
     },
   },
-  computed: {
-    // // Ordina per numero recensioni
-    // sortedRewUp: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return b.num - a.num;
-    //   });
-    //   return this.doctors;
-    // },
-    // sortedRewDown: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return a.num - b.num;
-    //   });
-    //   return this.doctors;
-    // },
-    // // Ordina per media recensioni
-    // sortedAvarageUp: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return b.avarage - a.avarage;
-    //   });
-    //   return this.doctors;
-    // },
-    // sortedAvarageDown: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return a.avarage - b.avarage;
-    //   });
-    //   return this.doctors;
-    // },
-  },
 };
+
 </script>
+
 

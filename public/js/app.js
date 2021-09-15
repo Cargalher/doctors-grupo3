@@ -2101,6 +2101,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -2110,7 +2147,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       specId: this.selected,
       doctors: [],
-      results: true
+      results: true,
+      scTimer: 0,
+      scY: 0
     };
   },
   mounted: function mounted() {
@@ -2197,33 +2236,6 @@ __webpack_require__.r(__webpack_exports__);
       });
       return this.doctors;
     }
-  },
-  computed: {// // Ordina per numero recensioni
-    // sortedRewUp: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return b.num - a.num;
-    //   });
-    //   return this.doctors;
-    // },
-    // sortedRewDown: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return a.num - b.num;
-    //   });
-    //   return this.doctors;
-    // },
-    // // Ordina per media recensioni
-    // sortedAvarageUp: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return b.avarage - a.avarage;
-    //   });
-    //   return this.doctors;
-    // },
-    // sortedAvarageDown: function () {
-    //   this.doctors.sort((a, b) => {
-    //     return a.avarage - b.avarage;
-    //   });
-    //   return this.doctors;
-    // },
   }
 });
 
@@ -2277,10 +2289,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
       window.location.href = '/doctors?specialization=' + spec;
     }
   }
-});
+}); // Automatic slider
+
 setInterval(function () {
   $('#click').trigger('click');
-}, 7000);
+}, 6000); // Navbar color
+
 $(window).scroll(function () {
   var scroll = $(window).scrollTop();
 
@@ -2289,7 +2303,7 @@ $(window).scroll(function () {
   } else {
     $('.navbar').removeClass('bg-scrolling');
   }
-});
+}); // Card carousel
 
 function cardCarousel3d(carousels) {
   var rotateHandler = function rotateHandler(evt) {
@@ -38164,83 +38178,143 @@ var render = function() {
           },
           _vm._l(_vm.sponsDoc(_vm.doctors), function(doctor, sing) {
             return _c("div", { key: sing, staticClass: "card-container" }, [
-              _c("div", { staticClass: "front" }, [
-                _c("span", { staticClass: "text-secondary h6" }, [
-                  _vm._v("Dr. ")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-secondary h6" }, [
-                  _vm._v(
-                    _vm._s(doctor.name) +
-                      " " +
-                      _vm._s(doctor.lastname) +
-                      "\n            "
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "front position-relative d-flex flex-column align-content-center justify-content-start"
+                },
+                [
+                  _c("span", { staticClass: "text-secondary h6" }, [
+                    _vm._v(
+                      "Dr. " +
+                        _vm._s(doctor.name) +
+                        " " +
+                        _vm._s(doctor.lastname) +
+                        "\n            "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("img", {
+                      staticClass: "img-fluid search_img my-4",
+                      attrs: {
+                        src:
+                          "http://127.0.0.1:8000/storage/" +
+                          doctor.profile_image,
+                        alt: ""
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _vm._l(Math.round(doctor.avarage), function(number) {
+                        return _c("i", {
+                          staticClass: "fas fa-star",
+                          staticStyle: { color: "#ffd900" }
+                        })
+                      }),
+                      _vm._v(" "),
+                      _vm._l(5 - Math.round(doctor.avarage), function(num) {
+                        return _c("i", {
+                          staticClass: "fas fa-star",
+                          staticStyle: { color: "#bdbdbd" }
+                        })
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "text-secondary ml-1 d-block",
+                          staticStyle: { "font-size": "0.7rem" }
+                        },
+                        [_vm._v("(" + _vm._s(doctor.num) + " recensioni)")]
+                      ),
+                      _vm._v(" "),
+                      doctor.att
+                        ? _c(
+                            "div",
+                            {
+                              staticClass:
+                                "rounded-pill spon_container mt-2 mb-1 py-1"
+                            },
+                            [
+                              _c("span", { staticClass: "sponsor" }, [
+                                _vm._v("MEDICO IN EVIDENZIA")
+                              ])
+                            ]
+                          )
+                        : _vm._e()
+                    ],
+                    2
                   )
-                ]),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "img-fluid search_img my-4",
-                  attrs: {
-                    src:
-                      "http://127.0.0.1:8000/storage/" + doctor.profile_image,
-                    alt: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _vm._l(Math.round(doctor.avarage), function(number) {
-                      return _c("i", {
-                        staticClass: "fas fa-star",
-                        staticStyle: { color: "#ffd900" }
-                      })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "back" }, [
+                _c("div", { staticClass: "back_flip" }, [
+                  _c(
+                    "div",
+                    _vm._l(doctor.spec, function(nameSpec, i) {
+                      return _c(
+                        "span",
+                        {
+                          key: i,
+                          staticClass: "h6 text-info d-block",
+                          staticStyle: { "font-size": "0.8rem" }
+                        },
+                        [_vm._v(_vm._s(nameSpec) + "\n              ")]
+                      )
                     }),
-                    _vm._v(" "),
-                    _vm._l(5 - Math.round(doctor.avarage), function(num) {
-                      return _c("i", {
-                        staticClass: "fas fa-star",
-                        staticStyle: { color: "#bdbdbd" }
-                      })
-                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c("div", {}, [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "h6 text-secondary d-block text-monospace",
+                        staticStyle: { "font-size": "0.8rem" }
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(doctor.city) + " (" + _vm._s(doctor.pv) + ")"
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "span",
                       {
-                        staticClass: "text-secondary ml-1 d-block",
+                        staticClass: "h6 text-secondary d-block text-monospace",
                         staticStyle: { "font-size": "0.7rem" }
                       },
-                      [_vm._v("(" + _vm._s(doctor.num) + " recensioni)")]
+                      [_vm._v(_vm._s(doctor.address))]
                     )
-                  ],
-                  2
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "back" }, [
-                _c(
-                  "div",
-                  { staticClass: "d-flex flex-column align-content-center" },
-                  _vm._l(doctor.spec, function(nameSpec, i) {
-                    return _c(
-                      "span",
-                      {
-                        key: i,
-                        staticClass: "h6 text-info d-block",
-                        staticStyle: { "font-size": ".8rem" }
-                      },
-                      [_vm._v(_vm._s(nameSpec) + " ")]
-                    )
-                  }),
-                  0
-                )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: {
+                        href: "http://127.0.0.1:8000/doctors/" + doctor.id
+                      }
+                    },
+                    [_vm._v("Visualizza")]
+                  )
+                ])
               ])
             ])
           }),
           0
         )
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(3)
   ])
 }
 var staticRenderFns = [
@@ -38269,6 +38343,16 @@ var staticRenderFns = [
     return _c("div", [
       _c("h6", { staticClass: "d-inline" }, [_vm._v("Numero recensioni")])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticStyle: { display: "none" }, attrs: { href: "#", id: "scroll" } },
+      [_c("span")]
+    )
   }
 ]
 render._withStripped = true

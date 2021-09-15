@@ -15,7 +15,7 @@ class MessageController extends Controller
         $message->fill($request->all());
         $message->user_id = $user->id;
         $message->save();
-        return redirect()->route('home', compact('user'))->with('success', 'Messaggio inviato correttamente, sarai contattato nell\'arco delle 24 ore');
+        return redirect()->route('show', compact('user'))->with('success', 'Messaggio inviato correttamente, sarai contattato nell\'arco delle 24 ore');
     }
 
     // validazione messaggi

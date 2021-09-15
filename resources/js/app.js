@@ -43,11 +43,12 @@ const app = new Vue({
 });
 
 
-
+// Automatic slider
 setInterval(function () {
   $('#click').trigger('click');
-}, 7000);
+}, 6000);
 
+// Navbar color
 $(window).scroll(function () {
   var scroll = $(window).scrollTop();
   if (scroll > 300) {
@@ -59,7 +60,7 @@ $(window).scroll(function () {
   }
 })
 
-
+// Card carousel
 function cardCarousel3d(carousels) {
   var rotateHandler = function (evt) {
     var carousel = this.parentElement;
@@ -216,4 +217,6 @@ $('#test-hover-2').hover(
   function () { $(this).addClass('test-hv-2') },
   function () { $(this).removeClass('test-hv-2') }
 )
+
+
 

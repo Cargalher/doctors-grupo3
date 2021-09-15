@@ -5,6 +5,18 @@
 
 @section('content')
 
+@if (session('success'))
+<div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#"
+        class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}
+</div>
+
+<script type="text/javascript">
+    setTimeout(function() {
+        $(".alert").alert('close')
+    }, 3000);
+</script>
+@endif
+
 
     {{-- show dottore page --}}
     <div class="container padding-top">

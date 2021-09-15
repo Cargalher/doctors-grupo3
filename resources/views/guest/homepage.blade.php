@@ -2,12 +2,10 @@
 
 @section('title', 'BDoctors | HomePage')
 
-
-
-
 @section('content')
     <div id="app">
 
+        {{-- Code for cicle doctor reviews count and avarage --}}
         @php
             
             $recensioni = [];
@@ -29,20 +27,6 @@
             $messaggiTotali = array_sum($messaggi);
             
         @endphp
-
-
-        @if (session('success'))
-            <div id="confermaMessaggio" class="alert alert-success alert-dismissible fade show"> <a href="#"
-                    class="close" data-dismiss="alert" aria-label="close">&times;</a>{{ session('success') }}
-            </div>
-
-            <script type="text/javascript">
-                setTimeout(function() {
-                    $(".alert").alert('close')
-                }, 3000);
-            </script>
-        @endif
-
      
         <div class=" test d-flex flex-column flex-wrap justify-content-center align-items-center">
             <div>
