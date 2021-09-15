@@ -333,8 +333,8 @@
                                                     <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
                                                         src="{{ asset('img/rec1.jpg') }}">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">Special Andrologo</h4>
-                                                        <p class="card-text">Grazie a BoolDoctors ho allargato le mie vedute.</p>
+                                                        <h4 class="card-title">Ginecologo</h4>
+                                                        <p class="card-text">"Grazie a BoolDoctors ho ampliato la mia clientela"</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -343,8 +343,8 @@
                                                     <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
                                                         src="{{ asset('img/rec2.png') }}">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">Dietologa</h4>
-                                                        <p class="card-text">BoolDoctors arricchisce la mia dieta di clienti.</p>
+                                                        <h4 class="card-title">Cardiologo</h4>
+                                                        <p class="card-text">"Booldoctor mi ha permesso di essere contattato da pazienti da tutta Italia in modo semplice e pratico"</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -353,10 +353,8 @@
                                                     <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
                                                         src="{{ asset('img/rec3.jpeg') }}">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">Ginecologo</h4>
-                                                        <p class="card-text">Grazie a BoolDoctors ho trovato nuove
-                                                            strade
-                                                        </p>
+                                                        <h4 class="card-title">Anestesista</h4>
+                                                        <p class="card-text">"Booldoctors ha migliorato tantissimo l'organizzazione del mio lavoro, l'interazione coi pazienti e l'organizzazione degli appuntamenti."</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -369,8 +367,8 @@
                                                     <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
                                                         src="{{ asset('img/rec4.jpeg') }}">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">Proctologo Professionista</h4>
-                                                        <p class="card-text">Mai avuti cosi tanti clienti!</p>
+                                                        <h4 class="card-title">Pediatra</h4>
+                                                        <p class="card-text">"Una piattaforma web semplice da usare ed estremamente intuitiva."</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -379,8 +377,8 @@
                                                     <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
                                                         src="{{ asset('img/rec5.jpeg') }}">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">Medico nucleare</h4>
-                                                        <p class="card-text">Da quando lo utilizzo ho un esplosione di clienti</p>
+                                                        <h4 class="card-title">Dentista</h4>
+                                                        <p class="card-text">"Booldoctors è stata una bella scoperta, mi sta aiutando notevolmente nella gestione del mio lavoro di medico."</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -389,8 +387,8 @@
                                                     <img style="object-fit: cover" class="img-fluid rounded-circle dic" alt="100%x280"
                                                         src="{{ asset('img/rec6.jpeg') }}">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">Erano bravi</h4>
-                                                        <p class="card-text">Ma non troppo!!!</p>
+                                                        <h4 class="card-title">Internista</h4>
+                                                        <p class="card-text">"Grazie a booldoctors sono stata contattata da moltissimi pazienti e il mio lavoro ne ha giovato tantissimo."</p>
                                                     </div>
                                                 </div>
                                             </div>
