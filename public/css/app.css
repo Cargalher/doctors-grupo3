@@ -14617,6 +14617,10 @@ main {
   background-color: #ffffff;
 }
 
+textarea {
+  width: 100%;
+}
+
 .navbar-toggler {
   background-color: white !important;
 }
@@ -14837,7 +14841,7 @@ h1 {
 }
 
 .margin_neg {
-  margin-top: -150px;
+  margin-top: -160px;
 }
 
 .test {

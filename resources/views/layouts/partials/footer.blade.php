@@ -33,7 +33,7 @@
             </div>
 
             <div class="second_footer pb-4 pt-2 col-12">
-                <span class="d-block text-white">Realizzato dal Team3 #Classe35 <i style="font-size: 1.2rem" class="far fa-copyright"></i> twentytwentyone</span>
+                <span class="d-block text-white">Realizzato dal Team3 #Classe35 <i style="font-size: 1.2rem" class="far fa-copyright"></i> duemilaventuno</span>
                 <span class="d-block text-white pt-3 pb-2">Made with <i style="font-size: 1.2rem; color: #ff4a4a;" class="fas fa-heart"></i></span>
             </div>
         </div>

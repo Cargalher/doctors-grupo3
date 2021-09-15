@@ -64,6 +64,7 @@
 
     <!-- Medici in Evidenzia -->
     <div class="pt-3 margin_neg">
+        
         <div class="card-carousel overflow-hidden my-3" id="debug_id_1">
             <button class="button-spin counterclockwise d-none">&lt;</button>
             <div class="inner-carousel">
