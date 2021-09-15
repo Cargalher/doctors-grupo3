@@ -14617,6 +14617,142 @@ main {
   background-color: #ffffff;
 }
 
+.navbar-toggler {
+  background-color: white !important;
+}
+
+.text-up {
+  color: #f2f558 !important;
+}
+
+.padding-top {
+  padding-top: 7rem;
+}
+
+.navbar {
+  transition: background-color 0.4s ease-out;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
+}
+
+.bg-scrolling {
+  transition: background-color 0.4s ease-out;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card-carousel {
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  max-width: 220px;
+  max-width: 100%;
+  height: 450px;
+  perspective: 2000px;
+  perspective-origin: top;
+}
+.card-carousel .button-spin {
+  position: absolute;
+  top: 50%;
+  border: 0 none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Open Sans";
+  font-weight: 800;
+  padding: 10px 16px;
+  text-shadow: 1px 1px 4px rgba(0, 54, 90, 0.5);
+}
+.card-carousel .button-spin:hover {
+  box-shadow: 0px 4px 4px 4px rgba(0, 54, 90, 0.15);
+}
+.card-carousel .button-spin:active {
+  box-shadow: none;
+}
+.card-carousel .button-spin.counterclockwise {
+  left: 10px;
+  font-size: 1.5rem;
+  color: #45BB67;
+}
+.card-carousel .button-spin.clockwise {
+  right: 10px;
+  font-size: 1.5rem;
+  color: #45BB67;
+}
+.card-carousel .inner-carousel {
+  position: relative;
+  width: 225px;
+  margin: 0 auto;
+  top: 80px;
+  transform-style: preserve-3d;
+}
+.card-carousel .inner-carousel > div {
+  position: absolute;
+  margin: 0 auto;
+  padding: 20px;
+  width: 220px;
+  height: 320px;
+  opacity: 1;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  transition: all 0.5s ease-out;
+  z-index: 1;
+  box-shadow: 0px 10px 10px 10px rgba(0, 54, 90, 0.15);
+}
+.card-carousel .inner-carousel > div:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0.6;
+  background-color: #ddd;
+  z-index: 1;
+}
+.card-carousel .inner-carousel > div.counterclockwise:after, .card-carousel .inner-carousel > div.clockwise:after {
+  opacity: 0.4;
+  cursor: pointer;
+}
+.card-carousel .inner-carousel > div.front:after {
+  content: none;
+}
+.card-carousel .inner-carousel > div.front {
+  background: #45BB67;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67);
+  color: #fff;
+}
+.card-carousel .inner-carousel > div.front a {
+  box-shadow: 0px 5px 5px 5px rgba(0, 54, 90, 0.15);
+}
+.card-carousel .inner-carousel > div.front a:hover, .card-carousel .inner-carousel > div.front a:focus {
+  border: 2px solid #48CFAD;
+  padding: 5px 0;
+}
+.card-carousel .inner-carousel > div.front a:active {
+  box-shadow: none;
+}
+.card-carousel .inner-carousel > div a {
+  position: absolute;
+  text-align: center;
+  bottom: 30px;
+  display: block;
+  width: 180px;
+  border: 1px solid #c9c9c9;
+  border-radius: 16px;
+  padding: 6px 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+  box-shadow: 0px 5px 8px 3px rgba(0, 54, 90, 0.1);
+}
+
 .nav_container {
   width: 90%;
   margin: auto;
@@ -15097,6 +15233,74 @@ h1 {
   right: 49.8% !important;
 }
 
+.popUp {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: overlay;
+  background-image: url(http://www.macwearclothing.com/seasonalGraphics/nys/BGpopup.svg);
+  left: 0;
+  right: 0;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  width: 40%;
+  height: 400px;
+  background-color: #2B2B2B;
+  border-style: solid;
+  border-width: 8px;
+  border-color: #484848;
+  transform: scale(0, 0);
+  transition: 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.popUpShow {
+  transform: scale(1, 1);
+}
+
+.content {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 49px;
+  padding: 20px;
+  text-align: center;
+}
+
+.cAcc {
+  margin-top: 57px;
+  padding: 8px;
+  font-size: 38px;
+  background-color: #FFDD00;
+  width: 490px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50px;
+  color: black;
+  transition: 0.5s ease;
+}
+
+.cAcc:hover {
+  width: 520px;
+  letter-spacing: 4px;
+}
+
+.btnClose {
+  color: white;
+  float: right;
+  font-size: 30px;
+  padding: 7px;
+}
+
+.btnClose:hover {
+  color: #FFDD00;
+}
+
+.tenImg {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 /*/ start count stats /*/
 section#counter-stats {
   display: flex;
@@ -15378,140 +15582,4 @@ a {
 }
 .site_footer .social_icons a i {
   font-size: 2rem;
-}
-
-.navbar-toggler {
-  background-color: white !important;
-}
-
-.text-up {
-  color: #f2f558 !important;
-}
-
-.padding-top {
-  padding-top: 7rem;
-}
-
-.navbar {
-  transition: background-color 0.4s ease-out;
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
-}
-
-.bg-scrolling {
-  transition: background-color 0.4s ease-out;
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67) !important;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
-}
-
-.card-carousel {
-  position: relative;
-  margin: 0 auto 0 auto;
-  padding: 0;
-  max-width: 220px;
-  max-width: 100%;
-  height: 450px;
-  perspective: 2000px;
-  perspective-origin: top;
-}
-.card-carousel .button-spin {
-  position: absolute;
-  top: 50%;
-  border: 0 none;
-  background-color: transparent;
-  cursor: pointer;
-  font-family: "Open Sans";
-  font-weight: 800;
-  padding: 10px 16px;
-  text-shadow: 1px 1px 4px rgba(0, 54, 90, 0.5);
-}
-.card-carousel .button-spin:hover {
-  box-shadow: 0px 4px 4px 4px rgba(0, 54, 90, 0.15);
-}
-.card-carousel .button-spin:active {
-  box-shadow: none;
-}
-.card-carousel .button-spin.counterclockwise {
-  left: 10px;
-  font-size: 1.5rem;
-  color: #45BB67;
-}
-.card-carousel .button-spin.clockwise {
-  right: 10px;
-  font-size: 1.5rem;
-  color: #45BB67;
-}
-.card-carousel .inner-carousel {
-  position: relative;
-  width: 225px;
-  margin: 0 auto;
-  top: 80px;
-  transform-style: preserve-3d;
-}
-.card-carousel .inner-carousel > div {
-  position: absolute;
-  margin: 0 auto;
-  padding: 20px;
-  width: 220px;
-  height: 320px;
-  opacity: 1;
-  background-color: #fff;
-  color: #000;
-  border-radius: 10px;
-  transition: all 0.5s ease-out;
-  z-index: 1;
-  box-shadow: 0px 10px 10px 10px rgba(0, 54, 90, 0.15);
-}
-.card-carousel .inner-carousel > div:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  opacity: 0.6;
-  background-color: #ddd;
-  z-index: 1;
-}
-.card-carousel .inner-carousel > div.counterclockwise:after, .card-carousel .inner-carousel > div.clockwise:after {
-  opacity: 0.4;
-  cursor: pointer;
-}
-.card-carousel .inner-carousel > div.front:after {
-  content: none;
-}
-.card-carousel .inner-carousel > div.front {
-  background: #45BB67;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #45BB67, #7db88e, #45BB67);
-  color: #fff;
-}
-.card-carousel .inner-carousel > div.front a {
-  box-shadow: 0px 5px 5px 5px rgba(0, 54, 90, 0.15);
-}
-.card-carousel .inner-carousel > div.front a:hover, .card-carousel .inner-carousel > div.front a:focus {
-  border: 2px solid #48CFAD;
-  padding: 5px 0;
-}
-.card-carousel .inner-carousel > div.front a:active {
-  box-shadow: none;
-}
-.card-carousel .inner-carousel > div a {
-  position: absolute;
-  text-align: center;
-  bottom: 30px;
-  display: block;
-  width: 180px;
-  border: 1px solid #c9c9c9;
-  border-radius: 16px;
-  padding: 6px 0;
-  font-size: 12px;
-  font-weight: 500;
-  color: #000;
-  text-decoration: none;
-  background-color: #fff;
-  box-shadow: 0px 5px 8px 3px rgba(0, 54, 90, 0.1);
 }

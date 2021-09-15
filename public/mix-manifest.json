@@ -1,14 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/img/ale.jpeg": "/img/ale.jpeg",
     "/img/avatar-donna.jpg": "/img/avatar-donna.jpg",
-    "/img/carmi.jpeg": "/img/carmi.jpeg",
     "/img/doctor-spot.png": "/img/doctor-spot.png",
-    "/img/dome.jpeg": "/img/dome.jpeg",
-    "/img/ema.jpeg": "/img/ema.jpeg",
-    "/img/fab.jpeg": "/img/fab.jpeg",
-    "/img/gianma.jpeg": "/img/gianma.jpeg",
     "/img/jumbo.png": "/img/jumbo.png",
     "/img/logo.svg": "/img/logo.svg",
     "/img/logo_large.png": "/img/logo_large.png",
@@ -153,5 +146,13 @@
     "/webfonts/fa-solid-900.svg": "/webfonts/fa-solid-900.svg",
     "/webfonts/fa-solid-900.ttf": "/webfonts/fa-solid-900.ttf",
     "/webfonts/fa-solid-900.woff": "/webfonts/fa-solid-900.woff",
-    "/webfonts/fa-solid-900.woff2": "/webfonts/fa-solid-900.woff2"
+    "/webfonts/fa-solid-900.woff2": "/webfonts/fa-solid-900.woff2",
+    "/css/app.css": "/css/app.css",
+    "/img/rec1.jpg": "/img/rec1.jpg",
+    "/img/rec2.png": "/img/rec2.png",
+    "/img/rec3.jpeg": "/img/rec3.jpeg",
+    "/img/rec4.jpeg": "/img/rec4.jpeg",
+    "/img/rec5.jpeg": "/img/rec5.jpeg",
+    "/img/rec6.jpeg": "/img/rec6.jpeg",
+    "/storage/doctors_images/S6Sq5wLK8un2FEtSWx2h9IbTfxq0EGHK5wajVlqT.jpg": "/storage/doctors_images/S6Sq5wLK8un2FEtSWx2h9IbTfxq0EGHK5wajVlqT.jpg"
 }

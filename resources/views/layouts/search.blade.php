@@ -88,6 +88,16 @@ $(document).ready(function(){
         return false; 
     }); 
 });
+
+$('#test-hover').hover(
+  function () { $(this).addClass('test-hv') },
+  function () { $(this).removeClass('test-hv') }
+)
+
+$('#test-hover-2').hover(
+  function () { $(this).addClass('test-hv-2') },
+  function () { $(this).removeClass('test-hv-2') }
+)
 </script>
 </body>
 

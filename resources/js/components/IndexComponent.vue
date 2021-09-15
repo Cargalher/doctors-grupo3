@@ -226,7 +226,7 @@
                   align-items-center
                 "
               >
-                <div class="card-block px-3">
+                <div class="card-block px-3 py-4">
                   <span
                     class="h6 text-secondary"
                     v-for="(nameSpec, i) in doctor.spec"
@@ -272,24 +272,11 @@
     <!-- Scroll to top button -->
     <a href="#" id="scroll" style="display: none;"><span></span></a>
 
+    <footer></footer>
+
   </div>
   <!-- and index  -->
-  
 </template>
-
-<!-- <div class="card_flipped d-flex flex-wrap justify-content-center">
-        <div
-          v-for="(doctor, sing) in sponsDoc(doctors)"
-          :key="sing"
-          class="card-container"
-        >
-          <div class="front">
-            Dr. <span>{{ doctor.name }} {{ doctor.lastname }} </span>
-          </div>
-          <div class="back">Back Side</div>
-        </div>
-      </div> -->
-
 
 <script>
 export default {
@@ -321,18 +308,12 @@ export default {
       });
     },
     
-    
-
-    // giudizio: function (obj) {
-    //   return Math.ceil(obj);
-    // },
-
     filterSpec: function () {
       return axios
         .get("http://127.0.0.1:8000/api/doctors?specialization=" + this.specId)
         .then((resp) => {
           this.doctors = resp.data;
-          console.log(this.doctors);
+          // console.log(this.doctors);
           this.doctors.forEach((doctor) => {
             doctor.sponAtt = [];
 
@@ -344,7 +325,7 @@ export default {
                 doctor.sponAtt.push(spon);
               } else {
               }
-              console.log(spon.end);
+              // console.log(spon.end);
             });
 
             doctor.att = doctor.sponAtt.length;

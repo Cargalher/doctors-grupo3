@@ -2125,19 +2125,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -2167,15 +2154,11 @@ __webpack_require__.r(__webpack_exports__);
         return b.att - a.att;
       });
     },
-    // giudizio: function (obj) {
-    //   return Math.ceil(obj);
-    // },
     filterSpec: function filterSpec() {
       var _this = this;
 
       return axios.get("http://127.0.0.1:8000/api/doctors?specialization=" + this.specId).then(function (resp) {
-        _this.doctors = resp.data;
-        console.log(_this.doctors);
+        _this.doctors = resp.data; // console.log(this.doctors);
 
         _this.doctors.forEach(function (doctor) {
           doctor.sponAtt = [];
@@ -2185,9 +2168,8 @@ __webpack_require__.r(__webpack_exports__);
 
             if (new Date(spon.end) > new Date(currentDate)) {
               doctor.sponAtt.push(spon);
-            } else {}
+            } else {} // console.log(spon.end);
 
-            console.log(spon.end);
           });
           doctor.att = doctor.sponAtt.length;
           doctor.spec = [];
@@ -38314,7 +38296,9 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(3)
+    _vm._m(3),
+    _vm._v(" "),
+    _c("footer")
   ])
 }
 var staticRenderFns = [
