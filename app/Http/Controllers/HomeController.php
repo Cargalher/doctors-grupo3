@@ -37,12 +37,13 @@ class HomeController extends Controller
             }
         };
 
-        return view('guest.homepage', compact('doctors', 'reviews','activeDoctors', 'specializations'));
+        return view('guest.homepage', compact('doctors', 'reviews', 'activeDoctors', 'specializations'));
     }
 
     public function toIndex(Request $request)
     {
-        $selected = $request->input('specialization');
+        $selected = $request->route('id');
+        //$selected = $request->input('specialization');
         $specializations = Specialization::has('user')->get();
 
         return view('guest.index', compact('selected', 'specializations'));

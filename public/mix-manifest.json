@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/img/avatar-donna.jpg": "/img/avatar-donna.jpg",
     "/img/doctor-spot.png": "/img/doctor-spot.png",
     "/img/jumbo.png": "/img/jumbo.png",
@@ -9,6 +10,12 @@
     "/img/logo_small_icon_only.png": "/img/logo_small_icon_only.png",
     "/img/logo_small_icon_only_inverted.png": "/img/logo_small_icon_only_inverted.png",
     "/img/logo_white_large.png": "/img/logo_white_large.png",
+    "/img/rec1.jpg": "/img/rec1.jpg",
+    "/img/rec2.png": "/img/rec2.png",
+    "/img/rec3.jpeg": "/img/rec3.jpeg",
+    "/img/rec4.jpeg": "/img/rec4.jpeg",
+    "/img/rec5.jpeg": "/img/rec5.jpeg",
+    "/img/rec6.jpeg": "/img/rec6.jpeg",
     "/img/recensioni-dei-pazienti.svg": "/img/recensioni-dei-pazienti.svg",
     "/storage/doctors_images/0Pv6jVxcgi7YhvezX8NPxEGUWMu8o23yz9gtDZpb.jpg": "/storage/doctors_images/0Pv6jVxcgi7YhvezX8NPxEGUWMu8o23yz9gtDZpb.jpg",
     "/storage/doctors_images/13VTqtV38qNmqkUFqTiO6l16hAhpKjmzuqcbTzmK.jpg": "/storage/doctors_images/13VTqtV38qNmqkUFqTiO6l16hAhpKjmzuqcbTzmK.jpg",
@@ -57,6 +64,7 @@
     "/storage/doctors_images/QscDkBukaVNXyzKXS8Kx8sVA2iPOuyTzGGjtfJqn.jpg": "/storage/doctors_images/QscDkBukaVNXyzKXS8Kx8sVA2iPOuyTzGGjtfJqn.jpg",
     "/storage/doctors_images/RNNXCl2c4pqEQm791YJALknB0lsop6Wem14G3Xd9.jpg": "/storage/doctors_images/RNNXCl2c4pqEQm791YJALknB0lsop6Wem14G3Xd9.jpg",
     "/storage/doctors_images/ReMd7HLe5ZK9bQIatPuwjydmG5WagzuqPhxd1uXp.jpg": "/storage/doctors_images/ReMd7HLe5ZK9bQIatPuwjydmG5WagzuqPhxd1uXp.jpg",
+    "/storage/doctors_images/S6Sq5wLK8un2FEtSWx2h9IbTfxq0EGHK5wajVlqT.jpg": "/storage/doctors_images/S6Sq5wLK8un2FEtSWx2h9IbTfxq0EGHK5wajVlqT.jpg",
     "/storage/doctors_images/S6TbReRkLZayelv5poDGz4NyiaKKsTPbnWMFZc0v.jpg": "/storage/doctors_images/S6TbReRkLZayelv5poDGz4NyiaKKsTPbnWMFZc0v.jpg",
     "/storage/doctors_images/SaQS3Y9SB2LEmuVpWSqIgCXa5lVHsHKVC6OmoY4u.jpg": "/storage/doctors_images/SaQS3Y9SB2LEmuVpWSqIgCXa5lVHsHKVC6OmoY4u.jpg",
     "/storage/doctors_images/Sf41pZEc7qpDoXfIO2h7fR3zAx269AnfRjzL9FA7.jpg": "/storage/doctors_images/Sf41pZEc7qpDoXfIO2h7fR3zAx269AnfRjzL9FA7.jpg",
@@ -146,13 +154,5 @@
     "/webfonts/fa-solid-900.svg": "/webfonts/fa-solid-900.svg",
     "/webfonts/fa-solid-900.ttf": "/webfonts/fa-solid-900.ttf",
     "/webfonts/fa-solid-900.woff": "/webfonts/fa-solid-900.woff",
-    "/webfonts/fa-solid-900.woff2": "/webfonts/fa-solid-900.woff2",
-    "/css/app.css": "/css/app.css",
-    "/img/rec1.jpg": "/img/rec1.jpg",
-    "/img/rec2.png": "/img/rec2.png",
-    "/img/rec3.jpeg": "/img/rec3.jpeg",
-    "/img/rec4.jpeg": "/img/rec4.jpeg",
-    "/img/rec5.jpeg": "/img/rec5.jpeg",
-    "/img/rec6.jpeg": "/img/rec6.jpeg",
-    "/storage/doctors_images/S6Sq5wLK8un2FEtSWx2h9IbTfxq0EGHK5wajVlqT.jpg": "/storage/doctors_images/S6Sq5wLK8un2FEtSWx2h9IbTfxq0EGHK5wajVlqT.jpg"
+    "/webfonts/fa-solid-900.woff2": "/webfonts/fa-solid-900.woff2"
 }
