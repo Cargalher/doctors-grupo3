@@ -271,7 +271,7 @@
                 </ul>
                 @if (!Auth::user())
                 <a style="text-decoration: none" href="{{ route('register') }}">
-                    <button style="border: 3px solid; font-size: 1.2rem;" type="button" class="btn btn-outline-info font-weight-bold mt-3">Scopri di più</button>
+                    <button style="border: 3px solid; font-size: 1.2rem;" type="button" class="btn btn-outline-info font-weight-bold mt-3">Iscriviti</button>
                 </a>
                 @endif
             </div>
