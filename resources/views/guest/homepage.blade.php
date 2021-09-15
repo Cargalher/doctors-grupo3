@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="content text-center    ">
                                     <div class="hgroup">
-                                        <h5 class="text-white h5"> Cerca per specializzazione </h5>
+                                        <h5 class="text-white h6"> Cerca per specializzazione </h5>
                                         <p class="text-white py-2">Troverai tutto quello di cui hai bisogno.</p>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="content text-center    ">
                                     <div class="hgroup">
-                                        <h5 class="text-white h5"> Scegli il dottore </h5>
+                                        <h5 class="text-white h6"> Scegli il dottore </h5>
                                         <p class="text-white py-2">Valorizza i feedback dei pazienti.</p>
                                     </div>
                                 </div>
@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="content text-center    ">
                                     <div class="hgroup">
-                                        <h5 class="text-white h5"> Contatta il dottore </h5>
+                                        <h5 class="text-white h6"> Contatta il dottore </h5>
                                         <p class="text-white py-2">Ti bastano pochi secondi: è facile e veloce.</p>
                                     </div>
                                 </div>
@@ -204,7 +204,7 @@
                                 </div>
                                 <div class="content text-center">
                                     <div class="hgroup">
-                                        <h5 class="text-white h5"> Vai al tuo appuntamento </h5>
+                                        <h5 class="text-white h6"> Vai al tuo appuntamento </h5>
                                         <p class="text-white py-2">Invia un messaggio al dottore e fissa un appuntamento.
                                         </p>
                                     </div>
