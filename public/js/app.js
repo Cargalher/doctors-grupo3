@@ -2130,6 +2130,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     selected: Number,
@@ -38248,7 +38250,7 @@ var render = function() {
                       attrs: {
                         src: "http://127.0.0.1:8000/img/logo_small.png",
                         alt: "",
-                        width: "120"
+                        width: "130"
                       }
                     })
                   ]),
@@ -38263,7 +38265,13 @@ var render = function() {
                           staticClass: "h6 text-info d-block",
                           staticStyle: { "font-size": "0.8rem" }
                         },
-                        [_vm._v(_vm._s(nameSpec) + "\n              ")]
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(nameSpec) +
+                              "\n              "
+                          )
+                        ]
                       )
                     }),
                     0

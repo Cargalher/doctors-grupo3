@@ -15594,3 +15594,13 @@ a {
   transform: scale(1.3);
   color: #088eff;
 }
+
+#mailto {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+#mailto:hover {
+  transform: scale(1.3) !important;
+  color: #088eff !important;
+}

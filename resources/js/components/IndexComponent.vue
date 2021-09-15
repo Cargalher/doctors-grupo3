@@ -162,15 +162,17 @@
                 <div>
                   <img v-bind:src="
                   'http://127.0.0.1:8000/img/logo_small.png'
-                " alt="" width="120" class="img-fluid">
+                " alt="" width="130" class="img-fluid">
                 </div>
                 <div>
+                
                   <span
                   style="font-size: 0.8rem"
                   v-for="(nameSpec, i) in doctor.spec"
                   :key="i"
                   class="h6 text-info d-block"
-                  >{{ nameSpec }}
+                  >
+                  {{ nameSpec }}
                 </span>
                 </div>
                 
