@@ -180,62 +180,6 @@
                             </div>
                         </div>
                         <!-- /Stelle -->
-                        
-                        <!-- modale per vedere tutti gli recensioni??? -->
-                        <!-- Button trigger modal -->
-                        <div class="text-center mt-2">
-                            <button type="button" class="btn text-white btn-show" data-toggle="modal" data-target="#exampleModalLong">
-                            Leggi tutte le recensioni
-                            </button>
-                        </div>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="BoolDoctors logo">
-                                    
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="card border-light mb-3 rounded shadow">
-                                                    <div class="card-body">
-                                                        @if (count(Auth::user()->reviews) > 0)
-                                                            @foreach ($reviews as $review)
-                                                                @if ($review->user_id === Auth::user()->id)
-                                                                    <div class="card-text mb-2">
-                                                                        <h5>{{ $review->name }} {{ $review->lastname }}</h5>
-                                                                        <h5>{{ $review->title }}</h5>
-                                                                        <p>{{ $review->body }}</p>
-                                                                        <h5 class="pb-5">Voto:
-
-                                                                            @for ($i = 0; $i < $review->vote; $i++)
-                                                                                <i class="fas fa-star"></i>
-                                                                            @endfor
-                                                                        </h5>
-                                                                    </div>
-                                                                @endif
-                                                            @endforeach
-                                                        @else
-                                                            <h4>Nessuna recensione ricevuta</h4>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /modale per vedere tutti gli recensioni??? -->
                     </div>
             </div>
         </div>
