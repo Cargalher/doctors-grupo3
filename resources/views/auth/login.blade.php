@@ -4,7 +4,7 @@
 <div style="height: 100vh" class="container padding-top">
     <div class="row justify-content-center">
         <div class="col-md-8 d-flex justify-content-center p-5">
-            <div class="card">
+            <div class="card-responsive border">
             
                 <div class="card-header" ><img  width="200" class="img-fluid" src="{{ asset('img/logo_small.png') }}" alt="BoolDoctors logo"></div>
 
