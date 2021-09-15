@@ -8,6 +8,20 @@
 
 @include('layouts/partials/footer')
 
+<script>
+    $(function(){
+      // bind change event to select
+      $('#dynamic_select').on('change', function () {
+          var url = 'section/';
+          var urlCom = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url + urlCom; // redirect
+          }
+          return false;
+      });
+    });
+</script>
+
 </body>
 
 </html>

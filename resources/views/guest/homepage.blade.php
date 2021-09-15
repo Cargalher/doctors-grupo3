@@ -38,15 +38,15 @@
             </div>
             <div class="pb-3 d-flex flex-column align-items-center animate__animated animate__slideInLeft">
                 <img width="100" class="mb-4" src="{{ asset('img/logo_small_icon_only.png') }}" alt="">
-                <h1 class="text-white ml-3">Contatta online i migliori specialisti</h1>
+                <h1 class="text-white ml-3 text-center">Contatta online i migliori specialisti</h1>
             </div>
             <form action="{{ route('toIndex') }}" method="post">
                 @csrf
                 @method('GET')
                 <div class="form-group">
                     {{-- select specializzazioni --}}
-                    <select class="selectpicker mt-4 mb-2" data-show-subtext="false" data-live-search="true"
-                        id="specialization" name="specialization" required>
+                    <select id="dynamic_select" class="selectpicker mt-4 mb-2" data-show-subtext="false" data-live-search="true"
+                        id="specialization" name="specialization"  required>
                         <option value="">Cerca lo Specialista</option>
                         @foreach ($specializations as $spec)
                             <option value="{{ $spec->id }}"
