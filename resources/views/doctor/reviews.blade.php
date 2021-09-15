@@ -2,7 +2,7 @@
 @section('content')
 
 <h2>Recensioni</h2>
-<div class="row">
+<div id="app" class="row">
     <div class="col-lg-8">
         @if (count(Auth::user()->reviews) > 0)
         
@@ -10,17 +10,22 @@
                 @if (Auth::user()->id === $review->user_id)
         
                             <div class="card rounded shadow mb-3" >
-                                <h5 class="card-header text-center text-info"><i class="far fa-user text-success"></i> {{$review->name}} {{$review->lastname}}</h5>
-                                    <div class="card-body text-secondary row">
-                                        <div class="col-lg-3 d-flex justify-content-start">
+                                <div class="card-header d-flex justify-content-between align-items-center align-content-center">
+                                    <h5 class="text-center text-info"><i class="far fa-user text-success"></i> {{$review->name}} {{$review->lastname}}</h5>
+                                    <p style="font-size: .8rem"><span class="text-info">Ricevuto: &nbsp;</span> {{$review->created_at->format('d-m-Y h:m') }}</p>
+                                </div>
+                                
+                                    <div class="card-body text-secondary rowb d-flex justify-content-between align-content-center">
+                                        <div class="col-lg-7">
+                                            <span class="text-info">Commento:</span>
+                                            <p> {{$review->body}}</p>
+                                        </div>
+                                        <div class="col-lg-3 text-center">
+                                            <span class="text-info d-block">Voto:</span>
                                             @for ($i = 0; $i < $review->vote; $i++)
                                             <i class="fas fa-star"></i>
                                             @endfor
                                             {{-- <h5>Vote: {{$review->vote}}</h5> --}}
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <span>Commento:</span>
-                                            <p> {{$review->body}}</p>
                                         </div>
                                     </div>
                             </div>
@@ -185,5 +190,6 @@
         </div>
     
 </div>
+<footer></footer>
 
 @endsection

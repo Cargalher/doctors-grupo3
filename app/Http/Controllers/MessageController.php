@@ -104,6 +104,6 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         $message->delete();
-        return back()->with('message', 'Messaggio Cancellato!');
+        return redirect()->route('messages')->with('message', 'Messaggio Cancellato!');
     }
 }
