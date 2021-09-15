@@ -7,6 +7,8 @@
     {{-- App --}}
     <div id="app">
 
+        <a href="#" id="scroll" style="display: none; z-index: 9999;" class="shadow"><span></span></a>
+
         {{-- Code for cicle doctor reviews count and avarage --}}
         @php
             
@@ -54,13 +56,6 @@
                                 class="">{{ $spec->name }}</option>
                     @endforeach
                 </select>
-                {{-- pulsante di ricerca --}}
-                <!--                 <div class="
-                                text-center">
-                                <button class="btn btn-show mt-4" type="submit">
-                                    <span>CERCA</span>
-                                </button>
-                </div> -->
         </div>
         </form>
     </div>
@@ -68,12 +63,15 @@
 
     <!-- Medici in Evidenzia -->
     <div class="pt-3 margin_neg">
-
+        
         <div class="card-carousel overflow-hidden my-3" id="debug_id_1">
             <button class="button-spin counterclockwise d-none">&lt;</button>
             <div class="inner-carousel">
                 @foreach ($activeDoctors as $doctor)
-                    <div style="height: 340px" class="d-flex flex-column align-content-center align-items-center">
+                    <div style="height: 340px;" class="d-flex flex-column align-content-center align-items-center">
+                        <div class="w-100" style="position: relative;">
+                            <span class="font-weight-bold" style="font-size: .7rem; color:#fff;">IN EVIDENZA</span>
+                        </div>
                         <img src="{{ asset('storage/' . $doctor->profile_image) }}"
                             onerror="this.src='{{ asset('img/avatar-donna.png') }}';" class="rounded-circle p-2 img-home"
                             width="150" height="150" alt="{{ $doctor->name . $doctor->name }}">
@@ -107,6 +105,7 @@
             <button id="click" class="button-spin clockwise d-none">&gt;</button>
         </div>
     </div>
+    
     <!-- End Medici in Evidenzia -->
 
     {{-- Come Funziona --}}
@@ -400,11 +399,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Scroll to top button -->
+    
     </div>
     </section>
+    
     </div>
     {{-- End Dicono di Noi --}}
-
+    
     </div>
     {{-- End App --}}
 @endsection

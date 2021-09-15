@@ -242,12 +242,14 @@
                                                     <h5>{{ $review->name }} {{ $review->lastname }}</h5>
                                                     <h5>{{ $review->title }}</h5>
                                                     <p>{{ $review->body }}</p>
-                                                    <h5 class="pb-5">Voto:
+                                                    
+                                                    <h5 class="pb-2">Voto:
 
                                                         @for ($i = 0; $i < $review->vote; $i++)
                                                             <i class="fas fa-star"></i>
                                                             @endfor
                                                     </h5>
+                                                    <span>{{ $review->created_at->format('d-m-Y h:m') }}</span>
                                                 </div>
                                                 @endif
                                                 @endforeach

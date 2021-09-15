@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Test rotte </title>
+    <title>BoolDoctors</title>
 
     {{-- FaviIcon --}}
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/logo_small_icon_only_inverted.png') }}">

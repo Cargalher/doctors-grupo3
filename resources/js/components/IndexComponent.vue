@@ -153,7 +153,7 @@
                   class="rounded-pill spon_container mt-2 mb-1 py-1"
                   v-if="doctor.att"
                 >
-                  <span class="sponsor">MEDICO IN EVIDENZIA</span>
+                  <span class="sponsor">MEDICO IN EVIDENZA</span>
                 </div>
               </div>
             </div>

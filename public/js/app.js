@@ -38231,7 +38231,7 @@ var render = function() {
                             },
                             [
                               _c("span", { staticClass: "sponsor" }, [
-                                _vm._v("MEDICO IN EVIDENZIA")
+                                _vm._v("MEDICO IN EVIDENZA")
                               ])
                             ]
                           )
