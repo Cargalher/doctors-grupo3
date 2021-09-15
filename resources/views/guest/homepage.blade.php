@@ -376,12 +376,9 @@
                 </div>
             </div>
             <!-- Scroll to top button -->
-
+        </section>
     </div>
-    </section>
-
-</div>
-{{-- End Dicono di Noi --}}
+    {{-- End Dicono di Noi --}}
 
 </div>
 {{-- End App --}}
