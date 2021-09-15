@@ -160,6 +160,11 @@
             <div class="back">
               <div class="back_flip">
                 <div>
+                  <img v-bind:src="
+                  'http://127.0.0.1:8000/img/logo_small.png'
+                " alt="" width="120" class="img-fluid">
+                </div>
+                <div>
                   <span
                   style="font-size: 0.8rem"
                   v-for="(nameSpec, i) in doctor.spec"
@@ -172,12 +177,12 @@
                 <div class="">
                   <span
                     style="font-size: 0.8rem"
-                    class="h6 text-secondary d-block text-monospace"
-                    >{{ doctor.city }} ({{ doctor.pv }})</span
+                    class="h6 text-secondary d-block"
+                    ><i class="fas fa-map-marker-alt"></i> {{ doctor.city }} ({{ doctor.pv }})</span
                   >
                   <span
                     style="font-size: 0.7rem"
-                    class="h6 text-secondary d-block text-monospace"
+                    class="h6 text-secondary d-block"
                     >{{ doctor.address }}</span
                   >
                 </div>
