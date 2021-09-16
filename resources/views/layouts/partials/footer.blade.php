@@ -1,5 +1,5 @@
 <footer>
-    <div class="site_footer py-4">
+    <div class="site_footer py-5">
         <div class="text-center">
             <div class="first_footer py-4">
                 <img width="222" src="{{ asset('img/logo_white_large.png') }}" class="img-fluid" alt="">
@@ -32,9 +32,9 @@
 
             </div>
 
-            <div class="second_footer pb-4 pt-2 col-12">
+            <div class="second_footer pb-4 col-12">
                 <span class="d-block text-white">Realizzato dal Team3 #Classe35 <i style="font-size: 1.2rem" class="far fa-copyright"></i> duemilaventuno</span>
-                <span class="d-block text-white pt-3 pb-2">Made with <i style="font-size: 1.2rem; color: #ff4a4a;" class="fas fa-heart"></i></span>
+                <span class="d-block text-white pt-3 pb-2">Made with &nbsp;<i style="font-size: 1rem; color: #d35959;" class="fas fa-heart"></i></span>
             </div>
         </div>
 

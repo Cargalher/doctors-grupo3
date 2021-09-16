@@ -38238,12 +38238,15 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-sm btn-primary",
                       attrs: {
                         href: "http://127.0.0.1:8000/doctors/" + doctor.id
                       }
                     },
-                    [_vm._v("Visualizza")]
+                    [
+                      _vm._v("Profilo   "),
+                      _c("i", { staticClass: "far fa-eye" })
+                    ]
                   )
                 ])
               ])

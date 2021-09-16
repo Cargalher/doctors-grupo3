@@ -192,8 +192,8 @@
 
                 <a
                   v-bind:href="'http://127.0.0.1:8000/doctors/' + doctor.id"
-                  class="btn btn-primary"
-                  >Visualizza</a
+                  class="btn btn-sm btn-primary"
+                  >Profilo &nbsp; <i class="far fa-eye"></i></a
                 >
               </div>
             </div>
